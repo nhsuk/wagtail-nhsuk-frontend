@@ -31,7 +31,15 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        {% block content %}{% endblock %}
+        <div class="nhsuk-width-container">
+          <main id="maincontent" class="nhsuk-main-wrapper">
+            <div class="nhsuk-grid-row">
+              <div class="nhsuk-grid-column-two-thirds">
+                {% block content %}{% endblock %}
+              </div>
+            </div>
+          </main>
+        </div>
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/testapp.js' %}"></script>
