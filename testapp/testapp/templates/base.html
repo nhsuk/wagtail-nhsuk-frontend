@@ -1,4 +1,5 @@
 {% load static wagtailuserbar %}
+{% load nhsstyle_tags %}
 
 <!DOCTYPE html>
 <html class="no-js">
@@ -30,6 +31,10 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
+
+        {% block breadcrumbs %}
+          {% breadcrumbs %}
+        {% endblock %}
 
         <div class="nhsuk-width-container">
           <main id="maincontent" class="nhsuk-main-wrapper">
