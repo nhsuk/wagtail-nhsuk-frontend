@@ -1,0 +1,17 @@
+{% if breadcrumb_pages %}
+  <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+    <div class="nhsuk-width-container">
+      <ol class="nhsuk-breadcrumb__list">
+        {% for page in breadcrumb_pages %}
+          {% include "wagtailnhsstyle/breadcrumb_item.html" with last=forloop.last %}
+        {% endfor %}
+      </ol>
+
+      <p class="nhsuk-breadcrumb__back">
+        {% with page=breadcrumb_pages|last %}
+          {% include "wagtailnhsstyle/breadcrumb_back.html" %}
+        {% endwith %}
+      </p>
+    </div>
+  </nav>
+{% endif %}

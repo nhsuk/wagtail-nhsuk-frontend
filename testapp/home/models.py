@@ -12,6 +12,8 @@ from wagtailnhsstyle.blocks import (
 
 class HomePage(Page):
 
+    parent_page_types = ['wagtailcore.Page']
+
     body = StreamField([
         ('action_link', ActionLinkBlock()),
         ('callout', CalloutBlock()),
@@ -20,3 +22,7 @@ class HomePage(Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
     ]
+
+
+class ChildPage(Page):
+    pass
