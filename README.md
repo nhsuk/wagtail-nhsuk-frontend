@@ -26,7 +26,7 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 
-from wagtailnhsstyle.blocks import CalloutBlock
+from wagtailnhsstyle.blocks import ActionLinkBlock, CalloutBlock
 
 class HomePage(Page):
   body = StreamField([
@@ -40,7 +40,25 @@ class HomePage(Page):
   ]
 ```
 
+Use templatetags
+```django
+{% load nhsstyle_tags %}
+
+<html>
+...
+<body>
+  {% breadcrumbs %}
+</body>
+</html>
+```
+
+See the [component documentation](./docs/components/) for a list of components you can use.
+
 Include the CSS in your base template
 ```html
   <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsstyle/css/nhsuk.min.css' %}">
 ```
+
+# Further reading
+
+See more [documentation](./docs/)
