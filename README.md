@@ -30,6 +30,8 @@ from wagtailnhsstyle.blocks import CalloutBlock
 
 class HomePage(Page):
   body = StreamField([
+      # Include any of the blocks you want to use.
+      ('action_link', ActionLinkBlock()),
       ('callout', CalloutBlock()),
   ])
 
