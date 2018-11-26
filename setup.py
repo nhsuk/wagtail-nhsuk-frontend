@@ -19,6 +19,7 @@ setup(
     author_email="<mike.monteith@nhs.net>",
     long_description=long_description,
     long_description_content_type="text/markdown",
+    url="https://github.com/nhsuk/wagtail-nhs-style",
     install_requires=INSTALL_REQUIRES,
     packages=find_packages(),
     include_package_data=True,
