@@ -1,0 +1,2 @@
+recursive-include wagtailnhsstyle/static/ *
+recursive-include wagtailnhsstyle/templates/ *
