@@ -56,7 +56,7 @@ See the [component documentation](./docs/components/) for a list of components y
 
 Include the CSS in your base template
 ```html
-  <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsstyle/css/nhsuk.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsstyle/css/nhsuk-wagtail.min.css' %}">
 ```
 
 # Further reading
