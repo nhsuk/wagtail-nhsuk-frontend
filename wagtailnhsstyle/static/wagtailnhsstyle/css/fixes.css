@@ -1,0 +1,6 @@
+/* wagtail-specific fixes for the nhsuk-frontend */
+
+/* wagtail RichText fields and blocks add a .rich-text div around content */
+div.rich-text :last-child {
+  margin-bottom: 0;
+}

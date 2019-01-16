@@ -1,3 +1,4 @@
+from distutils.command.build import build
 from setuptools import setup, find_packages
 
 with open("README.md", "r") as fh:
@@ -11,7 +12,26 @@ TESTING_REQUIRES = [
 
 ]
 
+class CompileCSSCommand(build):
+    """Combine CSS from the frontend library with our wagtail-specific fixes"""
+
+    def run(self):
+        filepath_base = 'wagtailnhsstyle/static/wagtailnhsstyle/css/'
+        filenames = [
+            'nhsuk-0.1.6.min.css',
+            'fixes.css',
+        ]
+
+        with open(filepath_base + 'wagtail-nhs.min.css', 'w') as outfile:
+            for fname in filenames:
+                with open(filepath_base + fname) as infile:
+                    for line in infile:
+                        outfile.write(line)
+
 setup(
+    cmdclass={
+        'build': CompileCSSCommand,
+    },
     name="wagtail-nhs-style",
     version="0.0.1",
     description="NHS Frontend Styles for Wagtail",
