@@ -1,2 +1,3 @@
 wagtail_nhs_style.egg-info
 wagtailnhsstyle/static/wagtailnhsstyle/css/wagtail-nhs.min.css
+testapp/db.sqlite3
