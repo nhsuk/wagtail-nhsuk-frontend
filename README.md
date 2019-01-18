@@ -52,6 +52,11 @@ Use templatetags
 </html>
 ```
 
+Use template includes
+```django
+{% include 'wagtailnhsstyle/header.html' with show_search=True %}
+```
+
 See the [component documentation](./docs/components/) for a list of components you can use.
 
 Include the CSS in your base template
