@@ -59,6 +59,11 @@ Include the CSS in your base template
   <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsstyle/css/nhsuk-wagtail.min.css' %}">
 ```
 
+Include the Javascript in your base template
+```html
+  <script type="text/javascript" src="{% static 'wagtailnhsstyle/js/nhsuk-0.8.0.min.js' %}" defer></script>
+```
+
 # Further reading
 
 See more [documentation](./docs/)

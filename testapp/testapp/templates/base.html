@@ -24,6 +24,9 @@
         {# NHSUK CSS library #}
         <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsstyle/css/wagtail-nhs.min.css' %}">
 
+        {# NHSUK JS library #}
+        <script type="text/javascript" src="{% static 'wagtailnhsstyle/js/nhsuk-0.8.0.min.js' %}" defer></script>
+
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
