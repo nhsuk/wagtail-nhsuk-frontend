@@ -35,7 +35,7 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        {% include 'wagtailnhsstyle/header.html' with show_nav=True show_search=True primary_links=navigation %}
+        {% header_from_settings %}
 
         {% block breadcrumbs %}
           {% breadcrumbs %}
