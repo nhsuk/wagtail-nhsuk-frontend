@@ -35,7 +35,7 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        {% header_from_settings %}
+        {% header_from_settings "settings.X" %}
 
         {% block breadcrumbs %}
           {% breadcrumbs %}

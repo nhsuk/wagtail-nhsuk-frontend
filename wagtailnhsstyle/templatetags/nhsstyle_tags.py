@@ -1,5 +1,5 @@
 from django import template
-
+from django.apps import apps
 from wagtailnhsstyle.models import HeaderSettings
 
 register = template.Library()
@@ -25,10 +25,15 @@ def breadcrumbs(context):
 
 
 @register.inclusion_tag('wagtailnhsstyle/header.html', takes_context=True)
-def header_from_settings(context):
+def header_from_settings(context, model_path):
     page = context['page']
     site = page.get_site()
-    header = HeaderSettings.for_site(site)
+    settings_model = apps.get_model(model_path)
+
+    if not issubclass(settings_model, HeaderSettings):
+        raise Exception("header setting model must inherit from wagtailnhsstyle.settings.HeaderSettings")
+
+    header = settings_model.for_site(site)
 
     return {
         'service_name': header.service_name,

@@ -11,7 +11,6 @@ from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.core.models import Orderable
 
 
-@register_setting
 class HeaderSettings(ClusterableModel, BaseSetting):
     service_name = models.CharField(max_length=255, blank=True)
     service_long_name = models.BooleanField(default=False)
