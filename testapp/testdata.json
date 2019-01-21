@@ -1,9 +1,29 @@
 [
 {
+  "model": "wagtailnhsstylesettings.navigationlink",
+  "pk": 1,
+  "fields": {
+    "sort_order": 0,
+    "setting": 1,
+    "label": "Breadcrumb Test Page 1",
+    "page": 4
+  }
+},
+{
+  "model": "wagtailnhsstylesettings.navigationlink",
+  "pk": 2,
+  "fields": {
+    "sort_order": 1,
+    "setting": 1,
+    "label": "Breadcrumb Test Page 2",
+    "page": 5
+  }
+},
+{
   "model": "wagtailcore.site",
   "fields": {
     "hostname": "localhost",
-    "port": 8000,
+    "port": 80,
     "site_name": null,
     "root_page": 3,
     "is_default_site": true
@@ -31,6 +51,20 @@
   "fields": {
     "app_label": "home",
     "model": "homepage"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "wagtailnhsstylesettings",
+    "model": "headersettings"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "wagtailnhsstylesettings",
+    "model": "navigationlink"
   }
 },
 {
@@ -347,6 +381,72 @@
       "homepage"
     ],
     "codename": "delete_homepage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add header settings",
+    "content_type": [
+      "wagtailnhsstylesettings",
+      "headersettings"
+    ],
+    "codename": "add_headersettings"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change header settings",
+    "content_type": [
+      "wagtailnhsstylesettings",
+      "headersettings"
+    ],
+    "codename": "change_headersettings"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete header settings",
+    "content_type": [
+      "wagtailnhsstylesettings",
+      "headersettings"
+    ],
+    "codename": "delete_headersettings"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add navigation link",
+    "content_type": [
+      "wagtailnhsstylesettings",
+      "navigationlink"
+    ],
+    "codename": "add_navigationlink"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change navigation link",
+    "content_type": [
+      "wagtailnhsstylesettings",
+      "navigationlink"
+    ],
+    "codename": "change_navigationlink"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete navigation link",
+    "content_type": [
+      "wagtailnhsstylesettings",
+      "navigationlink"
+    ],
+    "codename": "delete_navigationlink"
   }
 },
 {
@@ -1719,6 +1819,23 @@
   "pk": 3,
   "fields": {
     "body": "[{\"type\": \"action_link\", \"value\": {\"text\": \"Action Link\", \"external_url\": \"https://example.com\"}, \"id\": \"275caa12-937e-42a5-8ef3-caa05584c8ce\"}, {\"type\": \"callout\", \"value\": \"<p>This is a callout box! It contains <b>RichText</b></p>\", \"id\": \"d58c67a7-857b-4729-8957-40dee5d9a396\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"primary\", \"title\": \"Non-urgent:\", \"body\": \"<p>This is a primary care card</p>\"}, \"id\": \"77a893d7-b810-4c72-a194-749da2d33b88\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"urgent\", \"title\": \"Urgent:\", \"body\": \"<p>This is an urgent care card</p>\"}, \"id\": \"84faa876-06d1-493a-8776-3e63ffc3ac71\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"emergency\", \"title\": \"Emergency!\", \"body\": \"<p>This is an emergency care card</p>\"}, \"id\": \"c9531ae4-ea87-4e07-8214-11669dbeae68\"}]"
+  }
+},
+{
+  "model": "wagtailnhsstylesettings.headersettings",
+  "pk": 1,
+  "fields": {
+    "site": [
+      "localhost",
+      80
+    ],
+    "service_name": "Wagtail NHS Style",
+    "service_long_name": false,
+    "service_link": null,
+    "transactional": false,
+    "logo_link": null,
+    "logo_aria": null,
+    "show_search": true
   }
 }
 ]

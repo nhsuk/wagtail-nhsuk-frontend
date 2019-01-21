@@ -52,11 +52,21 @@ Use templatetags
 </html>
 ```
 
+Use template includes
+```django
+{% include 'wagtailnhsstyle/header.html' with show_search=True %}
+```
+
 See the [component documentation](./docs/components/) for a list of components you can use.
 
 Include the CSS in your base template
 ```html
   <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsstyle/css/nhsuk-wagtail.min.css' %}">
+```
+
+Include the Javascript in your base template
+```html
+  <script type="text/javascript" src="{% static 'wagtailnhsstyle/js/nhsuk-0.8.0.min.js' %}" defer></script>
 ```
 
 # Further reading
