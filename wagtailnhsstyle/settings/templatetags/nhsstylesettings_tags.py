@@ -4,7 +4,7 @@ from wagtailnhsstyle.settings.models import HeaderSettings
 register = template.Library()
 
 @register.inclusion_tag('wagtailnhsstyle/header.html', takes_context=True)
-def header_from_settings(context):
+def header(context):
     page = context['page']
     site = page.get_site()
     header = HeaderSettings.for_site(site)

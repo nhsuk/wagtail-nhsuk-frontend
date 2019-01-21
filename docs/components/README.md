@@ -1,6 +1,7 @@
 # Components
 
-There are two different types of component.
+There are a few different types of component which should be used in different
+ways.
 
 ### Blocks
 
@@ -14,8 +15,21 @@ Templatetag-type components can be included in templates with [django templateta
 
 example: [Breadcrumb](./components/breadcrumb.md)
 
+### Template includes
+
+Template includes can be used with the `{% include %}` tag in your templates.
+
+example: [Header (via templates)](./header.md#direct-use-of-templates)
+
+### Settings
+
+Wagtail site settings must be enabled with the `wagtailnhsstyle.settings` app.
+
+example: [Header (via settings)](./header.md#wagtail-site-settings)
+
 ## List of Components
 
 - [Action Link](./action_link.md)
 - [Breadcrumb](./breadcrumb.md)
 - [Callout](./callout.md)
+- [Header](./header.md)

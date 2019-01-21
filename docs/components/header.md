@@ -1,4 +1,40 @@
-# header
+# Header
+
+## Wagtail Site Settings
+
+wagtail-nhs-style comes with a wagtail
+[site settings](http://docs.wagtail.io/en/v2.4/reference/contrib/settings.html)
+model. If you want to allow CMS users to configure the header in the wagtail
+interface, use of the site setting is recommended.
+
+Add the `wagtailnhsstyle.settings` module to your `INSTALLED_APPS` config.
+
+```python
+INSTALLED_APPS = [
+  ...
+  'wagtailnhsstyle',
+  'wagtailnhsstyle.settings',
+  ...
+]
+```
+
+This will create a new option under `Settings > Header settings` in the
+wagtail interface.
+
+To include the header in your template, use the `header` templatetag.
+
+```python
+{% load nhsstylesettings_tags %}
+
+...
+
+<body>
+  {% header %}
+  ...
+</body>
+```
+
+## Direct use of templates
 
 ```django
 {% include 'wagtailnhsstyle/header.html' %}
@@ -8,28 +44,28 @@ Including the `wagtailnhsstyle/header.html` template will render the NHS header.
 
 There are some options that can be passed to the header:
 
-| Option | description | default |
+| Option | Description | Default |
 | ------ | ----------- | ------- |
-| service_name | Title to display on the header | `None` |
-| service_long_name | Set to `True` to give more room for the service name | `False` |
-| service_href | URL for when the service name is clicked | `"/"` |
-| logo_href | URL for when the NHS logo is clicked | `"/"` |
-| logo_aria | Aria label for the NHS logo | `"NHS Homepage"` |
-| transactional | Set to `True` to display a smaller header, suitable for a transactional service | `False` |
-| show_search | Set to `True` to show the search bar | `False` |
-| primary_links | An array of dicts containing navigation items | `None` |
-| primary_links[]['label'] | Navigation item label | `None` |
-| primary_links[]['url'] | Navigation item url | `None` |
+| `service_name` | Title to display on the header | `None` |
+| `service_long_name` | Set to `True` to give more room for the service name | `False` |
+| `service_href` | URL for when the service name is clicked | `"/"` |
+| `logo_href` | URL for when the NHS logo is clicked | `"/"` |
+| `logo_aria` | Aria label for the NHS logo | `"NHS Homepage"` |
+| `transactional` | Set to `True` to display a smaller header, suitable for a transactional service | `False` |
+| `show_search` | Set to `True` to show the search bar | `False` |
+| `primary_links` | An array of dicts containing navigation items | `None` |
+| `primary_links[].label` | Navigation item label | `None` |
+| `primary_links[].url` | Navigation item url | `None` |
 
-## Examples
+### Examples
 
-### Header with a search box
+#### Header with a search box
 
 ```django
 {% include 'wagtailnhsstyle/header.html' with show_search=True %}
 ```
 
-### Header with navigation
+#### Header with navigation
 
 Assuming `navigation` is added to the context somehow, for example with a
 [context_processor](https://docs.djangoproject.com/en/1.11/ref/templates/api/#writing-your-own-context-processors)
@@ -53,7 +89,7 @@ def navigation(request):
 {% include 'wagtailnhsstyle/header.html' with primary_links=navigation %}
 ```
 
-### Header for a transactional service
+#### Header for a transactional service
 
 ```django
 {% include 'wagtailnhsstyle/header.html' with transactional="True" service_name="Find a Pharmacy" service_href="/find-a-pharmacy" %}
