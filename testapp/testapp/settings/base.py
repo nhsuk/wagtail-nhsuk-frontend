@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'home',
 
     'wagtailnhsstyle',
+    'wagtailnhsstyle.settings',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
