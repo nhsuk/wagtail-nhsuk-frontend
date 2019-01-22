@@ -16,12 +16,6 @@ class ActionLinkBlock(StructBlock):
         template = 'wagtailnhsstyle/action_link.html'
 
 
-class CalloutBlock(RichTextBlock):
-
-    class Meta:
-        template = 'wagtailnhsstyle/callout.html'
-
-
 class CareCardBlock(StructBlock):
 
     type = ChoiceBlock([
@@ -43,3 +37,9 @@ class CareCardBlock(StructBlock):
 
     class Meta:
         template = 'wagtailnhsstyle/care_card.html'
+
+
+class WarningCalloutBlock(RichTextBlock):
+
+    class Meta:
+        template = 'wagtailnhsstyle/warning_callout.html'
