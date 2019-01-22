@@ -6,8 +6,8 @@ from wagtail.core.fields import StreamField
 
 from wagtailnhsstyle.blocks import (
     ActionLinkBlock,
-    CalloutBlock,
     CareCardBlock,
+    WarningCalloutBlock,
 )
 
 
@@ -17,8 +17,8 @@ class HomePage(Page):
 
     body = StreamField([
         ('action_link', ActionLinkBlock()),
-        ('callout', CalloutBlock()),
         ('care_card', CareCardBlock()),
+        ('warning_callout', WarningCalloutBlock()),
     ])
 
     content_panels = Page.content_panels + [
