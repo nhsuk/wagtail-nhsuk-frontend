@@ -32,8 +32,8 @@ class CareCardBlock(StructBlock):
     title = CharBlock(required=True)
     body = RichTextBlock(required=True)
 
-    def get_context(self, value):
-        context = super().get_context(value)
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context)
         context['accessible_title_prefix'] = {
             'primary': 'Non-urgent advice: ',
             'urgent': 'Urgent advice:',
