@@ -31,6 +31,6 @@ example: [Header (via settings)](./header.md#wagtail-site-settings)
 
 - [Action Link](./action_link.md)
 - [Breadcrumb](./breadcrumb.md)
-- [Callout](./callout.md)
 - [Care Card](./care_card.md)
 - [Header](./header.md)
+- [Warning Callout](./warning_callout.md)
