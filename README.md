@@ -32,7 +32,7 @@ class HomePage(Page):
   body = StreamField([
       # Include any of the blocks you want to use.
       ('action_link', ActionLinkBlock()),
-      ('callout', CalloutBlock()),
+      ('callout', WarningCalloutBlock()),
   ])
 
   content_panels = Page.content_panels + [
