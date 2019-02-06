@@ -14,4 +14,4 @@ class MyPage(Page):
   ])
 ```
 
-Add this will give you the ability to add the back link block to the page. If required, this block can also be added through the template.
+Adding this will give you the ability to add the back link block to the page. If required, this block can also be added through the template.
