@@ -1,6 +1,6 @@
 # Wagtail NHS Style
 
-A wagtail implementation of the [NHS frontend v0.8.0](https://github.com/nhsuk/nhsuk-frontend) standard components.
+A wagtail implementation of the [NHS frontend v1.0.0](https://github.com/nhsuk/nhsuk-frontend) standard components.
 
 # Installation
 
@@ -68,7 +68,7 @@ Include the CSS in your base template
 
 Include the Javascript in your base template
 ```html
-  <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-0.8.0.min.js' %}" defer></script>
+  <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-1.0.0.min.js' %}" defer></script>
 ```
 
 # Further reading
