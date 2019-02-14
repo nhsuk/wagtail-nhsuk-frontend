@@ -21,7 +21,7 @@ class CareCardBlock(StructBlock):
     type = ChoiceBlock([
         ('primary', 'Primary'),
         ('urgent', 'Urgent'),
-        ('emergency', 'Emergency'),
+        ('immediate', 'Immediate'),
     ], required=True)
     title = CharBlock(required=True)
     body = RichTextBlock(required=True)
@@ -31,7 +31,7 @@ class CareCardBlock(StructBlock):
         context['accessible_title_prefix'] = {
             'primary': 'Non-urgent advice: ',
             'urgent': 'Urgent advice:',
-            'emergency': 'Immediate action required:',
+            'immediate': 'Immediate action required:',
         }[value['type']]
         return context
 
