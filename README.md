@@ -63,7 +63,7 @@ See the [component documentation](./docs/components/) for a list of components y
 
 Include the CSS in your base template
 ```html
-  <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsukfrontend/css/wagtail-nhs.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsukfrontend/css/wagtail-nhsuk-frontend.min.css' %}">
 ```
 
 Include the Javascript in your base template

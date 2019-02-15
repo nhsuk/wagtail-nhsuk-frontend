@@ -22,7 +22,7 @@ class CompileCSSCommand(build):
             'fixes.css',
         ]
 
-        with open(filepath_base + 'wagtail-nhs.min.css', 'w') as outfile:
+        with open(filepath_base + 'wagtail-nhsuk-frontend.min.css', 'w') as outfile:
             for fname in filenames:
                 with open(filepath_base + fname) as infile:
                     for line in infile:
