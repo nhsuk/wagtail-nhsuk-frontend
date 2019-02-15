@@ -4,6 +4,8 @@ A wagtail implementation of the [NHS frontend v0.8.0](https://github.com/nhsuk/n
 
 # Installation
 
+*This package hasn't been published to pypi yet, the pip install step will not work yet.*
+
 Install the pypi package
 ```
 pip install wagtail-nhsuk-frontend
