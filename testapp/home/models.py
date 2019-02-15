@@ -4,7 +4,7 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 
-from wagtailnhsstyle.blocks import (
+from wagtailnhsukfrontend.blocks import (
     ActionLinkBlock,
     CareCardBlock,
     WarningCalloutBlock,

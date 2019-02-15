@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
                 ('sort_order', models.IntegerField(blank=True, editable=False, null=True)),
                 ('label', models.CharField(max_length=255)),
                 ('page', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailcore.Page')),
-                ('setting', modelcluster.fields.ParentalKey(on_delete=django.db.models.deletion.CASCADE, related_name='navigation_links', to='wagtailnhsstylesettings.HeaderSettings')),
+                ('setting', modelcluster.fields.ParentalKey(on_delete=django.db.models.deletion.CASCADE, related_name='navigation_links', to='wagtailnhsukfrontendsettings.HeaderSettings')),
             ],
             options={
                 'ordering': ['sort_order'],

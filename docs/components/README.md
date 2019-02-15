@@ -23,7 +23,7 @@ example: [Header (via templates)](./header.md#direct-use-of-templates)
 
 ### Settings
 
-Wagtail site settings must be enabled with the `wagtailnhsstyle.settings` app.
+Wagtail site settings must be enabled with the `wagtailnhsukfrontend.settings` app.
 
 example: [Header (via settings)](./header.md#wagtail-site-settings)
 

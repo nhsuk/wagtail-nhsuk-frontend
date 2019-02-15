@@ -1,9 +1,9 @@
 from django import template
-from wagtailnhsstyle.settings.models import HeaderSettings
+from wagtailnhsukfrontend.settings.models import HeaderSettings
 
 register = template.Library()
 
-@register.inclusion_tag('wagtailnhsstyle/header.html', takes_context=True)
+@register.inclusion_tag('wagtailnhsukfrontend/header.html', takes_context=True)
 def header(context):
     page = context['page']
     site = page.get_site()

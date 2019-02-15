@@ -1,6 +1,6 @@
 {% load static wagtailuserbar %}
-{% load nhsstyle_tags %}
-{% load nhsstylesettings_tags %}
+{% load nhsukfrontend_tags %}
+{% load nhsukfrontendsettings_tags %}
 
 <!DOCTYPE html>
 <html class="no-js">
@@ -23,10 +23,10 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/testapp.css' %}">
 
         {# NHSUK CSS library #}
-        <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsstyle/css/wagtail-nhs.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsukfrontend/css/wagtail-nhsuk-frontend.min.css' %}">
 
         {# NHSUK JS library #}
-        <script type="text/javascript" src="{% static 'wagtailnhsstyle/js/nhsuk-0.8.0.min.js' %}" defer></script>
+        <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-0.8.0.min.js' %}" defer></script>
 
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}

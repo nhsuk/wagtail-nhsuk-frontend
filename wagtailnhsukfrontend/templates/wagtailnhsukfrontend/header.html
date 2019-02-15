@@ -1,6 +1,6 @@
 <header class="nhsuk-header{% if transactional %} nhsuk-header--transactional{% endif %}" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
-    {% include 'wagtailnhsstyle/header/logo.html' %}
+    {% include 'wagtailnhsukfrontend/header/logo.html' %}
 
     {% if not primary_links and not show_search %}
       {% if service_name and transactional %}
@@ -11,11 +11,11 @@
     {% else %}
       <div class="nhsuk-header__content" id="content-header">
         {% if primary_links %}
-          {% include 'wagtailnhsstyle/header/menu_toggle.html' %}
+          {% include 'wagtailnhsukfrontend/header/menu_toggle.html' %}
         {% endif %}
 
         {% if show_search %}
-          {% include 'wagtailnhsstyle/header/search.html' %}
+          {% include 'wagtailnhsukfrontend/header/search.html' %}
         {% endif %}
       </div>
     {% endif %}
@@ -23,6 +23,6 @@
   </div>
 
   {% if primary_links %}
-    {% include 'wagtailnhsstyle/header/menu.html' %}
+    {% include 'wagtailnhsukfrontend/header/menu.html' %}
   {% endif %}
 </header>

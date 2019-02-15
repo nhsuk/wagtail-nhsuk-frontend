@@ -4,9 +4,11 @@ A wagtail implementation of the [NHS frontend v0.8.0](https://github.com/nhsuk/n
 
 # Installation
 
+*This package hasn't been published to pypi yet, the pip install step will not work yet.*
+
 Install the pypi package
 ```
-pip install wagtail-nhs-style
+pip install wagtail-nhsuk-frontend
 ```
 
 Add to your `INSTALLED_APPS` in wagtail settings
@@ -14,7 +16,7 @@ Add to your `INSTALLED_APPS` in wagtail settings
 INSTALLED_APPS = [
   ...
 
-  'wagtailnhsstyle',
+  'wagtailnhsukfrontend',
 
   ...
 ]
@@ -26,7 +28,7 @@ from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 
-from wagtailnhsstyle.blocks import ActionLinkBlock, WarningCalloutBlock
+from wagtailnhsukfrontend.blocks import ActionLinkBlock, WarningCalloutBlock
 
 class HomePage(Page):
   body = StreamField([
@@ -42,7 +44,7 @@ class HomePage(Page):
 
 Use templatetags
 ```django
-{% load nhsstyle_tags %}
+{% load nhsukfrontend_tags %}
 
 <html>
 ...
@@ -54,19 +56,19 @@ Use templatetags
 
 Use template includes
 ```django
-{% include 'wagtailnhsstyle/header.html' with show_search=True %}
+{% include 'wagtailnhsukfrontend/header.html' with show_search=True %}
 ```
 
 See the [component documentation](./docs/components/) for a list of components you can use.
 
 Include the CSS in your base template
 ```html
-  <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsstyle/css/wagtail-nhs.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsukfrontend/css/wagtail-nhsuk-frontend.min.css' %}">
 ```
 
 Include the Javascript in your base template
 ```html
-  <script type="text/javascript" src="{% static 'wagtailnhsstyle/js/nhsuk-0.8.0.min.js' %}" defer></script>
+  <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-0.8.0.min.js' %}" defer></script>
 ```
 
 # Further reading

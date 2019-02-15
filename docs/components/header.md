@@ -7,13 +7,13 @@ wagtail-nhs-style comes with a wagtail
 model. If you want to allow CMS users to configure the header in the wagtail
 interface, use of the site setting is recommended.
 
-Add the `wagtailnhsstyle.settings` module to your `INSTALLED_APPS` config.
+Add the `wagtailnhsukfrontend.settings` module to your `INSTALLED_APPS` config.
 
 ```python
 INSTALLED_APPS = [
   ...
-  'wagtailnhsstyle',
-  'wagtailnhsstyle.settings',
+  'wagtailnhsukfrontend',
+  'wagtailnhsukfrontend.settings',
   ...
 ]
 ```
@@ -24,7 +24,7 @@ wagtail interface.
 To include the header in your template, use the `header` templatetag.
 
 ```python
-{% load nhsstylesettings_tags %}
+{% load nhsukfrontendsettings_tags %}
 
 ...
 
@@ -37,10 +37,10 @@ To include the header in your template, use the `header` templatetag.
 ## Direct use of templates
 
 ```django
-{% include 'wagtailnhsstyle/header.html' %}
+{% include 'wagtailnhsukfrontend/header.html' %}
 ```
 
-Including the `wagtailnhsstyle/header.html` template will render the NHS header.
+Including the `wagtailnhsukfrontend/header.html` template will render the NHS header.
 
 There are some options that can be passed to the header:
 
@@ -62,7 +62,7 @@ There are some options that can be passed to the header:
 #### Header with a search box
 
 ```django
-{% include 'wagtailnhsstyle/header.html' with show_search=True %}
+{% include 'wagtailnhsukfrontend/header.html' with show_search=True %}
 ```
 
 #### Header with navigation
@@ -86,11 +86,11 @@ def navigation(request):
 ```
 
 ```django
-{% include 'wagtailnhsstyle/header.html' with primary_links=navigation %}
+{% include 'wagtailnhsukfrontend/header.html' with primary_links=navigation %}
 ```
 
 #### Header for a transactional service
 
 ```django
-{% include 'wagtailnhsstyle/header.html' with transactional="True" service_name="Find a Pharmacy" service_href="/find-a-pharmacy" %}
+{% include 'wagtailnhsukfrontend/header.html' with transactional="True" service_name="Find a Pharmacy" service_href="/find-a-pharmacy" %}
 ```

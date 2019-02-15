@@ -4,7 +4,7 @@ from django.db import migrations, models
 import django.db.models.deletion
 import wagtail.core.blocks
 import wagtail.core.fields
-import wagtailnhsstyle.blocks
+import wagtailnhsukfrontend.blocks
 
 
 class Migration(migrations.Migration):
@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='homepage',
             name='body',
-            field=wagtail.core.fields.StreamField([('action_link', wagtail.core.blocks.StructBlock([('text', wagtail.core.blocks.CharBlock(label='link text', required=True)), ('external_url', wagtail.core.blocks.URLBlock(label='external URL', required=True))])), ('care_card', wagtail.core.blocks.StructBlock([('type', wagtail.core.blocks.ChoiceBlock(choices=[('primary', 'Primary'), ('urgent', 'Urgent'), ('emergency', 'Emergency')])), ('title', wagtail.core.blocks.CharBlock(required=True)), ('body', wagtail.core.blocks.RichTextBlock(required=True))])), ('warning_callout', wagtailnhsstyle.blocks.WarningCalloutBlock())], default=''),
+            field=wagtail.core.fields.StreamField([('action_link', wagtail.core.blocks.StructBlock([('text', wagtail.core.blocks.CharBlock(label='link text', required=True)), ('external_url', wagtail.core.blocks.URLBlock(label='external URL', required=True))])), ('care_card', wagtail.core.blocks.StructBlock([('type', wagtail.core.blocks.ChoiceBlock(choices=[('primary', 'Primary'), ('urgent', 'Urgent'), ('emergency', 'Emergency')])), ('title', wagtail.core.blocks.CharBlock(required=True)), ('body', wagtail.core.blocks.RichTextBlock(required=True))])), ('warning_callout', wagtailnhsukfrontend.blocks.WarningCalloutBlock())], default=''),
             preserve_default=False,
         ),
     ]
