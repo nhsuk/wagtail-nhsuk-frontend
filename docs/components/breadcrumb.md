@@ -1,7 +1,7 @@
 # Breadcrumb
 
 ```django
-{% load nhsstyle_tags %}
+{% load nhsukfrontend_tags %}
 
 <html>
 ...

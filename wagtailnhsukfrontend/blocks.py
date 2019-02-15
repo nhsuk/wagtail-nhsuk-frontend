@@ -13,7 +13,7 @@ class ActionLinkBlock(StructBlock):
     external_url = URLBlock(label="external URL", required=True)
 
     class Meta:
-        template = 'wagtailnhsstyle/action_link.html'
+        template = 'wagtailnhsukfrontend/action_link.html'
 
 
 class CareCardBlock(StructBlock):
@@ -36,10 +36,10 @@ class CareCardBlock(StructBlock):
         return context
 
     class Meta:
-        template = 'wagtailnhsstyle/care_card.html'
+        template = 'wagtailnhsukfrontend/care_card.html'
 
 
 class WarningCalloutBlock(RichTextBlock):
 
     class Meta:
-        template = 'wagtailnhsstyle/warning_callout.html'
+        template = 'wagtailnhsukfrontend/warning_callout.html'

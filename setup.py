@@ -16,7 +16,7 @@ class CompileCSSCommand(build):
     """Combine CSS from the frontend library with our wagtail-specific fixes"""
 
     def run(self):
-        filepath_base = 'wagtailnhsstyle/static/wagtailnhsstyle/css/'
+        filepath_base = 'wagtailnhsukfrontend/static/wagtailnhsukfrontend/css/'
         filenames = [
             'nhsuk-0.8.0.min.css',
             'fixes.css',

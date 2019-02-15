@@ -1,6 +1,6 @@
 [
 {
-  "model": "wagtailnhsstylesettings.navigationlink",
+  "model": "wagtailnhsukfrontendsettings.navigationlink",
   "pk": 1,
   "fields": {
     "sort_order": 0,
@@ -10,7 +10,7 @@
   }
 },
 {
-  "model": "wagtailnhsstylesettings.navigationlink",
+  "model": "wagtailnhsukfrontendsettings.navigationlink",
   "pk": 2,
   "fields": {
     "sort_order": 1,
@@ -56,14 +56,14 @@
 {
   "model": "contenttypes.contenttype",
   "fields": {
-    "app_label": "wagtailnhsstylesettings",
+    "app_label": "wagtailnhsukfrontendsettings",
     "model": "headersettings"
   }
 },
 {
   "model": "contenttypes.contenttype",
   "fields": {
-    "app_label": "wagtailnhsstylesettings",
+    "app_label": "wagtailnhsukfrontendsettings",
     "model": "navigationlink"
   }
 },
@@ -388,7 +388,7 @@
   "fields": {
     "name": "Can add header settings",
     "content_type": [
-      "wagtailnhsstylesettings",
+      "wagtailnhsukfrontendsettings",
       "headersettings"
     ],
     "codename": "add_headersettings"
@@ -399,7 +399,7 @@
   "fields": {
     "name": "Can change header settings",
     "content_type": [
-      "wagtailnhsstylesettings",
+      "wagtailnhsukfrontendsettings",
       "headersettings"
     ],
     "codename": "change_headersettings"
@@ -410,7 +410,7 @@
   "fields": {
     "name": "Can delete header settings",
     "content_type": [
-      "wagtailnhsstylesettings",
+      "wagtailnhsukfrontendsettings",
       "headersettings"
     ],
     "codename": "delete_headersettings"
@@ -421,7 +421,7 @@
   "fields": {
     "name": "Can add navigation link",
     "content_type": [
-      "wagtailnhsstylesettings",
+      "wagtailnhsukfrontendsettings",
       "navigationlink"
     ],
     "codename": "add_navigationlink"
@@ -432,7 +432,7 @@
   "fields": {
     "name": "Can change navigation link",
     "content_type": [
-      "wagtailnhsstylesettings",
+      "wagtailnhsukfrontendsettings",
       "navigationlink"
     ],
     "codename": "change_navigationlink"
@@ -443,7 +443,7 @@
   "fields": {
     "name": "Can delete navigation link",
     "content_type": [
-      "wagtailnhsstylesettings",
+      "wagtailnhsukfrontendsettings",
       "navigationlink"
     ],
     "codename": "delete_navigationlink"
@@ -1822,7 +1822,7 @@
   }
 },
 {
-  "model": "wagtailnhsstylesettings.headersettings",
+  "model": "wagtailnhsukfrontendsettings.headersettings",
   "pk": 1,
   "fields": {
     "site": [

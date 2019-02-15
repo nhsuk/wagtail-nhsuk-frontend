@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 class SettingsAppConfig(AppConfig):
-    name = 'wagtailnhsstyle.settings'
-    label = 'wagtailnhsstylesettings'
+    name = 'wagtailnhsukfrontend.settings'
+    label = 'wagtailnhsukfrontendsettings'
     verbose_name = "Wagtail NHS Style Settings"
