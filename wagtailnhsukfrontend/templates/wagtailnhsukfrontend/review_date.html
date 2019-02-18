@@ -1,0 +1,9 @@
+<div class="nhsuk-review-date">
+  <p class="nhsuk-body-s">
+    {{value.lastReviewLabel}}{{value.revieweddate | date:"F Y" }}
+    {% if value.nextreviewdate %}
+    <br>
+    {{value.nextReviewLabel}} {{value.nextreviewdate | date:"F Y"}}
+    {% endif %}
+  </p>
+</div>

@@ -6,6 +6,8 @@ from wagtailnhsukfrontend.blocks import (
     ActionLinkBlock,
     CareCardBlock,
     WarningCalloutBlock,
+    BackLinkBlock,
+    ReviewDateBlock,
 )
 
 
@@ -17,6 +19,9 @@ class HomePage(Page):
         ('action_link', ActionLinkBlock()),
         ('care_card', CareCardBlock()),
         ('warning_callout', WarningCalloutBlock()),
+        ('back_link', BackLinkBlock()),
+        ('review_date', ReviewDateBlock()),
+
     ])
 
     content_panels = Page.content_panels + [
