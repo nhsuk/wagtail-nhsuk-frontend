@@ -31,7 +31,7 @@ jobs:
   - script: flake8
     displayName: 'linting'
 
-- job: 'Publish'
+- job: 'Build'
   dependsOn: 'Test'
   pool:
     vmImage: 'Ubuntu-16.04'
