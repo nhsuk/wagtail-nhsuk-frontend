@@ -1,0 +1,29 @@
+<div class="nhsuk-global-alert">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+        <div class="nhsuk-global-alert__content">
+          <h2 class="nhsuk-global-alert__heading">
+            <span class="nhsuk-u-visually-hidden">Alert: </span>
+            {{ title }}
+          </h2>
+          <p class="nhsuk-global-alert__message">{{ content }}
+          {% if href and label %}
+            <a class="nhsuk-u-nowrap" href="{{ href }}">{{ label }}</a>
+          {% endif %}
+          </p>
+
+          {% if last_updated or last_updated_string %}
+            <p class="nhsuk-global-alert__updated">
+              {% if last_updated_string %}
+                {{ last_updated_string }}
+              {% elif last_updated %}
+                Updated {{ last_updated|timesince }} ago
+              {% endif %}
+            </p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
