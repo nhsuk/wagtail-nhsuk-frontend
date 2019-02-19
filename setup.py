@@ -12,6 +12,7 @@ TESTING_REQUIRES = [
 
 ]
 
+
 class CompileCSSCommand(build):
     """Combine CSS from the frontend library with our wagtail-specific fixes"""
 
@@ -27,6 +28,7 @@ class CompileCSSCommand(build):
                 with open(filepath_base + fname) as infile:
                     for line in infile:
                         outfile.write(line)
+
 
 setup(
     cmdclass={

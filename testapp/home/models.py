@@ -1,6 +1,4 @@
-from django.db import models
-
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 
