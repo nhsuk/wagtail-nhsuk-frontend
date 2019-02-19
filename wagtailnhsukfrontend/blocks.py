@@ -67,7 +67,7 @@ class ReviewDateBlock(StructBlock):
 
 class HintTextBlock(StructBlock):
 
-    hintText = CharBlock(label="Hint Text", required=True)
+    hint_text = CharBlock(label="Hint Text", required=True)
 
     class Meta:
         template = 'wagtailnhsukfrontend/hint_text.html'
