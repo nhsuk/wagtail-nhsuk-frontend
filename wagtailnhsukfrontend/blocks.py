@@ -46,6 +46,7 @@ class WarningCalloutBlock(RichTextBlock):
     class Meta:
         template = 'wagtailnhsukfrontend/warning_callout.html'
 
+
 class BackLinkBlock(StaticBlock):
 
     class Meta:
@@ -57,17 +58,16 @@ class ReviewDateBlock(StructBlock):
     revieweddate = DateBlock(label="Enter the reviewed date", required=True,)
     nextreviewdate = DateBlock(label="Enter the next review date", required=False)
 
-
     lastReviewLabel = CharBlock(default="Last review date ", label="Last review date", required=False)
     nextReviewLabel = CharBlock(default="Next review due ", label="Next review due ", required=False)
-    
 
     class Meta:
         template = 'wagtailnhsukfrontend/review_date.html'
 
 
 class HintTextBlock(StructBlock):
-      
+
     hintText = CharBlock(label="Hint Text", required=True)
+
     class Meta:
         template = 'wagtailnhsukfrontend/hint_text.html'
