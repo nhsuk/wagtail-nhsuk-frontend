@@ -12,7 +12,6 @@ from wagtailnhsukfrontend.blocks import (
     DetailsBlock,
     GroupExpanderBlock,
     ExpanderBlock,
-    
 )
 
 
@@ -30,8 +29,6 @@ class HomePage(Page):
         ('details', DetailsBlock()),
         ('expander', ExpanderBlock()),
         ('group_expander', GroupExpanderBlock()),
-        
-
     ])
 
     content_panels = Page.content_panels + [

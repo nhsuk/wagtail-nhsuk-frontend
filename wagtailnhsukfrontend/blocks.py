@@ -84,7 +84,7 @@ class DetailsBlock(StructBlock):
     class Meta:
         template = 'wagtailnhsukfrontend/details.html'
 
-    
+
 class ExpanderBlock(StructBlock):
 
     def get_context(self, value, parent_context=None):
@@ -98,8 +98,9 @@ class ExpanderBlock(StructBlock):
     class Meta:
         template = 'wagtailnhsukfrontend/details.html'
 
+
 class GroupExpanderBlock(StructBlock):
-   
+
     expanders = ListBlock(ExpanderBlock)
 
     class Meta:
