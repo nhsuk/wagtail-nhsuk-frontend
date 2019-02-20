@@ -5,6 +5,7 @@ from wagtail.core.blocks import (
     StructBlock,
     URLBlock,
     DateBlock,
+    ListBlock,
 )
 
 
@@ -73,3 +74,33 @@ class HintTextBlock(StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/hint_text.html'
+
+
+class DetailsBlock(StructBlock):
+
+    details_title = CharBlock(label="Title", required=True)
+    details_body = RichTextBlock(label="Body", required=True)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/details.html'
+
+    
+class ExpanderBlock(StructBlock):
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context)
+        context['expander'] = ' nhsuk-expander'
+        return context
+
+    details_title = CharBlock(label="Title", required=True)
+    details_body = RichTextBlock(label="Body", required=True)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/details.html'
+
+class GroupExpanderBlock(StructBlock):
+   
+    expanders = ListBlock(ExpanderBlock)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/expander_group.html'

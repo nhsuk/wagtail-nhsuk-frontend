@@ -9,6 +9,10 @@ from wagtailnhsukfrontend.blocks import (
     BackLinkBlock,
     ReviewDateBlock,
     HintTextBlock,
+    DetailsBlock,
+    GroupExpanderBlock,
+    ExpanderBlock,
+    
 )
 
 
@@ -22,7 +26,11 @@ class HomePage(Page):
         ('warning_callout', WarningCalloutBlock()),
         ('back_link', BackLinkBlock()),
         ('review_date', ReviewDateBlock()),
-        ('hint_text', HintTextBlock())
+        ('hint_text', HintTextBlock()),
+        ('details', DetailsBlock()),
+        ('expander', ExpanderBlock()),
+        ('group_expander', GroupExpanderBlock()),
+        
 
     ])
 
