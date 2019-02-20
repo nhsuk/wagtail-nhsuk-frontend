@@ -56,9 +56,9 @@ class BackLinkBlock(StaticBlock):
 class ReviewDateBlock(StructBlock):
 
     reviewed_date = DateBlock(label="Enter the reviewed date", required=True,)
-    next_review_date = DateBlock(label="Enter the next review date", required=False)
-
     last_review_label = CharBlock(default="Last review date ", label="Last review date", required=False)
+
+    next_review_date = DateBlock(label="Enter the next review date", required=False)
     next_review_label = CharBlock(default="Next review due ", label="Next review due ", required=False)
 
     class Meta:
