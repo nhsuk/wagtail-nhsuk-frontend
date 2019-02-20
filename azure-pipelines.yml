@@ -31,6 +31,14 @@ jobs:
   - script: flake8
     displayName: 'linting'
 
+  - script: python testapp/manage.py makemigrations --check --dry-run
+    displayName: 'Testapp migrations are up-to-date'
+
+  - script: |
+      python testapp/manage.py migrate
+      python testapp/manage.py loaddata testapp/testdata.json
+    displayName: 'Testapp fixture is installable'
+
 - job: 'Build'
   dependsOn: 'Test'
   pool:
