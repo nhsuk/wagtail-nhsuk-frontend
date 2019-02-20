@@ -4,7 +4,6 @@ from wagtail.core.blocks import (
     RichTextBlock,
     StructBlock,
     URLBlock,
-    StaticBlock,
     DateBlock,
 )
 
@@ -47,7 +46,10 @@ class WarningCalloutBlock(RichTextBlock):
         template = 'wagtailnhsukfrontend/warning_callout.html'
 
 
-class BackLinkBlock(StaticBlock):
+class BackLinkBlock(StructBlock):
+
+    link_title = CharBlock(default="Go Back", label="Go Back", required=True)
+    back_url = URLBlock(label="Enter the back URL", required=True)
 
     class Meta:
         template = 'wagtailnhsukfrontend/back_link.html'
