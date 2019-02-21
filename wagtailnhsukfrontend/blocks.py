@@ -18,7 +18,6 @@ class ActionLinkBlock(StructBlock):
 
 
 class CareCardBlock(StructBlock):
-
     type = ChoiceBlock([
         ('primary', 'Primary'),
         ('urgent', 'Urgent'),
