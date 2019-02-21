@@ -43,3 +43,9 @@ class WarningCalloutBlock(RichTextBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/warning_callout.html'
+
+
+class InsetTextBlock(RichTextBlock):
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/inset_text.html'
