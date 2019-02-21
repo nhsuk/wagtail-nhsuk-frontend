@@ -4,6 +4,7 @@ from wagtail.core.blocks import (
     RichTextBlock,
     StructBlock,
     URLBlock,
+    DateBlock,
 )
 
 
@@ -49,3 +50,15 @@ class InsetTextBlock(RichTextBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/inset_text.html'
+
+
+class ReviewDateBlock(StructBlock):
+
+    reviewed_date = DateBlock(label="Enter the reviewed date", required=True,)
+    last_review_label = CharBlock(default="Last review date: ", label="Last review date:", required=False)
+
+    next_review_date = DateBlock(label="Enter the next review date", required=False)
+    next_review_label = CharBlock(default="Next review due: ", label="Next review due:", required=False)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/review_date.html'

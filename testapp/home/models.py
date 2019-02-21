@@ -7,6 +7,7 @@ from wagtailnhsukfrontend.blocks import (
     CareCardBlock,
     WarningCalloutBlock,
     InsetTextBlock,
+    ReviewDateBlock,
 )
 
 
@@ -19,6 +20,7 @@ class HomePage(Page):
         ('care_card', CareCardBlock()),
         ('warning_callout', WarningCalloutBlock()),
         ('inset_text', InsetTextBlock()),
+        ('review_date', ReviewDateBlock()),
     ])
 
     content_panels = Page.content_panels + [
