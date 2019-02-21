@@ -49,3 +49,12 @@ class InsetTextBlock(RichTextBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/inset_text.html'
+
+
+class BackLinkBlock(StructBlock):
+
+    link_title = CharBlock(default="Go Back", label="Go Back", required=True)
+    back_url = URLBlock(label="Enter the back URL", required=True)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/back_link.html'
