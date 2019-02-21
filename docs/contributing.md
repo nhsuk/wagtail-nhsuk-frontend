@@ -42,12 +42,21 @@ are no accidental changes to the fixture.
 
 Python code should be of [PEP8](https://www.python.org/dev/peps/pep-0008/) style.
 
+Install testing dependencies with `pip install -r requirements.txt` in the project root.
+
+Configs such as linting rule exceptions and pytest settings go in the `tox.ini` file
+
 ### Linting
 
 Python linting is done with [flake8](http://flake8.pycqa.org/en/latest/).
 
 Run `flake8` in the project root.  
-Configs such as rule exceptions go in the `tox.ini` file
+
+### Unit tests
+
+We use [pytest](https://docs.pytest.org/en/latest/) to run unit tests.
+
+Run `pytest` in the project root.
 
 ## Support
 
