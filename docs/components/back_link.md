@@ -17,5 +17,5 @@ There are some options that have to be pased to the back link to make it functio
 
 # Reference
 
-[Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/back-link) . 
+[Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/back-link)   
 [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/back-link)
