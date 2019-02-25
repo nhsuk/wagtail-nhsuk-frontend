@@ -8,7 +8,7 @@ from wagtailnhsukfrontend.blocks import (
     WarningCalloutBlock,
     InsetTextBlock,
     DetailsBlock,
-    GroupExpanderBlock,
+    ExpanderGroupBlock,
     ExpanderBlock,
 )
 
@@ -24,7 +24,7 @@ class HomePage(Page):
         ('inset_text', InsetTextBlock()),
         ('details', DetailsBlock()),
         ('expander', ExpanderBlock()),
-        ('group_expander', GroupExpanderBlock()),
+        ('group_expander', ExpanderGroupBlock()),
     ])
 
     content_panels = Page.content_panels + [

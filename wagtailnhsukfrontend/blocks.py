@@ -54,28 +54,20 @@ class InsetTextBlock(RichTextBlock):
 
 class DetailsBlock(StructBlock):
 
-    details_title = CharBlock(label="Title", required=True)
-    details_body = RichTextBlock(label="Body", required=True)
+    title = CharBlock(required=True)
+    body = RichTextBlock(required=True)
 
     class Meta:
         template = 'wagtailnhsukfrontend/details.html'
 
 
-class ExpanderBlock(StructBlock):
-
-    def get_context(self, value, parent_context=None):
-        context = super().get_context(value, parent_context)
-        context['expander'] = ' nhsuk-expander'
-        return context
-
-    details_title = CharBlock(label="Title", required=True)
-    details_body = RichTextBlock(label="Body", required=True)
+class ExpanderBlock(DetailsBlock):
 
     class Meta:
-        template = 'wagtailnhsukfrontend/details.html'
+        template = 'wagtailnhsukfrontend/expander.html'
 
 
-class GroupExpanderBlock(StructBlock):
+class ExpanderGroupBlock(StructBlock):
 
     expanders = ListBlock(ExpanderBlock)
 
