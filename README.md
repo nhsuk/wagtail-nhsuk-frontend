@@ -1,4 +1,4 @@
-# Wagtail NHS Style
+# Wagtail NHS.UK frontend
 
 A wagtail implementation of the [NHS frontend v1.0.0](https://github.com/nhsuk/nhsuk-frontend) standard components.
 
