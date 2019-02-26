@@ -26,7 +26,7 @@ class HomePage(Page):
         ('details', DetailsBlock()),
         ('expander', ExpanderBlock()),
         ('group_expander', ExpanderGroupBlock()),
-        ('panels', PanelBlock()),
+        ('panel', PanelBlock()),
     ])
 
     content_panels = Page.content_panels + [

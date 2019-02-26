@@ -9,7 +9,7 @@ from wagtailnhsstyle.blocks import PanelBlock
 class MyPage(Page):
   body = StreamField([
       ...
-      ('panels', PanelBlock()),
+      ('panel', PanelBlock()),
       ...
   ])
 ```

@@ -77,23 +77,8 @@ class ExpanderGroupBlock(StructBlock):
 
 class PanelBlock(StructBlock):
 
-    type = ChoiceBlock([
-        ('plain', 'Panel'),
-        ('labeled', 'Panel with label'),
-        ('grey', 'Grey panel'),
-    ], required=True)
-
-    title = CharBlock(required=False)
+    labeled_title = CharBlock(required=False)
     body = RichTextBlock(required=True)
 
-    def get_context(self, value, parent_context=None):
-        context = super().get_context(value, parent_context)
-        context['class'] = {
-            'plain': 'nhsuk-panel',
-            'labeled': 'nhsuk-panel-with-label',
-            'grey': 'nhsuk-panel nhsuk-panel--grey',
-        }[value['type']]
-        return context
-
     class Meta:
-        template = 'wagtailnhsukfrontend/panels.html'
+        template = 'wagtailnhsukfrontend/panel.html'
