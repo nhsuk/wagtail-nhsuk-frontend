@@ -1,1 +1,4 @@
 flake8==3.7.5
+pytest==4.3.0
+pytest-django==3.4.7
+pytest-pythonpath==0.7.3
