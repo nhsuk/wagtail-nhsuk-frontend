@@ -5,6 +5,10 @@
 There is a test app inside the `testapp` directory. It is a default wagtail
 installation with the wagtail-nhs-style app installed.
 
+CSS must be built by running `python setup.py build` in the project root directory.
+
+Install the test app dependencies by running `pip install -r requirements.txt` in the `testapp` directory. This will install the local `wagtailnhsukfrontend` module in [edit mode](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) so that you can make changes to the module and see them immediately in the testapp.
+
 Run `python manage.py runserver 8080` inside the `testapp` directory to start
 the app on http://localhost:8080
 
