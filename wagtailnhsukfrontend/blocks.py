@@ -73,3 +73,12 @@ class ExpanderGroupBlock(StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/expander_group.html'
+
+
+class PanelBlock(StructBlock):
+
+    labeled_title = CharBlock(required=False)
+    body = RichTextBlock(required=True)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/panel.html'
