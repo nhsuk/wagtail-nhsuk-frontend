@@ -13,3 +13,8 @@ class MyPage(Page):
       ...
   ])
 ```
+
+## Reference
+
+[Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/warning-callout)
+[Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/warning-callout)

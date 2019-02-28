@@ -41,3 +41,7 @@ If `last_updated_string` is passed to the template, it will be used as the label
 showing when the alert was last updated.
 Otherwise, `last_updated` can be passed as a datetime object which will be rendered
 as a human-readable update time.
+
+## Reference
+
+[Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/emergency-alert)
