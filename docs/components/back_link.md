@@ -6,8 +6,8 @@
 
 | Option | Description | Default |
 | ------ | ----------- | ------- |
-| `link_title` | Title to display for the link | `None` |
-| `back_url` | Set to to the URL you want the user to click on to go to the previous page | `None` |
+| `label` | Title to display for the link | `Go back` |
+| `url` |  The URL for the back link | `..` |
 
 ## Reference
 
