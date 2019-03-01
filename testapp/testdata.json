@@ -181,23 +181,6 @@
 {
   "model": "auth.user",
   "fields": {
-    "password": "pbkdf2_sha256$100000$8yNFWBg3jX9z$CiwEsaDybcTeC+IKtV3K6XX+SQX7NWeHyV4mlxVLB2A=",
-    "last_login": "2018-10-22T10:48:55.095Z",
-    "is_superuser": true,
-    "username": "mike",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2018-10-22T10:48:35.003Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "auth.user",
-  "fields": {
     "password": "pbkdf2_sha256$100000$jQmLXtqs7rf3$WQZzZzXpTGVcTEsPF0DmcrWrhU5AOcC02gTR+ohv+kc=",
     "last_login": "2019-03-01T16:02:34.987Z",
     "is_superuser": true,
@@ -213,23 +196,6 @@
   }
 },
 {
-  "model": "auth.user",
-  "fields": {
-    "password": "pbkdf2_sha256$100000$ydecZJC5NXXH$9f/dG8XoJxyzd8s4CFvkxfVH8IXnDnAJRvKfO6BT/qs=",
-    "last_login": "2019-01-16T21:37:31.187Z",
-    "is_superuser": true,
-    "username": "wagtail",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2019-01-16T21:37:26.719Z",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
   "model": "wagtailcore.pagerevision",
   "pk": 1,
   "fields": {
@@ -237,7 +203,7 @@
     "submitted_for_moderation": false,
     "created_at": "2018-10-22T10:57:04.911Z",
     "user": [
-      "mike"
+      "admin"
     ],
     "content_json": "{\"pk\": 3, \"path\": \"00010001\", \"depth\": 2, \"numchild\": 0, \"title\": \"Home\", \"draft_title\": \"Home\", \"slug\": \"home\", \"content_type\": 2, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/\", \"owner\": null, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"body\": \"[{\\\"type\\\": \\\"warning_callout\\\", \\\"value\\\": \\\"<p>This is a warning callout box! It contains <b>RichText</b></p>\\\", \\\"id\\\": \\\"d58c67a7-857b-4729-8957-40dee5d9a396\\\"}]\"}",
     "approved_go_live_at": null
