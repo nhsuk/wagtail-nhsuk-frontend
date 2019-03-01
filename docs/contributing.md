@@ -37,7 +37,7 @@ components can be tested in the testapp by (where appropriate):
 
 To add to the fixture, either:
  - edit `testdata.json` by hand (useful for small changes)
- - run `python manage.py dumpdata --format=json --indent=2 --natural-foreign --natural-primary > testapp/testdata.json`
+ - run the dumpdata script `./dumpdata.sh > testdata.json`
 
 Always review your changes to the testdata before committing to make sure there
 are no accidental changes to the fixture.
