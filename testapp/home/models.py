@@ -36,3 +36,9 @@ class HomePage(Page):
 
 class ChildPage(Page):
     pass
+
+
+class PaginationPage(Page):
+    """
+    A page type to show the pagination component usage
+    """
