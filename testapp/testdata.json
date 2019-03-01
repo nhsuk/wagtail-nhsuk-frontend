@@ -20,6 +20,26 @@
   }
 },
 {
+  "model": "wagtailnhsukfrontendsettings.navigationlink",
+  "pk": 3,
+  "fields": {
+    "sort_order": 2,
+    "setting": 1,
+    "label": "Emergency Alert",
+    "page": 6
+  }
+},
+{
+  "model": "wagtailnhsukfrontendsettings.navigationlink",
+  "pk": 4,
+  "fields": {
+    "sort_order": 3,
+    "setting": 1,
+    "label": "Pagination",
+    "page": 8
+  }
+},
+{
   "model": "wagtailcore.site",
   "fields": {
     "hostname": "localhost",
@@ -250,6 +270,13 @@
   }
 },
 {
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "wagtailnhsukfrontendsettings",
+    "model": "emergencyalert"
+  }
+},
+{
   "model": "sessions.session",
   "pk": "f0lrqd5ud66af4dsr3t56tixtl6x3juq",
   "fields": {
@@ -381,6 +408,39 @@
       "homepage"
     ],
     "codename": "delete_homepage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add child page",
+    "content_type": [
+      "home",
+      "childpage"
+    ],
+    "codename": "add_childpage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change child page",
+    "content_type": [
+      "home",
+      "childpage"
+    ],
+    "codename": "change_childpage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete child page",
+    "content_type": [
+      "home",
+      "childpage"
+    ],
+    "codename": "delete_childpage"
   }
 },
 {
@@ -1242,6 +1302,105 @@
   }
 },
 {
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add emergency alert",
+    "content_type": [
+      "wagtailnhsukfrontendsettings",
+      "emergencyalert"
+    ],
+    "codename": "add_emergencyalert"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change emergency alert",
+    "content_type": [
+      "wagtailnhsukfrontendsettings",
+      "emergencyalert"
+    ],
+    "codename": "change_emergencyalert"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete emergency alert",
+    "content_type": [
+      "wagtailnhsukfrontendsettings",
+      "emergencyalert"
+    ],
+    "codename": "delete_emergencyalert"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add pagination page",
+    "content_type": [
+      "home",
+      "paginationpage"
+    ],
+    "codename": "add_paginationpage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change pagination page",
+    "content_type": [
+      "home",
+      "paginationpage"
+    ],
+    "codename": "change_paginationpage"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete pagination page",
+    "content_type": [
+      "home",
+      "paginationpage"
+    ],
+    "codename": "delete_paginationpage"
+  }
+},
+{
+  "model": "wagtailnhsukfrontendsettings.emergencyalert",
+  "pk": 1,
+  "fields": {
+    "site": [
+      "localhost",
+      80
+    ],
+    "enabled": true,
+    "title": "National Flu Outbreak",
+    "description": "There has been a national flu outbreak.",
+    "link_url": "https://www.nhs.uk",
+    "link_label": "How does it affect me",
+    "last_updated": "2019-02-18T14:47:00.148Z"
+  }
+},
+{
+  "model": "wagtailnhsukfrontendsettings.headersettings",
+  "pk": 1,
+  "fields": {
+    "site": [
+      "localhost",
+      80
+    ],
+    "service_name": "Wagtail NHS Style",
+    "service_long_name": false,
+    "service_link": null,
+    "transactional": false,
+    "logo_link": null,
+    "logo_aria": null,
+    "show_search": true
+  }
+},
+{
   "model": "auth.group",
   "fields": {
     "name": "Moderators",
@@ -1677,6 +1836,104 @@
   }
 },
 {
+  "model": "wagtailcore.pagerevision",
+  "pk": 9,
+  "fields": {
+    "page": 6,
+    "submitted_for_moderation": false,
+    "created_at": "2019-02-18T14:47:11.808Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 6, \"path\": \"000100010002\", \"depth\": 3, \"numchild\": 0, \"title\": \"Emergency Alert\", \"draft_title\": \"Emergency Alert\", \"slug\": \"emergency-alert\", \"content_type\": 6, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/emergency-alert/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 10,
+  "fields": {
+    "page": 7,
+    "submitted_for_moderation": false,
+    "created_at": "2019-02-27T15:28:51.167Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 7, \"path\": \"000100010003\", \"depth\": 3, \"numchild\": 0, \"title\": \"Pagination\", \"draft_title\": \"Pagination\", \"slug\": \"pagination\", \"content_type\": 6, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/pagination/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 11,
+  "fields": {
+    "page": 8,
+    "submitted_for_moderation": false,
+    "created_at": "2019-02-27T15:28:59.237Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 8, \"path\": \"0001000100030001\", \"depth\": 4, \"numchild\": 0, \"title\": \"Pagination page 1\", \"draft_title\": \"Pagination page 1\", \"slug\": \"pagination-page-1\", \"content_type\": 7, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/pagination/pagination-page-1/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 12,
+  "fields": {
+    "page": 9,
+    "submitted_for_moderation": false,
+    "created_at": "2019-02-27T15:29:18.971Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 9, \"path\": \"0001000100030002\", \"depth\": 4, \"numchild\": 0, \"title\": \"Pagination page 2\", \"draft_title\": \"Pagination page 2\", \"slug\": \"pagination-page-2\", \"content_type\": 7, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/pagination/pagination-page-2/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 13,
+  "fields": {
+    "page": 10,
+    "submitted_for_moderation": false,
+    "created_at": "2019-02-27T15:29:26.588Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 10, \"path\": \"0001000100030003\", \"depth\": 4, \"numchild\": 0, \"title\": \"Pagination page 3\", \"draft_title\": \"Pagination page 3\", \"slug\": \"pagination-page-3\", \"content_type\": 7, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/pagination/pagination-page-3/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 14,
+  "fields": {
+    "page": 11,
+    "submitted_for_moderation": false,
+    "created_at": "2019-02-27T15:29:34.159Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 11, \"path\": \"0001000100030004\", \"depth\": 4, \"numchild\": 0, \"title\": \"Pagination page 4\", \"draft_title\": \"Pagination page 4\", \"slug\": \"pagination-page-4\", \"content_type\": 7, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/pagination/pagination-page-4/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 15,
+  "fields": {
+    "page": 12,
+    "submitted_for_moderation": false,
+    "created_at": "2019-02-27T15:42:01.813Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 12, \"path\": \"0001000100030005\", \"depth\": 4, \"numchild\": 0, \"title\": \"no show\", \"draft_title\": \"no show\", \"slug\": \"no-show\", \"content_type\": 7, \"live\": false, \"has_unpublished_changes\": false, \"url_path\": \"/home/pagination/no-show/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null}",
+    "approved_go_live_at": null
+  }
+},
+{
   "model": "wagtailcore.page",
   "pk": 1,
   "fields": {
@@ -1713,7 +1970,7 @@
   "fields": {
     "path": "00010001",
     "depth": 2,
-    "numchild": 1,
+    "numchild": 3,
     "title": "Home",
     "draft_title": "Home",
     "slug": "home",
@@ -1722,7 +1979,7 @@
       "homepage"
     ],
     "live": true,
-    "has_unpublished_changes": true,
+    "has_unpublished_changes": false,
     "url_path": "/home/",
     "owner": null,
     "seo_title": "",
@@ -1733,9 +1990,9 @@
     "expired": false,
     "locked": false,
     "first_published_at": "2018-10-22T10:57:04.927Z",
-    "last_published_at": "2018-11-26T16:04:21.875Z",
-    "latest_revision_created_at": "2018-11-26T16:27:59.056Z",
-    "live_revision": 6
+    "last_published_at": "2019-02-27T22:41:39.734Z",
+    "latest_revision_created_at": "2019-02-27T22:41:39.718Z",
+    "live_revision": 10
   }
 },
 {
@@ -1805,6 +2062,237 @@
   }
 },
 {
+  "model": "wagtailcore.page",
+  "pk": 6,
+  "fields": {
+    "path": "000100010002",
+    "depth": 3,
+    "numchild": 0,
+    "title": "Emergency Alert",
+    "draft_title": "Emergency Alert",
+    "slug": "emergency-alert",
+    "content_type": [
+      "home",
+      "childpage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/emergency-alert/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-02-18T14:47:11.821Z",
+    "last_published_at": "2019-02-18T14:47:11.821Z",
+    "latest_revision_created_at": "2019-02-18T14:47:11.808Z",
+    "live_revision": 9
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 7,
+  "fields": {
+    "path": "000100010003",
+    "depth": 3,
+    "numchild": 5,
+    "title": "Pagination",
+    "draft_title": "Pagination",
+    "slug": "pagination",
+    "content_type": [
+      "home",
+      "childpage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/pagination/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-02-27T15:28:51.182Z",
+    "last_published_at": "2019-02-27T15:28:51.182Z",
+    "latest_revision_created_at": "2019-02-27T15:28:51.167Z",
+    "live_revision": 10
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 8,
+  "fields": {
+    "path": "0001000100030001",
+    "depth": 4,
+    "numchild": 0,
+    "title": "Pagination page 1",
+    "draft_title": "Pagination page 1",
+    "slug": "pagination-page-1",
+    "content_type": [
+      "home",
+      "paginationpage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/pagination/pagination-page-1/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-02-27T15:28:59.250Z",
+    "last_published_at": "2019-02-27T15:28:59.250Z",
+    "latest_revision_created_at": "2019-02-27T15:28:59.237Z",
+    "live_revision": 11
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 9,
+  "fields": {
+    "path": "0001000100030002",
+    "depth": 4,
+    "numchild": 0,
+    "title": "Pagination page 2",
+    "draft_title": "Pagination page 2",
+    "slug": "pagination-page-2",
+    "content_type": [
+      "home",
+      "paginationpage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/pagination/pagination-page-2/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-02-27T15:29:18.985Z",
+    "last_published_at": "2019-02-27T15:29:18.985Z",
+    "latest_revision_created_at": "2019-02-27T15:29:18.971Z",
+    "live_revision": 12
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 10,
+  "fields": {
+    "path": "0001000100030004",
+    "depth": 4,
+    "numchild": 0,
+    "title": "Pagination page 3",
+    "draft_title": "Pagination page 3",
+    "slug": "pagination-page-3",
+    "content_type": [
+      "home",
+      "paginationpage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/pagination/pagination-page-3/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-02-27T15:29:26.602Z",
+    "last_published_at": "2019-02-27T15:29:26.602Z",
+    "latest_revision_created_at": "2019-02-27T15:29:26.588Z",
+    "live_revision": 13
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 11,
+  "fields": {
+    "path": "0001000100030005",
+    "depth": 4,
+    "numchild": 0,
+    "title": "Pagination page 4",
+    "draft_title": "Pagination page 4",
+    "slug": "pagination-page-4",
+    "content_type": [
+      "home",
+      "paginationpage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/pagination/pagination-page-4/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-02-27T15:29:34.173Z",
+    "last_published_at": "2019-02-27T15:29:34.173Z",
+    "latest_revision_created_at": "2019-02-27T15:29:34.159Z",
+    "live_revision": 14
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 12,
+  "fields": {
+    "path": "0001000100030003",
+    "depth": 4,
+    "numchild": 0,
+    "title": "no show",
+    "draft_title": "no show",
+    "slug": "no-show",
+    "content_type": [
+      "home",
+      "paginationpage"
+    ],
+    "live": false,
+    "has_unpublished_changes": true,
+    "url_path": "/home/pagination/no-show/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": null,
+    "last_published_at": null,
+    "latest_revision_created_at": "2019-02-27T15:42:01.813Z",
+    "live_revision": null
+  }
+},
+{
   "model": "home.childpage",
   "pk": 4,
   "fields": {}
@@ -1815,27 +2303,45 @@
   "fields": {}
 },
 {
+  "model": "home.childpage",
+  "pk": 6,
+  "fields": {}
+},
+{
+  "model": "home.childpage",
+  "pk": 7,
+  "fields": {}
+},
+{
   "model": "home.homepage",
   "pk": 3,
   "fields": {
-    "body": "[{\"type\": \"action_link\", \"value\": {\"text\": \"Action Link\", \"external_url\": \"https://example.com\"}, \"id\": \"275caa12-937e-42a5-8ef3-caa05584c8ce\"}, {\"type\": \"warning_callout\", \"value\": \"<p>This is a warning callout box! It contains <b>RichText</b></p>\", \"id\": \"d58c67a7-857b-4729-8957-40dee5d9a396\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"primary\", \"title\": \"Non-urgent:\", \"body\": \"<p>This is a primary care card</p>\"}, \"id\": \"77a893d7-b810-4c72-a194-749da2d33b88\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"urgent\", \"title\": \"Urgent:\", \"body\": \"<p>This is an urgent care card</p>\"}, \"id\": \"84faa876-06d1-493a-8776-3e63ffc3ac71\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"immediate\", \"title\": \"Immediate!\", \"body\": \"<p>This is an immediate care card</p>\"}, \"id\": \"c9531ae4-ea87-4e07-8214-11669dbeae68\"}]"
+    "body": "[{\"type\": \"action_link\", \"value\": {\"text\": \"Action Link\", \"external_url\": \"https://example.com\"}, \"id\": \"275caa12-937e-42a5-8ef3-caa05584c8ce\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"primary\", \"title\": \"Non-urgent:\", \"body\": \"<p>This is a primary care card</p>\"}, \"id\": \"77a893d7-b810-4c72-a194-749da2d33b88\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"urgent\", \"title\": \"Urgent:\", \"body\": \"<p>This is an urgent care card</p>\"}, \"id\": \"84faa876-06d1-493a-8776-3e63ffc3ac71\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"immediate\", \"title\": \"Immediate!\", \"body\": \"<p>This is an immediate care card</p>\"}, \"id\": \"c9531ae4-ea87-4e07-8214-11669dbeae68\"}, {\"type\": \"details\", \"value\": {\"title\": \"Details\", \"body\": \"<p>Make a page easier to scan by letting users reveal more detailed information only if they need it.</p>\"}, \"id\": \"aae2d50c-e288-461c-96c6-ffcd9c5f6391\"}, {\"type\": \"expander\", \"value\": {\"title\": \"Expander\", \"body\": \"<p>Make a complex topic easier to digest by letting users reveal more detailed information only if they need it.</p>\"}, \"id\": \"0c5e7b95-1fe8-4267-b9c7-de722792b381\"}, {\"type\": \"expander_group\", \"value\": {\"expanders\": [{\"title\": \"One\", \"body\": \"<p>First expander</p>\"}, {\"title\": \"Two\", \"body\": \"<p>Second expander</p>\"}, {\"title\": \"Three\", \"body\": \"<p>Third expander</p>\"}]}, \"id\": \"cde766b8-1c9d-43d2-bc5d-ab941bcd5a5b\"}, {\"type\": \"inset_text\", \"value\": \"<p>Use inset text to help users identify and understand important content on the page, even if they don&#x27;t read the whole page.</p>\", \"id\": \"d9739fb8-2dc9-4355-8ced-8d91f37d2c73\"}, {\"type\": \"panel\", \"value\": {\"labeled_title\": \"Panel\", \"body\": \"<p>Panel with a blue title</p>\"}, \"id\": \"f02f483f-7c7d-4974-8efe-e2c3ead9d5f6\"}, {\"type\": \"panel\", \"value\": {\"labeled_title\": \"\", \"body\": \"<p>Panels don&#x27;t require a title</p>\"}, \"id\": \"56a804c5-3326-4f45-b542-1b49f6a83961\"}, {\"type\": \"warning_callout\", \"value\": \"<p>This is a warning callout box! It contains <b>RichText</b></p>\", \"id\": \"d58c67a7-857b-4729-8957-40dee5d9a396\"}]"
   }
 },
 {
-  "model": "wagtailnhsukfrontendsettings.headersettings",
-  "pk": 1,
-  "fields": {
-    "site": [
-      "localhost",
-      80
-    ],
-    "service_name": "Wagtail NHS Style",
-    "service_long_name": false,
-    "service_link": null,
-    "transactional": false,
-    "logo_link": null,
-    "logo_aria": null,
-    "show_search": true
-  }
+  "model": "home.paginationpage",
+  "pk": 8,
+  "fields": {}
+},
+{
+  "model": "home.paginationpage",
+  "pk": 9,
+  "fields": {}
+},
+{
+  "model": "home.paginationpage",
+  "pk": 10,
+  "fields": {}
+},
+{
+  "model": "home.paginationpage",
+  "pk": 11,
+  "fields": {}
+},
+{
+  "model": "home.paginationpage",
+  "pk": 12,
+  "fields": {}
 }
 ]

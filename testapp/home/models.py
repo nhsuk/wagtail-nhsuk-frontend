@@ -5,13 +5,14 @@ from wagtail.core.fields import StreamField
 from wagtailnhsukfrontend.blocks import (
     ActionLinkBlock,
     CareCardBlock,
-    WarningCalloutBlock,
-    InsetTextBlock,
     DetailsBlock,
-    ExpanderGroupBlock,
+    DoBlock,
+    DontBlock,
     ExpanderBlock,
+    ExpanderGroupBlock,
+    InsetTextBlock,
     PanelBlock,
-    DoDontBlock,
+    WarningCalloutBlock,
 )
 
 
@@ -22,13 +23,14 @@ class HomePage(Page):
     body = StreamField([
         ('action_link', ActionLinkBlock()),
         ('care_card', CareCardBlock()),
-        ('warning_callout', WarningCalloutBlock()),
-        ('inset_text', InsetTextBlock()),
         ('details', DetailsBlock()),
+        ('do_list', DoBlock()),
+        ('dont_list', DontBlock()),
         ('expander', ExpanderBlock()),
-        ('group_expander', ExpanderGroupBlock()),
+        ('expander_group', ExpanderGroupBlock()),
+        ('inset_text', InsetTextBlock()),
         ('panel', PanelBlock()),
-        ('do_and_dont_list', DoDontBlock()),
+        ('warning_callout', WarningCalloutBlock()),
     ])
 
     content_panels = Page.content_panels + [
@@ -38,3 +40,9 @@ class HomePage(Page):
 
 class ChildPage(Page):
     pass
+
+
+class PaginationPage(Page):
+    """
+    A page type to show the pagination component usage
+    """

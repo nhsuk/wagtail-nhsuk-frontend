@@ -20,3 +20,26 @@ def breadcrumbs(context):
     return {
         'breadcrumb_pages': breadcrumb_pages,
     }
+
+
+@register.inclusion_tag('wagtailnhsukfrontend/pagination.html', takes_context=True)
+def pagination(context):
+    """
+    Calculates previous and next page values which are passed to the pagination template.
+    """
+    page = context['page']
+    request = context['request']
+
+    prev = page.get_prev_siblings().live().first()
+    next = page.get_next_siblings().live().first()
+
+    template_context = {}
+
+    if prev:
+        template_context['prev_label'] = prev.title
+        template_context['prev_url'] = prev.get_url(request)
+    if next:
+        template_context['next_label'] = next.title
+        template_context['next_url'] = next.get_url(request)
+
+    return template_context

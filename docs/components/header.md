@@ -94,3 +94,8 @@ def navigation(request):
 ```django
 {% include 'wagtailnhsukfrontend/header.html' with transactional="True" service_name="Find a Pharmacy" service_href="/find-a-pharmacy" %}
 ```
+
+## Reference
+
+[Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/header)
+[Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/header)

@@ -4,12 +4,12 @@
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 
-from wagtailnhsstyle.blocks import DoDontBlock
+from wagtailnhsstyle.blocks import DontBlock
 
 class MyPage(Page):
   body = StreamField([
       ...
-      ('do_and_dont_list', DoDontBlock()),
+      ('dont_list', DontBlock()),
       ...
   ])
 ```

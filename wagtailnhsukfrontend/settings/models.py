@@ -75,3 +75,26 @@ class NavigationLink(Orderable):
         FieldPanel('label'),
         PageChooserPanel('page'),
     ]
+
+
+@register_setting
+class EmergencyAlert(ClusterableModel, BaseSetting):
+    enabled = models.BooleanField(default=False)
+    title = models.CharField(max_length=255, blank=True)
+    description = models.TextField(blank=True)
+
+    link_url = models.URLField(blank=True)
+    link_label = models.CharField(max_length=255, blank=True)
+
+    # Auto-updating field
+    last_updated = models.DateTimeField(auto_now=True)
+
+    panels = [
+        FieldPanel('enabled'),
+        FieldPanel('title'),
+        FieldPanel('description'),
+        MultiFieldPanel([
+            FieldPanel('link_url'),
+            FieldPanel('link_label'),
+        ], heading="Link"),
+    ]

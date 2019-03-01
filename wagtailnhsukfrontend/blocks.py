@@ -83,18 +83,18 @@ class PanelBlock(StructBlock):
     class Meta:
         template = 'wagtailnhsukfrontend/panel.html'
 
-class DoDontListItemBlock(RichTextBlock):
+
+class DoBlock(StructBlock):
+
+    do = ListBlock(RichTextBlock)
 
     class Meta:
-        template = 'do_dont_list_item.html'
+        template = 'wagtailnhsukfrontend/do_list.html'
 
-class DoDontBlock(StructBlock):
 
-    type = ChoiceBlock([
-        ('do', 'Do List'),
-        ('dont', 'Dont List'),
-    ], required=True)
-    listitems = ListBlock(DoDontListItemBlock)
+class DontBlock(StructBlock):
+
+    dont = ListBlock(RichTextBlock)
 
     class Meta:
-        template = 'wagtailnhsukfrontend/do_dont.html'
+        template = 'wagtailnhsukfrontend/dont_list.html'
