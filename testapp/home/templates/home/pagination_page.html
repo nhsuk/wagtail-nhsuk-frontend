@@ -1,0 +1,7 @@
+{% extends "./child_page.html" %}
+{% load nhsukfrontend_tags %}
+
+{% block content %}
+  {{ block.super }}
+  {% pagination %}
+{% endblock %}
