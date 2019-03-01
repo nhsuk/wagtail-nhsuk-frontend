@@ -11,6 +11,7 @@ from wagtailnhsukfrontend.blocks import (
     ExpanderGroupBlock,
     ExpanderBlock,
     PanelBlock,
+    DoDontBlock,
 )
 
 
@@ -27,6 +28,7 @@ class HomePage(Page):
         ('expander', ExpanderBlock()),
         ('group_expander', ExpanderGroupBlock()),
         ('panel', PanelBlock()),
+        ('do_and_dont_list', DoDontBlock()),
     ])
 
     content_panels = Page.content_panels + [
