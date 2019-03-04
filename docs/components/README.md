@@ -30,8 +30,13 @@ example: [Header (via settings)](./header.md#wagtail-site-settings)
 ## List of Components
 
 - [Action Link](./action_link.md)
+- [Back Link](./back_link.md)
 - [Breadcrumb](./breadcrumb.md)
 - [Care Card](./care_card.md)
+- [Details](./details.md)
 - [Emergency Alert](./emergency_alert.md)
+- [Expander & Expander Group](./expander.md)
 - [Header](./header.md)
+- [Inset Text](./inset_text.md)
+- [Panel](./panel.md)
 - [Warning Callout](./warning_callout.md)

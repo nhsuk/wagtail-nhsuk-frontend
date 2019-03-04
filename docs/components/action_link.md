@@ -13,3 +13,8 @@ class MyPage(Page):
       ...
   ])
 ```
+
+## Reference
+
+* [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/action-link)
+* [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/action-link)

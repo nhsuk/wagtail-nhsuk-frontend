@@ -5,6 +5,11 @@ from wagtail.core.fields import StreamField
 from wagtailnhsukfrontend.blocks import (
     ActionLinkBlock,
     CareCardBlock,
+    DetailsBlock,
+    ExpanderBlock,
+    ExpanderGroupBlock,
+    InsetTextBlock,
+    PanelBlock,
     WarningCalloutBlock,
 )
 
@@ -16,6 +21,11 @@ class HomePage(Page):
     body = StreamField([
         ('action_link', ActionLinkBlock()),
         ('care_card', CareCardBlock()),
+        ('details', DetailsBlock()),
+        ('expander', ExpanderBlock()),
+        ('expander_group', ExpanderGroupBlock()),
+        ('inset_text', InsetTextBlock()),
+        ('panel', PanelBlock()),
         ('warning_callout', WarningCalloutBlock()),
     ])
 

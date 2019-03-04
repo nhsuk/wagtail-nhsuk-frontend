@@ -4,6 +4,7 @@ from wagtail.core.blocks import (
     RichTextBlock,
     StructBlock,
     URLBlock,
+    ListBlock,
 )
 
 
@@ -43,3 +44,41 @@ class WarningCalloutBlock(RichTextBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/warning_callout.html'
+
+
+class InsetTextBlock(RichTextBlock):
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/inset_text.html'
+
+
+class DetailsBlock(StructBlock):
+
+    title = CharBlock(required=True)
+    body = RichTextBlock(required=True)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/details.html'
+
+
+class ExpanderBlock(DetailsBlock):
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/expander.html'
+
+
+class ExpanderGroupBlock(StructBlock):
+
+    expanders = ListBlock(ExpanderBlock)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/expander_group.html'
+
+
+class PanelBlock(StructBlock):
+
+    labeled_title = CharBlock(required=False)
+    body = RichTextBlock(required=True)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/panel.html'

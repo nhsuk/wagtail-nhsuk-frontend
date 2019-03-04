@@ -1,0 +1,6 @@
+<div class="nhsuk-panel{% if value.labeled_title %}-with-label{% endif %}">
+  {% if value.labeled_title %}
+  <h3 class="nhsuk-panel-with-label__label">{{ value.labeled_title }}</h3>
+  {% endif %} 
+  {{ value.body }}
+</div>
