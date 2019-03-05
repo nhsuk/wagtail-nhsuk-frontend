@@ -1,11 +1,19 @@
 {% extends "base.html" %}
+{% load nhsukfrontendforms_tags %}
 
 {% block content %}
-  <form method="POST">
-    {% csrf_token %}
+  <form method="POST" novalidate>
+    <fieldset class="nhsuk-fieldset">
+      <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+        <h1 class="nhsuk-fieldset__heading">
+          {{ page.title }}
+        </h1>
+      </legend>
+      {% csrf_token %}
 
-    {{ form.as_p }}
+      {% nhsuk_form form %}
 
-    <input type="submit"/>
+      <input class="nhsuk-button" type="submit" />
+    </fieldset>
   </form>
 {% endblock %}

@@ -1,0 +1,4 @@
+{% include "django/forms/widgets/input.html" %}
+<label class="nhsuk-label {{ base_class }}__label" {% if widget.attrs.id %} for="{{ widget.attrs.id }}"{% endif %}>
+  {{ widget.label }}
+</label>
