@@ -82,3 +82,19 @@ class PanelBlock(StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/panel.html'
+
+
+class DoBlock(StructBlock):
+
+    do = ListBlock(RichTextBlock)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/do_list.html'
+
+
+class DontBlock(StructBlock):
+
+    dont = ListBlock(RichTextBlock)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/dont_list.html'
