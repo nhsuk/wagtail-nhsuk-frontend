@@ -3,6 +3,7 @@ from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 
 from wagtailnhsukfrontend.mixins import (
+    HeroMixin,
     ReviewDateMixin,
 )
 
@@ -21,7 +22,7 @@ from wagtailnhsukfrontend.blocks import (
 )
 
 
-class HomePage(Page, ReviewDateMixin):
+class HomePage(HeroMixin, ReviewDateMixin, Page):
 
     parent_page_types = ['wagtailcore.Page']
 
@@ -39,7 +40,7 @@ class HomePage(Page, ReviewDateMixin):
         ('warning_callout', WarningCalloutBlock()),
     ])
 
-    content_panels = Page.content_panels + [
+    content_panels = Page.content_panels + HeroMixin.content_panels + [
         StreamFieldPanel('body'),
     ]
 
