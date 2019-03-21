@@ -5,3 +5,7 @@
 {% block content %}
   {{ page.body }}
 {% endblock %}
+
+{% block feedback_banner %}
+  {% include 'wagtailnhsukfrontend/feedback_banner.html' with title="Title here" content="Content here" url="http://example.com/" label="URL label here"%}
+{% endblock %}
