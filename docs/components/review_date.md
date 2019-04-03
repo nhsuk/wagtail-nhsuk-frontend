@@ -1,28 +1,25 @@
 # Review Date
 
-Use this code snippet to include the review date component. This snipped has to be pasted in `home/models.py` and then added to the page through the Wagtail admin interface.
-
-
-
-To include the review date component on the page you will have to add this snippet of code in the template:
-```django
-  {% include "wagtailnhsukfrontend/review_date.html" %}
-```
-Add the snippet below to the imports in the `models.py` file:
+Add the `ReviewDateMixin` to your page model:
 ```py
 from wagtailnhsukfrontend.mixins import (
     ReviewDateMixin,
 )
-```
- Modify your page class to add the `ReviewDataMixin` like so:
-```py
-class  MyPage(Page, ReviewDateMixin):
+
+class MyPage(Page, ReviewDateMixin):
+
+    ...
 
     settings_panels = Page.settings_panels + ReviewDateMixin.settings_panels
 ```
 
-You can modify the component settings in the page settings tab on the Wagtail admin interface.
+The `ReviewDateMixin` will add `last_review_date` and `next_review_date` fields to your page model,
+editable in the settings panel of the wagtail page edit interface.
 
+To include the review date component on a page you will have to include the review date template in your page template:
+```django
+  {% include "wagtailnhsukfrontend/review_date.html" %}
+```
 
 # Reference
 

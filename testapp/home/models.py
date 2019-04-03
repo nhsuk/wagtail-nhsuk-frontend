@@ -10,13 +10,13 @@ from wagtailnhsukfrontend.blocks import (
     ActionLinkBlock,
     CareCardBlock,
     DetailsBlock,
+    DoBlock,
+    DontBlock,
     ExpanderBlock,
     ExpanderGroupBlock,
     InsetTextBlock,
     PanelBlock,
     WarningCalloutBlock,
-    DoBlock,
-    DontBlock,
 )
 
 

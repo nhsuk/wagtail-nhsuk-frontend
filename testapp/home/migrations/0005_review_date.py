@@ -12,23 +12,12 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='homepage',
-            name='last_review_label',
-            field=models.CharField(default='', help_text='The default for NHS frontend is: Page last reviewed:', max_length=120, verbose_name='Reviewed date label'),
-            preserve_default=False,
+            name='last_review_date',
+            field=models.DateTimeField(blank=True, null=True),
         ),
         migrations.AddField(
             model_name='homepage',
             name='next_review_date',
-            field=models.DateTimeField(blank=True, help_text='This will be displayed as Month/Year', null=True),
-        ),
-        migrations.AddField(
-            model_name='homepage',
-            name='next_review_label',
-            field=models.CharField(blank=True, help_text='The default for NHS frontend is: Page last reviewed: - Leave this empty if you do not want to add Next review date', max_length=120, null=True),
-        ),
-        migrations.AddField(
-            model_name='homepage',
-            name='reviewed_date',
-            field=models.DateTimeField(help_text='This will be displayed as Month/Year', null=True),
+            field=models.DateTimeField(blank=True, null=True),
         ),
     ]
