@@ -1,0 +1,13 @@
+<div class="nhsuk-review-date">
+  <p class="nhsuk-body-s">
+    {% if page.last_review_date %}
+      {{ page.last_review_label }} {{ page.last_review_date | date:"j F Y" }}
+    {% endif %}
+    {% if page.last_review_date and page.next_review_date %}
+      <br/>
+    {% endif %}
+    {% if page.next_review_date %}
+      {{ page.next_review_label }} {{ page.next_review_date | date:"j F Y" }}
+    {% endif %}
+  </p>
+</div>

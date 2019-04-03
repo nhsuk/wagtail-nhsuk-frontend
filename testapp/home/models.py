@@ -2,6 +2,10 @@ from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 
+from wagtailnhsukfrontend.mixins import (
+    ReviewDateMixin,
+)
+
 from wagtailnhsukfrontend.blocks import (
     ActionLinkBlock,
     CareCardBlock,
@@ -16,7 +20,7 @@ from wagtailnhsukfrontend.blocks import (
 )
 
 
-class HomePage(Page):
+class HomePage(Page, ReviewDateMixin):
 
     parent_page_types = ['wagtailcore.Page']
 
@@ -36,6 +40,8 @@ class HomePage(Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
     ]
+
+    settings_panels = Page.settings_panels + ReviewDateMixin.settings_panels
 
 
 class ChildPage(Page):
