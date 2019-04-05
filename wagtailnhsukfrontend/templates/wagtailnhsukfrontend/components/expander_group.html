@@ -1,0 +1,8 @@
+{% load wagtailcore_tags %}
+<div class="nhsuk-expander-group">
+
+  {% for expander in expanders %}
+    {% include_block expander %}
+  {% endfor %}
+
+</div>

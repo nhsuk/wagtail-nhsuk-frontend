@@ -14,7 +14,7 @@ class ActionLinkBlock(StructBlock):
     external_url = URLBlock(label="external URL", required=True)
 
     class Meta:
-        template = 'wagtailnhsukfrontend/action_link.html'
+        template = 'wagtailnhsukfrontend/blocks/action_link.html'
 
 
 class CareCardBlock(StructBlock):
@@ -37,19 +37,19 @@ class CareCardBlock(StructBlock):
         return context
 
     class Meta:
-        template = 'wagtailnhsukfrontend/care_card.html'
+        template = 'wagtailnhsukfrontend/blocks/care_card.html'
 
 
 class WarningCalloutBlock(RichTextBlock):
 
     class Meta:
-        template = 'wagtailnhsukfrontend/warning_callout.html'
+        template = 'wagtailnhsukfrontend/blocks/warning_callout.html'
 
 
 class InsetTextBlock(RichTextBlock):
 
     class Meta:
-        template = 'wagtailnhsukfrontend/inset_text.html'
+        template = 'wagtailnhsukfrontend/blocks/inset_text.html'
 
 
 class DetailsBlock(StructBlock):
@@ -58,13 +58,13 @@ class DetailsBlock(StructBlock):
     body = RichTextBlock(required=True)
 
     class Meta:
-        template = 'wagtailnhsukfrontend/details.html'
+        template = 'wagtailnhsukfrontend/blocks/details.html'
 
 
 class ExpanderBlock(DetailsBlock):
 
     class Meta:
-        template = 'wagtailnhsukfrontend/expander.html'
+        template = 'wagtailnhsukfrontend/blocks/expander.html'
 
 
 class ExpanderGroupBlock(StructBlock):
@@ -72,7 +72,7 @@ class ExpanderGroupBlock(StructBlock):
     expanders = ListBlock(ExpanderBlock)
 
     class Meta:
-        template = 'wagtailnhsukfrontend/expander_group.html'
+        template = 'wagtailnhsukfrontend/blocks/expander_group.html'
 
 
 class PanelBlock(StructBlock):
@@ -81,4 +81,4 @@ class PanelBlock(StructBlock):
     body = RichTextBlock(required=True)
 
     class Meta:
-        template = 'wagtailnhsukfrontend/panel.html'
+        template = 'wagtailnhsukfrontend/blocks/panel.html'
