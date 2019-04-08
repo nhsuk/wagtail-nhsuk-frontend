@@ -58,3 +58,13 @@ jobs:
 
   - script: python setup.py sdist
     displayName: 'Build sdist'
+
+  - task: CopyFiles@2
+    inputs:
+      sourceFolder: $(Build.SourcesDirectory)/dist
+      targetFolder: $(Build.ArtifactStagingDirectory)
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: $(Build.ArtifactStagingDirectory)
+      artifactName: dist

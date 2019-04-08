@@ -7,7 +7,7 @@ ways.
 
 Block-type components use wagtail blocks for use in a [streamfield](https://docs.wagtail.io/en/v2.0/topics/streamfield.html).
 
-example: [ActionLink](./action-link.md)
+example: [ActionLink](./action_link.md)
 
 ### Templatetags
 
