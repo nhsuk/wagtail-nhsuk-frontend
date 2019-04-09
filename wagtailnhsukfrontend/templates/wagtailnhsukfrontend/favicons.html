@@ -1,0 +1,10 @@
+{% load staticfiles %}
+
+{% comment %}IE 10 and older fallback icon{% endcomment %}
+<!--[if IE]><link rel="shortcut icon" href="{% static 'wagtailnhsukfrontend/favicons/favicon.ico' %}"><![endif]-->
+
+{% comment %}Touch Icons - iOS and Android 2.1+ 180x180 pixels in size.{% endcomment %}
+<link href="{% static 'wagtailnhsukfrontend/favicons/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+{% comment %}Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size.{% endcomment %}
+<link href="{% static 'wagtailnhsukfrontend/favicons/favicon.png' %}" rel="icon">
