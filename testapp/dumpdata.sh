@@ -22,4 +22,5 @@ python manage.py dumpdata \
   --exclude auth.permission \
   --exclude wagtailcore.groupcollectionpermission \
   --exclude wagtailcore.grouppagepermission \
+  --exclude wagtailimages.rendition \
   --exclude contenttypes.contenttype

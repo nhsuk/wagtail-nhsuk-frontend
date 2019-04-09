@@ -31,6 +31,8 @@
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
+
+        {% include "wagtailnhsukfrontend/favicons.html" %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
@@ -43,6 +45,8 @@
         {% if page.url == "/emergency-alert/" %}
           {% emergency_alert %}
         {% endif %}
+
+        {% include "wagtailnhsukfrontend/skip_link.html" %}
 
         {% header %}
 
@@ -66,5 +70,7 @@
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}
+
+        {% block feedback_banner%}{% endblock %}
     </body>
 </html>

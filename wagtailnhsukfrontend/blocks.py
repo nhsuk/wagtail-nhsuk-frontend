@@ -6,6 +6,7 @@ from wagtail.core.blocks import (
     URLBlock,
     ListBlock,
 )
+from wagtail.images.blocks import ImageChooserBlock
 
 
 class ActionLinkBlock(StructBlock):
@@ -82,3 +83,29 @@ class PanelBlock(StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/panel.html'
+
+
+class DoBlock(StructBlock):
+
+    do = ListBlock(RichTextBlock)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/do_list.html'
+
+
+class DontBlock(StructBlock):
+
+    dont = ListBlock(RichTextBlock)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/dont_list.html'
+
+
+class ImageBlock(StructBlock):
+
+    content_image = ImageChooserBlock(required=True)
+    alt_text = CharBlock(required=False, help_text="Only leave this blank if the image is decorative.")
+    caption = CharBlock(required=False)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/image.html'
