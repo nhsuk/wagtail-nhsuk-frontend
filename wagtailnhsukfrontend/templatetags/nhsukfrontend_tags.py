@@ -43,3 +43,26 @@ def pagination(context):
         template_context['next_url'] = next.get_url(request)
 
     return template_context
+
+
+@register.inclusion_tag('wagtailnhsukfrontend/contents_list.html', takes_context=True)
+def contents_list(context):
+    """
+    Generates a queryset of sibling pages which are passed to the contents_list template
+    """
+    page = context['page']
+    request = context['request']
+
+    sibling_pages = page.get_siblings().live()
+    links = [
+        {
+            'label': sibling.title,
+            'href': sibling.get_url(request),
+            'is_current': sibling.id == page.id,
+        }
+        for sibling in sibling_pages
+    ]
+
+    return {
+        'links': links,
+    }
