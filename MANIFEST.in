@@ -1,2 +1,2 @@
-recursive-include wagtailnhsukfrontend/static/ *
-recursive-include wagtailnhsukfrontend/templates/ *
+recursive-include wagtailnhsukfrontend/static/* *
+recursive-include wagtailnhsukfrontend/templates/* *
