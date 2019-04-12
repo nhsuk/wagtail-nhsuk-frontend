@@ -68,7 +68,7 @@ Include the CSS in your base template
 
 Include the Javascript in your base template
 ```html
-  <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-1.0.0.min.js' %}" defer></script>
+  <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-2.1.0.min.js' %}" defer></script>
 ```
 
 # Further reading
