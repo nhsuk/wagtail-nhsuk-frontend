@@ -11,8 +11,8 @@ from wagtail.images.blocks import ImageChooserBlock
 
 class ActionLinkBlock(StructBlock):
 
-    text = CharBlock(label="link text", required=True)
-    external_url = URLBlock(label="external URL", required=True)
+    text = CharBlock(label="Link text", required=True)
+    external_url = URLBlock(label="URL", required=True)
 
     class Meta:
         template = 'wagtailnhsukfrontend/action_link.html'
@@ -41,13 +41,18 @@ class CareCardBlock(StructBlock):
         template = 'wagtailnhsukfrontend/care_card.html'
 
 
-class WarningCalloutBlock(RichTextBlock):
+class WarningCalloutBlock(StructBlock):
+
+    title = CharBlock(required=True, default='Important')
+    body = RichTextBlock(required=True)
 
     class Meta:
         template = 'wagtailnhsukfrontend/warning_callout.html'
 
 
-class InsetTextBlock(RichTextBlock):
+class InsetTextBlock(StructBlock):
+
+    body = RichTextBlock(required=True)
 
     class Meta:
         template = 'wagtailnhsukfrontend/inset_text.html'
