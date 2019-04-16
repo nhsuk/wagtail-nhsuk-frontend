@@ -2,11 +2,11 @@ from wagtail.core.blocks import (
     BooleanBlock,
     CharBlock,
     ChoiceBlock,
+    IntegerBlock,
     RichTextBlock,
     StructBlock,
     URLBlock,
     ListBlock,
-    IntegerBlock,
 )
 from wagtail.images.blocks import ImageChooserBlock
 
@@ -24,10 +24,11 @@ class ActionLinkBlock(StructBlock):
 class CareCardBlock(StructBlock):
 
     type = ChoiceBlock([
-        ('primary', 'Primary'),
+        ('primary', 'Non-urgent'),
         ('urgent', 'Urgent'),
         ('immediate', 'Immediate'),
-    ], required=True)
+    ], required=True, default='primary',)
+    heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
     title = CharBlock(required=True)
     body = RichTextBlock(required=True)
 
