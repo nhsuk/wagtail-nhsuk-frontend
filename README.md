@@ -2,7 +2,7 @@
 
 A wagtail implementation of the [NHS frontend v2.1.0](https://github.com/nhsuk/nhsuk-frontend) standard components.
 
-# Installation
+## Installation
 
 Install the pypi package
 ```
@@ -69,6 +69,10 @@ Include the Javascript in your base template
   <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-2.1.0.min.js' %}" defer></script>
 ```
 
-# Further reading
+## Contributing 
+
+See the [contributing documentation](./docs/contributing.md) to run the application locally and contribute changes.
+
+## Further reading
 
 See more [documentation](./docs/)
