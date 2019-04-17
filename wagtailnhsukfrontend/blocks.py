@@ -5,6 +5,7 @@ from wagtail.core.blocks import (
     StructBlock,
     URLBlock,
     ListBlock,
+    IntegerBlock,
     BooleanBlock,
 )
 from wagtail.images.blocks import ImageChooserBlock
@@ -94,6 +95,8 @@ class PanelBlock(StructBlock):
 
 class DoBlock(StructBlock):
 
+    heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+
     do = ListBlock(RichTextBlock)
 
     class Meta:
@@ -101,6 +104,8 @@ class DoBlock(StructBlock):
 
 
 class DontBlock(StructBlock):
+
+    heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
 
     dont = ListBlock(RichTextBlock)
 
@@ -116,3 +121,64 @@ class ImageBlock(StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/image.html'
+
+
+class BasePromoBlock(StructBlock):
+
+    url = URLBlock(label="URL", required=True)
+    heading = CharBlock(required=True)
+    description = CharBlock(required=False)
+    content_image = ImageChooserBlock(label="Image", required=False)
+    alt_text = CharBlock(required=False)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/promo.html'
+
+
+class PromoBlock(BasePromoBlock):
+
+    size = ChoiceBlock([
+        ('', 'Default'),
+        ('small', 'Small'),
+    ], required=False)
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context)
+        context['type'] = {
+            '': '',
+            'small': ' nhsuk-promo--small',
+        }[value['size']]
+        return context
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/promo.html'
+
+
+class PromoGroupBlock(StructBlock):
+
+    column = ChoiceBlock([
+        ('one-half', 'One-half'),
+        ('one-third', 'One-third'),
+    ], default='one-half', required=True)
+
+    size = ChoiceBlock([
+        ('default', 'Default'),
+        ('small', 'Small'),
+    ], default='default', required=True)
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context)
+        context['type'] = {
+            'default': '',
+            'small': ' nhsuk-promo--small',
+        }[value['size']]
+        context['column'] = {
+            'one-half': 'nhsuk-grid-column-one-half',
+            'one-third': 'nhsuk-grid-column-one-third',
+        }[value['column']]
+        return context
+
+    promos = ListBlock(BasePromoBlock)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/promo_group.html'
