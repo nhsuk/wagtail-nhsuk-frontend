@@ -9,7 +9,16 @@ from wagtail.core.blocks import (
 from wagtail.images.blocks import ImageChooserBlock
 
 
-class ActionLinkBlock(StructBlock):
+class FlattenValueContext:
+    """NHS.UK StructBlock mixin that flattens `value` for re-usability of templates"""
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context)
+        context.update(value)
+        return context
+
+
+class ActionLinkBlock(FlattenValueContext, StructBlock):
 
     text = CharBlock(label="link text", required=True)
     external_url = URLBlock(label="external URL", required=True)
@@ -18,7 +27,7 @@ class ActionLinkBlock(StructBlock):
         template = 'wagtailnhsukfrontend/action_link.html'
 
 
-class CareCardBlock(StructBlock):
+class CareCardBlock(FlattenValueContext, StructBlock):
 
     type = ChoiceBlock([
         ('primary', 'Primary'),
@@ -53,7 +62,7 @@ class InsetTextBlock(RichTextBlock):
         template = 'wagtailnhsukfrontend/inset_text.html'
 
 
-class DetailsBlock(StructBlock):
+class DetailsBlock(FlattenValueContext, StructBlock):
 
     title = CharBlock(required=True)
     body = RichTextBlock(required=True)
@@ -68,7 +77,7 @@ class ExpanderBlock(DetailsBlock):
         template = 'wagtailnhsukfrontend/expander.html'
 
 
-class ExpanderGroupBlock(StructBlock):
+class ExpanderGroupBlock(FlattenValueContext, StructBlock):
 
     expanders = ListBlock(ExpanderBlock)
 
@@ -76,7 +85,7 @@ class ExpanderGroupBlock(StructBlock):
         template = 'wagtailnhsukfrontend/expander_group.html'
 
 
-class PanelBlock(StructBlock):
+class PanelBlock(FlattenValueContext, StructBlock):
 
     labeled_title = CharBlock(required=False)
     body = RichTextBlock(required=True)
@@ -85,7 +94,7 @@ class PanelBlock(StructBlock):
         template = 'wagtailnhsukfrontend/panel.html'
 
 
-class DoBlock(StructBlock):
+class DoBlock(FlattenValueContext, StructBlock):
 
     do = ListBlock(RichTextBlock)
 
@@ -93,7 +102,7 @@ class DoBlock(StructBlock):
         template = 'wagtailnhsukfrontend/do_list.html'
 
 
-class DontBlock(StructBlock):
+class DontBlock(FlattenValueContext, StructBlock):
 
     dont = ListBlock(RichTextBlock)
 
@@ -101,7 +110,7 @@ class DontBlock(StructBlock):
         template = 'wagtailnhsukfrontend/dont_list.html'
 
 
-class ImageBlock(StructBlock):
+class ImageBlock(FlattenValueContext, StructBlock):
 
     content_image = ImageChooserBlock(required=True)
     alt_text = CharBlock(required=False, help_text="Only leave this blank if the image is decorative.")
