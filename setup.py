@@ -46,13 +46,5 @@ setup(
     install_requires=INSTALL_REQUIRES,
     packages=find_packages(),
     include_package_data=True,
-    extras_require={'testing': TESTING_REQUIRES},
-    setup_requires=['libsass >= 0.6.0'],
-    sass_manifests={
-        'wagtailnhsukfrontend': {
-            'sass_path': 'static/wagtailnhsukfrontend/sass',
-            'css_path': 'static/wagtailnhsukfrontend/css',
-            'strip_extension': True,
-        }
-    }
+    extras_require={'testing': TESTING_REQUIRES}
 )
