@@ -1,0 +1,16 @@
+@import "nhsuk-2.1.0.min";
+@import "fixes";
+
+div.wagtail-nhsuk-form-error {
+  .nhsuk-input {
+    @extend .nhsuk-input--error;
+  }
+
+  .nhsuk-textarea {
+    @extend .nhsuk-textarea--error;
+  }
+
+  nhsuk-select {
+    @extend .nhsuk-select--error;
+  }
+}
