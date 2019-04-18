@@ -18,6 +18,7 @@ from wagtailnhsukfrontend.blocks import (
     ImageBlock,
     PanelBlock,
     WarningCalloutBlock,
+    FormBlock
 )
 
 
@@ -54,3 +55,14 @@ class PaginationPage(Page):
     """
     A page type to show the pagination component usage
     """
+
+class FormPage(Page):
+
+    body = StreamField([
+        ('form', FormBlock()),
+        ('action_link', ActionLinkBlock())
+    ], default=[])
+
+    content_panels = Page.content_panels + [
+        StreamFieldPanel('body'),
+    ]

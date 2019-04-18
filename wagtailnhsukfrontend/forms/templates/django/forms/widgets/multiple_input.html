@@ -1,0 +1,18 @@
+{% load nhsukfrontendforms_tags %}
+
+{% with id=widget.attrs.id %}<div {% if id %} id="{{ id }}"{% endif %}{% if widget.attrs.class %} class="{{ widget.attrs.class }}"{% endif %}>
+  {% for group, options, index in widget.optgroups %}
+    {% if group and index != 0 %}
+      <div class="{{ base_class }}__divider">or</div>
+    {% endif %}
+
+    {% for option in options %}
+      <div class="{{ base_class }}__item">
+        {% with input_class=base_class|add:"__input" %}
+          {% include option.template_name with widget=option|add_class:input_class %}
+        {% endwith %}
+      </div>
+    {% endfor %}
+  {% endfor %}
+</div>
+{% endwith %}

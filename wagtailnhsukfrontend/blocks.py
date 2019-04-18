@@ -7,7 +7,8 @@ from wagtail.core.blocks import (
     ListBlock,
 )
 from wagtail.images.blocks import ImageChooserBlock
-
+from wagtailnhsukfrontend.forms.creator import FormCreator
+from wagtailnhsukfrontend.forms.blocks import FormFieldBlock
 
 class ActionLinkBlock(StructBlock):
 
@@ -109,3 +110,17 @@ class ImageBlock(StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/image.html'
+
+class FormBlock(StructBlock):
+
+    form_fields = FormFieldBlock()
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context)
+        context['form'] = FormCreator(parent_context['request'].POST or None,
+                                      form_fields=value.get('form_fields', []))
+        return context
+
+    class Meta:
+        icon = 'form'
+        template = 'wagtailnhsukfrontend/form_block.html'

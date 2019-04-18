@@ -1,0 +1,5 @@
+{% load nhsukfrontendforms_tags %}
+
+{% with widget=widget|add_class:"nhsuk-checkboxes" base_class="nhsuk-checkboxes" %}
+  {% include "django/forms/widgets/multiple_input.html" %}
+{% endwith %}

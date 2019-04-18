@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 
     'wagtailnhsukfrontend',
     'wagtailnhsukfrontend.settings',
+    'wagtailnhsukfrontend.forms',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -52,6 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+FORM_RENDERER = 'wagtailnhsukfrontend.forms.renderers.NHSUKFrontendRenderer'
 
 MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',

@@ -1,0 +1,118 @@
+from django import forms
+from wagtailnhsukfrontend.forms.fields import TextInput, Select, TextArea, \
+Checkbox, Radio
+import uuid
+import re
+
+
+
+class FieldSelector(object):
+    
+    def get_field(self, field):
+        type = field['type']
+        attrs = field.get('value', {})
+        label = attrs.get('label', '')
+        hint = attrs.get('hint', '')
+        required = attrs.get('required', True)
+        disabled = attrs.get('disabled', False)
+        validator_regex = re.compile(attrs.get('validator', '.*'))
+        validation_error_message = attrs.get('validation_error_message',
+                                             'Validation error')
+        error_messages = {
+            'required': attrs.get('missing_field_error_message',
+                                  'This field is required')
+        }
+        
+        def regex_validator(value):
+            if not validator_regex.match(value):
+                raise forms.ValidationError(validation_error_message)
+            
+        def regex_validator_multi(values):
+            for value in values:
+                if not validator_regex.match(value):
+                    raise forms.ValidationError(validation_error_message)
+        
+        if type == 'text_input':
+            width = attrs.get('width')
+            return TextInput(label=label,
+                             help_text=hint,
+                             required=required,
+                             width=width,
+                             disabled=disabled,
+                             error_messages=error_messages,
+                             validators=[regex_validator])
+            
+        elif type == 'select':
+            choices = self._get_choices(attrs)
+            return Select(label=label,
+                          help_text=hint,
+                          required=required,
+                          choices=choices,
+                          disabled=disabled,
+                          error_messages=error_messages,
+                          validators=[regex_validator])
+            
+        elif type == 'textarea':
+            rows = attrs.get('rows')
+            return TextArea(label=label,
+                            help_text=hint,
+                            required=required,
+                            rows=rows,
+                            disabled=disabled,
+                            error_messages=error_messages,
+                            validators=[regex_validator])
+            
+        elif type == 'checkbox':
+            choices = self._get_choices(attrs)
+            return Checkbox(label=label,
+                            help_text=hint,
+                            required=required,
+                            choices=choices,
+                            disabled=disabled,
+                            error_messages=error_messages,
+                            validators=[regex_validator_multi])
+            
+        elif type == 'radio':
+            choices = self._get_choice_groups(attrs)
+            inline = attrs.get('inline', False)
+            return Radio(label=label,
+                         help_text=hint,
+                         required=required,
+                         choices=choices,
+                         disabled=disabled,
+                         inline=inline,
+                         error_messages=error_messages,
+                         validators=[regex_validator])
+    
+    @staticmethod
+    def _get_choices(attrs):
+        choices = []
+        for choice in attrs.get('choices', []):
+            choices.append((choice.get('value'), choice.get('name')))
+        return choices
+    
+    @staticmethod
+    def _get_choice_groups(attrs):
+        choices = []
+        for choice_group in attrs.get('choices'):
+            group = []
+            for choice in choice_group.get('value'):
+                group.append((choice.get('value'), choice.get('name')))
+            choices.append(('group', group))
+        return choices
+    
+    
+    
+    
+
+class FormCreator(forms.Form):
+    
+    def __init__(self, *args, **kwargs):
+        fields = kwargs.pop('form_fields').stream_data
+        self.field_selector = FieldSelector()
+        super(FormCreator, self).__init__(*args, **kwargs)
+        
+        for i, field in enumerate(fields):
+            field_name = 'form_field_{}'.format(i)
+            self.fields[field_name] = self.field_selector.get_field(field)
+            

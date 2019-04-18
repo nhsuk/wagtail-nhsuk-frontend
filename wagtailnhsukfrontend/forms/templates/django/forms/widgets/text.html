@@ -1,0 +1,5 @@
+{% load nhsukfrontendforms_tags %}
+
+{% with widget=widget|add_class:"nhsuk-input" %}
+  {% include "django/forms/widgets/input.html" %}
+{% endwith %}
