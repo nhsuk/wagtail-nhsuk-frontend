@@ -1,0 +1,10 @@
+ {% load nhsukfrontendforms_tags %}
+ 
+ 
+ <form method="POST" novalidate>
+   {% csrf_token %}
+
+   {% nhsuk_form form %}
+
+   <input class="nhsuk-button" type="submit" />
+ </form>
