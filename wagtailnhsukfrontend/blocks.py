@@ -1,4 +1,5 @@
 from wagtail.core.blocks import (
+    BooleanBlock,
     CharBlock,
     ChoiceBlock,
     RichTextBlock,
@@ -14,6 +15,7 @@ class ActionLinkBlock(StructBlock):
 
     text = CharBlock(label="Link text", required=True)
     external_url = URLBlock(label="URL", required=True)
+    new_window = BooleanBlock(required=False, label="Open in new window")
 
     class Meta:
         template = 'wagtailnhsukfrontend/action_link.html'
