@@ -5,7 +5,8 @@ from wagtail.core.blocks import (
     ChoiceBlock,
     ListBlock,
     IntegerBlock,
-    BooleanBlock
+    BooleanBlock,
+    RegexBlock
 )
 
 class FormFieldChoiceBlock(StructBlock):
@@ -18,6 +19,8 @@ class FormFieldChoiceGroupBlock(StreamBlock):
 class BaseFormFieldBlock(StructBlock):
     label = CharBlock(required=True)
     hint = CharBlock(required=False)
+    name = RegexBlock(regex=r'^[A-Za-z0-9-_]+$', required=False,
+                    error_messages={'invalid': 'Valid characters: A-Z, a-z, 0-9, - and _'})
     required = BooleanBlock(required=False, default=True)
     disabled = BooleanBlock(required=False, default=False)
     validator = CharBlock(required=False)

@@ -113,6 +113,8 @@ class FormCreator(forms.Form):
         super(FormCreator, self).__init__(*args, **kwargs)
         
         for i, field in enumerate(fields):
-            field_name = 'form_field_{}'.format(i)
+            field_name = field.get('value', {}).get('name', None)
+            if not field_name:
+                field_name = 'form_field_{}'.format(i)
             self.fields[field_name] = self.field_selector.get_field(field)
             

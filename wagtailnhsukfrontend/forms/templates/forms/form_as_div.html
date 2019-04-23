@@ -5,25 +5,25 @@
 {% for field in form %}
   <div class="nhsuk-form-group{% if field.errors %} nhsuk-form-group--error{% endif %}">
     {% if field.fieldset %}
-      <fieldset class="nhsuk-fieldset" aria-describedby="nationality-hint">
-        <legend class="nhsuk-fieldset__legend">
+      <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend" id="{{ field.name }}-label">
           {{ field.fieldset|safe }}
         </legend>
     {% endif %}
         {% if not field.fieldset and field.label %}
-          <label class="nhsuk-label" for="{{ field.id_for_label }}">
+          <label class="nhsuk-label" for="{{ field.id_for_label }}" id="{{ field.name }}-label">
             {{ field.label }}
           </label>
         {% endif %}
         
         {% if field.help_text %}
-          <span class="nhsuk-hint">
+          <span class="nhsuk-hint" id="{{ field.name }}-hint">
             {{ field.help_text|safe }}
           </span>
         {% endif %}
 
         {% for error in field.errors %}
-          <span class="nhsuk-error-message">
+          <span class="nhsuk-error-message" id="{{ field.name }}-error">
             {{ error }}
           </span>
         {% endfor %}
