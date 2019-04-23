@@ -49,7 +49,7 @@ Use templatetags
 <html>
 ...
 <body>
-  {% breadcrumbs %}
+  {% breadcrumb %}
 </body>
 </html>
 ```
