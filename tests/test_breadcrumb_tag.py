@@ -1,7 +1,7 @@
 import pytest
 from wagtail.core.models import Page
 
-from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import breadcrumbs
+from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import breadcrumb
 
 
 def get_breadcrumb_context(page):
@@ -10,7 +10,7 @@ def get_breadcrumb_context(page):
         'page': page,
     }
     # The breadcrumb tag is an inclusion_tag which returns a new context.
-    new_context = breadcrumbs(fake_context)
+    new_context = breadcrumb(fake_context)
     return new_context['breadcrumb_pages']
 
 

@@ -4,7 +4,7 @@ register = template.Library()
 
 
 @register.inclusion_tag('wagtailnhsukfrontend/breadcrumb.html', takes_context=True)
-def breadcrumbs(context):
+def breadcrumb(context):
     """
     Generates an array of pages which are passed to the breadcrumb template.
     """
