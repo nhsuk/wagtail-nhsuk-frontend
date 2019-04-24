@@ -5,6 +5,5 @@ testapp/media/images
 __pycache__
 .project
 .pydevproject
-build
 .eggs/
 .pytest_cache/
