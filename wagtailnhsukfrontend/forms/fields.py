@@ -62,7 +62,7 @@ class TextInput(forms.CharField):
         self._set_classes(width)
         self._set_aria(name, help_text)
         super().__init__(widget=forms.TextInput(attrs=self.attrs),
-                         **kwargs)
+                         help_text=help_text, **kwargs)
         
     def _set_classes(self, width):
         self.attrs['class'] = 'nhsuk-input'
