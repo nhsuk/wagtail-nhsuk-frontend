@@ -10,7 +10,7 @@ from django.forms.fields import FileField
 
 class FieldSelector(object):
     
-    def get_field(self, field):
+    def get_field(self, field, name):
         type = field['type']
         attrs = field.get('value', {})
         label = attrs.get('label', '')
@@ -42,7 +42,8 @@ class FieldSelector(object):
                              width=width,
                              disabled=disabled,
                              error_messages=error_messages,
-                             validators=[regex_validator])
+                             validators=[regex_validator],
+                             name=name)
             
         elif type == 'select':
             choices = self._get_choices(attrs)
@@ -52,7 +53,8 @@ class FieldSelector(object):
                           choices=choices,
                           disabled=disabled,
                           error_messages=error_messages,
-                          validators=[regex_validator])
+                          validators=[regex_validator],
+                          name=name)
             
         elif type == 'textarea':
             rows = attrs.get('rows')
@@ -62,7 +64,8 @@ class FieldSelector(object):
                             rows=rows,
                             disabled=disabled,
                             error_messages=error_messages,
-                            validators=[regex_validator])
+                            validators=[regex_validator],
+                            name=name)
             
         elif type == 'checkbox':
             choices = self._get_choices(attrs)
@@ -72,7 +75,8 @@ class FieldSelector(object):
                             choices=choices,
                             disabled=disabled,
                             error_messages=error_messages,
-                            validators=[regex_validator_multi])
+                            validators=[regex_validator_multi],
+                            name=name)
             
         elif type == 'radio':
             choices = self._get_choice_groups(attrs)
@@ -84,7 +88,8 @@ class FieldSelector(object):
                          disabled=disabled,
                          inline=inline,
                          error_messages=error_messages,
-                         validators=[regex_validator])
+                         validators=[regex_validator],
+                         name=name)
     
     @staticmethod
     def _get_choices(attrs):
@@ -118,7 +123,7 @@ class FormCreator(forms.Form):
             field_name = field.get('value', {}).get('name', None)
             if not field_name:
                 field_name = 'form_field_{}'.format(i)
-            self.fields[field_name] = self.field_selector.get_field(field)
+            self.fields[field_name] = self.field_selector.get_field(field, field_name)
             
     def _clean_fields(self):
         for name, field in self.fields.items():
