@@ -10,6 +10,7 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtailnhsukfrontend.forms.creator import FormCreator
 from wagtailnhsukfrontend.forms.blocks import FormFieldBlock
 
+
 class ActionLinkBlock(StructBlock):
 
     text = CharBlock(label="link text", required=True)
@@ -110,6 +111,7 @@ class ImageBlock(StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/image.html'
+
 
 class FormBlock(StructBlock):
 

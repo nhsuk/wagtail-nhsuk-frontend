@@ -56,8 +56,8 @@ class PaginationPage(Page):
     A page type to show the pagination component usage
     """
 
-class FormPage(Page):
 
+class FormPage(Page):
     body = StreamField([
         ('form', FormBlock()),
         ('action_link', ActionLinkBlock())

@@ -12,6 +12,7 @@ TESTING_REQUIRES = [
 
 ]
 
+
 class CompileCSSCommand(build):
     """Combine CSS from the frontend library with our wagtail-specific fixes"""
 

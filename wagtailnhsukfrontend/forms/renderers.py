@@ -1,6 +1,6 @@
 import os
 import django
-from django.forms.renderers import TemplatesSetting, EngineMixin, BaseRenderer
+from django.forms.renderers import EngineMixin, BaseRenderer
 from django.template.backends.django import DjangoTemplates
 from django.utils.functional import cached_property
 

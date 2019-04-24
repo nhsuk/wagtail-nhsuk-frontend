@@ -9,23 +9,27 @@ from wagtail.core.blocks import (
     RegexBlock
 )
 
+
 class FormFieldChoiceBlock(StructBlock):
     name = CharBlock(required=True)
     value = CharBlock(required=True)
-    
+
+
 class FormFieldChoiceGroupBlock(StreamBlock):
     choice_groups = ListBlock(FormFieldChoiceBlock())
-    
+
+
 class BaseFormFieldBlock(StructBlock):
     label = CharBlock(required=True)
     hint = CharBlock(required=False)
     name = RegexBlock(regex=r'^[A-Za-z0-9-_]+$', required=False,
-                    error_messages={'invalid': 'Valid characters: A-Z, a-z, 0-9, - and _'})
+                      error_messages={'invalid': 'Valid characters: A-Z, a-z, 0-9, - and _'})
     required = BooleanBlock(required=False, default=True)
     disabled = BooleanBlock(required=False, default=False)
     validator = CharBlock(required=False)
     missing_field_error_message = CharBlock(required=False, default='This field is required')
     validation_error_message = CharBlock(required=False, default='Validation error')
+
 
 class InputBlock(BaseFormFieldBlock):
     width = ChoiceBlock([
@@ -38,38 +42,42 @@ class InputBlock(BaseFormFieldBlock):
     ],
         required=False,
         default=None)
-    
+
     class Meta:
         icon = 'italic'
-    
-    
+
+
 class SelectBlock(BaseFormFieldBlock):
     choices = ListBlock(FormFieldChoiceBlock, required=True)
-    
+
     class Meta:
         icon = 'list-ul'
-    
+
+
 class TextareaBlock(BaseFormFieldBlock):
     rows = IntegerBlock(required=False,
                         min_value=1,
                         default=5)
-    
+
     class Meta:
         icon = 'doc-full'
-    
+
+
 class CheckboxBlock(BaseFormFieldBlock):
     choices = ListBlock(FormFieldChoiceBlock, required=True)
-    
+
     class Meta:
         icon = 'tick'
-    
+
+
 class RadioBlock(BaseFormFieldBlock):
     choices = FormFieldChoiceGroupBlock()
     inline = BooleanBlock(required=False)
-    
+
     class Meta:
         icon = 'radio-empty'
-           
+
+
 class FormFieldBlock(StreamBlock):
     text_input = InputBlock()
     select = SelectBlock()

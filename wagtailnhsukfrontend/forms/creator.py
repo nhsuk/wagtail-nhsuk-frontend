@@ -1,15 +1,13 @@
 from django import forms
 from wagtailnhsukfrontend.forms.fields import TextInput, Select, TextArea, \
-Checkbox, Radio
-import uuid
+    Checkbox, Radio
 import re
 from django.core.exceptions import ValidationError
 from django.forms.fields import FileField
 
 
-
 class FieldSelector(object):
-    
+
     def get_field(self, field, name):
         type = field['type']
         attrs = field.get('value', {})
@@ -24,16 +22,16 @@ class FieldSelector(object):
             'required': attrs.get('missing_field_error_message',
                                   'This field is required')
         }
-        
+
         def regex_validator(value):
             if not validator_regex.match(value):
                 raise forms.ValidationError(validation_error_message)
-            
+
         def regex_validator_multi(values):
             for value in values:
                 if not validator_regex.match(value):
                     raise forms.ValidationError(validation_error_message)
-        
+
         if type == 'text_input':
             width = attrs.get('width')
             return TextInput(label=label,
@@ -44,7 +42,7 @@ class FieldSelector(object):
                              error_messages=error_messages,
                              validators=[regex_validator],
                              name=name)
-            
+
         elif type == 'select':
             choices = self._get_choices(attrs)
             return Select(label=label,
@@ -55,7 +53,7 @@ class FieldSelector(object):
                           error_messages=error_messages,
                           validators=[regex_validator],
                           name=name)
-            
+
         elif type == 'textarea':
             rows = attrs.get('rows')
             return TextArea(label=label,
@@ -66,7 +64,7 @@ class FieldSelector(object):
                             error_messages=error_messages,
                             validators=[regex_validator],
                             name=name)
-            
+
         elif type == 'checkbox':
             choices = self._get_choices(attrs)
             return Checkbox(label=label,
@@ -77,7 +75,7 @@ class FieldSelector(object):
                             error_messages=error_messages,
                             validators=[regex_validator_multi],
                             name=name)
-            
+
         elif type == 'radio':
             choices = self._get_choice_groups(attrs)
             inline = attrs.get('inline', False)
@@ -90,14 +88,14 @@ class FieldSelector(object):
                          error_messages=error_messages,
                          validators=[regex_validator],
                          name=name)
-    
+
     @staticmethod
     def _get_choices(attrs):
         choices = []
         for choice in attrs.get('choices', []):
             choices.append((choice.get('value'), choice.get('name')))
         return choices
-    
+
     @staticmethod
     def _get_choice_groups(attrs):
         choices = []
@@ -107,24 +105,21 @@ class FieldSelector(object):
                 group.append((choice.get('value'), choice.get('name')))
             choices.append(('group', group))
         return choices
-    
-    
-    
-    
+
 
 class FormCreator(forms.Form):
-    
+
     def __init__(self, *args, **kwargs):
         fields = kwargs.pop('form_fields').stream_data
         self.field_selector = FieldSelector()
         super(FormCreator, self).__init__(*args, **kwargs)
-        
+
         for i, field in enumerate(fields):
             field_name = field.get('value', {}).get('name', None)
             if not field_name:
                 field_name = 'form_field_{}'.format(i)
             self.fields[field_name] = self.field_selector.get_field(field, field_name)
-            
+
     def _clean_fields(self):
         for name, field in self.fields.items():
             # value_from_datadict() gets the data from the data dictionaries.
@@ -147,13 +142,12 @@ class FormCreator(forms.Form):
             except ValidationError as e:
                 self._add_error_class(field, name)
                 self.add_error(name, e)
-    
+
     def _add_error_class(self, field, name):
         if field.error_class:
             field.widget.attrs['class'] += ' {}'.format(field.error_class)
-            
+
         if field.widget.attrs.get('aria-describedby', None):
             field.widget.attrs['aria-describedby'] += ' {}-error'.format(name)
         else:
             field.widget.attrs['aria-describedby'] = '{}-error'.format(name)
-        
