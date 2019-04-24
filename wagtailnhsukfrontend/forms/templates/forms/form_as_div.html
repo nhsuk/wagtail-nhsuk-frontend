@@ -27,14 +27,7 @@
             {{ error }}
           </span>
         {% endfor %}
-
-        {% if field.errors %}
-          <div class="wagtail-nhsuk-form-error">
-            {{ field }}
-          </div>
-        {% else %}
-          {{ field }}
-        {% endif %}
+        {{ field }}
     {% if field.fieldset %}
       </fieldset>
     {% endif %}

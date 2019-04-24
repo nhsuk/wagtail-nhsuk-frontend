@@ -1,5 +1,5 @@
 {% load nhsukfrontendforms_tags %}
 
-{% with widget=widget|add_class:"nhsuk-textarea" %}
+{% with widget=widget %}
   <textarea name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>{% if widget.value %}{{ widget.value }}{% endif %}</textarea>
 {% endwith %}

@@ -12,8 +12,27 @@ TESTING_REQUIRES = [
 
 ]
 
+class CompileCSSCommand(build):
+    """Combine CSS from the frontend library with our wagtail-specific fixes"""
+
+    def run(self):
+        filepath_base = 'wagtailnhsukfrontend/static/wagtailnhsukfrontend/css/'
+        filenames = [
+            'nhsuk-2.1.0.min.css',
+            'fixes.css',
+        ]
+
+        with open(filepath_base + 'wagtail-nhsuk-frontend.min.css', 'w') as outfile:
+            for fname in filenames:
+                with open(filepath_base + fname) as infile:
+                    for line in infile:
+                        outfile.write(line)
+
 
 setup(
+    cmdclass={
+        'build': CompileCSSCommand,
+    },
     name="wagtail-nhsuk-frontend",
     version="0.2.0",
     description="NHSUK Frontend Styles for Wagtail",
@@ -26,12 +45,4 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     extras_require={'testing': TESTING_REQUIRES},
-    setup_requires=['libsass >= 0.6.0'],
-    sass_manifests={
-        'wagtailnhsukfrontend': {
-            'sass_path': 'static/wagtailnhsukfrontend/sass',
-            'css_path': 'static/wagtailnhsukfrontend/css',
-            'strip_extension': True,
-        }
-    }
 )
