@@ -54,6 +54,7 @@ jobs:
 
   - script: |
       nohup python testapp/manage.py runserver 0.0.0.0:8080 &>/dev/null &
+      export HEADLESS_MODE=True
       pytest tests/selenium/
     displayName: 'Selenium tests'
 

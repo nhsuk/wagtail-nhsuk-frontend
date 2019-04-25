@@ -1,19 +1,12 @@
-import unittest
-from selenium import webdriver
 from selenium.webdriver.support.ui import Select
-from selenium.webdriver.chrome.options import Options
+from tests.selenium.selenium_test_case import SeleniumTestCase
 
 
-class FormStreamfieldBlockTests(unittest.TestCase):
+class FormStreamfieldBlockTests(SeleniumTestCase):
 
     def setUp(self):
-        options = Options()
-        options.add_argument('--headless')
-        self.driver = webdriver.Chrome(executable_path='./chromedriver', options=options)
+        super(FormStreamfieldBlockTests, self).setUp()
         self.driver.get('http://localhost:8080/form-page/')
-
-    def tearDown(self):
-        self.driver.close()
 
     def test_label_map(self):
         """
