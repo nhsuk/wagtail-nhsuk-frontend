@@ -45,6 +45,12 @@ jobs:
       python testapp/manage.py loaddata testapp/testdata.json
     displayName: 'Testapp fixture is installable'
 
+  - task: PublishTestResults@2
+    condition: succeededOrFailed()
+    inputs:
+      testResultsFiles: '**/test-*.xml'
+      testRunTitle: 'Publish test results for Python $(python.version)'
+
 - job: 'Build'
   dependsOn: 'Test'
   pool:
