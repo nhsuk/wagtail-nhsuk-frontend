@@ -202,5 +202,6 @@ class FormStreamfieldBlockTests(unittest.TestCase):
                 label.click()
                 break
 
+
 if __name__ == '__main__':
     unittest.main(warnings='ignore')
