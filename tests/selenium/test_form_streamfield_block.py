@@ -1,5 +1,6 @@
 from selenium.webdriver.support.ui import Select
 from tests.selenium.selenium_test_case import SeleniumTestCase
+import unittest
 
 
 class FormStreamfieldBlockTests(SeleniumTestCase):
