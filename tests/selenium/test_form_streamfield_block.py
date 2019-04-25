@@ -9,7 +9,7 @@ class FormStreamfieldBlockTests(unittest.TestCase):
     def setUp(self):
         options = Options()
         options.add_argument('--headless')
-        self.driver = webdriver.Chrome(executable_path='chromedriver', chrome_options=options)
+        self.driver = webdriver.Chrome(executable_path='./chromedriver', chrome_options=options)
         self.driver.get('http://localhost:8080/form-page/')
 
     def tearDown(self):
