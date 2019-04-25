@@ -26,9 +26,20 @@ jobs:
       architecture: 'x64'
 
   - script: |
+      curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
+      echo "deb [arch=amd64]  http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+      apt-get -y update
+      apt-get -y install google-chrome-stable
+      wget https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_linux64.zip
+      unzip chromedriver_linux64.zip
+      chmod +x chromedriver
+    displayName: 'Setup selenium'
+
+  - script: |
       python -m pip install --upgrade pip
       pip install -r requirements.txt
       cd testapp && pip install -r requirements.txt
+      pip install selenium
     displayName: 'Install dependencies'
 
   - script: flake8
@@ -44,6 +55,12 @@ jobs:
       python testapp/manage.py migrate
       python testapp/manage.py loaddata testapp/testdata.json
     displayName: 'Testapp fixture is installable'
+
+  - script: |
+      nohup "python testapp/manage.py runserver 0.0.0.0:8080" &>/dev/null &
+      nohup "./chromedriver" &>/dev/null &
+      pytest tests/integration/
+    displayName: 'Integration tests'
 
 - job: 'Build'
   dependsOn: 'Test'
