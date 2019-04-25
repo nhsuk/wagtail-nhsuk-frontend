@@ -2,14 +2,15 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.chrome.options import Options
 
 
 class FormStreamfieldBlockTests(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Remote(
-            command_executor='http://127.0.0.1:9515',
-            desired_capabilities=DesiredCapabilities.CHROME)
+        options = Options()
+        options.add_argument('--headless')
+        self.driver = webdriver.Chrome(executable_path='chromedriver', chrome_options=options)
         self.driver.get('http://localhost:8080/form-page/')
 
     def tearDown(self):
