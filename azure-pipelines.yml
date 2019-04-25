@@ -34,7 +34,7 @@ jobs:
   - script: flake8
     displayName: 'linting'
 
-  - script: pytest
+  - script: pytest tests/unit/
     displayName: 'Unit tests'
 
   - script: python testapp/manage.py makemigrations --check --dry-run
@@ -44,12 +44,6 @@ jobs:
       python testapp/manage.py migrate
       python testapp/manage.py loaddata testapp/testdata.json
     displayName: 'Testapp fixture is installable'
-
-  - task: PublishTestResults@2
-    condition: succeededOrFailed()
-    inputs:
-      testResultsFiles: '**/test-*.xml'
-      testRunTitle: 'Publish test results for Python $(python.version)'
 
 - job: 'Build'
   dependsOn: 'Test'
