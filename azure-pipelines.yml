@@ -53,10 +53,10 @@ jobs:
     displayName: 'Testapp fixture is installable'
 
   - script: |
-      nohup "python testapp/manage.py runserver 0.0.0.0:8080" &>/dev/null &
-      nohup "./chromedriver" &>/dev/null &
-      pytest tests/integration/
-    displayName: 'Integration tests'
+      nohup python testapp/manage.py runserver 0.0.0.0:8080 &>/dev/null &
+      nohup ./chromedriver &>/dev/null &
+      pytest tests/selenium/
+    displayName: 'Selenium tests'
 
 - job: 'Build'
   dependsOn: 'Test'
