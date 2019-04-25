@@ -1,10 +1,8 @@
 # Wagtail NHS.UK frontend
 
-A wagtail implementation of the [NHS frontend v1.0.0](https://github.com/nhsuk/nhsuk-frontend) standard components.
+A wagtail implementation of the [NHS frontend v2.1.0](https://github.com/nhsuk/nhsuk-frontend) standard components.
 
-# Installation
-
-*This package hasn't been published to pypi yet, the pip install step will not work yet.*
+## Installation
 
 Install the pypi package
 ```
@@ -68,9 +66,13 @@ Include the CSS in your base template
 
 Include the Javascript in your base template
 ```html
-  <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-1.0.0.min.js' %}" defer></script>
+  <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-2.1.0.min.js' %}" defer></script>
 ```
 
-# Further reading
+## Contributing 
+
+See the [contributing documentation](./docs/contributing.md) to run the application locally and contribute changes.
+
+## Further reading
 
 See more [documentation](./docs/)

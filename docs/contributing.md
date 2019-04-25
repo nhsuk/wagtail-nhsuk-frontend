@@ -1,20 +1,73 @@
 # Contributing
 
-## The test app
+## Running the application locally
 
-There is a test app inside the `testapp` directory. It is a default wagtail
-installation with the wagtail-nhs-style app installed.
+### Requirements: 
 
-CSS must be built by running `python setup.py build` in the project root directory.
+To run the Wagtail CMS locally you'll need:
 
-Install the test app dependencies by running `pip install -r requirements.txt` in the `testapp` directory. This will install the local `wagtailnhsukfrontend` module in [edit mode](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) so that you can make changes to the module and see them immediately in the testapp.
+- [Python 3.x](https://www.python.org/downloads/)
+- [Pip](https://pypi.org/project/pip/) - if you have Python version 3.4 or later, PIP is included by default.
 
-Run `python manage.py runserver 8080` inside the `testapp` directory to start
-the app on http://localhost:8080
+> Type `python --version` to check if Python is installed. This should print a version number like "Python 3.7.3".
+
+> Type `pip --version` to check if Pip is installed. This should print a version number and folder path like "pip 19.0.3 from /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pip (python 3.7)"
+
+### 1. Clone the repository
+
+```
+git clone https://github.com/nhsuk/wagtail-nhsuk-frontend.git wagtail-nhsuk-frontend
+```
+
+### 2. Create a virtual environment
+
+Whilst in the `wagtail-nhsuk-frontend` directory:
+
+```
+pipenv shell
+```
+
+### 3. Build the application CSS
+
+```
+python3 setup.py build
+```
+
+### 4. Install dependencies
+
+```
+cd testapp
+```
+
+```
+pip3 install -r requirements.txt
+```
+
+### 5. Run database migrations
+
+```
+python3 manage.py migrate
+```
+
+### 6. Create Wagtail admin user
+
+```
+python3 manage.py createsuperuser
+```
+
+### 7. Start a local server 
+
+```
+python3 manage.py runserver 8080
+```
+
+The application will be available at http://localhost:8080 and the admin panel can be found at http://localhost:8080/admin
+
+## Test data
 
 To install the test fixture, make sure you have an empty but fully migrated database.
 
-Run `python manage.py loaddata testdata.json`.
+Run `python3 manage.py loaddata testdata.json` and rerun the local server `python3 manage.py runserver 8080` 
 
 You should now have sample content pages in your wagtail installation.
 
