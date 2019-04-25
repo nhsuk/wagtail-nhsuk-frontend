@@ -1,6 +1,4 @@
-<div class="nhsuk-panel{% if value.labeled_title %}-with-label{% endif %}">
-  {% if value.labeled_title %}
-  <h3 class="nhsuk-panel-with-label__label">{{ value.labeled_title }}</h3>
-  {% endif %} 
+<div class="nhsuk-panel{% if value.label and not grey %}-with-label{% endif %}{% if grey %} nhsuk-panel--grey {% endif %}">
+  {% if value.label %} <h{{ value.heading_level }} {% if value.label and not grey %} class="nhsuk-panel-with-label__label">{% endif %}{%if grey %}>{% endif %}{{ value.label }}</h{{ value.heading_level }}> {% endif %}
   {{ value.body }}
 </div>
