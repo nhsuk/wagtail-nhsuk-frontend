@@ -1,5 +1,5 @@
 from django import template
-from wagtailnhsukfrontend.settings.models import HeaderSettings, EmergencyAlert
+from wagtailnhsukfrontend.settings.models import HeaderSettings, EmergencyAlert, FooterSettings
 
 register = template.Library()
 
@@ -42,4 +42,22 @@ def emergency_alert(context):
         'href': alert.link_url,
         'label': alert.link_label,
         'last_updated': alert.last_updated,
+    }
+
+
+@register.inclusion_tag("wagtailnhsukfrontend/footer.html", takes_context=True)
+def footer(context):
+    page = context['page']
+    site = page.get_site()
+    footer = FooterSettings.for_site(site)
+
+    return {
+        'primary_links': [
+            {
+                'label': link.link_label,
+                'url': link.link_url
+            }
+            for link in footer.footer_links.all()
+        ],
+
     }
