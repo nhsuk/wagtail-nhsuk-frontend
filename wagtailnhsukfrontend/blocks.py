@@ -157,7 +157,6 @@ class ImageBlock(FlattenValueContext, StructBlock):
 
 
 class BasePromoBlock(FlattenValueContext, StructBlock):
-
     url = URLBlock(label="URL", required=True)
     heading = CharBlock(required=True)
     description = CharBlock(required=False)
@@ -188,7 +187,6 @@ class PromoBlock(BasePromoBlock):
 
 
 class PromoGroupBlock(FlattenValueContext, StructBlock):
-
     column = ChoiceBlock([
         ('one-half', 'One-half'),
         ('one-third', 'One-third'),
