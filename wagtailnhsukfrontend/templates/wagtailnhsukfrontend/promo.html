@@ -1,16 +1,16 @@
 {% load wagtailimages_tags %}
 
- {% image value.content_image width-320 as one_image %}
-{% image value.content_image width-510 as two_image %}
-{% image value.content_image width-640 as three_image %}
-{% image value.content_image width-767 as four_image %}
-{% image value.content_image width-1019 as five_image %}
-{% image value.content_image width-1125 as six_image %}
-{% image value.content_image width-1534 as seven_image %}
+{% image content_image width-320 as one_image %}
+{% image content_image width-510 as two_image %}
+{% image content_image width-640 as three_image %}
+{% image content_image width-767 as four_image %}
+{% image content_image width-1019 as five_image %}
+{% image content_image width-1125 as six_image %}
+{% image content_image width-1534 as seven_image %}
 
  <div class="nhsuk-promo{{ type }}" >
-  <a class="nhsuk-promo__link-wrapper" href="{{value.url}}">
-  {% if value.content_image %}
+  <a class="nhsuk-promo__link-wrapper" href="{{url}}">
+  {% if content_image %}
   <img 
   class="nhsuk-promo__img" 
   src="{{ one_image.url }}"
@@ -27,14 +27,14 @@
        {{six_image.url}} 1125w,
        {{seven_image.url}} 1534w,
     "
-  alt="{{value.alt_text}}"
+  alt="{{alt_text}}"
   />
 
    {% endif %}
     <div class="nhsuk-promo__content">
-      <h3 class="nhsuk-promo__heading">{{value.heading}}</h3>
-      {% if value.description %}
-      <p class="nhsuk-promo__description">{{value.description}}</p>
+      <h3 class="nhsuk-promo__heading">{{heading}}</h3>
+      {% if description %}
+      <p class="nhsuk-promo__description">{{description}}</p>
       {% endif %}
     </div>
   </a>
