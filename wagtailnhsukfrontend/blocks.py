@@ -1,11 +1,12 @@
 from wagtail.core.blocks import (
+    BooleanBlock,
     CharBlock,
     ChoiceBlock,
+    IntegerBlock,
     RichTextBlock,
     StructBlock,
     URLBlock,
     ListBlock,
-    IntegerBlock,
 )
 from wagtail.images.blocks import ImageChooserBlock
 from wagtailnhsukfrontend.forms.creator import FormCreator
@@ -16,6 +17,7 @@ class ActionLinkBlock(StructBlock):
 
     text = CharBlock(label="Link text", required=True)
     external_url = URLBlock(label="URL", required=True)
+    new_window = BooleanBlock(required=False, label="Open in new window")
 
     class Meta:
         template = 'wagtailnhsukfrontend/action_link.html'
@@ -24,10 +26,11 @@ class ActionLinkBlock(StructBlock):
 class CareCardBlock(StructBlock):
 
     type = ChoiceBlock([
-        ('primary', 'Primary'),
+        ('primary', 'Non-urgent'),
         ('urgent', 'Urgent'),
         ('immediate', 'Immediate'),
-    ], required=True)
+    ], required=True, default='primary',)
+    heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
     title = CharBlock(required=True)
     body = RichTextBlock(required=True)
 
@@ -47,6 +50,7 @@ class CareCardBlock(StructBlock):
 class WarningCalloutBlock(StructBlock):
 
     title = CharBlock(required=True, default='Important')
+    heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
     body = RichTextBlock(required=True)
 
     class Meta:
@@ -86,11 +90,33 @@ class ExpanderGroupBlock(StructBlock):
 
 class PanelBlock(StructBlock):
 
-    labeled_title = CharBlock(required=False)
+    label = CharBlock(required=False)
+    heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
     body = RichTextBlock(required=True)
 
     class Meta:
         template = 'wagtailnhsukfrontend/panel.html'
+
+
+class GreyPanelBlock(StructBlock):
+
+    label = CharBlock(label='heading', required=False)
+    heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no heading. Default=3, Min=2, Max=4.')
+    body = RichTextBlock(required=True)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/grey_panel.html'
+
+
+class PanelListBlock(StructBlock):
+
+    panels = ListBlock(StructBlock([
+        ('left_panel', PanelBlock()),
+        ('right_panel', PanelBlock()),
+    ]))
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/panel_list.html'
 
 
 class DoBlock(StructBlock):
