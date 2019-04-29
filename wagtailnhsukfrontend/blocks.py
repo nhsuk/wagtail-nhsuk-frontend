@@ -156,7 +156,11 @@ class ImageBlock(FlattenValueContext, StructBlock):
         template = 'wagtailnhsukfrontend/image.html'
 
 
+<<<<<<< HEAD
 class BasePromoBlock(FlattenValueContext, StructBlock):
+=======
+class BasePromoBlock(StructBlock):
+>>>>>>> 88a5803c548a2c09d1e3ead2a52681c6dfdf380e
 
     url = URLBlock(label="URL", required=True)
     heading = CharBlock(required=True)
@@ -187,7 +191,11 @@ class PromoBlock(BasePromoBlock):
         template = 'wagtailnhsukfrontend/promo.html'
 
 
+<<<<<<< HEAD
 class PromoGroupBlock(FlattenValueContext, StructBlock):
+=======
+class PromoGroupBlock(StructBlock):
+>>>>>>> 88a5803c548a2c09d1e3ead2a52681c6dfdf380e
 
     column = ChoiceBlock([
         ('one-half', 'One-half'),
