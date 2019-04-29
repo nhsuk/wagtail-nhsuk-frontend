@@ -9,7 +9,7 @@ INSTALL_REQUIRES = [
 ]
 
 TESTING_REQUIRES = [
-
+    'beautifulsoup4==4.7.1'
 ]
 
 

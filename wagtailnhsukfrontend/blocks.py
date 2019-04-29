@@ -11,7 +11,16 @@ from wagtail.core.blocks import (
 from wagtail.images.blocks import ImageChooserBlock
 
 
-class ActionLinkBlock(StructBlock):
+class FlattenValueContext:
+    """NHS.UK StructBlock mixin that flattens `value` for re-usability of templates"""
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context)
+        context.update(value)
+        return context
+
+
+class ActionLinkBlock(FlattenValueContext, StructBlock):
 
     text = CharBlock(label="Link text", required=True)
     external_url = URLBlock(label="URL", required=True)
@@ -21,7 +30,7 @@ class ActionLinkBlock(StructBlock):
         template = 'wagtailnhsukfrontend/action_link.html'
 
 
-class CareCardBlock(StructBlock):
+class CareCardBlock(FlattenValueContext, StructBlock):
 
     type = ChoiceBlock([
         ('primary', 'Non-urgent'),
@@ -45,7 +54,7 @@ class CareCardBlock(StructBlock):
         template = 'wagtailnhsukfrontend/care_card.html'
 
 
-class WarningCalloutBlock(StructBlock):
+class WarningCalloutBlock(FlattenValueContext, StructBlock):
 
     title = CharBlock(required=True, default='Important')
     heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
@@ -55,7 +64,7 @@ class WarningCalloutBlock(StructBlock):
         template = 'wagtailnhsukfrontend/warning_callout.html'
 
 
-class InsetTextBlock(StructBlock):
+class InsetTextBlock(FlattenValueContext, StructBlock):
 
     body = RichTextBlock(required=True)
 
@@ -63,7 +72,7 @@ class InsetTextBlock(StructBlock):
         template = 'wagtailnhsukfrontend/inset_text.html'
 
 
-class DetailsBlock(StructBlock):
+class DetailsBlock(FlattenValueContext, StructBlock):
 
     title = CharBlock(required=True)
     body = RichTextBlock(required=True)
@@ -78,7 +87,7 @@ class ExpanderBlock(DetailsBlock):
         template = 'wagtailnhsukfrontend/expander.html'
 
 
-class ExpanderGroupBlock(StructBlock):
+class ExpanderGroupBlock(FlattenValueContext, StructBlock):
 
     expanders = ListBlock(ExpanderBlock)
 
@@ -86,7 +95,7 @@ class ExpanderGroupBlock(StructBlock):
         template = 'wagtailnhsukfrontend/expander_group.html'
 
 
-class PanelBlock(StructBlock):
+class PanelBlock(FlattenValueContext, StructBlock):
 
     label = CharBlock(required=False)
     heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
@@ -96,7 +105,7 @@ class PanelBlock(StructBlock):
         template = 'wagtailnhsukfrontend/panel.html'
 
 
-class GreyPanelBlock(StructBlock):
+class GreyPanelBlock(FlattenValueContext, StructBlock):
 
     label = CharBlock(label='heading', required=False)
     heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no heading. Default=3, Min=2, Max=4.')
@@ -106,7 +115,7 @@ class GreyPanelBlock(StructBlock):
         template = 'wagtailnhsukfrontend/grey_panel.html'
 
 
-class PanelListBlock(StructBlock):
+class PanelListBlock(FlattenValueContext, StructBlock):
 
     panels = ListBlock(StructBlock([
         ('left_panel', PanelBlock()),
@@ -117,7 +126,7 @@ class PanelListBlock(StructBlock):
         template = 'wagtailnhsukfrontend/panel_list.html'
 
 
-class DoBlock(StructBlock):
+class DoBlock(FlattenValueContext, StructBlock):
 
     heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
 
@@ -127,7 +136,7 @@ class DoBlock(StructBlock):
         template = 'wagtailnhsukfrontend/do_list.html'
 
 
-class DontBlock(StructBlock):
+class DontBlock(FlattenValueContext, StructBlock):
 
     heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
 
@@ -137,7 +146,7 @@ class DontBlock(StructBlock):
         template = 'wagtailnhsukfrontend/dont_list.html'
 
 
-class ImageBlock(StructBlock):
+class ImageBlock(FlattenValueContext, StructBlock):
 
     content_image = ImageChooserBlock(required=True)
     alt_text = CharBlock(required=False, help_text="Only leave this blank if the image is decorative.")
