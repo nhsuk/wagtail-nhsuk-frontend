@@ -21,6 +21,8 @@ from wagtailnhsukfrontend.blocks import (
     PanelBlock,
     PanelListBlock,
     WarningCalloutBlock,
+    PromoBlock,
+    PromoGroupBlock,
 )
 
 
@@ -59,3 +61,14 @@ class PaginationPage(Page):
     """
     A page type to show the pagination component usage
     """
+
+
+class HubsPage(Page):
+
+    body = StreamField([
+        ('promo', PromoBlock()),
+        ('promo_group', PromoGroupBlock()),
+    ])
+    content_panels = Page.content_panels + [
+        StreamFieldPanel('body'),
+    ]
