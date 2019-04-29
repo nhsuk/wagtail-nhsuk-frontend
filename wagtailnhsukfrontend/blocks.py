@@ -5,6 +5,7 @@ from wagtail.core.blocks import (
     StructBlock,
     URLBlock,
     ListBlock,
+    IntegerBlock,
 )
 from wagtail.images.blocks import ImageChooserBlock
 from wagtailnhsukfrontend.forms.creator import FormCreator
@@ -13,8 +14,8 @@ from wagtailnhsukfrontend.forms.blocks import FormFieldBlock
 
 class ActionLinkBlock(StructBlock):
 
-    text = CharBlock(label="link text", required=True)
-    external_url = URLBlock(label="external URL", required=True)
+    text = CharBlock(label="Link text", required=True)
+    external_url = URLBlock(label="URL", required=True)
 
     class Meta:
         template = 'wagtailnhsukfrontend/action_link.html'
@@ -43,13 +44,18 @@ class CareCardBlock(StructBlock):
         template = 'wagtailnhsukfrontend/care_card.html'
 
 
-class WarningCalloutBlock(RichTextBlock):
+class WarningCalloutBlock(StructBlock):
+
+    title = CharBlock(required=True, default='Important')
+    body = RichTextBlock(required=True)
 
     class Meta:
         template = 'wagtailnhsukfrontend/warning_callout.html'
 
 
-class InsetTextBlock(RichTextBlock):
+class InsetTextBlock(StructBlock):
+
+    body = RichTextBlock(required=True)
 
     class Meta:
         template = 'wagtailnhsukfrontend/inset_text.html'
@@ -89,6 +95,8 @@ class PanelBlock(StructBlock):
 
 class DoBlock(StructBlock):
 
+    heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+
     do = ListBlock(RichTextBlock)
 
     class Meta:
@@ -96,6 +104,8 @@ class DoBlock(StructBlock):
 
 
 class DontBlock(StructBlock):
+
+    heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
 
     dont = ListBlock(RichTextBlock)
 
