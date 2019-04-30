@@ -24,6 +24,9 @@ from wagtailnhsukfrontend.blocks import (
     FormBlock
 )
 
+from wagtailnhsukfrontend.forms.blocks import FormFieldBlock
+from wagtailnhsukfrontend.forms.creator import FormCreator
+from django.shortcuts import render
 
 class HomePage(HeroMixin, ReviewDateMixin, Page):
 
@@ -71,3 +74,40 @@ class FormPage(Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
     ]
+    
+    def serve(self, request): 
+        if request.method == 'POST': 
+            return super(FormPage, self).serve(request) 
+        else: 
+                # display the page as usual 
+            return super(FormPage, self).serve(request) 
+
+
+
+class TestFormPage(Page):
+    body = StreamField([
+        ('form', FormFieldBlock()),
+        ('action_link', ActionLinkBlock())
+    ], default=[])
+
+    content_panels = Page.content_panels + [
+        StreamFieldPanel('body'),
+    ]
+    
+    def serve(self, request):
+
+        if request.method == 'POST':
+            form = FormCreator(request.POST, form_fields=self.body.stream_data[0].get('value'))
+            if form.is_valid():
+                flavour = form.cleaned_data
+                return render(request, 'flavours/thankyou.html', {
+                    'page': self,
+                    'flavour': flavour,
+                })
+        else:
+            form = FormCreator(form_fields=self.body.stream_data[0].get('value'))
+
+        return render(request, '/home/lasercut/git/wagtail-nhsuk-frontend/testapp/home/templates/home/test_form_page.html', {
+            'page': self,
+            'form': form,
+        })

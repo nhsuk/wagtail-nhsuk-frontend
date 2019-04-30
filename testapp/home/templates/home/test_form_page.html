@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load nhsukfrontendforms_tags %}
+
+{% block content %}
+   
+ 
+ 
+    <form method="POST" novalidate>
+	   {% csrf_token %}
+	
+	   {% nhsuk_form form %}
+	
+	   <input id="form-submit-button" name="form-submit-button" class="nhsuk-button" type="submit" />
+	 </form>
+{% endblock %}

@@ -110,7 +110,7 @@ class FieldSelector(object):
 class FormCreator(forms.Form):
 
     def __init__(self, *args, **kwargs):
-        fields = kwargs.pop('form_fields').stream_data
+        fields = kwargs.pop('form_fields')
         self.field_selector = FieldSelector()
         super(FormCreator, self).__init__(*args, **kwargs)
 
