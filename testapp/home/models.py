@@ -20,17 +20,31 @@ from wagtailnhsukfrontend.blocks import (
     ImageBlock,
     PanelBlock,
     PanelListBlock,
+    RichTextBlock,
+    StructBlock,
     WarningCalloutBlock,
+    FlattenValueContext
 )
+
+
+class SectionTextBlock(FlattenValueContext, StructBlock):
+    Section_text = RichTextBlock(
+            features=['h2', 'h3', 'h4', 'h5', 'bold', 'italic', 'hr', 'ol', 'ul', 'link', 'document-link'],
+            label='Section Text'
+    )
+    class Meta:
+        template = 'section_text.html'
 
 
 class HomePage(HeroMixin, ReviewDateMixin, Page):
 
     parent_page_types = ['wagtailcore.Page']
 
+
     body = StreamField([
         ('action_link', ActionLinkBlock()),
         ('care_card', CareCardBlock()),
+        ('section_text', SectionTextBlock()),
         ('details', DetailsBlock()),
         ('do_list', DoBlock()),
         ('dont_list', DontBlock()),
