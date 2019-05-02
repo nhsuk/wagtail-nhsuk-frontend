@@ -28,6 +28,7 @@ class ActionLinkBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/action_link.html'
+        group = 'Content blocks'
 
 
 class CareCardBlock(FlattenValueContext, StructBlock):
@@ -52,6 +53,7 @@ class CareCardBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/care_card.html'
+        group = 'Content blocks'
 
 
 class WarningCalloutBlock(FlattenValueContext, StructBlock):
@@ -62,6 +64,7 @@ class WarningCalloutBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/warning_callout.html'
+        group = 'Content blocks'
 
 
 class InsetTextBlock(FlattenValueContext, StructBlock):
@@ -70,6 +73,7 @@ class InsetTextBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/inset_text.html'
+        group = 'Content blocks'
 
 
 class DetailsBlock(FlattenValueContext, StructBlock):
@@ -79,6 +83,7 @@ class DetailsBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/details.html'
+        group = 'Content blocks'
 
 
 class ExpanderBlock(DetailsBlock):
@@ -93,6 +98,7 @@ class ExpanderGroupBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/expander_group.html'
+        group = 'Content blocks'
 
 
 class PanelBlock(FlattenValueContext, StructBlock):
@@ -103,6 +109,7 @@ class PanelBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/panel.html'
+        group = 'Content blocks'
 
 
 class GreyPanelBlock(FlattenValueContext, StructBlock):
@@ -113,6 +120,7 @@ class GreyPanelBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/grey_panel.html'
+        group = 'Content blocks'
 
 
 class PanelListBlock(FlattenValueContext, StructBlock):
@@ -124,6 +132,7 @@ class PanelListBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/panel_list.html'
+        group = 'Content blocks'
 
 
 class DoBlock(FlattenValueContext, StructBlock):
@@ -134,6 +143,7 @@ class DoBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/do_list.html'
+        group = 'Content blocks'
 
 
 class DontBlock(FlattenValueContext, StructBlock):
@@ -144,7 +154,7 @@ class DontBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/dont_list.html'
-
+        group = 'Content blocks'
 
 class ImageBlock(FlattenValueContext, StructBlock):
 
@@ -154,3 +164,4 @@ class ImageBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/image.html'
+        group = 'Content blocks'
