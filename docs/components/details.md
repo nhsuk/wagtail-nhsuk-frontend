@@ -16,5 +16,5 @@ class MyPage(Page):
 
 ## Reference
 
-[Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/details)
+[Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/details)  
 [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/details)
