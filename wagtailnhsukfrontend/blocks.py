@@ -177,14 +177,6 @@ class PromoBlock(BasePromoBlock):
 
     heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
 
-    def get_context(self, value, parent_context=None):
-        context = super().get_context(value, parent_context)
-        context['type'] = {
-            '': '',
-            'small': ' nhsuk-promo--small',
-        }[value['size']]
-        return context
-
     class Meta:
         template = 'wagtailnhsukfrontend/promo.html'
 
@@ -197,19 +189,15 @@ class PromoGroupBlock(FlattenValueContext, StructBlock):
     ], default='one-half', required=True)
 
     size = ChoiceBlock([
-        ('default', 'Default'),
+        ('', 'Default'),
         ('small', 'Small'),
-    ], default='default', required=True)
+    ], required=False)
 
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context)
-        context['type'] = {
-            'default': '',
-            'small': ' nhsuk-promo--small',
-        }[value['size']]
-        context['column'] = {
-            'one-half': 'nhsuk-grid-column-one-half',
-            'one-third': 'nhsuk-grid-column-one-third',
+        context['num_columns'] = {
+            'one-half': 2,
+            'one-third': 3,
         }[value['column']]
         return context
 
