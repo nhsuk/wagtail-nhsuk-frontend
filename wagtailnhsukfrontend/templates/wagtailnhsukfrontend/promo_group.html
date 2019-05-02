@@ -1,8 +1,8 @@
 {% load wagtailcore_tags %}
 <div class="nhsuk-grid-row nhsuk-promo-group">
-    {% for promo in promos %}
+  {% for promo in promos %}
     <div class="{{ column }} nhsuk-promo-group__item">
-        {% include_block promo %}
+      {% include_block promo %}
     </div>
-    {% endfor %}
+  {% endfor %}
 </div>

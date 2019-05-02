@@ -175,7 +175,7 @@ class PromoBlock(BasePromoBlock):
         ('small', 'Small'),
     ], required=False)
 
-    heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no heading. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
 
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context)
@@ -213,7 +213,7 @@ class PromoGroupBlock(FlattenValueContext, StructBlock):
         }[value['column']]
         return context
 
-    heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no heading. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
 
     promos = ListBlock(BasePromoBlock)
 
