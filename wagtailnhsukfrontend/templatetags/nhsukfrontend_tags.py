@@ -66,3 +66,23 @@ def contents_list(context):
     return {
         'links': links,
     }
+
+
+@register.filter
+def chunk(input_list, size):
+    """
+    Split a list into a list-of-lists.
+    If size = 2, [1, 2, 3, 4, 5, 6, 7] becomes [[1,2], [3,4], [5,6], [7]]
+    """
+
+    return [input_list[i:i + size] for i in range(0, len(input_list), size)]
+
+
+@register.simple_tag
+def promo_group_column_class(column_size):
+    if column_size == 2:
+        return 'nhsuk-grid-column-one-half'
+    elif column_size == 3:
+        return 'nhsuk-grid-column-one-third'
+    else:
+        raise Exception("promo column sizes must be either 2 or 3")

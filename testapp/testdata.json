@@ -420,6 +420,20 @@
   }
 },
 {
+  "model": "wagtailcore.pagerevision",
+  "pk": 17,
+  "fields": {
+    "page": 13,
+    "submitted_for_moderation": false,
+    "created_at": "2019-05-02T14:27:04.569Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 13, \"path\": \"000100010004\", \"depth\": 3, \"numchild\": 0, \"title\": \"Promo Hub\", \"draft_title\": \"Promo Hub\", \"slug\": \"promo-hub\", \"content_type\": 8, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/promo-hub/\", \"owner\": 1, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2019-05-02T14:22:31.103Z\", \"last_published_at\": \"2019-05-02T14:25:18.331Z\", \"latest_revision_created_at\": \"2019-05-02T14:25:18.315Z\", \"live_revision\": 18, \"body\": \"[{\\\"type\\\": \\\"promo\\\", \\\"value\\\": {\\\"url\\\": \\\"http://example.com/\\\", \\\"heading\\\": \\\"A promo\\\", \\\"description\\\": \\\"This is a promo block with no image.\\\", \\\"content_image\\\": null, \\\"alt_text\\\": \\\"\\\", \\\"size\\\": \\\"\\\", \\\"heading_level\\\": 3}, \\\"id\\\": \\\"fa7c23e3-aa64-49df-8b8f-66a3d4eb9e0e\\\"}, {\\\"type\\\": \\\"promo\\\", \\\"value\\\": {\\\"url\\\": \\\"http://example.com/\\\", \\\"heading\\\": \\\"Small promo\\\", \\\"description\\\": \\\"This promo uses the \\\\\\\"small\\\\\\\" size variant\\\", \\\"content_image\\\": null, \\\"alt_text\\\": \\\"\\\", \\\"size\\\": \\\"small\\\", \\\"heading_level\\\": 3}, \\\"id\\\": \\\"e7c29fbd-b35b-419a-9047-2d418efb4c4e\\\"}, {\\\"type\\\": \\\"promo_group\\\", \\\"value\\\": {\\\"column\\\": \\\"one-third\\\", \\\"size\\\": \\\"\\\", \\\"heading_level\\\": 3, \\\"promos\\\": [{\\\"url\\\": \\\"http://example.com/\\\", \\\"heading\\\": \\\"Promo group item 1\\\", \\\"description\\\": \\\"\\\", \\\"content_image\\\": 1, \\\"alt_text\\\": \\\"\\\"}, {\\\"url\\\": \\\"http://example.com/\\\", \\\"heading\\\": \\\"Promo group item 2\\\", \\\"description\\\": \\\"A promo can have description text instead of an image\\\", \\\"content_image\\\": null, \\\"alt_text\\\": \\\"\\\"}, {\\\"url\\\": \\\"http://example.com/\\\", \\\"heading\\\": \\\"Promo group item 3\\\", \\\"description\\\": \\\"\\\", \\\"content_image\\\": null, \\\"alt_text\\\": \\\"\\\"}, {\\\"url\\\": \\\"http://example.com/\\\", \\\"heading\\\": \\\"Promo group item 4\\\", \\\"description\\\": \\\"The 4th item wraps into a new row\\\", \\\"content_image\\\": null, \\\"alt_text\\\": \\\"\\\"}]}, \\\"id\\\": \\\"f56c8213-052a-4dbb-a372-967426621409\\\"}, {\\\"type\\\": \\\"promo_group\\\", \\\"value\\\": {\\\"column\\\": \\\"one-half\\\", \\\"size\\\": \\\"\\\", \\\"heading_level\\\": 3, \\\"promos\\\": [{\\\"url\\\": \\\"http://example.com/\\\", \\\"heading\\\": \\\"Promo in a half-width group\\\", \\\"description\\\": \\\"\\\", \\\"content_image\\\": null, \\\"alt_text\\\": \\\"\\\"}, {\\\"url\\\": \\\"http://example.com/\\\", \\\"heading\\\": \\\"Promo in a half-width group\\\", \\\"description\\\": \\\"\\\", \\\"content_image\\\": null, \\\"alt_text\\\": \\\"\\\"}]}, \\\"id\\\": \\\"c1b6795a-f882-41ee-9382-90e47e3f5db9\\\"}]\"}",
+    "approved_go_live_at": null
+  }
+},
+{
   "model": "wagtailcore.page",
   "pk": 1,
   "fields": {
@@ -456,7 +470,7 @@
   "fields": {
     "path": "00010001",
     "depth": 2,
-    "numchild": 3,
+    "numchild": 4,
     "title": "Home",
     "draft_title": "Home",
     "slug": "home",
@@ -779,6 +793,39 @@
   }
 },
 {
+  "model": "wagtailcore.page",
+  "pk": 13,
+  "fields": {
+    "path": "000100010004",
+    "depth": 3,
+    "numchild": 0,
+    "title": "Promo Hub",
+    "draft_title": "Promo Hub",
+    "slug": "promo-hub",
+    "content_type": [
+      "home",
+      "hubspage"
+    ],
+    "live": true,
+    "has_unpublished_changes": false,
+    "url_path": "/home/promo-hub/",
+    "owner": [
+      "admin"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "first_published_at": "2019-05-02T14:22:31.103Z",
+    "last_published_at": "2019-05-02T14:27:04.585Z",
+    "latest_revision_created_at": "2019-05-02T14:27:04.569Z",
+    "live_revision": 17
+  }
+},
+{
   "model": "wagtailimages.image",
   "pk": 1,
   "fields": {
@@ -797,6 +844,14 @@
     "focal_point_height": null,
     "file_size": 75827,
     "file_hash": "2d846853dce56a9d114fe6ddf881e6a061bd6c3e"
+  }
+},
+{
+  "model": "home.hubspage",
+  "pk": 13,
+  "fields": {
+    "page_ptr": 13,
+    "body": "[{\"type\": \"promo\", \"value\": {\"url\": \"http://example.com/\", \"heading\": \"A promo\", \"description\": \"This is a promo block with no image.\", \"content_image\": null, \"alt_text\": \"\", \"size\": \"\", \"heading_level\": 3}, \"id\": \"fa7c23e3-aa64-49df-8b8f-66a3d4eb9e0e\"}, {\"type\": \"promo\", \"value\": {\"url\": \"http://example.com/\", \"heading\": \"Small promo\", \"description\": \"This promo uses the \\\"small\\\" size variant\", \"content_image\": null, \"alt_text\": \"\", \"size\": \"small\", \"heading_level\": 3}, \"id\": \"e7c29fbd-b35b-419a-9047-2d418efb4c4e\"}, {\"type\": \"promo_group\", \"value\": {\"column\": \"one-third\", \"size\": \"\", \"heading_level\": 3, \"promos\": [{\"url\": \"http://example.com/\", \"heading\": \"Promo group item 1\", \"description\": \"\", \"content_image\": 1, \"alt_text\": \"\"}, {\"url\": \"http://example.com/\", \"heading\": \"Promo group item 2\", \"description\": \"A promo can have description text instead of an image\", \"content_image\": null, \"alt_text\": \"\"}, {\"url\": \"http://example.com/\", \"heading\": \"Promo group item 3\", \"description\": \"\", \"content_image\": null, \"alt_text\": \"\"}, {\"url\": \"http://example.com/\", \"heading\": \"Promo group item 4\", \"description\": \"The 4th item wraps into a new row\", \"content_image\": null, \"alt_text\": \"\"}]}, \"id\": \"f56c8213-052a-4dbb-a372-967426621409\"}, {\"type\": \"promo_group\", \"value\": {\"column\": \"one-half\", \"size\": \"\", \"heading_level\": 3, \"promos\": [{\"url\": \"http://example.com/\", \"heading\": \"Promo in a half-width group\", \"description\": \"\", \"content_image\": null, \"alt_text\": \"\"}, {\"url\": \"http://example.com/\", \"heading\": \"Promo in a half-width group\", \"description\": \"\", \"content_image\": null, \"alt_text\": \"\"}]}, \"id\": \"c1b6795a-f882-41ee-9382-90e47e3f5db9\"}]"
   }
 },
 {

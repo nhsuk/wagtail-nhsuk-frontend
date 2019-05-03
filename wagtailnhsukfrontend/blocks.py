@@ -154,3 +154,56 @@ class ImageBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/image.html'
+
+
+class BasePromoBlock(FlattenValueContext, StructBlock):
+
+    url = URLBlock(label="URL", required=True)
+    heading = CharBlock(required=True)
+    description = CharBlock(required=False)
+    content_image = ImageChooserBlock(label="Image", required=False)
+    alt_text = CharBlock(required=False)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/promo.html'
+
+
+class PromoBlock(BasePromoBlock):
+
+    size = ChoiceBlock([
+        ('', 'Default'),
+        ('small', 'Small'),
+    ], required=False)
+
+    heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/promo.html'
+
+
+class PromoGroupBlock(FlattenValueContext, StructBlock):
+
+    column = ChoiceBlock([
+        ('one-half', 'One-half'),
+        ('one-third', 'One-third'),
+    ], default='one-half', required=True)
+
+    size = ChoiceBlock([
+        ('', 'Default'),
+        ('small', 'Small'),
+    ], required=False)
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context)
+        context['num_columns'] = {
+            'one-half': 2,
+            'one-third': 3,
+        }[value['column']]
+        return context
+
+    heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+
+    promos = ListBlock(BasePromoBlock)
+
+    class Meta:
+        template = 'wagtailnhsukfrontend/promo_group.html'
