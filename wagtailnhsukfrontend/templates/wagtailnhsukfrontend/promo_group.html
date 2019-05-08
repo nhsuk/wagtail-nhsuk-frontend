@@ -1,0 +1,12 @@
+{% load wagtailcore_tags %}
+{% load nhsukfrontend_tags %}
+
+{% for row in promos|chunk:num_columns %}
+  <div class="nhsuk-grid-row nhsuk-promo-group">
+    {% for promo in row %}
+      <div class="{% promo_group_column_class num_columns %} nhsuk-promo-group__item">
+        {% include_block promo %}
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}

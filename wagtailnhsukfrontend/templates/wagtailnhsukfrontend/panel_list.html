@@ -1,0 +1,20 @@
+{% for panel in panels %}
+  <div class="nhsuk-grid-row nhsuk-panel-group">
+    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
+      <div class="nhsuk-panel">
+        {% if panel.left_panel.label %}
+          <h{{ panel.left_panel.heading_level }}>{{ panel.left_panel.label }}</h{{ panel.left_panel.heading_level }}>
+        {% endif %}
+        {{ panel.left_panel.body }}
+      </div>
+    </div>
+    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
+      <div class="nhsuk-panel">
+        {% if panel.right_panel.label %}
+          <h{{ panel.right_panel.heading_level }}>{{ panel.right_panel.label }}</h{{ panel.right_panel.heading_level }}>
+        {% endif %}
+        {{ panel.right_panel.body }}
+      </div>
+    </div>
+  </div>
+{% endfor %}

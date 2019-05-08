@@ -6,12 +6,12 @@
 <html>
 ...
 <body>
-  {% breadcrumbs %}
+  {% breadcrumb %}
 </body>
 </html>
 ```
 
-The `{% breadcrumbs %}` tag will render a breadcrumb with a link to every parent
+The `{% breadcrumb %}` tag will render a breadcrumb with a link to every parent
 page up to and including your site root.
 
 For example if you have a page at `/page1/page2/page3/`, the breadcrumb will
@@ -24,5 +24,5 @@ tag.
 
 ## Reference
 
-[Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/back-link)
+[Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/back-link)  
 [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/back-link)

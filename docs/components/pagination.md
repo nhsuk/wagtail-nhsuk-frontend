@@ -35,3 +35,9 @@ There are some options that can be passed to the pagination:
 | `next_label` | Label underneath the Next button | `None` |
 
 If `prev_url` and `next_url` are unspecified, the relevant link will not be shown.
+
+## Reference
+
+[Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/pagination)  
+[Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/pagination)
+

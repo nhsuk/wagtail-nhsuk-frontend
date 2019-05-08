@@ -3,6 +3,7 @@ from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 
 from wagtailnhsukfrontend.mixins import (
+    HeroMixin,
     ReviewDateMixin,
 )
 
@@ -14,14 +15,18 @@ from wagtailnhsukfrontend.blocks import (
     DontBlock,
     ExpanderBlock,
     ExpanderGroupBlock,
+    GreyPanelBlock,
     InsetTextBlock,
     ImageBlock,
     PanelBlock,
+    PanelListBlock,
     WarningCalloutBlock,
+    PromoBlock,
+    PromoGroupBlock,
 )
 
 
-class HomePage(Page, ReviewDateMixin):
+class HomePage(HeroMixin, ReviewDateMixin, Page):
 
     parent_page_types = ['wagtailcore.Page']
 
@@ -36,10 +41,12 @@ class HomePage(Page, ReviewDateMixin):
         ('inset_text', InsetTextBlock()),
         ('image', ImageBlock()),
         ('panel', PanelBlock()),
+        ('panel_list', PanelListBlock()),
+        ('grey_panel', GreyPanelBlock()),
         ('warning_callout', WarningCalloutBlock()),
     ])
 
-    content_panels = Page.content_panels + [
+    content_panels = Page.content_panels + HeroMixin.content_panels + [
         StreamFieldPanel('body'),
     ]
 
@@ -54,3 +61,14 @@ class PaginationPage(Page):
     """
     A page type to show the pagination component usage
     """
+
+
+class HubsPage(Page):
+
+    body = StreamField([
+        ('promo', PromoBlock()),
+        ('promo_group', PromoGroupBlock()),
+    ])
+    content_panels = Page.content_panels + [
+        StreamFieldPanel('body'),
+    ]
