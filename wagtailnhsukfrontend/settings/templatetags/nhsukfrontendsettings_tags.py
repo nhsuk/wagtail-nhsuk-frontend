@@ -5,7 +5,7 @@ register = template.Library()
 
 
 @register.inclusion_tag('wagtailnhsukfrontend/header.html', takes_context=True)
-def header(context):
+def header(context, **kwargs):
     page = context['page']
     site = page.get_site()
     header = HeaderSettings.for_site(site)
@@ -18,6 +18,8 @@ def header(context):
         'logo_href': header.logo_link.relative_url(site) if header.logo_link else '',
         'logo_aria': header.logo_aria,
         'show_search': header.show_search,
+        'search_action': kwargs.get('search_action', None),
+        'search_field_name': kwargs.get('search_field_name', None),
         'primary_links': [
             {
                 'label': link.label,

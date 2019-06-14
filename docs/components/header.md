@@ -34,6 +34,12 @@ To include the header in your template, use the `header` templatetag.
 </body>
 ```
 
+If search is going to be used, the search endpoint will probably need to be configured.
+
+```
+  {% header search_action="/s/" search_field_name="q" %}
+```
+
 ## Direct use of templates
 
 ```django
@@ -53,6 +59,8 @@ There are some options that can be passed to the header:
 | `logo_aria` | Aria label for the NHS logo | `"NHS Homepage"` |
 | `transactional` | Set to `True` to display a smaller header, suitable for a transactional service | `False` |
 | `show_search` | Set to `True` to show the search bar | `False` |
+| `search_action` | Value to use as the search <form> `action` attribute | `/search/` |
+| `search_field_name` | Value to use as the search <input> `name` attribute | `search-input` |
 | `primary_links` | An array of dicts containing navigation items | `None` |
 | `primary_links[].label` | Navigation item label | `None` |
 | `primary_links[].url` | Navigation item url | `None` |
@@ -64,6 +72,15 @@ There are some options that can be passed to the header:
 ```django
 {% include 'wagtailnhsukfrontend/header.html' with show_search=True %}
 ```
+
+#### Header with custom search endpoint
+
+```django
+{% include 'wagtailnhsukfrontend/header.html' with show_search=True search_action="/s/" search_field_name="q"  %}
+```
+
+Performing a search with these settings will result in the user navigating to `/s/?q=search-term` instead of the
+default `/search/?search-input=search-term`
 
 #### Header with navigation
 
