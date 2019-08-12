@@ -19,7 +19,7 @@ class CompileCSSCommand(build):
     def run(self):
         filepath_base = 'wagtailnhsukfrontend/static/wagtailnhsukfrontend/css/'
         filenames = [
-            'nhsuk-2.1.0.min.css',
+            'nhsuk-2.3.0.min.css',
             'fixes.css',
         ]
 
