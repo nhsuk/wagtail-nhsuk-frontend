@@ -4,7 +4,7 @@
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 
-from wagtailnhsstyle.blocks import DoBlock
+from wagtailnhsukfrontend.blocks import DoBlock
 
 class MyPage(Page):
   body = StreamField([

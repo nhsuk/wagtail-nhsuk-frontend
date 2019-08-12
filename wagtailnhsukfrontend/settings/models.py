@@ -98,3 +98,39 @@ class EmergencyAlert(ClusterableModel, BaseSetting):
             FieldPanel('link_label'),
         ], heading="Link"),
     ]
+
+
+@register_setting
+class FooterSettings(ClusterableModel, BaseSetting):
+
+    fixed_coloumn_footer = models.BooleanField(
+        default=False,
+        help_text="Enable this setting to change way the footer is styled, so links group into coloumns"
+    )
+
+    panels = [
+        FieldPanel('fixed_coloumn_footer'),
+        InlinePanel(
+            'footer_links',
+            label="Footer Links",
+            help_text="There is a minimum of 1 link and a maximum of 9 ",
+            min_num=1,
+            max_num=9
+        )
+    ]
+
+
+class FooterLinks(Orderable):
+
+    setting = ParentalKey(
+        FooterSettings,
+        on_delete=models.CASCADE,
+        related_name='footer_links',
+    )
+    link_url = models.URLField(blank=True)
+    link_label = models.CharField(blank=True, max_length=250)
+
+    panels = [
+        FieldPanel('link_url'),
+        FieldPanel('link_label'),
+    ]
