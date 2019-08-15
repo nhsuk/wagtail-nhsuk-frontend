@@ -15,7 +15,6 @@ from wagtailnhsukfrontend.blocks import (
     DontBlock,
     ExpanderBlock,
     ExpanderGroupBlock,
-    GreyPanelBlock,
     InsetTextBlock,
     ImageBlock,
     PanelBlock,
@@ -42,8 +41,8 @@ class HomePage(HeroMixin, ReviewDateMixin, Page):
         ('image', ImageBlock()),
         ('panel', PanelBlock()),
         ('panel_list', PanelListBlock()),
-        ('grey_panel', GreyPanelBlock()),
         ('warning_callout', WarningCalloutBlock()),
+        ('promotion', PromoBlock()),
     ])
 
     content_panels = Page.content_panels + HeroMixin.content_panels + [

@@ -97,22 +97,17 @@ class ExpanderGroupBlock(FlattenValueContext, StructBlock):
 
 class PanelBlock(FlattenValueContext, StructBlock):
 
+    color = ChoiceBlock([
+        ('', 'Default'),
+        ('grey', 'Grey'),
+    ], required=False)
+
     label = CharBlock(required=False)
     heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
     body = RichTextBlock(required=True)
 
     class Meta:
         template = 'wagtailnhsukfrontend/panel.html'
-
-
-class GreyPanelBlock(FlattenValueContext, StructBlock):
-
-    label = CharBlock(label='heading', required=False)
-    heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no heading. Default=3, Min=2, Max=4.')
-    body = RichTextBlock(required=True)
-
-    class Meta:
-        template = 'wagtailnhsukfrontend/grey_panel.html'
 
 
 class PanelListBlock(FlattenValueContext, StructBlock):
