@@ -4,7 +4,9 @@ from wagtail.core.blocks import (
     ChoiceBlock,
     IntegerBlock,
     RichTextBlock,
+    PageChooserBlock,
     StructBlock,
+    StructValue,
     URLBlock,
     ListBlock,
 )
@@ -156,9 +158,25 @@ class ImageBlock(FlattenValueContext, StructBlock):
         template = 'wagtailnhsukfrontend/image.html'
 
 
+
+class UrlStructValue(StructValue):
+    """ Additional logic for blocks, adding the ability to use page chooser or external links"""
+
+    def url(self):
+        page_link = self.get('page_link')
+        external_url = self.get('external_url')
+        if page_link:
+            return page_link.url
+        elif external_url:
+            return external_url
+
+        return None
+
+
 class BasePromoBlock(FlattenValueContext, StructBlock):
 
-    url = URLBlock(label="URL", required=True)
+    page_link = PageChooserBlock(required=False, help_text='Use if you need a internal page link')
+    external_url = URLBlock(label="URL", required=False, help_text='Use if you need to link to a external site')
     heading = CharBlock(required=True)
     description = CharBlock(required=False)
     content_image = ImageChooserBlock(label="Image", required=False)
@@ -166,6 +184,7 @@ class BasePromoBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/promo.html'
+        value_class = UrlStructValue 
 
 
 class PromoBlock(BasePromoBlock):

@@ -43,6 +43,8 @@ class HomePage(HeroMixin, ReviewDateMixin, Page):
         ('panel', PanelBlock()),
         ('panel_list', PanelListBlock()),
         ('grey_panel', GreyPanelBlock()),
+        ('promo_block', PromoBlock()),
+        ('promo_block_group', PromoGroupBlock()),
         ('warning_callout', WarningCalloutBlock()),
     ])
 

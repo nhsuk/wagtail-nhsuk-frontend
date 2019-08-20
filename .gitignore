@@ -3,3 +3,4 @@ wagtailnhsukfrontend/static/wagtailnhsukfrontend/css/wagtail-nhsuk-frontend.min.
 testapp/db.sqlite3
 testapp/media/images
 testapp/**/__pycache__
+Pipfile
