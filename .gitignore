@@ -2,3 +2,4 @@ wagtail_nhsuk_frontend.egg-info
 wagtailnhsukfrontend/static/wagtailnhsukfrontend/css/wagtail-nhsuk-frontend.min.css
 testapp/db.sqlite3
 testapp/media/images
+testapp/**/__pycache__
