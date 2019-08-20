@@ -98,7 +98,7 @@ class ExpanderGroupBlock(FlattenValueContext, StructBlock):
 class PanelBlock(FlattenValueContext, StructBlock):
 
     color = ChoiceBlock([
-        ('', 'Default'),
+        ('', 'White'),
         ('grey', 'Grey'),
     ], required=False)
 
