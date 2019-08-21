@@ -11,6 +11,9 @@ from wagtail.core.blocks import (
     ListBlock,
 )
 from wagtail.images.blocks import ImageChooserBlock
+from django.forms.utils import ErrorList
+from django.core.exceptions import ValidationError
+
 
 
 class FlattenValueContext:
@@ -157,26 +160,24 @@ class ImageBlock(FlattenValueContext, StructBlock):
     class Meta:
         template = 'wagtailnhsukfrontend/image.html'
 
-
-
-class UrlStructValue(StructValue):
-    """ Additional logic for blocks, adding the ability to use page chooser or external links"""
-
-    def url(self):
-        page_link = self.get('page_link')
-        external_url = self.get('external_url')
-        if page_link:
-            return page_link.url
-        elif external_url:
-            return external_url
-
-        return None
-
-
 class BasePromoBlock(FlattenValueContext, StructBlock):
 
-    page_link = PageChooserBlock(required=False, help_text='Use if you need a internal page link')
-    external_url = URLBlock(label="URL", required=False, help_text='Use if you need to link to a external site')
+    page = PageChooserBlock(required=False, help_text='Use if you need a internal page link')
+    url = URLBlock(label="URL", required=False, help_text='Use if you need to link to a external site')
+
+    def clean(self, value):
+        result = super().clean(value)
+        errors = {}
+        if value["page"] and value["url"]:
+            errors["url"] = ErrorList([
+                "This should not be set when Page is selected",
+            ])
+        if not value["page"] and not value["url"]:
+            errors["page"] = ErrorList(["A page or URL is required"])
+        if errors:
+            raise ValidationError("Validation error in StructBlock", params=errors)
+        return result
+
     heading = CharBlock(required=True)
     description = CharBlock(required=False)
     content_image = ImageChooserBlock(label="Image", required=False)
@@ -184,7 +185,6 @@ class BasePromoBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/promo.html'
-        value_class = UrlStructValue 
 
 
 class PromoBlock(BasePromoBlock):
