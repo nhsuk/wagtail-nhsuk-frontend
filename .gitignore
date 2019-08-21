@@ -4,3 +4,4 @@ testapp/db.sqlite3
 testapp/media/images
 testapp/**/__pycache__
 Pipfile
+.vscode/
