@@ -6,14 +6,12 @@ from wagtail.core.blocks import (
     RichTextBlock,
     PageChooserBlock,
     StructBlock,
-    StructValue,
     URLBlock,
     ListBlock,
 )
 from wagtail.images.blocks import ImageChooserBlock
 from django.forms.utils import ErrorList
 from django.core.exceptions import ValidationError
-
 
 
 class FlattenValueContext:
@@ -159,6 +157,7 @@ class ImageBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/image.html'
+
 
 class BasePromoBlock(FlattenValueContext, StructBlock):
 
