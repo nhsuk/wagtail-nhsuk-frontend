@@ -27,6 +27,7 @@ class ActionLinkBlock(FlattenValueContext, StructBlock):
     new_window = BooleanBlock(required=False, label="Open in new window")
 
     class Meta:
+        icon = 'link'
         template = 'wagtailnhsukfrontend/action_link.html'
 
 
@@ -51,6 +52,7 @@ class CareCardBlock(FlattenValueContext, StructBlock):
         return context
 
     class Meta:
+        icon = 'help'
         template = 'wagtailnhsukfrontend/care_card.html'
 
 
@@ -61,6 +63,7 @@ class WarningCalloutBlock(FlattenValueContext, StructBlock):
     body = RichTextBlock(required=True)
 
     class Meta:
+        icon = 'warning'
         template = 'wagtailnhsukfrontend/warning_callout.html'
 
 
@@ -69,6 +72,7 @@ class InsetTextBlock(FlattenValueContext, StructBlock):
     body = RichTextBlock(required=True)
 
     class Meta:
+        icon = 'warning'
         template = 'wagtailnhsukfrontend/inset_text.html'
 
 
@@ -78,12 +82,14 @@ class DetailsBlock(FlattenValueContext, StructBlock):
     body = RichTextBlock(required=True)
 
     class Meta:
+        icon = 'collapse-down'
         template = 'wagtailnhsukfrontend/details.html'
 
 
 class ExpanderBlock(DetailsBlock):
 
     class Meta:
+        icon = 'plus-inverse'
         template = 'wagtailnhsukfrontend/expander.html'
 
 
@@ -92,6 +98,7 @@ class ExpanderGroupBlock(FlattenValueContext, StructBlock):
     expanders = ListBlock(ExpanderBlock)
 
     class Meta:
+        icon = 'plus-inverse'
         template = 'wagtailnhsukfrontend/expander_group.html'
 
 
@@ -102,6 +109,7 @@ class PanelBlock(FlattenValueContext, StructBlock):
     body = RichTextBlock(required=True)
 
     class Meta:
+        icon = 'doc-full'
         template = 'wagtailnhsukfrontend/panel.html'
 
 
@@ -112,6 +120,7 @@ class GreyPanelBlock(FlattenValueContext, StructBlock):
     body = RichTextBlock(required=True)
 
     class Meta:
+        icon = 'doc-full-inverse'
         template = 'wagtailnhsukfrontend/grey_panel.html'
 
 
@@ -123,6 +132,7 @@ class PanelListBlock(FlattenValueContext, StructBlock):
     ]))
 
     class Meta:
+        icon = 'list-ul'
         template = 'wagtailnhsukfrontend/panel_list.html'
 
 
@@ -133,6 +143,7 @@ class DoBlock(FlattenValueContext, StructBlock):
     do = ListBlock(RichTextBlock)
 
     class Meta:
+        icon = 'tick'
         template = 'wagtailnhsukfrontend/do_list.html'
 
 
@@ -143,6 +154,7 @@ class DontBlock(FlattenValueContext, StructBlock):
     dont = ListBlock(RichTextBlock)
 
     class Meta:
+        icon = 'cross'
         template = 'wagtailnhsukfrontend/dont_list.html'
 
 
@@ -153,6 +165,7 @@ class ImageBlock(FlattenValueContext, StructBlock):
     caption = CharBlock(required=False)
 
     class Meta:
+        icon = 'image'
         template = 'wagtailnhsukfrontend/image.html'
 
 
@@ -165,6 +178,7 @@ class BasePromoBlock(FlattenValueContext, StructBlock):
     alt_text = CharBlock(required=False)
 
     class Meta:
+        icon = 'pick'
         template = 'wagtailnhsukfrontend/promo.html'
 
 
