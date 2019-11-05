@@ -1,4 +1,5 @@
 from django import template
+from wagtail.core.models import Page
 
 register = template.Library()
 
@@ -8,7 +9,9 @@ def breadcrumb(context):
     """
     Generates an array of pages which are passed to the breadcrumb template.
     """
-    page = context['page']
+    page = context.get('page', None)
+    if not isinstance(page, Page):
+        raise Exception("'page' not found in template context")
     site = page.get_site()
     breadcrumb_pages = []
 
@@ -27,7 +30,9 @@ def pagination(context):
     """
     Calculates previous and next page values which are passed to the pagination template.
     """
-    page = context['page']
+    page = context.get('page', None)
+    if not isinstance(page, Page):
+        raise Exception("'page' not found in template context")
     request = context['request']
 
     prev = page.get_prev_siblings().live().first()
@@ -50,7 +55,9 @@ def contents_list(context):
     """
     Generates a queryset of sibling pages which are passed to the contents_list template
     """
-    page = context['page']
+    page = context.get('page', None)
+    if not isinstance(page, Page):
+        raise Exception("'page' not found in template context")
     request = context['request']
 
     sibling_pages = page.get_siblings().live()

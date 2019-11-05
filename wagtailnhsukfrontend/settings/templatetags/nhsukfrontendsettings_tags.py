@@ -1,4 +1,5 @@
 from django import template
+from wagtail.core.models import Site
 from wagtailnhsukfrontend.settings.models import HeaderSettings, EmergencyAlert, FooterSettings
 
 register = template.Library()
@@ -6,8 +7,8 @@ register = template.Library()
 
 @register.inclusion_tag('wagtailnhsukfrontend/header.html', takes_context=True)
 def header(context, **kwargs):
-    page = context['page']
-    site = page.get_site()
+    request = context['request']
+    site = Site.find_for_request(request)
     header = HeaderSettings.for_site(site)
 
     return {
@@ -49,8 +50,8 @@ def emergency_alert(context):
 
 @register.inclusion_tag("wagtailnhsukfrontend/footer.html", takes_context=True)
 def footer(context):
-    page = context['page']
-    site = page.get_site()
+    request = context['request']
+    site = Site.find_for_request(request)
     footer = FooterSettings.for_site(site)
 
     return {
