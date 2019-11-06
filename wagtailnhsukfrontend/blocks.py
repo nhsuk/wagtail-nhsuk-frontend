@@ -192,16 +192,18 @@ class SummaryListBlock(FlattenValueContext, StructBlock):
 
 class DetailsBlock(FlattenValueContext, StructBlock):
 
+    # Define a BodyStreamBlock class in this way to make it easier to subclass and add extra body blocks
+    class BodyStreamBlock(StreamBlock):
+        richtext = RichTextBlock()
+        action_link = ActionLinkBlock()
+        inset_text = InsetTextBlock()
+        image = ImageBlock()
+        panel = PanelBlock()
+        warning_callout = WarningCalloutBlock()
+        summary_list = SummaryListBlock()
+
     title = CharBlock(required=True)
-    body = StreamBlock([
-        ('richtext', RichTextBlock()),
-        ('action_link', ActionLinkBlock()),
-        ('inset_text', InsetTextBlock()),
-        ('image', ImageBlock()),
-        ('panel', PanelBlock()),
-        ('warning_callout', WarningCalloutBlock()),
-        ('summary_list', SummaryListBlock()),
-    ], required=True)
+    body = BodyStreamBlock(required=True)
 
     class Meta:
         icon = 'collapse-down'
