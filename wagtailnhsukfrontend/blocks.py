@@ -212,16 +212,17 @@ class DetailsBlock(FlattenValueContext, StructBlock):
 
 class ExpanderBlock(DetailsBlock):
 
+    class BodyStreamBlock(StreamBlock):
+        richtext = RichTextBlock()
+        action_link = ActionLinkBlock()
+        inset_text = InsetTextBlock()
+        image = ImageBlock()
+        grey_panel = GreyPanelBlock()
+        warning_callout = WarningCalloutBlock()
+        summary_list = SummaryListBlock()
+
     # We need to override the body since expanders can have grey_panels instead of regular panels
-    body = StreamBlock([
-        ('richtext', RichTextBlock()),
-        ('action_link', ActionLinkBlock()),
-        ('inset_text', InsetTextBlock()),
-        ('image', ImageBlock()),
-        ('grey_panel', GreyPanelBlock()),
-        ('warning_callout', WarningCalloutBlock()),
-        ('summary_list', SummaryListBlock()),
-    ], required=True)
+    body = BodyStreamBlock(required=True)
 
     class Meta:
         icon = 'plus-inverse'
