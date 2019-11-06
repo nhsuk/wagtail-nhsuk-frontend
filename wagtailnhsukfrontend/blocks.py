@@ -221,3 +221,20 @@ class PromoGroupBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/promo_group.html'
+
+
+class SummaryListRowBlock(StructBlock):
+
+    key = CharBlock()
+
+    value = RichTextBlock()
+
+
+class SummaryListBlock(FlattenValueContext, StructBlock):
+
+    rows = ListBlock(SummaryListRowBlock)
+    no_border = BooleanBlock(default=False, required=False)
+
+    class Meta:
+        icon = 'form'
+        template = 'wagtailnhsukfrontend/summary_list.html'
