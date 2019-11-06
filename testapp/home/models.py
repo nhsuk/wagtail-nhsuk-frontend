@@ -23,6 +23,7 @@ from wagtailnhsukfrontend.blocks import (
     WarningCalloutBlock,
     PromoBlock,
     PromoGroupBlock,
+    SummaryListBlock,
 )
 
 
@@ -44,6 +45,7 @@ class HomePage(HeroMixin, ReviewDateMixin, Page):
         ('panel_list', PanelListBlock()),
         ('grey_panel', GreyPanelBlock()),
         ('warning_callout', WarningCalloutBlock()),
+        ('summary_list', SummaryListBlock()),
     ])
 
     content_panels = Page.content_panels + HeroMixin.content_panels + [
