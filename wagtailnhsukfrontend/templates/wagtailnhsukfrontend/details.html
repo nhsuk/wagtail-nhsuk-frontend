@@ -1,3 +1,4 @@
+{% load wagtailcore_tags %}
 <details class="nhsuk-details{% if expander %} nhsuk-expander{% endif %}">
   <summary class="nhsuk-details__summary">
     <span class="nhsuk-details__summary-text">
@@ -5,6 +6,8 @@
     </span>
   </summary>
   <div class="nhsuk-details__text">
-    {{ body }}
+    {% for block in body %}
+      {% include_block block %}
+    {% endfor %}
   </div>
 </details>
