@@ -247,16 +247,18 @@ class CareCardBlock(FlattenValueContext, StructBlock):
     ], required=True, default='primary',)
     heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
     title = CharBlock(required=True)
-    body = StreamBlock([
-        ('richtext', RichTextBlock()),
-        ('action_link', ActionLinkBlock()),
-        ('details', DetailsBlock()),
-        ('inset_text', InsetTextBlock()),
-        ('image', ImageBlock()),
-        ('grey_panel', GreyPanelBlock()),
-        ('warning_callout', WarningCalloutBlock()),
-        ('summary_list', SummaryListBlock()),
-    ], required=True)
+
+    class BodyStreamBlock(StreamBlock):
+        richtext = RichTextBlock()
+        action_link = ActionLinkBlock()
+        details = DetailsBlock()
+        inset_text = InsetTextBlock()
+        image = ImageBlock()
+        grey_panel = GreyPanelBlock()
+        warning_callout = WarningCalloutBlock()
+        summary_list = SummaryListBlock()
+
+    body = BodyStreamBlock(required=True)
 
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context)
