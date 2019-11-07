@@ -10,17 +10,11 @@ class ReviewDateMixin(models.Model):
     last_review_date = models.DateTimeField(blank=True, null=True)
     next_review_date = models.DateTimeField(blank=True, null=True)
 
-    last_review_label = 'Page last reviewed:'
-    next_review_label = 'Next review due:'
+    last_review_label = "Page last reviewed:"
+    next_review_label = "Next review due:"
 
     settings_panels = [
-        MultiFieldPanel(
-            [
-                FieldPanel('last_review_date'),
-                FieldPanel('next_review_date')
-            ],
-            heading="Review Dates",
-        ),
+        MultiFieldPanel([FieldPanel("last_review_date"), FieldPanel("next_review_date")], heading="Review Dates")
     ]
 
     class Meta:
@@ -34,17 +28,16 @@ class HeroMixin(models.Model):
 
     """
 
-    hero_text = models.TextField(blank=True, default='')
-    hero_heading = models.TextField(default='')
-    hero_image = models.ForeignKey(
-        Image,
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+',
-    )
+    hero_text = models.TextField(blank=True, default="")
+    hero_heading = models.TextField(default="")
+    hero_image = models.ForeignKey(Image, null=True, blank=True, on_delete=models.SET_NULL, related_name="+")
 
-    content_panels = [MultiFieldPanel([FieldPanel('hero_heading'), FieldPanel('hero_text'), ImageChooserPanel('hero_image')], heading="Hero content")]
+    content_panels = [
+        MultiFieldPanel(
+            [FieldPanel("hero_heading"), FieldPanel("hero_text"), ImageChooserPanel("hero_image")],
+            heading="Hero content",
+        )
+    ]
 
     def clean(self):
         if not (self.hero_text or self.hero_image):

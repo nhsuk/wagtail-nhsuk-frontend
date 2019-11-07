@@ -4,26 +4,19 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-INSTALL_REQUIRES = [
-    'Wagtail>=2.0',
-]
+INSTALL_REQUIRES = ["Wagtail>=2.0"]
 
-TESTING_REQUIRES = [
-    'beautifulsoup4==4.7.1'
-]
+TESTING_REQUIRES = ["beautifulsoup4==4.7.1"]
 
 
 class CompileCSSCommand(build):
     """Combine CSS from the frontend library with our wagtail-specific fixes"""
 
     def run(self):
-        filepath_base = 'wagtailnhsukfrontend/static/wagtailnhsukfrontend/css/'
-        filenames = [
-            'nhsuk-3.0.2.min.css',
-            'fixes.css',
-        ]
+        filepath_base = "wagtailnhsukfrontend/static/wagtailnhsukfrontend/css/"
+        filenames = ["nhsuk-3.0.2.min.css", "fixes.css"]
 
-        with open(filepath_base + 'wagtail-nhsuk-frontend.min.css', 'w') as outfile:
+        with open(filepath_base + "wagtail-nhsuk-frontend.min.css", "w") as outfile:
             for fname in filenames:
                 with open(filepath_base + fname) as infile:
                     for line in infile:
@@ -31,9 +24,7 @@ class CompileCSSCommand(build):
 
 
 setup(
-    cmdclass={
-        'build': CompileCSSCommand,
-    },
+    cmdclass={"build": CompileCSSCommand},
     name="wagtail-nhsuk-frontend",
     version="0.3.0",
     description="NHSUK Frontend Styles for Wagtail",
@@ -45,5 +36,5 @@ setup(
     install_requires=INSTALL_REQUIRES,
     packages=find_packages(),
     include_package_data=True,
-    extras_require={'testing': TESTING_REQUIRES},
+    extras_require={"testing": TESTING_REQUIRES},
 )

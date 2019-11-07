@@ -28,19 +28,25 @@ class ActionLinkBlock(FlattenValueContext, StructBlock):
     new_window = BooleanBlock(required=False, label="Open in new window")
 
     class Meta:
-        icon = 'link'
-        template = 'wagtailnhsukfrontend/action_link.html'
+        icon = "link"
+        template = "wagtailnhsukfrontend/action_link.html"
 
 
 class WarningCalloutBlock(FlattenValueContext, StructBlock):
 
-    title = CharBlock(required=True, default='Important')
-    heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+    title = CharBlock(required=True, default="Important")
+    heading_level = IntegerBlock(
+        required=True,
+        min_value=2,
+        max_value=4,
+        default=3,
+        help_text="The heading level affects users with screen readers. Default=3, Min=2, Max=4.",
+    )
     body = RichTextBlock(required=True)
 
     class Meta:
-        icon = 'warning'
-        template = 'wagtailnhsukfrontend/warning_callout.html'
+        icon = "warning"
+        template = "wagtailnhsukfrontend/warning_callout.html"
 
 
 class InsetTextBlock(FlattenValueContext, StructBlock):
@@ -48,64 +54,83 @@ class InsetTextBlock(FlattenValueContext, StructBlock):
     body = RichTextBlock(required=True)
 
     class Meta:
-        icon = 'warning'
-        template = 'wagtailnhsukfrontend/inset_text.html'
+        icon = "warning"
+        template = "wagtailnhsukfrontend/inset_text.html"
 
 
 class PanelBlock(FlattenValueContext, StructBlock):
 
     label = CharBlock(required=False)
-    heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(
+        min_value=2,
+        max_value=4,
+        default=3,
+        help_text="The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.",
+    )
     body = RichTextBlock(required=True)
 
     class Meta:
-        icon = 'doc-full'
-        template = 'wagtailnhsukfrontend/panel.html'
+        icon = "doc-full"
+        template = "wagtailnhsukfrontend/panel.html"
 
 
 class GreyPanelBlock(FlattenValueContext, StructBlock):
 
-    label = CharBlock(label='heading', required=False)
-    heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no heading. Default=3, Min=2, Max=4.')
+    label = CharBlock(label="heading", required=False)
+    heading_level = IntegerBlock(
+        min_value=2,
+        max_value=4,
+        default=3,
+        help_text="The heading level affects users with screen readers. Ignore this if there is no heading. Default=3, Min=2, Max=4.",
+    )
     body = RichTextBlock(required=True)
 
     class Meta:
-        icon = 'doc-full-inverse'
-        template = 'wagtailnhsukfrontend/grey_panel.html'
+        icon = "doc-full-inverse"
+        template = "wagtailnhsukfrontend/grey_panel.html"
 
 
 class PanelListBlock(FlattenValueContext, StructBlock):
 
-    panels = ListBlock(StructBlock([
-        ('left_panel', PanelBlock()),
-        ('right_panel', PanelBlock()),
-    ]))
+    panels = ListBlock(StructBlock([("left_panel", PanelBlock()), ("right_panel", PanelBlock())]))
 
     class Meta:
-        icon = 'list-ul'
-        template = 'wagtailnhsukfrontend/panel_list.html'
+        icon = "list-ul"
+        template = "wagtailnhsukfrontend/panel_list.html"
 
 
 class DoBlock(FlattenValueContext, StructBlock):
 
-    heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(
+        required=True,
+        min_value=2,
+        max_value=4,
+        default=3,
+        help_text="The heading level affects users with screen readers. Default=3, Min=2, Max=4.",
+    )
 
     do = ListBlock(RichTextBlock)
 
     class Meta:
-        icon = 'tick'
-        template = 'wagtailnhsukfrontend/do_list.html'
+        icon = "tick"
+        template = "wagtailnhsukfrontend/do_list.html"
 
 
 class DontBlock(FlattenValueContext, StructBlock):
 
-    heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(
+        required=True,
+        min_value=2,
+        max_value=4,
+        default=3,
+        help_text="The heading level affects users with screen readers. Default=3, Min=2, Max=4.",
+    )
 
     dont = ListBlock(RichTextBlock)
 
     class Meta:
-        icon = 'cross'
-        template = 'wagtailnhsukfrontend/dont_list.html'
+        icon = "cross"
+        template = "wagtailnhsukfrontend/dont_list.html"
 
 
 class ImageBlock(FlattenValueContext, StructBlock):
@@ -115,8 +140,8 @@ class ImageBlock(FlattenValueContext, StructBlock):
     caption = CharBlock(required=False)
 
     class Meta:
-        icon = 'image'
-        template = 'wagtailnhsukfrontend/image.html'
+        icon = "image"
+        template = "wagtailnhsukfrontend/image.html"
 
 
 class BasePromoBlock(FlattenValueContext, StructBlock):
@@ -128,49 +153,47 @@ class BasePromoBlock(FlattenValueContext, StructBlock):
     alt_text = CharBlock(required=False)
 
     class Meta:
-        icon = 'pick'
-        template = 'wagtailnhsukfrontend/promo.html'
+        icon = "pick"
+        template = "wagtailnhsukfrontend/promo.html"
 
 
 class PromoBlock(BasePromoBlock):
 
-    size = ChoiceBlock([
-        ('', 'Default'),
-        ('small', 'Small'),
-    ], required=False)
+    size = ChoiceBlock([("", "Default"), ("small", "Small")], required=False)
 
-    heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(
+        min_value=2,
+        max_value=4,
+        default=3,
+        help_text="The heading level affects users with screen readers. Default=3, Min=2, Max=4.",
+    )
 
     class Meta:
-        template = 'wagtailnhsukfrontend/promo.html'
+        template = "wagtailnhsukfrontend/promo.html"
 
 
 class PromoGroupBlock(FlattenValueContext, StructBlock):
 
-    column = ChoiceBlock([
-        ('one-half', 'One-half'),
-        ('one-third', 'One-third'),
-    ], default='one-half', required=True)
+    column = ChoiceBlock([("one-half", "One-half"), ("one-third", "One-third")], default="one-half", required=True)
 
-    size = ChoiceBlock([
-        ('', 'Default'),
-        ('small', 'Small'),
-    ], required=False)
+    size = ChoiceBlock([("", "Default"), ("small", "Small")], required=False)
 
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context)
-        context['num_columns'] = {
-            'one-half': 2,
-            'one-third': 3,
-        }[value['column']]
+        context["num_columns"] = {"one-half": 2, "one-third": 3}[value["column"]]
         return context
 
-    heading_level = IntegerBlock(min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(
+        min_value=2,
+        max_value=4,
+        default=3,
+        help_text="The heading level affects users with screen readers. Default=3, Min=2, Max=4.",
+    )
 
     promos = ListBlock(BasePromoBlock)
 
     class Meta:
-        template = 'wagtailnhsukfrontend/promo_group.html'
+        template = "wagtailnhsukfrontend/promo_group.html"
 
 
 class SummaryListRowBlock(StructBlock):
@@ -186,8 +209,8 @@ class SummaryListBlock(FlattenValueContext, StructBlock):
     no_border = BooleanBlock(default=False, required=False)
 
     class Meta:
-        icon = 'form'
-        template = 'wagtailnhsukfrontend/summary_list.html'
+        icon = "form"
+        template = "wagtailnhsukfrontend/summary_list.html"
 
 
 class DetailsBlock(FlattenValueContext, StructBlock):
@@ -206,12 +229,11 @@ class DetailsBlock(FlattenValueContext, StructBlock):
     body = BodyStreamBlock(required=True)
 
     class Meta:
-        icon = 'collapse-down'
-        template = 'wagtailnhsukfrontend/details.html'
+        icon = "collapse-down"
+        template = "wagtailnhsukfrontend/details.html"
 
 
 class ExpanderBlock(DetailsBlock):
-
     class BodyStreamBlock(StreamBlock):
         richtext = RichTextBlock()
         action_link = ActionLinkBlock()
@@ -225,8 +247,8 @@ class ExpanderBlock(DetailsBlock):
     body = BodyStreamBlock(required=True)
 
     class Meta:
-        icon = 'plus-inverse'
-        template = 'wagtailnhsukfrontend/expander.html'
+        icon = "plus-inverse"
+        template = "wagtailnhsukfrontend/expander.html"
 
 
 class ExpanderGroupBlock(FlattenValueContext, StructBlock):
@@ -234,18 +256,22 @@ class ExpanderGroupBlock(FlattenValueContext, StructBlock):
     expanders = ListBlock(ExpanderBlock)
 
     class Meta:
-        icon = 'plus-inverse'
-        template = 'wagtailnhsukfrontend/expander_group.html'
+        icon = "plus-inverse"
+        template = "wagtailnhsukfrontend/expander_group.html"
 
 
 class CareCardBlock(FlattenValueContext, StructBlock):
 
-    type = ChoiceBlock([
-        ('primary', 'Non-urgent'),
-        ('urgent', 'Urgent'),
-        ('immediate', 'Immediate'),
-    ], required=True, default='primary',)
-    heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+    type = ChoiceBlock(
+        [("primary", "Non-urgent"), ("urgent", "Urgent"), ("immediate", "Immediate")], required=True, default="primary"
+    )
+    heading_level = IntegerBlock(
+        required=True,
+        min_value=2,
+        max_value=4,
+        default=3,
+        help_text="The heading level affects users with screen readers. Default=3, Min=2, Max=4.",
+    )
     title = CharBlock(required=True)
 
     class BodyStreamBlock(StreamBlock):
@@ -262,13 +288,13 @@ class CareCardBlock(FlattenValueContext, StructBlock):
 
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context)
-        context['accessible_title_prefix'] = {
-            'primary': 'Non-urgent advice: ',
-            'urgent': 'Urgent advice:',
-            'immediate': 'Immediate action required:',
-        }[value['type']]
+        context["accessible_title_prefix"] = {
+            "primary": "Non-urgent advice: ",
+            "urgent": "Urgent advice:",
+            "immediate": "Immediate action required:",
+        }[value["type"]]
         return context
 
     class Meta:
-        icon = 'help'
-        template = 'wagtailnhsukfrontend/care_card.html'
+        icon = "help"
+        template = "wagtailnhsukfrontend/care_card.html"

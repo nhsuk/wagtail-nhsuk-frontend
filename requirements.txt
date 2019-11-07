@@ -1,4 +1,6 @@
+black==19.3b0
 flake8==3.7.5
+flake8-black==0.1.1
 pytest==4.3.0
 pytest-django==3.4.7
 pytest-pythonpath==0.7.3
