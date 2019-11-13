@@ -26,7 +26,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsukfrontend/css/wagtail-nhsuk-frontend.min.css' %}">
 
         {# NHSUK JS library #}
-        <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-2.3.0.min.js' %}" defer></script>
+        <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-3.0.2.min.js' %}" defer></script>
 
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
@@ -37,14 +37,6 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
-
-        {% comment %}
-          Normally, this emergency_alert would be included on _all_ pages, but it gets in the way when
-          developing so we only allow it on the /emergency-alert/ page
-        {% endcomment %}
-        {% if page.url == "/emergency-alert/" %}
-          {% emergency_alert %}
-        {% endif %}
 
         {% include "wagtailnhsukfrontend/skip_link.html" %}
 
@@ -76,7 +68,5 @@
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}
-
-        {% block feedback_banner%}{% endblock %}
     </body>
 </html>

@@ -1,6 +1,6 @@
 from django import template
 from wagtail.core.models import Site
-from wagtailnhsukfrontend.settings.models import HeaderSettings, EmergencyAlert, FooterSettings
+from wagtailnhsukfrontend.settings.models import HeaderSettings, FooterSettings
 
 register = template.Library()
 
@@ -28,23 +28,6 @@ def header(context, **kwargs):
             }
             for link in header.navigation_links.all()
         ],
-    }
-
-
-@register.inclusion_tag('wagtailnhsukfrontend/emergency_alert_setting.html', takes_context=True)
-def emergency_alert(context):
-    """Turn the EmergencyAlert settings into a template-friendly context object"""
-    page = context['page']
-    site = page.get_site()
-    alert = EmergencyAlert.for_site(site)
-
-    return {
-        'enabled': alert.enabled,
-        'title': alert.title,
-        'content': alert.description,
-        'href': alert.link_url,
-        'label': alert.link_label,
-        'last_updated': alert.last_updated,
     }
 
 
