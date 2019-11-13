@@ -38,14 +38,6 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        {% comment %}
-          Normally, this emergency_alert would be included on _all_ pages, but it gets in the way when
-          developing so we only allow it on the /emergency-alert/ page
-        {% endcomment %}
-        {% if page.url == "/emergency-alert/" %}
-          {% emergency_alert %}
-        {% endif %}
-
         {% include "wagtailnhsukfrontend/skip_link.html" %}
 
         {% header search_action="https://www.nhs.uk/search/" search_field_name="q" %}

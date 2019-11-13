@@ -21,19 +21,9 @@
 },
 {
   "model": "wagtailnhsukfrontendsettings.navigationlink",
-  "pk": 3,
-  "fields": {
-    "sort_order": 2,
-    "setting": 1,
-    "label": "Emergency Alert",
-    "page": 6
-  }
-},
-{
-  "model": "wagtailnhsukfrontendsettings.navigationlink",
   "pk": 4,
   "fields": {
-    "sort_order": 3,
+    "sort_order": 2,
     "setting": 1,
     "label": "Pagination",
     "page": 8
@@ -57,22 +47,6 @@
     "depth": 1,
     "numchild": 0,
     "name": "Root"
-  }
-},
-{
-  "model": "wagtailnhsukfrontendsettings.emergencyalert",
-  "pk": 1,
-  "fields": {
-    "site": [
-      "localhost",
-      80
-    ],
-    "enabled": true,
-    "title": "National Flu Outbreak",
-    "description": "There has been a national flu outbreak.",
-    "link_url": "https://www.nhs.uk",
-    "link_label": "How does it affect me",
-    "last_updated": "2019-02-18T14:47:00.148Z"
   }
 },
 {
@@ -304,20 +278,6 @@
       "admin"
     ],
     "content_json": "{\"pk\": 3, \"path\": \"00010001\", \"depth\": 2, \"numchild\": 1, \"title\": \"Home\", \"draft_title\": \"Home\", \"slug\": \"home\", \"content_type\": 2, \"live\": true, \"has_unpublished_changes\": true, \"url_path\": \"/home/\", \"owner\": null, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": \"2018-10-22T10:57:04.927Z\", \"last_published_at\": \"2018-11-26T16:04:21.875Z\", \"latest_revision_created_at\": \"2018-11-26T16:27:51.222Z\", \"live_revision\": 6, \"body\": \"[{\\\"type\\\": \\\"action_link\\\", \\\"value\\\": {\\\"text\\\": \\\"Action Link\\\", \\\"external_url\\\": \\\"https://example.com\\\"}, \\\"id\\\": \\\"275caa12-937e-42a5-8ef3-caa05584c8ce\\\"}, {\\\"type\\\": \\\"warning_callout\\\", \\\"value\\\": \\\"<p>This is a warning callout box! It contains <b>RichText</b></p>\\\", \\\"id\\\": \\\"d58c67a7-857b-4729-8957-40dee5d9a396\\\"}, {\\\"type\\\": \\\"care_card\\\", \\\"value\\\": {\\\"title\\\": \\\"Non-urgent:\\\", \\\"body\\\": \\\"<p>This is a primary care card</p>\\\", \\\"type\\\": \\\"primary\\\"}, \\\"id\\\": \\\"77a893d7-b810-4c72-a194-749da2d33b88\\\"}, {\\\"type\\\": \\\"care_card\\\", \\\"value\\\": {\\\"title\\\": \\\"Urgent:\\\", \\\"body\\\": \\\"<p>This is an urgent care card</p>\\\", \\\"type\\\": \\\"urgent\\\"}, \\\"id\\\": \\\"84faa876-06d1-493a-8776-3e63ffc3ac71\\\"}, {\\\"type\\\": \\\"care_card\\\", \\\"value\\\": {\\\"title\\\": \\\"Immediate!\\\", \\\"body\\\": \\\"<p>This is an immediate care card</p>\\\", \\\"type\\\": \\\"immediate\\\"}, \\\"id\\\": \\\"c9531ae4-ea87-4e07-8214-11669dbeae68\\\"}]\"}",
-    "approved_go_live_at": null
-  }
-},
-{
-  "model": "wagtailcore.pagerevision",
-  "pk": 9,
-  "fields": {
-    "page": 6,
-    "submitted_for_moderation": false,
-    "created_at": "2019-02-18T14:47:11.808Z",
-    "user": [
-      "admin"
-    ],
-    "content_json": "{\"pk\": 6, \"path\": \"000100010002\", \"depth\": 3, \"numchild\": 0, \"title\": \"Emergency Alert\", \"draft_title\": \"Emergency Alert\", \"slug\": \"emergency-alert\", \"content_type\": 6, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/emergency-alert/\", \"owner\": 2, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null}",
     "approved_go_live_at": null
   }
 },
@@ -587,39 +547,6 @@
     "last_published_at": "2018-11-26T10:01:20.599Z",
     "latest_revision_created_at": "2018-11-26T10:01:20.582Z",
     "live_revision": 5
-  }
-},
-{
-  "model": "wagtailcore.page",
-  "pk": 6,
-  "fields": {
-    "path": "000100010002",
-    "depth": 3,
-    "numchild": 0,
-    "title": "Emergency Alert",
-    "draft_title": "Emergency Alert",
-    "slug": "emergency-alert",
-    "content_type": [
-      "home",
-      "childpage"
-    ],
-    "live": true,
-    "has_unpublished_changes": false,
-    "url_path": "/home/emergency-alert/",
-    "owner": [
-      "admin"
-    ],
-    "seo_title": "",
-    "show_in_menus": false,
-    "search_description": "",
-    "go_live_at": null,
-    "expire_at": null,
-    "expired": false,
-    "locked": false,
-    "first_published_at": "2019-02-18T14:47:11.821Z",
-    "last_published_at": "2019-02-18T14:47:11.821Z",
-    "latest_revision_created_at": "2019-02-18T14:47:11.808Z",
-    "live_revision": 9
   }
 },
 {
@@ -929,13 +856,6 @@
   "pk": 5,
   "fields": {
     "page_ptr": 5
-  }
-},
-{
-  "model": "home.childpage",
-  "pk": 6,
-  "fields": {
-    "page_ptr": 6
   }
 },
 {
