@@ -78,23 +78,36 @@ class NavigationLink(Orderable):
 
 
 @register_setting
-class EmergencyAlert(ClusterableModel, BaseSetting):
-    enabled = models.BooleanField(default=False)
-    title = models.CharField(max_length=255, blank=True)
-    description = models.TextField(blank=True)
+class FooterSettings(ClusterableModel, BaseSetting):
 
-    link_url = models.URLField(blank=True)
-    link_label = models.CharField(max_length=255, blank=True)
-
-    # Auto-updating field
-    last_updated = models.DateTimeField(auto_now=True)
+    fixed_coloumn_footer = models.BooleanField(
+        default=False,
+        help_text="Enable this setting to change way the footer is styled, so links group into coloumns"
+    )
 
     panels = [
-        FieldPanel('enabled'),
-        FieldPanel('title'),
-        FieldPanel('description'),
-        MultiFieldPanel([
-            FieldPanel('link_url'),
-            FieldPanel('link_label'),
-        ], heading="Link"),
+        FieldPanel('fixed_coloumn_footer'),
+        InlinePanel(
+            'footer_links',
+            label="Footer Links",
+            help_text="There is a minimum of 1 link and a maximum of 9 ",
+            min_num=1,
+            max_num=9
+        )
+    ]
+
+
+class FooterLinks(Orderable):
+
+    setting = ParentalKey(
+        FooterSettings,
+        on_delete=models.CASCADE,
+        related_name='footer_links',
+    )
+    link_url = models.URLField(blank=True)
+    link_label = models.CharField(blank=True, max_length=250)
+
+    panels = [
+        FieldPanel('link_url'),
+        FieldPanel('link_label'),
     ]

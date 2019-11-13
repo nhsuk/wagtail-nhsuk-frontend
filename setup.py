@@ -19,7 +19,7 @@ class CompileCSSCommand(build):
     def run(self):
         filepath_base = 'wagtailnhsukfrontend/static/wagtailnhsukfrontend/css/'
         filenames = [
-            'nhsuk-2.1.0.min.css',
+            'nhsuk-3.0.2.min.css',
             'fixes.css',
         ]
 
@@ -35,7 +35,7 @@ setup(
         'build': CompileCSSCommand,
     },
     name="wagtail-nhsuk-frontend",
-    version="0.3.0",
+    version="0.4.0",
     description="NHSUK Frontend Styles for Wagtail",
     author="Mike Monteith",
     author_email="<mike.monteith@nhs.net>",

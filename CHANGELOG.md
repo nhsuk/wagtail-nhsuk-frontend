@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## v0.4.0
+
+- Upgrade to the nhsuk frontend library v3 (breaking changes)
+  - Removed emergency alert component
+  - Removed feedback banner component
+- Allow sub-blocks inside Details, Expander and CareCard blocks (breaking change)
+- Add summary list component
+- Allow templatetags to be used without a `page` context
+- Add icons to blocks for nicer streamfield UI
+- Add search_action and search_field_name params to header for custom search endpoints
+
 ## v0.3.0
 
 - New components

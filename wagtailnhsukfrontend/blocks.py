@@ -4,6 +4,7 @@ from wagtail.core.blocks import (
     ChoiceBlock,
     IntegerBlock,
     RichTextBlock,
+    StreamBlock,
     StructBlock,
     URLBlock,
     ListBlock,
@@ -27,31 +28,8 @@ class ActionLinkBlock(FlattenValueContext, StructBlock):
     new_window = BooleanBlock(required=False, label="Open in new window")
 
     class Meta:
+        icon = 'link'
         template = 'wagtailnhsukfrontend/action_link.html'
-
-
-class CareCardBlock(FlattenValueContext, StructBlock):
-
-    type = ChoiceBlock([
-        ('primary', 'Non-urgent'),
-        ('urgent', 'Urgent'),
-        ('immediate', 'Immediate'),
-    ], required=True, default='primary',)
-    heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
-    title = CharBlock(required=True)
-    body = RichTextBlock(required=True)
-
-    def get_context(self, value, parent_context=None):
-        context = super().get_context(value, parent_context)
-        context['accessible_title_prefix'] = {
-            'primary': 'Non-urgent advice: ',
-            'urgent': 'Urgent advice:',
-            'immediate': 'Immediate action required:',
-        }[value['type']]
-        return context
-
-    class Meta:
-        template = 'wagtailnhsukfrontend/care_card.html'
 
 
 class WarningCalloutBlock(FlattenValueContext, StructBlock):
@@ -61,6 +39,7 @@ class WarningCalloutBlock(FlattenValueContext, StructBlock):
     body = RichTextBlock(required=True)
 
     class Meta:
+        icon = 'warning'
         template = 'wagtailnhsukfrontend/warning_callout.html'
 
 
@@ -69,30 +48,8 @@ class InsetTextBlock(FlattenValueContext, StructBlock):
     body = RichTextBlock(required=True)
 
     class Meta:
+        icon = 'warning'
         template = 'wagtailnhsukfrontend/inset_text.html'
-
-
-class DetailsBlock(FlattenValueContext, StructBlock):
-
-    title = CharBlock(required=True)
-    body = RichTextBlock(required=True)
-
-    class Meta:
-        template = 'wagtailnhsukfrontend/details.html'
-
-
-class ExpanderBlock(DetailsBlock):
-
-    class Meta:
-        template = 'wagtailnhsukfrontend/expander.html'
-
-
-class ExpanderGroupBlock(FlattenValueContext, StructBlock):
-
-    expanders = ListBlock(ExpanderBlock)
-
-    class Meta:
-        template = 'wagtailnhsukfrontend/expander_group.html'
 
 
 class PanelBlock(FlattenValueContext, StructBlock):
@@ -102,6 +59,7 @@ class PanelBlock(FlattenValueContext, StructBlock):
     body = RichTextBlock(required=True)
 
     class Meta:
+        icon = 'doc-full'
         template = 'wagtailnhsukfrontend/panel.html'
 
 
@@ -112,6 +70,7 @@ class GreyPanelBlock(FlattenValueContext, StructBlock):
     body = RichTextBlock(required=True)
 
     class Meta:
+        icon = 'doc-full-inverse'
         template = 'wagtailnhsukfrontend/grey_panel.html'
 
 
@@ -123,6 +82,7 @@ class PanelListBlock(FlattenValueContext, StructBlock):
     ]))
 
     class Meta:
+        icon = 'list-ul'
         template = 'wagtailnhsukfrontend/panel_list.html'
 
 
@@ -133,6 +93,7 @@ class DoBlock(FlattenValueContext, StructBlock):
     do = ListBlock(RichTextBlock)
 
     class Meta:
+        icon = 'tick'
         template = 'wagtailnhsukfrontend/do_list.html'
 
 
@@ -143,6 +104,7 @@ class DontBlock(FlattenValueContext, StructBlock):
     dont = ListBlock(RichTextBlock)
 
     class Meta:
+        icon = 'cross'
         template = 'wagtailnhsukfrontend/dont_list.html'
 
 
@@ -153,6 +115,7 @@ class ImageBlock(FlattenValueContext, StructBlock):
     caption = CharBlock(required=False)
 
     class Meta:
+        icon = 'image'
         template = 'wagtailnhsukfrontend/image.html'
 
 
@@ -165,6 +128,7 @@ class BasePromoBlock(FlattenValueContext, StructBlock):
     alt_text = CharBlock(required=False)
 
     class Meta:
+        icon = 'pick'
         template = 'wagtailnhsukfrontend/promo.html'
 
 
@@ -207,3 +171,104 @@ class PromoGroupBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/promo_group.html'
+
+
+class SummaryListRowBlock(StructBlock):
+
+    key = CharBlock()
+
+    value = RichTextBlock()
+
+
+class SummaryListBlock(FlattenValueContext, StructBlock):
+
+    rows = ListBlock(SummaryListRowBlock)
+    no_border = BooleanBlock(default=False, required=False)
+
+    class Meta:
+        icon = 'form'
+        template = 'wagtailnhsukfrontend/summary_list.html'
+
+
+class DetailsBlock(FlattenValueContext, StructBlock):
+
+    # Define a BodyStreamBlock class in this way to make it easier to subclass and add extra body blocks
+    class BodyStreamBlock(StreamBlock):
+        richtext = RichTextBlock()
+        action_link = ActionLinkBlock()
+        inset_text = InsetTextBlock()
+        image = ImageBlock()
+        panel = PanelBlock()
+        warning_callout = WarningCalloutBlock()
+        summary_list = SummaryListBlock()
+
+    title = CharBlock(required=True)
+    body = BodyStreamBlock(required=True)
+
+    class Meta:
+        icon = 'collapse-down'
+        template = 'wagtailnhsukfrontend/details.html'
+
+
+class ExpanderBlock(DetailsBlock):
+
+    class BodyStreamBlock(StreamBlock):
+        richtext = RichTextBlock()
+        action_link = ActionLinkBlock()
+        inset_text = InsetTextBlock()
+        image = ImageBlock()
+        grey_panel = GreyPanelBlock()
+        warning_callout = WarningCalloutBlock()
+        summary_list = SummaryListBlock()
+
+    # We need to override the body since expanders can have grey_panels instead of regular panels
+    body = BodyStreamBlock(required=True)
+
+    class Meta:
+        icon = 'plus-inverse'
+        template = 'wagtailnhsukfrontend/expander.html'
+
+
+class ExpanderGroupBlock(FlattenValueContext, StructBlock):
+
+    expanders = ListBlock(ExpanderBlock)
+
+    class Meta:
+        icon = 'plus-inverse'
+        template = 'wagtailnhsukfrontend/expander_group.html'
+
+
+class CareCardBlock(FlattenValueContext, StructBlock):
+
+    type = ChoiceBlock([
+        ('primary', 'Non-urgent'),
+        ('urgent', 'Urgent'),
+        ('immediate', 'Immediate'),
+    ], required=True, default='primary',)
+    heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+    title = CharBlock(required=True)
+
+    class BodyStreamBlock(StreamBlock):
+        richtext = RichTextBlock()
+        action_link = ActionLinkBlock()
+        details = DetailsBlock()
+        inset_text = InsetTextBlock()
+        image = ImageBlock()
+        grey_panel = GreyPanelBlock()
+        warning_callout = WarningCalloutBlock()
+        summary_list = SummaryListBlock()
+
+    body = BodyStreamBlock(required=True)
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context)
+        context['accessible_title_prefix'] = {
+            'primary': 'Non-urgent advice: ',
+            'urgent': 'Urgent advice:',
+            'immediate': 'Immediate action required:',
+        }[value['type']]
+        return context
+
+    class Meta:
+        icon = 'help'
+        template = 'wagtailnhsukfrontend/care_card.html'

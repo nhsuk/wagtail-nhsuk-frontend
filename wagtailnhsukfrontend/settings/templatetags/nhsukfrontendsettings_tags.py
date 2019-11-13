@@ -1,13 +1,14 @@
 from django import template
-from wagtailnhsukfrontend.settings.models import HeaderSettings, EmergencyAlert
+from wagtail.core.models import Site
+from wagtailnhsukfrontend.settings.models import HeaderSettings, FooterSettings
 
 register = template.Library()
 
 
 @register.inclusion_tag('wagtailnhsukfrontend/header.html', takes_context=True)
-def header(context):
-    page = context['page']
-    site = page.get_site()
+def header(context, **kwargs):
+    request = context['request']
+    site = Site.find_for_request(request)
     header = HeaderSettings.for_site(site)
 
     return {
@@ -18,6 +19,8 @@ def header(context):
         'logo_href': header.logo_link.relative_url(site) if header.logo_link else '',
         'logo_aria': header.logo_aria,
         'show_search': header.show_search,
+        'search_action': kwargs.get('search_action', None),
+        'search_field_name': kwargs.get('search_field_name', None),
         'primary_links': [
             {
                 'label': link.label,
@@ -28,18 +31,19 @@ def header(context):
     }
 
 
-@register.inclusion_tag('wagtailnhsukfrontend/emergency_alert_setting.html', takes_context=True)
-def emergency_alert(context):
-    """Turn the EmergencyAlert settings into a template-friendly context object"""
-    page = context['page']
-    site = page.get_site()
-    alert = EmergencyAlert.for_site(site)
+@register.inclusion_tag("wagtailnhsukfrontend/footer.html", takes_context=True)
+def footer(context):
+    request = context['request']
+    site = Site.find_for_request(request)
+    footer = FooterSettings.for_site(site)
 
     return {
-        'enabled': alert.enabled,
-        'title': alert.title,
-        'content': alert.description,
-        'href': alert.link_url,
-        'label': alert.link_label,
-        'last_updated': alert.last_updated,
+        'primary_links': [
+            {
+                'label': link.link_label,
+                'url': link.link_url
+            }
+            for link in footer.footer_links.all()
+        ],
+        'fixed_coloumn_footer': footer.fixed_coloumn_footer,
     }

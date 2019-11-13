@@ -1,0 +1,12 @@
+<dl class="nhsuk-summary-list{% if no_border %} nhsuk-summary-list--no-border{% endif %}">
+  {% for row in rows %}
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+          {{ row.key }}
+      </dt>
+      <dd class="nhsuk-summary-list__value">
+        {{ row.value }}
+      </dd>
+    </div>
+  {% endfor %}
+</dl>

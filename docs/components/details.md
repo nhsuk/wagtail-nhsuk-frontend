@@ -14,6 +14,37 @@ class MyPage(Page):
   ])
 ```
 
+By default, the details block can contain the following sub-blocks:
+
+* [RichTextBlock](https://docs.wagtail.io/en/v2.7/topics/streamfield.html#richtextblock)
+* [ActionLinkBlock](./action_link.md)
+* [InsetTextBlock](./inset_text.md)
+* [ImageBlock](./image.md)
+* [PanelBlock](./panel.md)
+* [WarningCalloutBlock](./warning_callout.md)
+* [SummaryListBlock](./summary_list.md)
+
+To add extra sub-blocks, you must extend the `DetailsBlock` class.
+```py
+class CustomDetailsBody(DetailsBlock.BodyStreamBlock):
+
+  # Add a custom block
+  extra = MyExtraBlock()
+
+
+class CustomDetailsBlock(DetailsBlock):
+
+  body = CustomDetailsBody(required=True)
+
+
+class MyPage(Page):
+  body = StreamField([
+      ...
+      ('details', CustomDetailsBlock()),
+      ...
+  ])
+```
+
 ## Reference
 
 [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/details)  
