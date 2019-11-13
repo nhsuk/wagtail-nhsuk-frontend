@@ -1,3 +1,4 @@
+{% load wagtailcore_tags %}
 <div class="nhsuk-care-card nhsuk-care-card--{{ type }}">
   <div class="nhsuk-care-card__heading-container">
     <h{{ heading_level }} class="nhsuk-care-card__heading">
@@ -8,6 +9,8 @@
     <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
   </div>
   <div class="nhsuk-care-card__content">
-    {{ body }}
+    {% for block in body %}
+      {% include_block block %}
+    {% endfor %}
   </div>
 </div>
