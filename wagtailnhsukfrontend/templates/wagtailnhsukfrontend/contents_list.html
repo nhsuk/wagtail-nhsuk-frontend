@@ -4,9 +4,15 @@
   <h2 class="nhsuk-u-visually-hidden">Contents</h2>
   <ol class="nhsuk-contents-list__list">
     {% for link in links %}
-      <li class="nhsuk-contents-list__item" {% if link.is_current %}aria-current="page"{% endif %}>
-        <a class="nhsuk-contents-list{% if link.is_current %}__current{% else %}__link{% endif %}" href="{{ link.href }}">{{ link.label }}</a>
-      </li>
+      {% if link.is_current %}
+        <li class="nhsuk-contents-list__item" aria-current="page">
+          <span class="nhsuk-contents-list__current">{{ link.label }}</span>
+        </li>
+      {% else %}
+        <li class="nhsuk-contents-list__item">
+          <a class="nhsuk-contents-list__link" href="{{ link.href }}">{{ link.label }}</a>
+        </li>
+      {% endif %}
     {% endfor %}
   </ol>
 </nav>
