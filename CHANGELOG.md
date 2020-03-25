@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.4.1
+
+- Make the active link in a contents-list non-clickable
+
 ## v0.4.0
 
 - Upgrade to the nhsuk frontend library v3 (breaking changes)
