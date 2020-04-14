@@ -101,7 +101,7 @@ class DontBlock(FlattenValueContext, StructBlock):
 
     heading_level = IntegerBlock(required=True, min_value=2, max_value=4, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
 
-    dont = ListBlock(RichTextBlock)
+    dont = ListBlock(RichTextBlock, label="Don't")
 
     class Meta:
         icon = 'cross'
