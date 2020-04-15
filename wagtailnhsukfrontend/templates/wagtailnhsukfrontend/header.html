@@ -1,4 +1,4 @@
-<header class="nhsuk-header{% if transactional %} nhsuk-header--transactional{% endif %}" role="banner">
+<header class="nhsuk-header{% if transactional %} nhsuk-header--transactional{% endif %}{% if organisational %} nhsuk-header--organisation{% if organisation_white %} nhsuk-header--white{% endif %}{% endif %}" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     {% include 'wagtailnhsukfrontend/header/logo.html' %}
 

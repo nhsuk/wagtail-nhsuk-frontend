@@ -9,7 +9,8 @@ from wagtail.admin.edit_handlers import (
 )
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.core.models import Orderable
-
+from wagtail.images.models import Image
+from wagtail.images.edit_handlers import ImageChooserPanel
 
 @register_setting
 class HeaderSettings(ClusterableModel, BaseSetting):
@@ -38,21 +39,40 @@ class HeaderSettings(ClusterableModel, BaseSetting):
         blank=True,
         help_text="Aria label override for the NHS logo."
     )
+    logo_custom = models.ForeignKey(
+        Image,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
     show_search = models.BooleanField(default=False)
 
+    organisational = models.BooleanField(default=False)
+    organisation_name = models.CharField(max_length=255, blank=True)
+    organisation_descriptor = models.CharField(max_length=255, blank=True)
+    organisation_white = models.BooleanField(default=False)
+
     panels = [
+        MultiFieldPanel([
+            PageChooserPanel('logo_link'),
+            FieldPanel('logo_aria'),
+            ImageChooserPanel('logo_custom'),
+            FieldPanel('show_search'),
+        ], heading="General"),
         MultiFieldPanel([
             FieldPanel('service_name'),
             FieldPanel('service_long_name'),
             PageChooserPanel('service_link'),
             FieldPanel('transactional'),
-        ], heading="Service"),
+        ], heading="Service header"),
         MultiFieldPanel([
-            PageChooserPanel('logo_link'),
-            FieldPanel('logo_aria'),
-        ], heading="Logo"),
-        FieldPanel('show_search'),
+            FieldPanel('organisational'),
+            FieldPanel('organisation_name'),
+            FieldPanel('organisation_descriptor'),
+            FieldPanel('organisation_white'),
+        ], heading="Organisational header"),
         InlinePanel('navigation_links', heading="Navigation"),
     ]
 
