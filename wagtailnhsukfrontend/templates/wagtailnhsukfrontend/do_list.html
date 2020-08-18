@@ -1,10 +1,6 @@
 <div class="nhsuk-do-dont-list">
   <h{{ heading_level }} class="nhsuk-do-dont-list__label">
-    {% if label %}
-      {{ label }}
-    {% else %}
-      Do
-    {% endif %}
+    {{ label|default:"Do" }}
   </h{{ heading_level }} >
   <ul class="nhsuk-list nhsuk-list--tick">
     {% for body in do %}
