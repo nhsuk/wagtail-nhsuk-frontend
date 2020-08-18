@@ -1,6 +1,10 @@
 # CHANGELOG
 
-## v0.4.2 
+## v0.4.3
+
+- Updated the do and don't panel to allow custom labels
+
+## v0.4.2
 
 - Use the latest version of the NHS.UK frontend library ([v3.0.4](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#304---24-march-2020))
 

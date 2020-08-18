@@ -1,5 +1,7 @@
 <div class="nhsuk-do-dont-list">
-  <h{{ heading_level }} class="nhsuk-do-dont-list__label">Don&#39;t</h{{ heading_level }}>
+  <h{{ heading_level }} class="nhsuk-do-dont-list__label">
+    {{ label|default:"Don&rsquo;t" }}
+  </h{{ heading_level }}>
   <ul class="nhsuk-list nhsuk-list--cross">
     {% for body in dont %}
     <li>
