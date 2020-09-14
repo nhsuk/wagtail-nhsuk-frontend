@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.4.4
+
+- Allow h5 and h6 heading level inside all blocks that contain headings.
+
 ## v0.4.3
 
 - Updated the do and don't panel to allow custom labels
