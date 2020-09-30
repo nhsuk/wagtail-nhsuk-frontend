@@ -1,6 +1,6 @@
 # Wagtail NHS.UK frontend
 
-A wagtail implementation of the [NHS frontend v3.0.4](https://github.com/nhsuk/nhsuk-frontend) standard components.
+A wagtail implementation of the [NHS frontend v4.0.0](https://github.com/nhsuk/nhsuk-frontend) standard components.
 
 ## Installation
 
@@ -69,7 +69,7 @@ Include the Javascript in your base template
   <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-3.0.4.min.js' %}" defer></script>
 ```
 
-## Contributing 
+## Contributing
 
 See the [contributing documentation](./docs/contributing.md) to run the application locally and contribute changes.
 
