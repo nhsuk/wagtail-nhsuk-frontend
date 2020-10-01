@@ -173,6 +173,17 @@ class PromoGroupBlock(FlattenValueContext, StructBlock):
         template = 'wagtailnhsukfrontend/promo_group.html'
 
 
+class BaseCardBlock(FlattenValueContext, StructBlock):
+
+    heading = CharBlock(required=False)
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
+    body = RichTextBlock(required=True)
+
+    class Meta:
+        icon = 'pick'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
 class SummaryListRowBlock(StructBlock):
 
     key = CharBlock()
