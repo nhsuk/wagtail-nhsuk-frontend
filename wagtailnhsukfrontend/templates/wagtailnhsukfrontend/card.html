@@ -1,0 +1,11 @@
+{% load wagtailimages_tags %}
+
+
+<div class="nhsuk-card">
+  <div class="nhsuk-card__content">
+        <h{{ heading_level }} class="nhsuk-card__heading">{{ heading }}</h{{ heading_level }}>
+        {% if description %}
+          <p class="nhsuk-card__description">{{ description }}</p>
+        {% endif %}
+  </div>
+</div>
