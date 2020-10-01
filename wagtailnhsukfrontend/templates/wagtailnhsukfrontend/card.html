@@ -1,11 +1,21 @@
 {% load wagtailimages_tags %}
 
 
-<div class="nhsuk-card">
+<div class="nhsuk-card {% if url %} nhsuk-card--clickable{% endif %}">
   <div class="nhsuk-card__content">
-        <h{{ heading_level }} class="nhsuk-card__heading">{{ heading }}</h{{ heading_level }}>
-        {% if body %}
-          <p class="nhsuk-card__description">{{ body }}</p>
-        {% endif %}
+    {% if url %}
+      <h2 class="nhsuk-card__heading nhsuk-heading-m">
+        <a class="nhsuk-card__link" href="{{ url }}">
+          {{ heading }}
+        </a>
+      </h2>
+    {% else %}
+      <h{{ heading_level }} class="nhsuk-card__heading">
+        {{ heading }}
+      </h{{ heading_level }}>
+    {% endif %}
+    {% if body %}
+      <p class="nhsuk-card__description">{{ body }}</p>
+    {% endif %}
   </div>
 </div>
