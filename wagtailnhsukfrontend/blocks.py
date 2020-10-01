@@ -173,18 +173,6 @@ class PromoGroupBlock(FlattenValueContext, StructBlock):
         template = 'wagtailnhsukfrontend/promo_group.html'
 
 
-class BaseCardBlock(FlattenValueContext, StructBlock):
-
-    heading = CharBlock(required=False)
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
-    url = URLBlock(label="URL", required=False, help_text='Optional, if there is a link the entire card will be clickable.')
-    body = RichTextBlock(required=True)
-
-    class Meta:
-        icon = 'doc-full'
-        template = 'wagtailnhsukfrontend/card.html'
-
-
 class SummaryListRowBlock(StructBlock):
 
     key = CharBlock()
@@ -284,3 +272,66 @@ class CareCardBlock(FlattenValueContext, StructBlock):
     class Meta:
         icon = 'help'
         template = 'wagtailnhsukfrontend/care_card.html'
+
+
+class BasicCardBlock(FlattenValueContext, StructBlock):
+
+    heading = CharBlock(required=False)
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
+    body = RichTextBlock(required=True)
+
+    class Meta:
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
+class ClickableCardBlock(FlattenValueContext, StructBlock):
+
+    url = URLBlock(label="URL", required=False, help_text='Optional, if there is a link the entire card will be clickable.')
+    heading = CharBlock(required=False)
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
+    body = RichTextBlock(required=True)
+
+    class Meta:
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
+class ImageCardBlock(FlattenValueContext, StructBlock):
+
+    content_image = ImageChooserBlock(label="Image", required=True)
+    alt_text = CharBlock(required=False)
+    heading = CharBlock(required=False)
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
+    body = RichTextBlock(required=True)
+    url = URLBlock(label="URL", required=False, help_text='Optional, if there is a link the entire card will be clickable.')
+
+    class Meta:
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
+class FeatureCardBlock(FlattenValueContext, StructBlock):
+
+    feature_heading = CharBlock(required=False)
+    body = RichTextBlock(required=True)
+
+    class Meta:
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
+class CardBlock(FlattenValueContext, StructBlock):
+
+    # Define a BodyStreamBlock class in this way to make it easier to subclass and add extra body blocks
+    class BodyStreamBlock(StreamBlock):
+        basic_card = BasicCardBlock()
+        clickable_card = ClickableCardBlock()
+        image_card = ImageCardBlock()
+        feature_card = FeatureCardBlock()
+
+    body = BodyStreamBlock(required=True)
+
+    class Meta:
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card_collection.html'
