@@ -330,6 +330,12 @@ class FeatureCardBlock(FlattenValueContext, StructBlock):
 
 class CardBlock(FlattenValueContext, StructBlock):
 
+    column = ChoiceBlock([
+        ('full', 'Full'),
+        ('one-half', 'One-half'),
+        ('one-third', 'One-third'),
+    ], default='full', required=True)
+
     # Define a BodyStreamBlock class in this way to make it easier to subclass and add extra body blocks
     class BodyStreamBlock(StreamBlock):
         basic_card = BasicCardBlock()
@@ -338,6 +344,15 @@ class CardBlock(FlattenValueContext, StructBlock):
         feature_card = FeatureCardBlock()
 
     body = BodyStreamBlock(required=True)
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context)
+        context['num_columns'] = {
+            'full': 1,
+            'one-half': 2,
+            'one-third': 3,
+        }[value['column']]
+        return context
 
     class Meta:
         icon = 'doc-full'
