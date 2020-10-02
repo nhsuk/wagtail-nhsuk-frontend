@@ -274,6 +274,26 @@ class CareCardBlock(FlattenValueContext, StructBlock):
         template = 'wagtailnhsukfrontend/care_card.html'
 
 
+class BaseCardBlock(FlattenValueContext, StructBlock):
+
+    heading = CharBlock(required=False)
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
+    body = RichTextBlock(required=True)
+    url = URLBlock(label="URL", required=False, help_text='Optional, if there is a link the entire card will be clickable.')
+    content_image = ImageChooserBlock(label="Image", required=False)
+    alt_text = CharBlock(required=False)
+
+    # optional_data = ListBlock(StructBlock([
+    #     ('url', URLBlock(label="URL", required=False, help_text='Optional, if there is a link the entire card will be clickable.')),
+    #     ('content_image', ImageChooserBlock(label="Image", required=False)),
+    #     ('alt_text', CharBlock(required=False)),
+    # ]))
+
+    class Meta:
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
 class BasicCardBlock(FlattenValueContext, StructBlock):
 
     heading = CharBlock(required=False)
