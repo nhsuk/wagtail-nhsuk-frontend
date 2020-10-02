@@ -19,8 +19,6 @@ from wagtailnhsukfrontend.blocks import (
     InsetTextBlock,
     ImageBlock,
     WarningCalloutBlock,
-    PromoBlock,
-    PromoGroupBlock,
     SummaryListBlock,
 )
 
@@ -64,8 +62,7 @@ class PaginationPage(Page):
 class HubsPage(Page):
 
     body = StreamField([
-        ('promo', PromoBlock()),
-        ('promo_group', PromoGroupBlock()),
+        ('card_block', CardBlock()),
     ])
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
