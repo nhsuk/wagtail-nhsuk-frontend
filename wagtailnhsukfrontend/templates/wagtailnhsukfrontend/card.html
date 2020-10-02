@@ -32,23 +32,43 @@
 
   <div class="nhsuk-card__content {% if feature_heading %}nhsuk-card__content nhsuk-card__content--feature{% endif %}">
     {% if url %}
-      <h2 class="nhsuk-card__heading nhsuk-heading-m">
+      <h{{ heading_level }}
+        class="
+          nhsuk-card__heading
+          {% if heading_size == 'small' %} nhsuk-heading-s{% endif %}
+          {% if heading_size == 'medium' %} nhsuk-heading-m{% endif %}
+          {% if heading_size == 'large' %} nhsuk-heading-l{% endif %}
+        "
+      >
         <a class="nhsuk-card__link" href="{{ url }}">
           {{ heading }}
         </a>
-      </h2>
+      </h{{ heading_level }}>
     {% elif feature_heading %}
-      <h2 class="nhsuk-card__heading--feature nhsuk-heading-m">
+      <h{{ heading_level }}
+        class="
+          nhsuk-card__heading--feature
+          {% if heading_size == 'small' %} nhsuk-heading-s{% endif %}
+          {% if heading_size == 'medium' %} nhsuk-heading-m{% endif %}
+          {% if heading_size == 'large' %} nhsuk-heading-l{% endif %}
+        "
+      >
         {{ feature_heading }}
-      </h2>
+      </h{{ heading_level }}>
     {% else %}
-      <h{{ heading_level }} class="nhsuk-card__heading">
+      <h{{ heading_level }}
+        class="
+          nhsuk-card__heading
+          {% if heading_size == 'small' %} nhsuk-heading-s{% endif %}
+          {% if heading_size == 'medium' %} nhsuk-heading-m{% endif %}
+          {% if heading_size == 'large' %} nhsuk-heading-l{% endif %}
+        "
+      >
         {{ heading }}
       </h{{ heading_level }}>
     {% endif %}
     {% if body %}
-      {{ body }}
-    <!-- <p class="nhsuk-card__description">{{ body }}</p> -->
+      <p class="nhsuk-card__description">{{ body }}</p>
     {% endif %}
   </div>
 </div>
