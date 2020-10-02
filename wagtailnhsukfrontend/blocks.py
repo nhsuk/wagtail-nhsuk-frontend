@@ -291,37 +291,19 @@ class BasicCardBlock(FlattenValueContext, StructBlock):
         template = 'wagtailnhsukfrontend/card.html'
 
 
-class ClickableCardBlock(FlattenValueContext, StructBlock):
+class ClickableCardBlock(BasicCardBlock):
 
     url = URLBlock(label="URL", required=False, help_text='Optional, if there is a link the entire card will be clickable.')
-    heading = CharBlock(required=False)
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
-    heading_size = ChoiceBlock([
-        ('', 'Default'),
-        ('small', 'Small'),
-        ('medium', 'Medium'),
-        ('large', 'Large'),
-    ], required=False)
-    body = RichTextBlock(required=True)
 
     class Meta:
         icon = 'doc-full'
         template = 'wagtailnhsukfrontend/card.html'
 
 
-class ImageCardBlock(FlattenValueContext, StructBlock):
+class ImageCardBlock(BasicCardBlock):
 
     content_image = ImageChooserBlock(label="Image", required=True)
     alt_text = CharBlock(required=False)
-    heading = CharBlock(required=False)
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
-    heading_size = ChoiceBlock([
-        ('', 'Default'),
-        ('small', 'Small'),
-        ('medium', 'Medium'),
-        ('large', 'Large'),
-    ], required=False)
-    body = RichTextBlock(required=True)
     url = URLBlock(label="URL", required=False, help_text='Optional, if there is a link the entire card will be clickable.')
 
     class Meta:
