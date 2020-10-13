@@ -276,15 +276,17 @@ class CareCardBlock(FlattenValueContext, StructBlock):
 
 class BasicCardBlock(FlattenValueContext, StructBlock):
 
-    heading = CharBlock(required=False)
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
+    heading = CharBlock(required=True)
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=6.')
     heading_size = ChoiceBlock([
         ('', 'Default'),
         ('small', 'Small'),
         ('medium', 'Medium'),
         ('large', 'Large'),
-    ], required=False)
-    body = RichTextBlock(required=True)
+    ],
+        help_text='The heading size affects the visual size, this follows the front-end libraies sizing.',
+        required=False)
+    description = CharBlock(required=False)
 
     class Meta:
         icon = 'doc-full'
@@ -293,7 +295,7 @@ class BasicCardBlock(FlattenValueContext, StructBlock):
 
 class ClickableCardBlock(BasicCardBlock):
 
-    url = URLBlock(label="URL", required=False, help_text='Optional, if there is a link the entire card will be clickable.')
+    url = URLBlock(label="URL", required=True, help_text='Link for the card')
 
     class Meta:
         icon = 'doc-full'
@@ -303,25 +305,17 @@ class ClickableCardBlock(BasicCardBlock):
 class ImageCardBlock(BasicCardBlock):
 
     content_image = ImageChooserBlock(label="Image", required=True)
-    alt_text = CharBlock(required=False)
-    url = URLBlock(label="URL", required=False, help_text='Optional, if there is a link the entire card will be clickable.')
+    alt_text = CharBlock(required=True)
+    url = URLBlock(label="URL", required=True, help_text='Optional, if there is a link the entire card will be clickable.')
 
     class Meta:
         icon = 'doc-full'
         template = 'wagtailnhsukfrontend/card.html'
 
 
-class FeatureCardBlock(FlattenValueContext, StructBlock):
+class FeatureCardBlock(BasicCardBlock):
 
-    feature_heading = CharBlock(required=False)
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
-    heading_size = ChoiceBlock([
-        ('', 'Default'),
-        ('small', 'Small'),
-        ('medium', 'Medium'),
-        ('large', 'Large'),
-    ], required=False)
-    body = RichTextBlock(required=True)
+    feature_card = BooleanBlock(required=True, label="Uses the feature card style")
 
     class Meta:
         icon = 'doc-full'
@@ -331,12 +325,11 @@ class FeatureCardBlock(FlattenValueContext, StructBlock):
 class CardBlock(FlattenValueContext, StructBlock):
 
     column = ChoiceBlock([
-        ('full', 'Full'),
+        ('', 'Default'),
         ('one-half', 'One-half'),
         ('one-third', 'One-third'),
-    ], default='full', required=True)
+    ], default='', required=False)
 
-    # Define a BodyStreamBlock class in this way to make it easier to subclass and add extra body blocks
     class BodyStreamBlock(StreamBlock):
         basic_card = BasicCardBlock()
         clickable_card = ClickableCardBlock()
@@ -344,15 +337,6 @@ class CardBlock(FlattenValueContext, StructBlock):
         feature_card = FeatureCardBlock()
 
     body = BodyStreamBlock(required=True)
-
-    def get_context(self, value, parent_context=None):
-        context = super().get_context(value, parent_context)
-        context['num_columns'] = {
-            'full': 1,
-            'one-half': 2,
-            'one-third': 3,
-        }[value['column']]
-        return context
 
     class Meta:
         icon = 'doc-full'

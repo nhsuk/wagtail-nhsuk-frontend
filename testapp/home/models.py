@@ -10,6 +10,7 @@ from wagtailnhsukfrontend.mixins import (
 from wagtailnhsukfrontend.blocks import (
     ActionLinkBlock,
     CardBlock,
+    # CardGroupBlock,
     CareCardBlock,
     DetailsBlock,
     DoBlock,
