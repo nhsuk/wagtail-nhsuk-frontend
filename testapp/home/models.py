@@ -19,6 +19,9 @@ from wagtailnhsukfrontend.blocks import (
     ExpanderGroupBlock,
     InsetTextBlock,
     ImageBlock,
+    PanelBlock,
+    PanelListBlock,
+    GreyPanelBlock,
     WarningCalloutBlock,
     SummaryListBlock,
 )
@@ -39,6 +42,9 @@ class HomePage(HeroMixin, ReviewDateMixin, Page):
         ('expander_group', ExpanderGroupBlock()),
         ('inset_text', InsetTextBlock()),
         ('image', ImageBlock()),
+        ('panel_block', PanelBlock()),
+        ('panel_block_grey', GreyPanelBlock()),
+        ('panel_list_block', PanelListBlock()),
         ('warning_callout', WarningCalloutBlock()),
         ('summary_list', SummaryListBlock()),
     ])

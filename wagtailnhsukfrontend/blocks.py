@@ -61,6 +61,7 @@ class PanelBlock(FlattenValueContext, StructBlock):
     class Meta:
         icon = 'doc-full'
         template = 'wagtailnhsukfrontend/panel.html'
+        help_text = 'This component is now deprecated and will be removed from future versions, please use the card block'
 
 
 class GreyPanelBlock(FlattenValueContext, StructBlock):
@@ -72,6 +73,7 @@ class GreyPanelBlock(FlattenValueContext, StructBlock):
     class Meta:
         icon = 'doc-full-inverse'
         template = 'wagtailnhsukfrontend/grey_panel.html'
+        help_text = 'This component is now deprecated and will be removed from future versions, please use the card block'
 
 
 class PanelListBlock(FlattenValueContext, StructBlock):
@@ -84,6 +86,7 @@ class PanelListBlock(FlattenValueContext, StructBlock):
     class Meta:
         icon = 'list-ul'
         template = 'wagtailnhsukfrontend/panel_list.html'
+        help_text = 'This component is now deprecated and will be removed from future versions, please use the card block'
 
 
 class DoBlock(FlattenValueContext, StructBlock):
@@ -143,6 +146,7 @@ class PromoBlock(BasePromoBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/promo.html'
+        help_text = 'This component is now deprecated and will be removed from future versions, please use the card block'
 
 
 class PromoGroupBlock(FlattenValueContext, StructBlock):
@@ -171,6 +175,7 @@ class PromoGroupBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/promo_group.html'
+        help_text = 'This component is now deprecated and will be removed from future versions, please use the card block'
 
 
 class SummaryListRowBlock(StructBlock):
