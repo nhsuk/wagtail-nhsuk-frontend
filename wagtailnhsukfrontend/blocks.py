@@ -35,6 +35,7 @@ class ActionLinkBlock(FlattenValueContext, StructBlock):
 class WarningCalloutBlock(FlattenValueContext, StructBlock):
 
     title = CharBlock(required=True, default='Important')
+    visually_hidden_prefix = BooleanBlock(required=False, label='Visually hidden prefix', help_text='If the title doesn\'t contain the word \"Important\" this will add a visually hidden one, to aid screen readers.')
     heading_level = IntegerBlock(required=True, min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
     body = RichTextBlock(required=True)
 
@@ -291,7 +292,7 @@ class BasicCardBlock(FlattenValueContext, StructBlock):
     ],
         help_text='The heading size affects the visual size, this follows the front-end libraies sizing.',
         required=False)
-    description = CharBlock(required=False)
+    body = RichTextBlock(required=False)
 
     class Meta:
         icon = 'doc-full'
@@ -309,7 +310,7 @@ class ClickableCardBlock(BasicCardBlock):
 
 class ImageCardBlock(BasicCardBlock):
 
-    content_image = ImageChooserBlock(label="Image", required=True)
+    content_image = ImageChooserBlock(label='Image', required=True)
     alt_text = CharBlock(required=True)
     url = URLBlock(label="URL", required=True, help_text='Optional, if there is a link the entire card will be clickable.')
 
@@ -320,7 +321,7 @@ class ImageCardBlock(BasicCardBlock):
 
 class FeatureCardBlock(BasicCardBlock):
 
-    feature_card = BooleanBlock(required=True, label="Uses the feature card style")
+    feature_card = BooleanBlock(required=True, label='Uses the feature card style')
 
     class Meta:
         icon = 'doc-full'
