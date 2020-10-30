@@ -1,20 +1,25 @@
-{% for panel in panels %}
-  <div class="nhsuk-grid-row nhsuk-panel-group">
-    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-      <div class="nhsuk-panel">
-        {% if panel.left_panel.label %}
-          <h{{ panel.left_panel.heading_level }}>{{ panel.left_panel.label }}</h{{ panel.left_panel.heading_level }}>
-        {% endif %}
-        {{ panel.left_panel.body }}
+<ul class="nhsuk-grid-row nhsuk-card-group">
+  {% for panel in panels %}
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content {% if panel.left_panel.label %} nhsuk-card__content--feature{% endif %}">
+          {% if panel.left_panel.label %}
+            <h{{ panel.left_panel.heading_level }} class="nhsuk-card__heading--feature">{{ panel.left_panel.label }}</h{{ panel.left_panel.heading_level }}>
+          {% endif %}
+          {{ panel.left_panel.body }}
+        </div>
       </div>
-    </div>
-    <div class="nhsuk-grid-column-one-half nhsuk-panel-group__item">
-      <div class="nhsuk-panel">
-        {% if panel.right_panel.label %}
-          <h{{ panel.right_panel.heading_level }}>{{ panel.right_panel.label }}</h{{ panel.right_panel.heading_level }}>
-        {% endif %}
-        {{ panel.right_panel.body }}
+    </li>
+    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content {% if panel.right_panel.label %} nhsuk-card__content--feature{% endif %}">
+          {% if panel.right_panel.label %}
+            <h{{ panel.right_panel.heading_level }} class="nhsuk-card__heading--feature">{{ panel.right_panel.label }}</h{{ panel.right_panel.heading_level }}>
+          {% endif %}
+          {{ panel.right_panel.body }}
+        </div>
       </div>
-    </div>
-  </div>
-{% endfor %}
+    </li>
+  {% endfor %}
+</ul>
+
