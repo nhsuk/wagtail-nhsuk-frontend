@@ -9,7 +9,11 @@
 {% image content_image width-1534 as seven_image %}
 
 <div class="nhsuk-promo{% if size == 'small' %} nhsuk-promo--small{% endif %}">
-  <a class="nhsuk-promo__link-wrapper" href="{{ url }}">
+{% if internal_page %}
+  <a class="nhsuk-promo__link-wrapper internal-page" href="{{ internal_page.url }}">
+{% else %}
+  <a class="nhsuk-promo__link-wrapper external-url" href="{{ url }}">
+{% endif %}
     {% if content_image %}
       <img
         class="nhsuk-promo__img"

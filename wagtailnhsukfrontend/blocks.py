@@ -150,7 +150,8 @@ class ImageBlock(FlattenValueContext, StructBlock):
 
 class BasePromoBlock(FlattenValueContext, StructBlock):
 
-    url = URLBlock(label="URL", required=True)
+    internal_page = PageChooserBlock(label="Internal Page", required=False)
+    url = URLBlock(label="URL", required=False)
     heading = CharBlock(required=True)
     description = CharBlock(required=False)
     content_image = ImageChooserBlock(label="Image", required=False)
@@ -159,6 +160,30 @@ class BasePromoBlock(FlattenValueContext, StructBlock):
     class Meta:
         icon = 'pick'
         template = 'wagtailnhsukfrontend/promo.html'
+        help_text = 'Promo requires an Internal page selected or a URL entered'
+
+    def clean(self, value):
+
+        errors = {}
+
+        url_links = 0
+
+        if value.get('url'):
+            url_links += 1
+        if value.get('internal_page'):
+            url_links += 1
+
+        if not url_links:
+            errors['internal_page'] = ErrorList(['Please choose a page or enter a URL below.'])
+            errors['url'] = ErrorList(['Please enter a URL or choose a page above.'])
+        elif url_links > 1:
+            errors['internal_page'] = ErrorList(['Please only enter a URL or choose a page.'])
+            errors['url'] = ErrorList(['Please only enter a URL or choose a page.'])
+
+        if errors:
+            raise ValidationError('Validation error in ActionLinkBlock', params=errors)
+
+        return super().clean(value)
 
 
 class PromoBlock(BasePromoBlock):
