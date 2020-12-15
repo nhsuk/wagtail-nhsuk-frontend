@@ -11,7 +11,6 @@ from wagtail.core.blocks import (
 )
 from wagtail.core.blocks.field_block import PageChooserBlock
 from wagtail.images.blocks import ImageChooserBlock
-from wagtail.core.models import Page
 from django.core.exceptions import ValidationError
 from django.forms.utils import ErrorList
 

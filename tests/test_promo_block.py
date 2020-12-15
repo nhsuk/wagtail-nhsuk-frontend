@@ -12,7 +12,6 @@ def test_promo_block_external_url(db, django_db_setup, client: Client):
     assert a_tag['href'] == 'http://example.com/'
 
 
-
 @pytest.mark.django_db
 def test_promo_block_page_chooser(db, django_db_setup, client: Client):
     response = client.get('/promo-hub/')
