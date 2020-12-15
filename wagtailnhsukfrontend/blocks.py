@@ -9,7 +9,11 @@ from wagtail.core.blocks import (
     URLBlock,
     ListBlock,
 )
+from wagtail.core.blocks.field_block import PageChooserBlock
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.core.models import Page
+from django.core.exceptions import ValidationError
+from django.forms.utils import ErrorList
 
 
 class FlattenValueContext:
@@ -24,12 +28,37 @@ class FlattenValueContext:
 class ActionLinkBlock(FlattenValueContext, StructBlock):
 
     text = CharBlock(label="Link text", required=True)
-    external_url = URLBlock(label="URL", required=True)
-    new_window = BooleanBlock(required=False, label="Open in new window")
+    internal_page = PageChooserBlock(label="Internal Page", required=False)
+    external_url = URLBlock(label="URL", required=False)
+    new_window = BooleanBlock(required=False, label="Open URL in new window")
 
     class Meta:
         icon = 'link'
         template = 'wagtailnhsukfrontend/action_link.html'
+        help_text = 'Action link requires an Internal page selected or a URL entered'
+
+    def clean(self, value):
+
+        errors = {}
+
+        url_links = 0
+
+        if value.get('external_url'):
+            url_links += 1
+        if value.get('internal_page'):
+            url_links += 1
+
+        if not url_links:
+            errors['internal_page'] = ErrorList(['Please choose a page or enter a URL below.'])
+            errors['external_url'] = ErrorList(['Please enter a URL or choose a page above.'])
+        elif url_links > 1:
+            errors['internal_page'] = ErrorList(['Please only enter a URL or choose a page.'])
+            errors['external_url'] = ErrorList(['Please only enter a URL or choose a page.'])
+
+        if errors:
+            raise ValidationError('Validation error in ActionLinkBlock', params=errors)
+
+        return super().clean(value)
 
 
 class WarningCalloutBlock(FlattenValueContext, StructBlock):
