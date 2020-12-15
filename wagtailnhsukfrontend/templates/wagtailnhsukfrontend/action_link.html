@@ -1,9 +1,8 @@
+<div class="nhsuk-action-link">
   {% if internal_page %}
-<div class="nhsuk-action-link internal-page">
-  <a class="nhsuk-action-link__link" href="{{ internal_page.url }}">
+  <a class="nhsuk-action-link__link internal-page" href="{{ internal_page.url }}">
   {% else %}
-<div class="nhsuk-action-link external-url">
-  <a class="nhsuk-action-link__link" href="{{ external_url }}" {% if new_window %}target="_blank" {% endif %}>
+  <a class="nhsuk-action-link__link external-url" href="{{ external_url }}" {% if new_window %}target="_blank" {% endif %}>
   {% endif %}
     <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M0 0h24v24H0z" fill="none"></path>
