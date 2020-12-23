@@ -17,7 +17,7 @@ class MyPage(Page):
   ])
 ```
 
-# Promo Group
+# Promo Group - DEPRICATED
 
 A Promo Group is a collection of promos in a 2-column or 3-column grid layout.
 
