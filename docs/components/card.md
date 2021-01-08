@@ -17,6 +17,13 @@ class MyPage(Page):
   ])
 ```
 
+By default, the details block can contain the following sub-blocks:
+
+* [BasicCard](./basic_card.md)
+* [ClickableCard](./clickable_card.md)
+* [CardWithAnImage](./card_with_image.md)
+* [FeatureCard](./feature_card.md)
+
 # Card Group
 
 A Card Group is a collection of cards in a 2-column or 3-column grid layout.
