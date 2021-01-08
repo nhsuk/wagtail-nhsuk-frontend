@@ -12,7 +12,7 @@ from wagtailnhsukfrontend.blocks import CardBasicBlock,
 class MyPage(Page):
   body = StreamField([
       ...
-      ('Basic card', CardBasicBlock()),
+      ('basic_card', CardBasicBlock()),
       ...
   ])
 ```
