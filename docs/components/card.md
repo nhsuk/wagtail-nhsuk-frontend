@@ -1,7 +1,7 @@
 
 # Card 
 
-Contains the different viarants of a card
+Contains 
 
 ```py
 from wagtail.core.models import Page
@@ -36,9 +36,7 @@ class MyPage(Page):
 ```
 
 
-
-
-
 ## Reference
 
-[Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/card)
+* [Service Manual](https://service-manual.nhs.uk/design-system/components/card)
+* [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/card)
