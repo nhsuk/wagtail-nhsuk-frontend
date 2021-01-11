@@ -1,5 +1,5 @@
 
-# Promo - DEPRICATED
+# Promo - DEPRECATED
 
 Replaced with the [Card](./card.md) component
 
@@ -17,7 +17,7 @@ class MyPage(Page):
   ])
 ```
 
-# Promo Group - DEPRICATED
+# Promo Group - DEPRECATED
 
 A Promo Group is a collection of promos in a 2-column or 3-column grid layout.
 

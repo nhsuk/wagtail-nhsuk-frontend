@@ -1,4 +1,4 @@
-# Panel - DEPRICATED 
+# Panel - DEPRECATED 
 
 Replaced with the [Card](./card.md) component
 
