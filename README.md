@@ -69,13 +69,13 @@ Include the Javascript in your base template
   <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-4.0.0.min.js' %}" defer></script>
 ```
 
-Define a custom search API and endpoint
+You can define a custom search API and endpoint in the head of your base template
 ```js
-    <script>
-      window.NHSUK_SETTINGS = {};
-      window.NHSUK_SETTINGS.SUGGESTIONS_TEST_HOST = "[CUSTOM API]";
-      window.NHSUK_SETTINGS.SEARCH_TEST_HOST = "[CUSTOM ENDPOINT]";
-    </script> 
+<script>
+  window.NHSUK_SETTINGS = {};
+  window.NHSUK_SETTINGS.SUGGESTIONS_TEST_HOST = "[CUSTOM API]";
+  window.NHSUK_SETTINGS.SEARCH_TEST_HOST = "[CUSTOM ENDPOINT]";
+</script> 
 ```
 
 ## Contributing
