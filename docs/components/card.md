@@ -17,7 +17,7 @@ class MyPage(Page):
   ])
 ```
 
-By default, the details block can contain the following sub-blocks:
+By default, the card block can contain the following sub-blocks:
 
 * [BasicCard](./basic_card.md)
 * [ClickableCard](./clickable_card.md)

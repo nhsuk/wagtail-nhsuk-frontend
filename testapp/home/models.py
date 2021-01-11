@@ -10,10 +10,6 @@ from wagtailnhsukfrontend.mixins import (
 from wagtailnhsukfrontend.blocks import (
     ActionLinkBlock,
     CardBlock,
-    CardBasicBlock,
-    CardClickableBlock,
-    CardFeatureBlock,
-    CardImageBlock,
     CardGroupBlock,
     CareCardBlock,
     DetailsBlock,
@@ -23,12 +19,7 @@ from wagtailnhsukfrontend.blocks import (
     ExpanderGroupBlock,
     InsetTextBlock,
     ImageBlock,
-    PanelBlock,
-    PanelListBlock,
-    GreyPanelBlock,
     WarningCalloutBlock,
-    PromoBlock,
-    PromoGroupBlock,
     SummaryListBlock,
 )
 
@@ -73,9 +64,8 @@ class PaginationPage(Page):
 class HubsPage(Page):
 
     body = StreamField([
+        ('card', CardBlock()),
         ('card_group', CardGroupBlock()),
-        ('promo', PromoBlock()),
-        ('promo_group', PromoGroupBlock()),
     ])
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
