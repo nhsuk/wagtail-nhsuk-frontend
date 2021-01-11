@@ -343,7 +343,7 @@ class CardFeatureBlock(FlattenValueContext, StructBlock):
 
 
 class CardBlock(FlattenValueContext, StructBlock):
-    
+
     class BodyStreamBlock(StreamBlock):
         card_basic = CardBasicBlock()
         card_clickable = CardClickableBlock()
