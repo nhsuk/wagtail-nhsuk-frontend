@@ -1,8 +1,6 @@
 
 # Basic Card 
 
-Contains 
-
 ```py
 from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
