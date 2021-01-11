@@ -1,7 +1,6 @@
 
-# Basic Card 
-
-Contains 
+# Feature Card 
+ 
 
 ```py
 from wagtail.core.models import Page

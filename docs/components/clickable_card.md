@@ -1,7 +1,6 @@
 
-# Basic Card 
-
-Contains 
+# Clickable Card 
+ 
 
 ```py
 from wagtail.core.models import Page
