@@ -114,5 +114,5 @@ def navigation(request):
 
 ## Reference
 
-[Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/header)  
-[Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/header)
+* [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/header)
+* [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/header)

@@ -17,6 +17,6 @@ To ensure that the skip link works as intended make sure its the first include i
 ```
 ## Reference
 
-[Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/skip-link)  
-[Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/skip-link)
+* [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/skip-link)
+* [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/skip-link)
 

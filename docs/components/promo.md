@@ -35,4 +35,4 @@ class MyPage(Page):
 
 ## Reference
 
-[Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/promo)
+* [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/promo)

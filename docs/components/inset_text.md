@@ -16,5 +16,5 @@ class MyPage(Page):
 
 ## Reference
 
-[Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/inset-text)  
-[Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/inset-text)
+* [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/inset-text)
+* [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/inset-text)
