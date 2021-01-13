@@ -8,11 +8,11 @@
 {% image content_image width-1125 as six_image %}
 {% image content_image width-1534 as seven_image %}
 
-<div class="nhsuk-promo{% if size == 'small' %} nhsuk-promo--small{% endif %}">
-  <a class="nhsuk-promo__link-wrapper" href="{{ url }}">
+<div class="nhsuk-card nhsuk-card--clickable{% if size == 'small' %} nhsuk-promo--small{% endif %}">
+  <a class="" href="{{ url }}">
     {% if content_image %}
       <img
-        class="nhsuk-promo__img"
+        class="nhsuk-card__img"
         src="{{ one_image.url }}"
         sizes="
             (min-width: 1020px) 320px
@@ -30,10 +30,10 @@
         alt="{{ alt_text }}"
       />
    {% endif %}
-    <div class="nhsuk-promo__content">
-      <h{{ heading_level }} class="nhsuk-promo__heading">{{ heading }}</h{{ heading_level }}>
+    <div class="nhsuk-card__content">
+      <h{{ heading_level }} class="nhsuk-card__heading">{{ heading }}</h{{ heading_level }}>
       {% if description %}
-        <p class="nhsuk-promo__description">{{ description }}</p>
+        <p class="nhsuk-card__description">{{ description }}</p>
       {% endif %}
     </div>
   </a>

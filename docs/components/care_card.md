@@ -21,7 +21,6 @@ By default, the care card block can contain the following sub-blocks:
 * [DetailsBlock](./details.md)
 * [InsetTextBlock](./inset_text.md)
 * [ImageBlock](./image.md)
-* [GreyPanelBlock](./grey_panel.md)
 * [WarningCalloutBlock](./warning_callout.md)
 * [SummaryListBlock](./summary_list.md)
 
