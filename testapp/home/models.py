@@ -9,6 +9,8 @@ from wagtailnhsukfrontend.mixins import (
 
 from wagtailnhsukfrontend.blocks import (
     ActionLinkBlock,
+    CardBlock,
+    CardGroupBlock,
     CareCardBlock,
     DetailsBlock,
     DoBlock,
@@ -33,6 +35,8 @@ class HomePage(HeroMixin, ReviewDateMixin, Page):
 
     body = StreamField([
         ('action_link', ActionLinkBlock()),
+        ('card', CardBlock()),
+        ('card_group', CardGroupBlock()),
         ('care_card', CareCardBlock()),
         ('details', DetailsBlock()),
         ('do_list', DoBlock()),
@@ -70,6 +74,8 @@ class HubsPage(Page):
     body = StreamField([
         ('promo', PromoBlock()),
         ('promo_group', PromoGroupBlock()),
+        ('card', CardBlock()),
+        ('card_group', CardGroupBlock()),
     ])
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),

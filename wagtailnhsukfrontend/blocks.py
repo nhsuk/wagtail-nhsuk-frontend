@@ -272,3 +272,101 @@ class CareCardBlock(FlattenValueContext, StructBlock):
     class Meta:
         icon = 'help'
         template = 'wagtailnhsukfrontend/care_card.html'
+
+
+class CardBasicBlock(FlattenValueContext, StructBlock):
+
+    heading = CharBlock(required=True)
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=6.')
+    heading_size = ChoiceBlock([
+        ('', 'Default'),
+        ('small', 'Small'),
+        ('medium', 'Medium'),
+        ('large', 'Large'),
+    ],
+        help_text='The heading size affects the visual size, this follows the front-end libraies sizing.',
+        required=False)
+    body = RichTextBlock(required=False, features=['bold', 'italic', 'link', 'ol', 'ul', 'document-link'])
+
+    class Meta:
+        label = 'Basic card'
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
+class CardClickableBlock(CardBasicBlock):
+
+    url = URLBlock(label="URL", required=True, help_text='Link for the card')
+
+    class Meta:
+        label = 'Clickable card'
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
+class CardImageBlock(CardBasicBlock):
+
+    content_image = ImageChooserBlock(label='Image', required=True)
+    alt_text = CharBlock(required=True)
+    url = URLBlock(label="URL", required=False, help_text='Optional, if there is a link the entire card will be clickable.')
+
+    class Meta:
+        label = 'Card with an image'
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
+class CardFeatureBlock(FlattenValueContext, StructBlock):
+
+    feature_heading = CharBlock(required=True)
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=6.')
+    heading_size = ChoiceBlock([
+        ('', 'Default'),
+        ('small', 'Small'),
+        ('medium', 'Medium'),
+        ('large', 'Large'),
+    ],
+        help_text='The heading size affects the visual size, this follows the front-end libraies sizing.',
+        required=False)
+    body = RichTextBlock(required=False, features=['bold', 'italic', 'link', 'ol', 'ul', 'document-link'])
+
+    class Meta:
+        label = 'Feature card'
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
+class CardBlock(FlattenValueContext, StructBlock):
+
+    class BodyStreamBlock(StreamBlock):
+        card_basic = CardBasicBlock()
+        card_clickable = CardClickableBlock()
+        card_image = CardImageBlock()
+        card_feature = CardFeatureBlock()
+
+    card = BodyStreamBlock(required=True)
+
+    class Meta:
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
+class CardGroupBlock(FlattenValueContext, StructBlock):
+
+    column = ChoiceBlock([
+        ('', 'Default'),
+        ('one-half', 'One-half'),
+        ('one-third', 'One-third'),
+    ], default='', required=False)
+
+    class BodyStreamBlock(StreamBlock):
+        card_basic = CardBasicBlock()
+        card_clickable = CardClickableBlock()
+        card_image = CardImageBlock()
+        card_feature = CardFeatureBlock()
+
+    card = BodyStreamBlock(required=True)
+
+    class Meta:
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card_collection.html'
