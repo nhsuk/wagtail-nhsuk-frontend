@@ -283,14 +283,17 @@ class CardBasicBlock(FlattenValueContext, StructBlock):
 
     heading = CharBlock(required=True)
     heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=6.')
-    heading_size = ChoiceBlock([
-        ('', 'Default'),
-        ('small', 'Small'),
-        ('medium', 'Medium'),
-        ('large', 'Large'),
-    ],
+    heading_size = ChoiceBlock(
+        [
+            ('', 'Default'),
+            ('small', 'Small'),
+            ('medium', 'Medium'),
+            ('large', 'Large'),
+        ],
         help_text='The heading size affects the visual size, this follows the front-end library\'s sizing.',
-        required=False)
+        required=False
+    )
+
     body = RichTextBlock(required=False)
 
     class Meta:
@@ -325,14 +328,17 @@ class CardFeatureBlock(FlattenValueContext, StructBlock):
 
     feature_heading = CharBlock(required=True)
     heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=6.')
-    heading_size = ChoiceBlock([
-        ('', 'Default'),
-        ('small', 'Small'),
-        ('medium', 'Medium'),
-        ('large', 'Large'),
-    ],
+    heading_size = ChoiceBlock(
+        [
+            ('', 'Default'),
+            ('small', 'Small'),
+            ('medium', 'Medium'),
+            ('large', 'Large'),
+        ],
         help_text='The heading size affects the visual size, this follows the front-end library\'s sizing.',
-        required=False)
+        required=False
+    )
+
     body = RichTextBlock(required=False)
 
     class Meta:
