@@ -1,44 +1,12 @@
-
 # Card
 
-```py
-from wagtail.core.models import Page
-from wagtail.core.fields import StreamField
+There are different card blocks for the different types of card:
 
-from wagtailnhsukfrontend.blocks import CardBlock,
-
-class MyPage(Page):
-  body = StreamField([
-      ...
-      ('card', CardBlock()),
-      ...
-  ])
-```
-
-By default, the card block can contain the following sub-blocks:
-
-* [BasicCard](./basic_card.md)
-* [ClickableCard](./clickable_card.md)
-* [CardWithAnImage](./card_with_image.md)
-* [FeatureCard](./feature_card.md)
-
-# Card Group
-
-A Card Group is a collection of cards in a 2-column or 3-column grid layout.
-
-```py
-from wagtail.core.models import Page
-from wagtail.core.fields import StreamField
-
-from wagtailnhsukfrontend.blocks import CardGroupBlock,
-
-class MyPage(Page):
-  body = StreamField([
-      ...
-      ('card_group', CardGroupBlock()),
-      ...
-  ])
-```
+* [Basic Card](./basic_card.md)
+* [Card with Image](./card_with_image.md)
+* [Clickable Card](./clickable_card.md)
+* [Feature Card](./feature_card.md)
+* [Card Group](./card_group.md)
 
 ## Reference
 

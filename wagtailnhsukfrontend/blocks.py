@@ -341,21 +341,6 @@ class CardFeatureBlock(FlattenValueContext, StructBlock):
         template = 'wagtailnhsukfrontend/card.html'
 
 
-class CardBlock(FlattenValueContext, StructBlock):
-
-    class BodyStreamBlock(StreamBlock):
-        card_basic = CardBasicBlock()
-        card_clickable = CardClickableBlock()
-        card_image = CardImageBlock()
-        card_feature = CardFeatureBlock()
-
-    card = BodyStreamBlock(required=True)
-
-    class Meta:
-        icon = 'doc-full'
-        template = 'wagtailnhsukfrontend/card.html'
-
-
 class CardGroupBlock(FlattenValueContext, StructBlock):
 
     column = ChoiceBlock([
