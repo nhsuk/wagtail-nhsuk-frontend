@@ -289,7 +289,7 @@ class CardBasicBlock(FlattenValueContext, StructBlock):
         ('medium', 'Medium'),
         ('large', 'Large'),
     ],
-        help_text='The heading size affects the visual size, this follows the front-end libraies sizing.',
+        help_text='The heading size affects the visual size, this follows the front-end library\'s sizing.',
         required=False)
     body = RichTextBlock(required=False)
 
@@ -331,7 +331,7 @@ class CardFeatureBlock(FlattenValueContext, StructBlock):
         ('medium', 'Medium'),
         ('large', 'Large'),
     ],
-        help_text='The heading size affects the visual size, this follows the front-end libraies sizing.',
+        help_text='The heading size affects the visual size, this follows the front-end library\'s sizing.',
         required=False)
     body = RichTextBlock(required=False)
 
