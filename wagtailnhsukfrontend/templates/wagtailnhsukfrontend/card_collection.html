@@ -1,13 +1,13 @@
 {% load wagtailcore_tags %}
 
 {% if column == '' %}
-  {% for block in card %}
+  {% for block in body %}
     {% include_block block %}
   {% endfor %}
 {% else %}
   <ul class="nhsuk-grid-row nhsuk-card-group">
 
-    {% for block in card %}
+    {% for block in body %}
         <li class="
         {% if column == 'one-half' %}
           nhsuk-grid-column-one-half

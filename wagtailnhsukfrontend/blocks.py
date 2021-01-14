@@ -370,7 +370,7 @@ class CardGroupBlock(FlattenValueContext, StructBlock):
         card_image = CardImageBlock()
         card_feature = CardFeatureBlock()
 
-    card = BodyStreamBlock(required=True)
+    body = BodyStreamBlock(required=True)
 
     class Meta:
         icon = 'doc-full'
