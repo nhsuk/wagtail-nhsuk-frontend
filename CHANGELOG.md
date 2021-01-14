@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Master
+
+- Use the latest version of the NHS.UK frontend library ([v4.0.0](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#400---26-october-2020))
+- Add Card blocks
+- Deprecate Panel and Promo blocks
+
 ## v0.4.4
 
 - Allow h5 and h6 heading level inside all blocks that contain headings.
