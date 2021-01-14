@@ -350,7 +350,7 @@ class CardFeatureBlock(FlattenValueContext, StructBlock):
 class CardGroupBlock(FlattenValueContext, StructBlock):
 
     column = ChoiceBlock([
-        ('', 'Default'),
+        ('', 'Full-width'),
         ('one-half', 'One-half'),
         ('one-third', 'One-third'),
     ], default='', required=False)
