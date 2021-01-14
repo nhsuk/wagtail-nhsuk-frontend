@@ -1,4 +1,4 @@
-#Hero
+# Hero
 
 Add the `HeroMixin` to your page model:
 ```py
@@ -25,6 +25,6 @@ The Hero component should be displayed at full width, rather than at two-thirds 
 components.
 
 
-# Reference
+## Reference
 
-[Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hero)  
+* [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hero)

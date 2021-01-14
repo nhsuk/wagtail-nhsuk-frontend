@@ -33,8 +33,7 @@ An array of links should be passed as a template variable
 | `links[].href` | URL to use as the link href | |
 | `links[].is_current` | This link is the current page. It will be displayed in a bold font | |
 
-
 ## Reference
 
-* [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/contents-list)  
+* [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/contents-list)
 * [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/contents-list)

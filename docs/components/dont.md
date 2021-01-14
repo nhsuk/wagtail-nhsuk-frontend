@@ -15,6 +15,6 @@ class MyPage(Page):
 ```
 ## Reference
 
-[Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/do-and-dont-list)  
-[Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/do-dont-list)
+* [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/do-and-dont-list)
+* [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/do-dont-list)
 

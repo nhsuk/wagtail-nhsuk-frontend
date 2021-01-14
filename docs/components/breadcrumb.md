@@ -24,5 +24,5 @@ tag.
 
 ## Reference
 
-[Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/back-link)  
-[Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/back-link)
+* [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/back-link)
+* [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/back-link)
