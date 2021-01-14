@@ -291,7 +291,7 @@ class CardBasicBlock(FlattenValueContext, StructBlock):
     ],
         help_text='The heading size affects the visual size, this follows the front-end libraies sizing.',
         required=False)
-    body = RichTextBlock(required=False, features=['bold', 'italic', 'link', 'ol', 'ul', 'document-link'])
+    body = RichTextBlock(required=False)
 
     class Meta:
         label = 'Basic card'
@@ -333,7 +333,7 @@ class CardFeatureBlock(FlattenValueContext, StructBlock):
     ],
         help_text='The heading size affects the visual size, this follows the front-end libraies sizing.',
         required=False)
-    body = RichTextBlock(required=False, features=['bold', 'italic', 'link', 'ol', 'ul', 'document-link'])
+    body = RichTextBlock(required=False)
 
     class Meta:
         label = 'Feature card'
