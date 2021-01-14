@@ -339,7 +339,7 @@ class CardFeatureBlock(FlattenValueContext, StructBlock):
         required=False
     )
 
-    body = RichTextBlock(required=False)
+    body = RichTextBlock(required=True)
 
     class Meta:
         label = 'Feature card'
