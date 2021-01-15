@@ -35,6 +35,7 @@ class ActionLinkBlock(FlattenValueContext, StructBlock):
 class WarningCalloutBlock(FlattenValueContext, StructBlock):
 
     title = CharBlock(required=True, default='Important')
+    visually_hidden_prefix = BooleanBlock(required=False, label='Visually hidden prefix', help_text='If the title doesn\'t contain the word \"Important\" select this to add a visually hidden \"Important\", to aid screen readers.')
     heading_level = IntegerBlock(required=True, min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
     body = RichTextBlock(required=True)
 
