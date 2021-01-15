@@ -44,6 +44,7 @@ class HomePage(HeroMixin, ReviewDateMixin, Page):
         ('dont_list', DontBlock()),
         ('expander', ExpanderBlock()),
         ('expander_group', ExpanderGroupBlock()),
+        ('feature_card', CardFeatureBlock()),
         ('inset_text', InsetTextBlock()),
         ('image', ImageBlock()),
         ('panel', PanelBlock()),
