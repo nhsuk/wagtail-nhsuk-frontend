@@ -1,9 +1,13 @@
 <div class="nhsuk-warning-callout">
   <h{{ heading_level }} class="nhsuk-warning-callout__label">
     {% if visually_hidden_prefix %}
-      <span class="nhsuk-u-visually-hidden">Important</span>
+      <span role="text">
+        <span class="nhsuk-u-visually-hidden">Important: </span>
+        {{ title }}
+      </span>
+    {% else %}
+      {{ title }}
     {% endif %}
-    {{ title }}
   </h{{ heading_level }}>
   {{ body }}
 </div>
