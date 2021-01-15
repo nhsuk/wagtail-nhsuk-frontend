@@ -1,4 +1,6 @@
-<div class="nhsuk-panel{% if label and not grey %}-with-label{% endif %}{% if grey %} nhsuk-panel--grey {% endif %}">
-  {% if label %} <h{{ heading_level }} {% if label and not grey %} class="nhsuk-panel-with-label__label">{% endif %}{%if grey %}>{% endif %}{{ label }}</h{{ heading_level }}> {% endif %}
-  {{ body }}
+<div class="nhsuk-card nhsuk-card--feature">
+  <div class="nhsuk-card__content {% if label %} nhsuk-card__content--feature{% endif %}">
+  {% if label %} <h{{ heading_level }} class="nhsuk-card__heading--feature">{{ label }}</h{{ heading_level }}> {% endif %}
+    {{ body }}
+  </div>
 </div>

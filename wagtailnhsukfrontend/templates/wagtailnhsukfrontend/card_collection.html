@@ -1,0 +1,22 @@
+{% load wagtailcore_tags %}
+
+{% if column == '' %}
+  {% for block in body %}
+    {% include_block block %}
+  {% endfor %}
+{% else %}
+  <ul class="nhsuk-grid-row nhsuk-card-group">
+    {% for block in body %}
+      <li class="
+        {% if column == 'one-half' %}
+          nhsuk-grid-column-one-half
+        {% elif column == 'one-third' %}
+          nhsuk-grid-column-one-third
+        {% endif %}
+        nhsuk-card-group__item
+      ">
+        {% include_block block %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

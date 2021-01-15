@@ -1,0 +1,74 @@
+{% load wagtailimages_tags %}
+
+{% image content_image width-320 as one_image %}
+{% image content_image width-510 as two_image %}
+{% image content_image width-640 as three_image %}
+{% image content_image width-767 as four_image %}
+{% image content_image width-1019 as five_image %}
+{% image content_image width-1125 as six_image %}
+{% image content_image width-1534 as seven_image %}
+
+<div class="nhsuk-card {% if url %} nhsuk-card--clickable{% endif %} {% if feature_heading %}nhsuk-card--feature {% endif %}">
+  {% if content_image %}
+    <img
+      class="nhsuk-card__img"
+      src="{{ one_image.url }}"
+      sizes="
+          (min-width: 1020px) 320px
+          (min-width: 768px) 50vw
+          100vw"
+      srcset="
+          {{ one_image.url }} 320w,
+          {{ two_image.url }} 510w,
+          {{ three_image.url }} 640w,
+          {{ four_image.url }} 767w,
+          {{ five_image.url }} 1019w,
+          {{ six_image.url }} 1125w,
+          {{ seven_image.url }} 1534w,
+        "
+      alt="{{ alt_text }}"
+    />
+  {% endif %}
+
+  <div class="nhsuk-card__content {% if feature_heading %}nhsuk-card__content nhsuk-card__content--feature{% endif %}">
+    {% if url %}
+      <h{{ heading_level }}
+        class="
+          nhsuk-card__heading
+          {% if heading_size == 'small' %} nhsuk-heading-s{% endif %}
+          {% if heading_size == 'medium' %} nhsuk-heading-m{% endif %}
+          {% if heading_size == 'large' %} nhsuk-heading-l{% endif %}
+        "
+      >
+        <a class="nhsuk-card__link" href="{{ url }}">
+          {{ heading }}
+        </a>
+      </h{{ heading_level }}>
+    {% elif feature_heading %}
+      <h{{ heading_level }}
+        class="
+          nhsuk-card__heading--feature
+          {% if heading_size == 'small' %} nhsuk-heading-s{% endif %}
+          {% if heading_size == 'medium' %} nhsuk-heading-m{% endif %}
+          {% if heading_size == 'large' %} nhsuk-heading-l{% endif %}
+        "
+      >
+        {{ feature_heading }}
+      </h{{ heading_level }}>
+    {% else %}
+      <h{{ heading_level }}
+        class="
+          nhsuk-card__heading
+          {% if heading_size == 'small' %} nhsuk-heading-s{% endif %}
+          {% if heading_size == 'medium' %} nhsuk-heading-m{% endif %}
+          {% if heading_size == 'large' %} nhsuk-heading-l{% endif %}
+        "
+      >
+        {{ heading }}
+      </h{{ heading_level }}>
+    {% endif %}
+    {% if body %}
+      {{ body }}
+    {% endif %}
+  </div>
+</div>

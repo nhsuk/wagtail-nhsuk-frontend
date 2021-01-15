@@ -61,6 +61,7 @@ class PanelBlock(FlattenValueContext, StructBlock):
     class Meta:
         icon = 'doc-full'
         template = 'wagtailnhsukfrontend/panel.html'
+        help_text = 'This component is now deprecated and will be removed from future versions, please use the feature card block'
 
 
 class GreyPanelBlock(FlattenValueContext, StructBlock):
@@ -72,6 +73,7 @@ class GreyPanelBlock(FlattenValueContext, StructBlock):
     class Meta:
         icon = 'doc-full-inverse'
         template = 'wagtailnhsukfrontend/grey_panel.html'
+        help_text = 'This component is now deprecated and will be removed from future versions, please use the feature card block'
 
 
 class PanelListBlock(FlattenValueContext, StructBlock):
@@ -84,6 +86,7 @@ class PanelListBlock(FlattenValueContext, StructBlock):
     class Meta:
         icon = 'list-ul'
         template = 'wagtailnhsukfrontend/panel_list.html'
+        help_text = 'This component is now deprecated and will be removed from future versions, please use the card group block'
 
 
 class DoBlock(FlattenValueContext, StructBlock):
@@ -143,6 +146,7 @@ class PromoBlock(BasePromoBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/promo.html'
+        help_text = 'This component is now deprecated and will be removed from future versions, please use the card block'
 
 
 class PromoGroupBlock(FlattenValueContext, StructBlock):
@@ -171,6 +175,7 @@ class PromoGroupBlock(FlattenValueContext, StructBlock):
 
     class Meta:
         template = 'wagtailnhsukfrontend/promo_group.html'
+        help_text = 'This component is now deprecated and will be removed from future versions, please use the card group block'
 
 
 class SummaryListRowBlock(StructBlock):
@@ -190,6 +195,95 @@ class SummaryListBlock(FlattenValueContext, StructBlock):
         template = 'wagtailnhsukfrontend/summary_list.html'
 
 
+class CardBasicBlock(FlattenValueContext, StructBlock):
+
+    heading = CharBlock(required=True)
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=6.')
+    heading_size = ChoiceBlock(
+        [
+            ('', 'Default'),
+            ('small', 'Small'),
+            ('medium', 'Medium'),
+            ('large', 'Large'),
+        ],
+        help_text='The heading size affects the visual size, this follows the front-end library\'s sizing.',
+        required=False
+    )
+
+    body = RichTextBlock(required=False)
+
+    class Meta:
+        label = 'Basic card'
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
+class CardClickableBlock(CardBasicBlock):
+
+    url = URLBlock(label="URL", required=True, help_text='Link for the card')
+
+    class Meta:
+        label = 'Clickable card'
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
+class CardImageBlock(CardBasicBlock):
+
+    content_image = ImageChooserBlock(label='Image', required=True)
+    alt_text = CharBlock(required=True)
+    url = URLBlock(label="URL", required=False, help_text='Optional, if there is a link the entire card will be clickable.')
+
+    class Meta:
+        label = 'Card with an image'
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
+class CardFeatureBlock(FlattenValueContext, StructBlock):
+
+    feature_heading = CharBlock(required=True)
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=6.')
+    heading_size = ChoiceBlock(
+        [
+            ('', 'Default'),
+            ('small', 'Small'),
+            ('medium', 'Medium'),
+            ('large', 'Large'),
+        ],
+        help_text='The heading size affects the visual size, this follows the front-end library\'s sizing.',
+        required=False
+    )
+
+    body = RichTextBlock(required=True)
+
+    class Meta:
+        label = 'Feature card'
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+
+
+class CardGroupBlock(FlattenValueContext, StructBlock):
+
+    column = ChoiceBlock([
+        ('', 'Full-width'),
+        ('one-half', 'One-half'),
+        ('one-third', 'One-third'),
+    ], default='', required=False)
+
+    class BodyStreamBlock(StreamBlock):
+        card_basic = CardBasicBlock()
+        card_clickable = CardClickableBlock()
+        card_image = CardImageBlock()
+        card_feature = CardFeatureBlock()
+
+    body = BodyStreamBlock(required=True)
+
+    class Meta:
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card_collection.html'
+
+
 class DetailsBlock(FlattenValueContext, StructBlock):
 
     # Define a BodyStreamBlock class in this way to make it easier to subclass and add extra body blocks
@@ -199,6 +293,7 @@ class DetailsBlock(FlattenValueContext, StructBlock):
         inset_text = InsetTextBlock()
         image = ImageBlock()
         panel = PanelBlock()
+        feature_card = CardFeatureBlock()
         warning_callout = WarningCalloutBlock()
         summary_list = SummaryListBlock()
 
@@ -218,6 +313,7 @@ class ExpanderBlock(DetailsBlock):
         inset_text = InsetTextBlock()
         image = ImageBlock()
         grey_panel = GreyPanelBlock()
+        feature_card = CardFeatureBlock()
         warning_callout = WarningCalloutBlock()
         summary_list = SummaryListBlock()
 
@@ -255,6 +351,7 @@ class CareCardBlock(FlattenValueContext, StructBlock):
         inset_text = InsetTextBlock()
         image = ImageBlock()
         grey_panel = GreyPanelBlock()
+        feature_card = CardFeatureBlock()
         warning_callout = WarningCalloutBlock()
         summary_list = SummaryListBlock()
 
