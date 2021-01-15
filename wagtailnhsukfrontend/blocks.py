@@ -198,7 +198,7 @@ class SummaryListBlock(FlattenValueContext, StructBlock):
 class CardBasicBlock(FlattenValueContext, StructBlock):
 
     heading = CharBlock(required=True)
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=6.')
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=6.')
     heading_size = ChoiceBlock(
         [
             ('', 'Default'),
@@ -243,7 +243,7 @@ class CardImageBlock(CardBasicBlock):
 class CardFeatureBlock(FlattenValueContext, StructBlock):
 
     feature_heading = CharBlock(required=True)
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=2, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=6.')
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=6.')
     heading_size = ChoiceBlock(
         [
             ('', 'Default'),
