@@ -34,7 +34,7 @@
   "fields": {
     "hostname": "localhost",
     "port": 80,
-    "site_name": null,
+    "site_name": "",
     "root_page": 3,
     "is_default_site": true
   }
@@ -47,6 +47,53 @@
     "depth": 1,
     "numchild": 0,
     "name": "Root"
+  }
+},
+{
+  "model": "wagtailcore.workflowpage",
+  "pk": 1,
+  "fields": {
+    "workflow": 1
+  }
+},
+{
+  "model": "wagtailcore.workflowtask",
+  "pk": 1,
+  "fields": {
+    "sort_order": 0,
+    "workflow": 1,
+    "task": 1
+  }
+},
+{
+  "model": "wagtailcore.workflow",
+  "pk": 1,
+  "fields": {
+    "name": "Moderators approval",
+    "active": true
+  }
+},
+{
+  "model": "wagtailcore.task",
+  "pk": 1,
+  "fields": {
+    "name": "Moderators approval",
+    "content_type": [
+      "wagtailcore",
+      "groupapprovaltask"
+    ],
+    "active": true
+  }
+},
+{
+  "model": "wagtailnhsukfrontendsettings.footersettings",
+  "pk": 1,
+  "fields": {
+    "site": [
+      "localhost",
+      80
+    ],
+    "fixed_coloumn_footer": false
   }
 },
 {
@@ -155,8 +202,8 @@
 {
   "model": "auth.user",
   "fields": {
-    "password": "pbkdf2_sha256$100000$jQmLXtqs7rf3$WQZzZzXpTGVcTEsPF0DmcrWrhU5AOcC02gTR+ohv+kc=",
-    "last_login": "2019-03-01T16:02:34.987Z",
+    "password": "pbkdf2_sha256$120000$qGmWCa5eaDML$8z5o6IeqcecxSwDD598bXiv7sBJ7tbFDQkH1UzenuW0=",
+    "last_login": "2021-01-17T17:57:09.974Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -167,6 +214,18 @@
     "date_joined": "2018-11-23T16:23:04.625Z",
     "groups": [],
     "user_permissions": []
+  }
+},
+{
+  "model": "wagtailcore.groupapprovaltask",
+  "pk": 1,
+  "fields": {
+    "task_ptr": 1,
+    "groups": [
+      [
+        "Moderators"
+      ]
+    ]
   }
 },
 {
@@ -446,6 +505,8 @@
     "expire_at": null,
     "expired": false,
     "locked": false,
+    "locked_at": null,
+    "locked_by": null,
     "first_published_at": null,
     "last_published_at": null,
     "latest_revision_created_at": null,
@@ -477,6 +538,8 @@
     "expire_at": null,
     "expired": false,
     "locked": false,
+    "locked_at": null,
+    "locked_by": null,
     "first_published_at": "2018-10-22T10:57:04.927Z",
     "last_published_at": "2019-11-06T15:39:16.385Z",
     "latest_revision_created_at": "2019-11-06T15:39:16.374Z",
@@ -510,6 +573,8 @@
     "expire_at": null,
     "expired": false,
     "locked": false,
+    "locked_at": null,
+    "locked_by": null,
     "first_published_at": "2018-11-26T10:01:13.573Z",
     "last_published_at": "2018-11-26T10:01:13.573Z",
     "latest_revision_created_at": "2018-11-26T10:01:13.559Z",
@@ -543,6 +608,8 @@
     "expire_at": null,
     "expired": false,
     "locked": false,
+    "locked_at": null,
+    "locked_by": null,
     "first_published_at": "2018-11-26T10:01:20.599Z",
     "last_published_at": "2018-11-26T10:01:20.599Z",
     "latest_revision_created_at": "2018-11-26T10:01:20.582Z",
@@ -576,6 +643,8 @@
     "expire_at": null,
     "expired": false,
     "locked": false,
+    "locked_at": null,
+    "locked_by": null,
     "first_published_at": "2019-02-27T15:28:51.182Z",
     "last_published_at": "2019-02-27T15:28:51.182Z",
     "latest_revision_created_at": "2019-02-27T15:28:51.167Z",
@@ -609,6 +678,8 @@
     "expire_at": null,
     "expired": false,
     "locked": false,
+    "locked_at": null,
+    "locked_by": null,
     "first_published_at": "2019-02-27T15:28:59.250Z",
     "last_published_at": "2019-02-27T15:28:59.250Z",
     "latest_revision_created_at": "2019-02-27T15:28:59.237Z",
@@ -642,6 +713,8 @@
     "expire_at": null,
     "expired": false,
     "locked": false,
+    "locked_at": null,
+    "locked_by": null,
     "first_published_at": "2019-02-27T15:29:18.985Z",
     "last_published_at": "2019-02-27T15:29:18.985Z",
     "latest_revision_created_at": "2019-02-27T15:29:18.971Z",
@@ -675,6 +748,8 @@
     "expire_at": null,
     "expired": false,
     "locked": false,
+    "locked_at": null,
+    "locked_by": null,
     "first_published_at": "2019-02-27T15:29:26.602Z",
     "last_published_at": "2019-02-27T15:29:26.602Z",
     "latest_revision_created_at": "2019-02-27T15:29:26.588Z",
@@ -708,6 +783,8 @@
     "expire_at": null,
     "expired": false,
     "locked": false,
+    "locked_at": null,
+    "locked_by": null,
     "first_published_at": "2019-02-27T15:29:34.173Z",
     "last_published_at": "2019-02-27T15:29:34.173Z",
     "latest_revision_created_at": "2019-02-27T15:29:34.159Z",
@@ -741,6 +818,8 @@
     "expire_at": null,
     "expired": false,
     "locked": false,
+    "locked_at": null,
+    "locked_by": null,
     "first_published_at": null,
     "last_published_at": null,
     "latest_revision_created_at": "2019-02-27T15:42:01.813Z",
@@ -774,6 +853,8 @@
     "expire_at": null,
     "expired": false,
     "locked": false,
+    "locked_at": null,
+    "locked_by": null,
     "first_published_at": "2019-05-02T14:22:31.103Z",
     "last_published_at": "2019-05-02T14:27:04.585Z",
     "latest_revision_created_at": "2019-05-02T14:27:04.569Z",
