@@ -40,6 +40,13 @@
   }
 },
 {
+  "model": "wagtailcore.locale",
+  "pk": 1,
+  "fields": {
+    "language_code": "en"
+  }
+},
+{
   "model": "wagtailcore.collection",
   "pk": 1,
   "fields": {
@@ -487,6 +494,8 @@
     "path": "0001",
     "depth": 1,
     "numchild": 1,
+    "translation_key": "e4dd4881-2370-4215-ada7-1a98203d1d64",
+    "locale": 1,
     "title": "Root",
     "draft_title": "Root",
     "slug": "root",
@@ -510,7 +519,8 @@
     "first_published_at": null,
     "last_published_at": null,
     "latest_revision_created_at": null,
-    "live_revision": null
+    "live_revision": null,
+    "alias_of": null
   }
 },
 {
@@ -520,6 +530,8 @@
     "path": "00010001",
     "depth": 2,
     "numchild": 4,
+    "translation_key": "cc42d627-97c4-4506-a973-2ce95ca3e1fa",
+    "locale": 1,
     "title": "Home",
     "draft_title": "Home",
     "slug": "home",
@@ -543,7 +555,8 @@
     "first_published_at": "2018-10-22T10:57:04.927Z",
     "last_published_at": "2019-11-06T15:39:16.385Z",
     "latest_revision_created_at": "2019-11-06T15:39:16.374Z",
-    "live_revision": 19
+    "live_revision": 19,
+    "alias_of": null
   }
 },
 {
@@ -553,6 +566,8 @@
     "path": "000100010001",
     "depth": 3,
     "numchild": 1,
+    "translation_key": "7bbcec06-71eb-4ca3-a778-324fe49749e0",
+    "locale": 1,
     "title": "Page 1",
     "draft_title": "Page 1",
     "slug": "page-1",
@@ -578,7 +593,8 @@
     "first_published_at": "2018-11-26T10:01:13.573Z",
     "last_published_at": "2018-11-26T10:01:13.573Z",
     "latest_revision_created_at": "2018-11-26T10:01:13.559Z",
-    "live_revision": 4
+    "live_revision": 4,
+    "alias_of": null
   }
 },
 {
@@ -588,6 +604,8 @@
     "path": "0001000100010001",
     "depth": 4,
     "numchild": 0,
+    "translation_key": "ff7f60a5-4948-40b4-8ae3-d29e1adf5c68",
+    "locale": 1,
     "title": "Page 2",
     "draft_title": "Page 2",
     "slug": "page-2",
@@ -613,7 +631,8 @@
     "first_published_at": "2018-11-26T10:01:20.599Z",
     "last_published_at": "2018-11-26T10:01:20.599Z",
     "latest_revision_created_at": "2018-11-26T10:01:20.582Z",
-    "live_revision": 5
+    "live_revision": 5,
+    "alias_of": null
   }
 },
 {
@@ -623,6 +642,8 @@
     "path": "000100010003",
     "depth": 3,
     "numchild": 5,
+    "translation_key": "f0ae8c1f-50c9-4235-accb-b1a4bab1b90d",
+    "locale": 1,
     "title": "Pagination",
     "draft_title": "Pagination",
     "slug": "pagination",
@@ -648,7 +669,8 @@
     "first_published_at": "2019-02-27T15:28:51.182Z",
     "last_published_at": "2019-02-27T15:28:51.182Z",
     "latest_revision_created_at": "2019-02-27T15:28:51.167Z",
-    "live_revision": 10
+    "live_revision": 10,
+    "alias_of": null
   }
 },
 {
@@ -658,6 +680,8 @@
     "path": "0001000100030001",
     "depth": 4,
     "numchild": 0,
+    "translation_key": "314fc677-f572-4124-b83f-afd8b2086785",
+    "locale": 1,
     "title": "Pagination page 1",
     "draft_title": "Pagination page 1",
     "slug": "pagination-page-1",
@@ -683,7 +707,8 @@
     "first_published_at": "2019-02-27T15:28:59.250Z",
     "last_published_at": "2019-02-27T15:28:59.250Z",
     "latest_revision_created_at": "2019-02-27T15:28:59.237Z",
-    "live_revision": 11
+    "live_revision": 11,
+    "alias_of": null
   }
 },
 {
@@ -693,6 +718,8 @@
     "path": "0001000100030002",
     "depth": 4,
     "numchild": 0,
+    "translation_key": "c20a94d4-8084-405b-bd43-4d3747a5b856",
+    "locale": 1,
     "title": "Pagination page 2",
     "draft_title": "Pagination page 2",
     "slug": "pagination-page-2",
@@ -718,7 +745,8 @@
     "first_published_at": "2019-02-27T15:29:18.985Z",
     "last_published_at": "2019-02-27T15:29:18.985Z",
     "latest_revision_created_at": "2019-02-27T15:29:18.971Z",
-    "live_revision": 12
+    "live_revision": 12,
+    "alias_of": null
   }
 },
 {
@@ -728,6 +756,8 @@
     "path": "0001000100030004",
     "depth": 4,
     "numchild": 0,
+    "translation_key": "01dbece8-af14-4a39-997e-5be4bfb60d1c",
+    "locale": 1,
     "title": "Pagination page 3",
     "draft_title": "Pagination page 3",
     "slug": "pagination-page-3",
@@ -753,7 +783,8 @@
     "first_published_at": "2019-02-27T15:29:26.602Z",
     "last_published_at": "2019-02-27T15:29:26.602Z",
     "latest_revision_created_at": "2019-02-27T15:29:26.588Z",
-    "live_revision": 13
+    "live_revision": 13,
+    "alias_of": null
   }
 },
 {
@@ -763,6 +794,8 @@
     "path": "0001000100030005",
     "depth": 4,
     "numchild": 0,
+    "translation_key": "5b45df25-bb60-4651-ada5-ee796b1b4672",
+    "locale": 1,
     "title": "Pagination page 4",
     "draft_title": "Pagination page 4",
     "slug": "pagination-page-4",
@@ -788,7 +821,8 @@
     "first_published_at": "2019-02-27T15:29:34.173Z",
     "last_published_at": "2019-02-27T15:29:34.173Z",
     "latest_revision_created_at": "2019-02-27T15:29:34.159Z",
-    "live_revision": 14
+    "live_revision": 14,
+    "alias_of": null
   }
 },
 {
@@ -798,6 +832,8 @@
     "path": "0001000100030003",
     "depth": 4,
     "numchild": 0,
+    "translation_key": "72961337-867f-47ea-95ee-84d8607950f9",
+    "locale": 1,
     "title": "no show",
     "draft_title": "no show",
     "slug": "no-show",
@@ -823,7 +859,8 @@
     "first_published_at": null,
     "last_published_at": null,
     "latest_revision_created_at": "2019-02-27T15:42:01.813Z",
-    "live_revision": null
+    "live_revision": null,
+    "alias_of": null
   }
 },
 {
@@ -833,6 +870,8 @@
     "path": "000100010004",
     "depth": 3,
     "numchild": 0,
+    "translation_key": "3552ff4c-78e3-4068-ab6a-ba1aede2cf66",
+    "locale": 1,
     "title": "Promo Hub",
     "draft_title": "Promo Hub",
     "slug": "promo-hub",
@@ -858,7 +897,8 @@
     "first_published_at": "2019-05-02T14:22:31.103Z",
     "last_published_at": "2019-05-02T14:27:04.585Z",
     "latest_revision_created_at": "2019-05-02T14:27:04.569Z",
-    "live_revision": 17
+    "live_revision": 17,
+    "alias_of": null
   }
 },
 {
