@@ -36,7 +36,7 @@ class WarningCalloutBlock(FlattenValueContext, StructBlock):
 
     title = CharBlock(required=True, default='Important')
     visually_hidden_prefix = BooleanBlock(required=False, label='Visually hidden prefix', help_text='If the title doesn\'t contain the word \"Important\" select this to add a visually hidden \"Important\", to aid screen readers.')
-    heading_level = IntegerBlock(required=True, min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(required=True, min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=6.')
     body = RichTextBlock(required=True)
 
     class Meta:
@@ -56,7 +56,7 @@ class InsetTextBlock(FlattenValueContext, StructBlock):
 class PanelBlock(FlattenValueContext, StructBlock):
 
     label = CharBlock(required=False)
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=6.')
     body = RichTextBlock(required=True)
 
     class Meta:
@@ -68,7 +68,7 @@ class PanelBlock(FlattenValueContext, StructBlock):
 class GreyPanelBlock(FlattenValueContext, StructBlock):
 
     label = CharBlock(label='heading', required=False)
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no heading. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no heading. Default=3, Min=2, Max=6.')
     body = RichTextBlock(required=True)
 
     class Meta:
@@ -92,7 +92,7 @@ class PanelListBlock(FlattenValueContext, StructBlock):
 
 class DoBlock(FlattenValueContext, StructBlock):
 
-    heading_level = IntegerBlock(required=True, min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(required=True, min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=6.')
     label = CharBlock(label='Heading', required=False, help_text='Adding a label here will overwrite the default of Do')
     do = ListBlock(RichTextBlock)
 
@@ -103,7 +103,7 @@ class DoBlock(FlattenValueContext, StructBlock):
 
 class DontBlock(FlattenValueContext, StructBlock):
 
-    heading_level = IntegerBlock(required=True, min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(required=True, min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=6.')
     label = CharBlock(label='Heading', required=False, help_text='Adding a label here will overwrite the default of Don\'t')
     dont = ListBlock(RichTextBlock)
 
@@ -143,7 +143,7 @@ class PromoBlock(BasePromoBlock):
         ('small', 'Small'),
     ], required=False)
 
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=6.')
 
     class Meta:
         template = 'wagtailnhsukfrontend/promo.html'
@@ -170,7 +170,7 @@ class PromoGroupBlock(FlattenValueContext, StructBlock):
         }[value['column']]
         return context
 
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=6.')
 
     promos = ListBlock(BasePromoBlock)
 
