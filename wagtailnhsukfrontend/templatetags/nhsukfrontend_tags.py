@@ -13,15 +13,12 @@ def breadcrumb(context):
     if not isinstance(page, Page):
         raise Exception("'page' not found in template context")
     site = page.get_site()
-    breadcrumb_pages = []
 
-    # Traverse the page parents with get_parent() until we hit a site root
-    while page.id != site.root_page_id and not page.is_root():
-        page = page.get_parent()
-        breadcrumb_pages = [page] + breadcrumb_pages
+    # Get pages which are an ancestor of the current page, but limited to pages under the site root (a.k.a the homepage)
+    breadcrumb_pages = page.get_ancestors(inclusive=False).descendant_of(site.root_page, inclusive=True).order_by("depth")
 
     return {
-        'breadcrumb_pages': breadcrumb_pages,
+        'breadcrumb_pages': list(breadcrumb_pages),
     }
 
 
