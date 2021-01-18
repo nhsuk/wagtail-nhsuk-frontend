@@ -35,7 +35,7 @@ setup(
         'build': CompileCSSCommand,
     },
     name="wagtail-nhsuk-frontend",
-    version="0.4.4",
+    version="0.5.0",
     description="NHSUK Frontend Styles for Wagtail",
     author="Mike Monteith",
     author_email="<mike.monteith@nhs.net>",
