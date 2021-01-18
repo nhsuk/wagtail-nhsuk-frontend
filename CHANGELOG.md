@@ -6,6 +6,7 @@
 - Add Card blocks
 - Add deprecation notice to Panel and Promo blocks
 - Add visually_hidden_prefix to warning callout blocks to enable hidden text for screenreaders
+- Rename the label for the Don't list in the admin panel
 
 ## v0.4.4
 
