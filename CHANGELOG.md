@@ -1,10 +1,10 @@
 # CHANGELOG
 
-## Master
+## v0.5.0
 
 - Use the latest version of the NHS.UK frontend library ([v4.0.0](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#400---26-october-2020))
 - Add Card blocks
-- Deprecate Panel and Promo blocks
+- Add deprecation notice to Panel and Promo blocks
 - Add visually_hidden_prefix to warning callout blocks to enable hidden text for screenreaders
 
 ## v0.4.4
