@@ -16,8 +16,8 @@ jobs:
     vmImage: 'Ubuntu-16.04'
   strategy:
     matrix:
-      Python35:
-        python.version: '3.5'
+      Python39:
+        python.version: '3.9'
     maxParallel: 4
 
   steps:

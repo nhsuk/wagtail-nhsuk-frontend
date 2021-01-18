@@ -8,10 +8,6 @@ INSTALL_REQUIRES = [
     'Wagtail>=2.0',
 ]
 
-TESTING_REQUIRES = [
-    'beautifulsoup4==4.7.1'
-]
-
 
 class CompileCSSCommand(build):
     """Combine CSS from the frontend library with our wagtail-specific fixes"""
@@ -45,5 +41,4 @@ setup(
     install_requires=INSTALL_REQUIRES,
     packages=find_packages(),
     include_package_data=True,
-    extras_require={'testing': TESTING_REQUIRES},
 )
