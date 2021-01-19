@@ -8,7 +8,7 @@
 {% image content_image width-1125 as six_image %}
 {% image content_image width-1534 as seven_image %}
 
-<div class="nhsuk-card {% if url %} nhsuk-card--clickable{% endif %} {% if feature_heading %}nhsuk-card--feature {% endif %}">
+<div class="nhsuk-card {% if url or internal_page %} nhsuk-card--clickable{% endif %} {% if feature_heading %}nhsuk-card--feature {% endif %}">
   {% if content_image %}
     <img
       class="nhsuk-card__img"
