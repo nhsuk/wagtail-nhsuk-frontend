@@ -11,6 +11,8 @@ from wagtail.core.blocks import (
     PageChooserBlock,
 )
 from wagtail.images.blocks import ImageChooserBlock
+from django.core.exceptions import ValidationError
+from django.forms.utils import ErrorList
 
 
 class FlattenValueContext:
@@ -46,8 +48,8 @@ class ActionLinkBlock(FlattenValueContext, StructBlock):
             url_links += 1
 
         if not url_links:
-            errors['internal_page'] = ErrorList(['Please choose a page or enter a URL below.'])
-            errors['external_url'] = ErrorList(['Please enter a URL or choose a page above.'])
+            errors['internal_page'] = ErrorList(['Please choose a page or enter a URL above.'])
+            errors['external_url'] = ErrorList(['Please enter a URL or choose a page below.'])
         elif url_links > 1:
             errors['internal_page'] = ErrorList(['Please only enter a URL or choose a page.'])
             errors['external_url'] = ErrorList(['Please only enter a URL or choose a page.'])
@@ -160,6 +162,7 @@ class BasePromoBlock(FlattenValueContext, StructBlock):
     class Meta:
         icon = 'pick'
         template = 'wagtailnhsukfrontend/promo.html'
+        help_text = 'Promo requires a URL entered or an Internal Page selected.'
 
 
 class PromoBlock(BasePromoBlock):
@@ -247,12 +250,37 @@ class CardBasicBlock(FlattenValueContext, StructBlock):
 
 class CardClickableBlock(CardBasicBlock):
 
-    url = URLBlock(label="URL", required=True, help_text='Link for the card')
+    internal_page = PageChooserBlock(label="Internal Page", required=False, help_text='Interal Page Link for the card')
+    url = URLBlock(label="URL", required=False, help_text='External Link for the card')
 
     class Meta:
         label = 'Clickable card'
         icon = 'doc-full'
         template = 'wagtailnhsukfrontend/card.html'
+        help_text = 'Clickable card requires an Internal page selected or a URL entered'
+
+    def clean(self, value):
+
+        errors = {}
+
+        url_links = 0
+
+        if value.get('url'):
+            url_links += 1
+        if value.get('internal_page'):
+            url_links += 1
+
+        if not url_links:
+            errors['internal_page'] = ErrorList(['Please choose a page or enter a URL below.'])
+            errors['url'] = ErrorList(['Please enter a URL or choose a page above.'])
+        elif url_links > 1:
+            errors['internal_page'] = ErrorList(['Please only enter a URL or choose a page.'])
+            errors['url'] = ErrorList(['Please only enter a URL or choose a page.'])
+
+        if errors:
+            raise ValidationError('Validation error in ActionLinkBlock', params=errors)
+
+        return super().clean(value)
 
 
 class CardImageBlock(CardBasicBlock):
