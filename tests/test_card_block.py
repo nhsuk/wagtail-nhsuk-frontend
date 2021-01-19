@@ -48,4 +48,4 @@ def test_card_image_block_no_internal_link_or_url(db, django_db_setup, client: C
     block = soup.select('.block-card_image')[2]
     a_tag = block.find('a')
 
-    assert a_tag == None
+    assert not a_tag
