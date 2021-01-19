@@ -288,11 +288,32 @@ class CardImageBlock(CardBasicBlock):
     content_image = ImageChooserBlock(label='Image', required=True)
     alt_text = CharBlock(required=True)
     url = URLBlock(label="URL", required=False, help_text='Optional, if there is a link the entire card will be clickable.')
+    internal_page = PageChooserBlock(label="Internal Page", required=False, help_text='Optional, if there is a link the entire card will be clickable.')
 
     class Meta:
         label = 'Card with an image'
         icon = 'doc-full'
         template = 'wagtailnhsukfrontend/card.html'
+
+    def clean(self, value):
+
+        errors = {}
+
+        url_links = 0
+
+        if value.get('url'):
+            url_links += 1
+        if value.get('internal_page'):
+            url_links += 1
+
+        if url_links > 1:
+            errors['internal_page'] = ErrorList(['Please only enter a URL or choose a page.'])
+            errors['url'] = ErrorList(['Please only enter a URL or choose a page.'])
+
+        if errors:
+            raise ValidationError('Validation error in ActionLinkBlock', params=errors)
+
+        return super().clean(value)
 
 
 class CardFeatureBlock(FlattenValueContext, StructBlock):
