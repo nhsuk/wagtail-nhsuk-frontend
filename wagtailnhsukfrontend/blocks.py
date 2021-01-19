@@ -1,3 +1,5 @@
+from django.core.exceptions import ValidationError
+from django.forms.utils import ErrorList
 from wagtail.core.blocks import (
     BooleanBlock,
     CharBlock,
@@ -11,8 +13,6 @@ from wagtail.core.blocks import (
     PageChooserBlock,
 )
 from wagtail.images.blocks import ImageChooserBlock
-from django.core.exceptions import ValidationError
-from django.forms.utils import ErrorList
 
 
 class FlattenValueContext:
