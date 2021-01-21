@@ -1,7 +1,8 @@
 # CHANGELOG
 
-## Master
+## v0.6.0
 
+- Use the latest version of the NHS.UK frontend library ([v4.1.0](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#410---21-january-2021))
 - Add internal page link option to ActionLink and Card blocks
 
 ## v0.5.0
