@@ -104,10 +104,24 @@ class FooterLinks(Orderable):
         on_delete=models.CASCADE,
         related_name='footer_links',
     )
-    link_url = models.URLField(blank=True)
-    link_label = models.CharField(blank=True, max_length=250)
+    link_url = models.URLField(
+        blank=True,
+        help_text="If you add a link url then also ad the text for the link below"
+    )
+    link_label = models.CharField(
+        blank=True, 
+        max_length=250,
+        help_text="Link label is required is you enter a link url but is optional if you choose a page below")
+    internal_page = models.ForeignKey(
+        'wagtailcore.Page',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        help_text="If you are not adding an external URL choose a page to link to"
+    )
 
     panels = [
         FieldPanel('link_url'),
         FieldPanel('link_label'),
+        PageChooserPanel('internal_page'),
     ]
