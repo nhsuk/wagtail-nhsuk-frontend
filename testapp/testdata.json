@@ -30,6 +30,39 @@
   }
 },
 {
+  "model": "wagtailnhsukfrontendsettings.footerlinks",
+  "pk": 7,
+  "fields": {
+    "sort_order": 0,
+    "setting": 1,
+    "link_url": "http://www.nhs.uk",
+    "link_label": "NHS Website",
+    "internal_page": null
+  }
+},
+{
+  "model": "wagtailnhsukfrontendsettings.footerlinks",
+  "pk": 8,
+  "fields": {
+    "sort_order": 1,
+    "setting": 1,
+    "link_url": "",
+    "link_label": "Card Examples",
+    "internal_page": 13
+  }
+},
+{
+  "model": "wagtailnhsukfrontendsettings.footerlinks",
+  "pk": 9,
+  "fields": {
+    "sort_order": 2,
+    "setting": 1,
+    "link_url": "",
+    "link_label": "",
+    "internal_page": 3
+  }
+},
+{
   "model": "wagtailcore.site",
   "fields": {
     "hostname": "localhost",
@@ -209,8 +242,8 @@
 {
   "model": "auth.user",
   "fields": {
-    "password": "pbkdf2_sha256$100000$jQmLXtqs7rf3$WQZzZzXpTGVcTEsPF0DmcrWrhU5AOcC02gTR+ohv+kc=",
-    "last_login": "2019-03-01T16:02:34.987Z",
+    "password": "pbkdf2_sha256$216000$R5DXUy92I2L0$F9THGrIJ1dm3cFrkXHVBgEC8wYZkG6STlO/PrXXORq0=",
+    "last_login": "2021-02-01T03:44:05.072Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
