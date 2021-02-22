@@ -9,5 +9,5 @@ tasks:
       pip install -r requirements.txt &&
       python manage.py migrate &&
       python manage.py loaddata testdata.json &&
-      pytest
+      cd .. && pytest
     name: setup
