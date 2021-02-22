@@ -63,6 +63,9 @@ python3 manage.py runserver 8080
 
 The application will be available at http://localhost:8080 and the admin panel can be found at http://localhost:8080/admin
 
+## Develop/Contribute in Gitpod
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/nhsuk/wagtail-nhsuk-frontend)
+
 ## Test data
 
 To install the test fixture, make sure you have an empty but fully migrated database.
