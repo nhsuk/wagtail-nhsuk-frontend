@@ -6,4 +6,9 @@ tasks:
       python setup.py build &&
       cd testapp &&
       pip install -r requirements.txt &&
-      python manage.py migrate
+      python manage.py migrate &&
+      echo "from django.contrib.auth import get_user_model; get_user_model().objects.create_superuser('admin', '', 'changeme')" | python3 manage.py shell
+      cd .. && pip install -r requirements.txt
+    name: setup
+  - command: pytest
+    name: tests
