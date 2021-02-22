@@ -2,4 +2,8 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: pip install -r ./requirements.txt
+  - init: >
+      python setup.py build &&
+      cd testapp &&
+      pip install -r requirements.txt &&
+      python manage.py migrate
