@@ -4,11 +4,10 @@ image:
 tasks:
   - init: >
       python setup.py build &&
+      pip install -r requirements.txt
       cd testapp &&
       pip install -r requirements.txt &&
       python manage.py migrate &&
-      echo "from django.contrib.auth import get_user_model; get_user_model().objects.create_superuser('admin', '', 'changeme')" | python3 manage.py shell
-      cd .. && pip install -r requirements.txt
+      echo "from django.contrib.auth import get_user_model; get_user_model().objects.create_superuser('admin', '', 'changeme')" | python3 manage.py shell &&
+      pytest
     name: setup
-  - command: pytest
-    name: tests
