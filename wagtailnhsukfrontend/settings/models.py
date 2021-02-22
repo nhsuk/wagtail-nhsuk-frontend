@@ -80,17 +80,17 @@ class NavigationLink(Orderable):
 
 class FooterSettingsForm(WagtailAdminModelForm):
     def clean(self):
-        cleaned_data = super().clean()        
+        cleaned_data = super().clean()
 
         for link_form in self.formsets['footer_links'].forms:
             if link_form.is_valid():
                 data = link_form.clean()
                 if (data['link_url'] and data['internal_page']) or \
-                    (not data['link_url'] and not data['internal_page']):
+                        (not data['link_url'] and not data['internal_page']):
                     link_form.add_error('link_url', 'Either add a link url or choose a page to link to')
                     link_form.add_error('internal_page', 'Either add a link url or choose a page to link to')
                 elif data['link_url'] and not data['link_label']:
-                    link_form.add_error('link_label','Link label is required when adding a link url')
+                    link_form.add_error('link_label', 'Link label is required when adding a link url')
 
         return cleaned_data
 
