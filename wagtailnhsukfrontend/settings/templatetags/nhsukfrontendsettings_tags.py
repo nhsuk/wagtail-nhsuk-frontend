@@ -41,7 +41,8 @@ def footer(context):
         'primary_links': [
             {
                 'label': link.link_label,
-                'url': link.link_url
+                'url': link.link_url,
+                'internal_page': link.internal_page,
             }
             for link in footer.footer_links.all()
         ],
