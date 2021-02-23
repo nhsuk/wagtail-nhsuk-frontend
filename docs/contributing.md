@@ -73,6 +73,17 @@ You should now have sample content pages in your wagtail installation.
 
 The default login is username="admin" and password="password123"
 
+## Develop/Contribute using Gitpod
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/nhsuk/wagtail-nhsuk-frontend)
+
+Opening this project in gitpod (click the button above), it will run all the scripts above for you and run the tests. You can then start developing to make your contibution.
+
+Just start the local server... from the testapp folder run
+
+```
+python manage.py runserver 0:8000
+```
+
 ## Scope
 
 This project is a wagtail implementation of [nhsuk-frontend](https://github.com/nhsuk/nhsuk-frontend).

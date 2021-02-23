@@ -1,1 +1,9 @@
-<li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="{{ item.url }}">{{ item.label }}</a></li>
+{% if item.url %}
+<li class="nhsuk-footer__list-item">
+    <a class="nhsuk-footer__list-item-link" href="{{ item.url }}">{{ item.label }}</a>
+</li>
+{% else %}
+<li class="nhsuk-footer__list-item">
+    <a class="nhsuk-footer__list-item-link" href="{{ item.internal_page.url }}">{% if item.label %}{{ item.label }}{% else %}{{ item.internal_page.title }}{% endif %}</a>
+</li>
+{% endif %}

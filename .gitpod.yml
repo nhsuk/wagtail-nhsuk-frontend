@@ -1,0 +1,13 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: >
+      python setup.py build &&
+      pip install -r requirements.txt &&
+      cd testapp &&
+      pip install -r requirements.txt &&
+      python manage.py migrate &&
+      python manage.py loaddata testdata.json &&
+      cd .. && pytest
+    name: setup
