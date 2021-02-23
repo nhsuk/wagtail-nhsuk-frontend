@@ -30,6 +30,39 @@
   }
 },
 {
+  "model": "wagtailnhsukfrontendsettings.footerlinks",
+  "pk": 7,
+  "fields": {
+    "sort_order": 0,
+    "setting": 1,
+    "link_url": "http://www.nhs.uk",
+    "link_label": "NHS Website",
+    "internal_page": null
+  }
+},
+{
+  "model": "wagtailnhsukfrontendsettings.footerlinks",
+  "pk": 8,
+  "fields": {
+    "sort_order": 1,
+    "setting": 1,
+    "link_url": "",
+    "link_label": "Card Examples",
+    "internal_page": 13
+  }
+},
+{
+  "model": "wagtailnhsukfrontendsettings.footerlinks",
+  "pk": 9,
+  "fields": {
+    "sort_order": 2,
+    "setting": 1,
+    "link_url": "",
+    "link_label": "",
+    "internal_page": 3
+  }
+},
+{
   "model": "wagtailcore.site",
   "fields": {
     "hostname": "localhost",
@@ -209,8 +242,8 @@
 {
   "model": "auth.user",
   "fields": {
-    "password": "pbkdf2_sha256$100000$jQmLXtqs7rf3$WQZzZzXpTGVcTEsPF0DmcrWrhU5AOcC02gTR+ohv+kc=",
-    "last_login": "2019-03-01T16:02:34.987Z",
+    "password": "pbkdf2_sha256$216000$R5DXUy92I2L0$F9THGrIJ1dm3cFrkXHVBgEC8wYZkG6STlO/PrXXORq0=",
+    "last_login": "2021-02-01T04:33:27.923Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -854,6 +887,90 @@
   }
 },
 {
+  "model": "wagtailcore.pagelogentry",
+  "pk": 31,
+  "fields": {
+    "content_type": [
+      "home",
+      "homepage"
+    ],
+    "label": "Home",
+    "action": "wagtail.edit",
+    "data_json": "\"\"",
+    "timestamp": "2021-02-01T04:45:41.731Z",
+    "user": [
+      "admin"
+    ],
+    "content_changed": true,
+    "deleted": false,
+    "page": 3,
+    "revision": 23
+  }
+},
+{
+  "model": "wagtailcore.pagelogentry",
+  "pk": 32,
+  "fields": {
+    "content_type": [
+      "home",
+      "homepage"
+    ],
+    "label": "Home",
+    "action": "wagtail.publish",
+    "data_json": "null",
+    "timestamp": "2021-02-01T04:45:41.763Z",
+    "user": [
+      "admin"
+    ],
+    "content_changed": true,
+    "deleted": false,
+    "page": 3,
+    "revision": 23
+  }
+},
+{
+  "model": "wagtailcore.pagelogentry",
+  "pk": 33,
+  "fields": {
+    "content_type": [
+      "home",
+      "homepage"
+    ],
+    "label": "Home",
+    "action": "wagtail.edit",
+    "data_json": "\"\"",
+    "timestamp": "2021-02-01T04:47:14.415Z",
+    "user": [
+      "admin"
+    ],
+    "content_changed": true,
+    "deleted": false,
+    "page": 3,
+    "revision": 24
+  }
+},
+{
+  "model": "wagtailcore.pagelogentry",
+  "pk": 34,
+  "fields": {
+    "content_type": [
+      "home",
+      "homepage"
+    ],
+    "label": "Home",
+    "action": "wagtail.publish",
+    "data_json": "null",
+    "timestamp": "2021-02-01T04:47:14.448Z",
+    "user": [
+      "admin"
+    ],
+    "content_changed": true,
+    "deleted": false,
+    "page": 3,
+    "revision": 24
+  }
+},
+{
   "model": "wagtailcore.groupapprovaltask",
   "pk": 1,
   "fields": {
@@ -1160,6 +1277,34 @@
   }
 },
 {
+  "model": "wagtailcore.pagerevision",
+  "pk": 23,
+  "fields": {
+    "page": 3,
+    "submitted_for_moderation": false,
+    "created_at": "2021-02-01T04:45:41.721Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 3, \"path\": \"00010001\", \"depth\": 2, \"numchild\": 4, \"translation_key\": \"ce9d3707-02bf-4a91-851e-d92fa4c0cb78\", \"locale\": 1, \"title\": \"Home\", \"draft_title\": \"Home\", \"slug\": \"home\", \"content_type\": 3, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/\", \"owner\": null, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"locked_at\": null, \"locked_by\": null, \"first_published_at\": \"2018-10-22T10:57:04.927Z\", \"last_published_at\": \"2021-01-15T11:25:57.943Z\", \"latest_revision_created_at\": \"2021-01-15T11:25:57.931Z\", \"live_revision\": 21, \"alias_of\": null, \"last_review_date\": \"2019-04-08T22:45:00Z\", \"next_review_date\": \"2022-07-11T22:46:00Z\", \"hero_text\": \"Helping you create NHS sites with Wagtail\", \"hero_heading\": \"Wagtail NHS.UK Frontend\", \"hero_image\": null, \"body\": \"[{\\\"type\\\": \\\"action_link\\\", \\\"value\\\": {\\\"text\\\": \\\"Action Link\\\", \\\"external_url\\\": \\\"https://example.com\\\", \\\"new_window\\\": false, \\\"internal_page\\\": null}, \\\"id\\\": \\\"275caa12-937e-42a5-8ef3-caa05584c8ce\\\"}, {\\\"type\\\": \\\"action_link\\\", \\\"value\\\": {\\\"text\\\": \\\"Action Link Internal Page\\\", \\\"external_url\\\": \\\"\\\", \\\"new_window\\\": false, \\\"internal_page\\\": 4}, \\\"id\\\": \\\"a2ea3730-b6d2-4a84-8e96-25fc424dd36a\\\"}, {\\\"type\\\": \\\"care_card\\\", \\\"value\\\": {\\\"type\\\": \\\"primary\\\", \\\"heading_level\\\": 3, \\\"title\\\": \\\"Non-urgent:\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>This is a primary care card</p>\\\", \\\"id\\\": \\\"08e3ee4f-8e73-429f-a321-9eaa796987ca\\\"}, {\\\"type\\\": \\\"warning_callout\\\", \\\"value\\\": {\\\"title\\\": \\\"Important\\\", \\\"visually_hidden_prefix\\\": false, \\\"heading_level\\\": 3, \\\"body\\\": \\\"<p>Care cards can contain other blocks</p>\\\"}, \\\"id\\\": \\\"1ca58423-559c-4130-ae94-a5943e711c85\\\"}]}, \\\"id\\\": \\\"77a893d7-b810-4c72-a194-749da2d33b88\\\"}, {\\\"type\\\": \\\"care_card\\\", \\\"value\\\": {\\\"type\\\": \\\"urgent\\\", \\\"heading_level\\\": 3, \\\"title\\\": \\\"Urgent:\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>This is an urgent care card</p>\\\", \\\"id\\\": \\\"cc1bfad6-4a9d-4dca-b960-1ae96ff043fe\\\"}]}, \\\"id\\\": \\\"84faa876-06d1-493a-8776-3e63ffc3ac71\\\"}, {\\\"type\\\": \\\"care_card\\\", \\\"value\\\": {\\\"type\\\": \\\"immediate\\\", \\\"heading_level\\\": 3, \\\"title\\\": \\\"Immediate!\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>This is an immediate care card</p>\\\", \\\"id\\\": \\\"219b78a4-fd66-4302-963e-6b45c1b78aad\\\"}]}, \\\"id\\\": \\\"c9531ae4-ea87-4e07-8214-11669dbeae68\\\"}, {\\\"type\\\": \\\"details\\\", \\\"value\\\": {\\\"title\\\": \\\"Details\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>Make a page easier to scan by letting users reveal more detailed information only if they need it.</p>\\\", \\\"id\\\": \\\"688e9fd5-96cf-4137-a648-318db0b6bde1\\\"}, {\\\"type\\\": \\\"feature_card\\\", \\\"value\\\": {\\\"feature_heading\\\": \\\"Feature card\\\", \\\"heading_level\\\": 3, \\\"heading_size\\\": \\\"\\\", \\\"body\\\": \\\"<p>Details can contain feature cards</p>\\\"}, \\\"id\\\": \\\"0bf1339e-3ca0-4378-b2e2-5579e930b4d0\\\"}, {\\\"type\\\": \\\"panel\\\", \\\"value\\\": {\\\"label\\\": \\\"Panel inside details\\\", \\\"heading_level\\\": 3, \\\"body\\\": \\\"<p>Details can contain sub blocks too</p>\\\"}, \\\"id\\\": \\\"9bfe5306-c199-46b1-9c59-a1b4c6896222\\\"}]}, \\\"id\\\": \\\"aae2d50c-e288-461c-96c6-ffcd9c5f6391\\\"}, {\\\"type\\\": \\\"do_list\\\", \\\"value\\\": {\\\"heading_level\\\": 3, \\\"label\\\": \\\"\\\", \\\"do\\\": [\\\"<p>Do be good</p>\\\", \\\"<p>Do be happy</p>\\\", \\\"<p>Do be early</p>\\\", \\\"<p>Always eat what&#x27;s on your plate</p>\\\"]}, \\\"id\\\": \\\"899d3256-5d11-4ff1-8cc5-381998a7f17c\\\"}, {\\\"type\\\": \\\"dont_list\\\", \\\"value\\\": {\\\"heading_level\\\": 3, \\\"label\\\": \\\"\\\", \\\"dont\\\": [\\\"<p>Don&#x27;t be bad</p>\\\", \\\"<p>Don&#x27;t be sad</p>\\\", \\\"<p>Don&#x27;t be late</p>\\\"]}, \\\"id\\\": \\\"099120af-4a22-431c-a567-2fa9662b543e\\\"}, {\\\"type\\\": \\\"expander\\\", \\\"value\\\": {\\\"title\\\": \\\"Expander\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>Make a complex topic easier to digest by letting users reveal more detailed information only if they need it.</p>\\\", \\\"id\\\": \\\"b5a9c263-4173-4a3f-93f9-8fcae11c02d9\\\"}]}, \\\"id\\\": \\\"0c5e7b95-1fe8-4267-b9c7-de722792b381\\\"}, {\\\"type\\\": \\\"expander_group\\\", \\\"value\\\": {\\\"expanders\\\": [{\\\"title\\\": \\\"One\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>First expander</p>\\\", \\\"id\\\": \\\"fa729ddf-7f22-498a-a0a4-9b90792d9e5f\\\"}]}, {\\\"title\\\": \\\"Two\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>Second expander</p>\\\", \\\"id\\\": \\\"304fb3a8-2cfd-448b-89ca-e0efd2d92a44\\\"}]}, {\\\"title\\\": \\\"Three\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>Third expander</p>\\\", \\\"id\\\": \\\"597d532b-597c-4e76-9071-f2e1e435c8a8\\\"}]}]}, \\\"id\\\": \\\"cde766b8-1c9d-43d2-bc5d-ab941bcd5a5b\\\"}, {\\\"type\\\": \\\"inset_text\\\", \\\"value\\\": {\\\"body\\\": \\\"<p>Use inset text to help users identify and understand important content on the page, even if they don&#x27;t read the whole page.</p>\\\"}, \\\"id\\\": \\\"d9739fb8-2dc9-4355-8ced-8d91f37d2c73\\\"}, {\\\"type\\\": \\\"image\\\", \\\"value\\\": {\\\"content_image\\\": 1, \\\"alt_text\\\": \\\"The BBC test card. A girl playing naughts and crosses on a blackboard with a clown doll\\\", \\\"caption\\\": \\\"BBC test card F\\\"}, \\\"id\\\": \\\"9d060424-43d3-4945-9d3a-f56601c85f5f\\\"}, {\\\"type\\\": \\\"feature_card\\\", \\\"value\\\": {\\\"feature_heading\\\": \\\"Feature Card\\\", \\\"heading_level\\\": 3, \\\"heading_size\\\": \\\"\\\", \\\"body\\\": \\\"<p>A feature card has a blue title</p>\\\"}, \\\"id\\\": \\\"505330ad-4b68-4d46-8d77-7d1d2a8ae66f\\\"}, {\\\"type\\\": \\\"panel\\\", \\\"value\\\": {\\\"label\\\": \\\"Panel\\\", \\\"heading_level\\\": 3, \\\"body\\\": \\\"<p>Panel with a blue title</p>\\\"}, \\\"id\\\": \\\"f02f483f-7c7d-4974-8efe-e2c3ead9d5f6\\\"}, {\\\"type\\\": \\\"panel\\\", \\\"value\\\": {\\\"label\\\": \\\"\\\", \\\"heading_level\\\": 3, \\\"body\\\": \\\"<p>Panels don&#x27;t require a title</p>\\\"}, \\\"id\\\": \\\"56a804c5-3326-4f45-b542-1b49f6a83961\\\"}, {\\\"type\\\": \\\"warning_callout\\\", \\\"value\\\": {\\\"title\\\": \\\"Important\\\", \\\"visually_hidden_prefix\\\": false, \\\"heading_level\\\": 3, \\\"body\\\": \\\"<p>This is a warning callout box! It contains <b>RichText</b></p>\\\"}, \\\"id\\\": \\\"d58c67a7-857b-4729-8957-40dee5d9a396\\\"}, {\\\"type\\\": \\\"summary_list\\\", \\\"value\\\": {\\\"rows\\\": [{\\\"key\\\": \\\"Name\\\", \\\"value\\\": \\\"<p>Sarah Philips</p>\\\"}, {\\\"key\\\": \\\"Date of birth\\\", \\\"value\\\": \\\"<p>5 January 1978</p>\\\"}, {\\\"key\\\": \\\"Contact information\\\", \\\"value\\\": \\\"<p>72 Guild Street<br/>London<br/>SE23 6FH</p>\\\"}], \\\"no_border\\\": false}, \\\"id\\\": \\\"a7894af4-6311-4fe7-9188-3a54bd25d05b\\\"}]\"}",
+    "approved_go_live_at": null
+  }
+},
+{
+  "model": "wagtailcore.pagerevision",
+  "pk": 24,
+  "fields": {
+    "page": 3,
+    "submitted_for_moderation": false,
+    "created_at": "2021-02-01T04:47:14.403Z",
+    "user": [
+      "admin"
+    ],
+    "content_json": "{\"pk\": 3, \"path\": \"00010001\", \"depth\": 2, \"numchild\": 4, \"translation_key\": \"ce9d3707-02bf-4a91-851e-d92fa4c0cb78\", \"locale\": 1, \"title\": \"Home\", \"draft_title\": \"Home\", \"slug\": \"home\", \"content_type\": 3, \"live\": true, \"has_unpublished_changes\": false, \"url_path\": \"/home/\", \"owner\": null, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"locked_at\": null, \"locked_by\": null, \"first_published_at\": \"2018-10-22T10:57:04.927Z\", \"last_published_at\": \"2021-02-01T04:45:41.743Z\", \"latest_revision_created_at\": \"2021-02-01T04:45:41.721Z\", \"live_revision\": 23, \"alias_of\": null, \"last_review_date\": \"2019-04-08T22:45:00Z\", \"next_review_date\": \"2022-07-11T22:46:00Z\", \"hero_text\": \"Helping you create NHS sites with Wagtail\", \"hero_heading\": \"Wagtail NHS.UK Frontend\", \"hero_image\": null, \"body\": \"[{\\\"type\\\": \\\"action_link\\\", \\\"value\\\": {\\\"text\\\": \\\"Action Link External URL\\\", \\\"external_url\\\": \\\"https://example.com\\\", \\\"new_window\\\": false, \\\"internal_page\\\": null}, \\\"id\\\": \\\"275caa12-937e-42a5-8ef3-caa05584c8ce\\\"}, {\\\"type\\\": \\\"action_link\\\", \\\"value\\\": {\\\"text\\\": \\\"Action Link Internal Page\\\", \\\"external_url\\\": \\\"\\\", \\\"new_window\\\": false, \\\"internal_page\\\": 4}, \\\"id\\\": \\\"a2ea3730-b6d2-4a84-8e96-25fc424dd36a\\\"}, {\\\"type\\\": \\\"care_card\\\", \\\"value\\\": {\\\"type\\\": \\\"primary\\\", \\\"heading_level\\\": 3, \\\"title\\\": \\\"Non-urgent:\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>This is a primary care card</p>\\\", \\\"id\\\": \\\"08e3ee4f-8e73-429f-a321-9eaa796987ca\\\"}, {\\\"type\\\": \\\"warning_callout\\\", \\\"value\\\": {\\\"title\\\": \\\"Important\\\", \\\"visually_hidden_prefix\\\": false, \\\"heading_level\\\": 3, \\\"body\\\": \\\"<p>Care cards can contain other blocks</p>\\\"}, \\\"id\\\": \\\"1ca58423-559c-4130-ae94-a5943e711c85\\\"}]}, \\\"id\\\": \\\"77a893d7-b810-4c72-a194-749da2d33b88\\\"}, {\\\"type\\\": \\\"care_card\\\", \\\"value\\\": {\\\"type\\\": \\\"urgent\\\", \\\"heading_level\\\": 3, \\\"title\\\": \\\"Urgent:\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>This is an urgent care card</p>\\\", \\\"id\\\": \\\"cc1bfad6-4a9d-4dca-b960-1ae96ff043fe\\\"}]}, \\\"id\\\": \\\"84faa876-06d1-493a-8776-3e63ffc3ac71\\\"}, {\\\"type\\\": \\\"care_card\\\", \\\"value\\\": {\\\"type\\\": \\\"immediate\\\", \\\"heading_level\\\": 3, \\\"title\\\": \\\"Immediate!\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>This is an immediate care card</p>\\\", \\\"id\\\": \\\"219b78a4-fd66-4302-963e-6b45c1b78aad\\\"}]}, \\\"id\\\": \\\"c9531ae4-ea87-4e07-8214-11669dbeae68\\\"}, {\\\"type\\\": \\\"details\\\", \\\"value\\\": {\\\"title\\\": \\\"Details\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>Make a page easier to scan by letting users reveal more detailed information only if they need it.</p>\\\", \\\"id\\\": \\\"688e9fd5-96cf-4137-a648-318db0b6bde1\\\"}, {\\\"type\\\": \\\"feature_card\\\", \\\"value\\\": {\\\"feature_heading\\\": \\\"Feature card\\\", \\\"heading_level\\\": 3, \\\"heading_size\\\": \\\"\\\", \\\"body\\\": \\\"<p>Details can contain feature cards</p>\\\"}, \\\"id\\\": \\\"0bf1339e-3ca0-4378-b2e2-5579e930b4d0\\\"}, {\\\"type\\\": \\\"panel\\\", \\\"value\\\": {\\\"label\\\": \\\"Panel inside details\\\", \\\"heading_level\\\": 3, \\\"body\\\": \\\"<p>Details can contain sub blocks too</p>\\\"}, \\\"id\\\": \\\"9bfe5306-c199-46b1-9c59-a1b4c6896222\\\"}]}, \\\"id\\\": \\\"aae2d50c-e288-461c-96c6-ffcd9c5f6391\\\"}, {\\\"type\\\": \\\"do_list\\\", \\\"value\\\": {\\\"heading_level\\\": 3, \\\"label\\\": \\\"\\\", \\\"do\\\": [\\\"<p>Do be good</p>\\\", \\\"<p>Do be happy</p>\\\", \\\"<p>Do be early</p>\\\", \\\"<p>Always eat what&#x27;s on your plate</p>\\\"]}, \\\"id\\\": \\\"899d3256-5d11-4ff1-8cc5-381998a7f17c\\\"}, {\\\"type\\\": \\\"dont_list\\\", \\\"value\\\": {\\\"heading_level\\\": 3, \\\"label\\\": \\\"\\\", \\\"dont\\\": [\\\"<p>Don&#x27;t be bad</p>\\\", \\\"<p>Don&#x27;t be sad</p>\\\", \\\"<p>Don&#x27;t be late</p>\\\"]}, \\\"id\\\": \\\"099120af-4a22-431c-a567-2fa9662b543e\\\"}, {\\\"type\\\": \\\"expander\\\", \\\"value\\\": {\\\"title\\\": \\\"Expander\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>Make a complex topic easier to digest by letting users reveal more detailed information only if they need it.</p>\\\", \\\"id\\\": \\\"b5a9c263-4173-4a3f-93f9-8fcae11c02d9\\\"}]}, \\\"id\\\": \\\"0c5e7b95-1fe8-4267-b9c7-de722792b381\\\"}, {\\\"type\\\": \\\"expander_group\\\", \\\"value\\\": {\\\"expanders\\\": [{\\\"title\\\": \\\"One\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>First expander</p>\\\", \\\"id\\\": \\\"fa729ddf-7f22-498a-a0a4-9b90792d9e5f\\\"}]}, {\\\"title\\\": \\\"Two\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>Second expander</p>\\\", \\\"id\\\": \\\"304fb3a8-2cfd-448b-89ca-e0efd2d92a44\\\"}]}, {\\\"title\\\": \\\"Three\\\", \\\"body\\\": [{\\\"type\\\": \\\"richtext\\\", \\\"value\\\": \\\"<p>Third expander</p>\\\", \\\"id\\\": \\\"597d532b-597c-4e76-9071-f2e1e435c8a8\\\"}]}]}, \\\"id\\\": \\\"cde766b8-1c9d-43d2-bc5d-ab941bcd5a5b\\\"}, {\\\"type\\\": \\\"inset_text\\\", \\\"value\\\": {\\\"body\\\": \\\"<p>Use inset text to help users identify and understand important content on the page, even if they don&#x27;t read the whole page.</p>\\\"}, \\\"id\\\": \\\"d9739fb8-2dc9-4355-8ced-8d91f37d2c73\\\"}, {\\\"type\\\": \\\"image\\\", \\\"value\\\": {\\\"content_image\\\": 1, \\\"alt_text\\\": \\\"The BBC test card. A girl playing naughts and crosses on a blackboard with a clown doll\\\", \\\"caption\\\": \\\"BBC test card F\\\"}, \\\"id\\\": \\\"9d060424-43d3-4945-9d3a-f56601c85f5f\\\"}, {\\\"type\\\": \\\"feature_card\\\", \\\"value\\\": {\\\"feature_heading\\\": \\\"Feature Card\\\", \\\"heading_level\\\": 3, \\\"heading_size\\\": \\\"\\\", \\\"body\\\": \\\"<p>A feature card has a blue title</p>\\\"}, \\\"id\\\": \\\"505330ad-4b68-4d46-8d77-7d1d2a8ae66f\\\"}, {\\\"type\\\": \\\"panel\\\", \\\"value\\\": {\\\"label\\\": \\\"Panel\\\", \\\"heading_level\\\": 3, \\\"body\\\": \\\"<p>Panel with a blue title</p>\\\"}, \\\"id\\\": \\\"f02f483f-7c7d-4974-8efe-e2c3ead9d5f6\\\"}, {\\\"type\\\": \\\"panel\\\", \\\"value\\\": {\\\"label\\\": \\\"\\\", \\\"heading_level\\\": 3, \\\"body\\\": \\\"<p>Panels don&#x27;t require a title</p>\\\"}, \\\"id\\\": \\\"56a804c5-3326-4f45-b542-1b49f6a83961\\\"}, {\\\"type\\\": \\\"warning_callout\\\", \\\"value\\\": {\\\"title\\\": \\\"Important\\\", \\\"visually_hidden_prefix\\\": false, \\\"heading_level\\\": 3, \\\"body\\\": \\\"<p>This is a warning callout box! It contains <b>RichText</b></p>\\\"}, \\\"id\\\": \\\"d58c67a7-857b-4729-8957-40dee5d9a396\\\"}, {\\\"type\\\": \\\"summary_list\\\", \\\"value\\\": {\\\"rows\\\": [{\\\"key\\\": \\\"Name\\\", \\\"value\\\": \\\"<p>Sarah Philips</p>\\\"}, {\\\"key\\\": \\\"Date of birth\\\", \\\"value\\\": \\\"<p>5 January 1978</p>\\\"}, {\\\"key\\\": \\\"Contact information\\\", \\\"value\\\": \\\"<p>72 Guild Street<br/>London<br/>SE23 6FH</p>\\\"}], \\\"no_border\\\": false}, \\\"id\\\": \\\"a7894af4-6311-4fe7-9188-3a54bd25d05b\\\"}]\"}",
+    "approved_go_live_at": null
+  }
+},
+{
   "model": "wagtailcore.page",
   "pk": 1,
   "fields": {
@@ -1225,9 +1370,9 @@
     "locked_at": null,
     "locked_by": null,
     "first_published_at": "2018-10-22T10:57:04.927Z",
-    "last_published_at": "2021-01-15T11:25:57.943Z",
-    "latest_revision_created_at": "2021-01-15T11:25:57.931Z",
-    "live_revision": 21,
+    "last_published_at": "2021-02-01T04:47:14.426Z",
+    "latest_revision_created_at": "2021-02-01T04:47:14.403Z",
+    "live_revision": 24,
     "alias_of": null
   }
 },
@@ -1683,7 +1828,7 @@
     "hero_text": "Helping you create NHS sites with Wagtail",
     "hero_heading": "Wagtail NHS.UK Frontend",
     "hero_image": null,
-    "body": "[{\"type\": \"action_link\", \"value\": {\"text\": \"Action Link\", \"external_url\": \"https://example.com\", \"new_window\": false}, \"id\": \"275caa12-937e-42a5-8ef3-caa05584c8ce\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"primary\", \"heading_level\": 3, \"title\": \"Non-urgent:\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>This is a primary care card</p>\", \"id\": \"08e3ee4f-8e73-429f-a321-9eaa796987ca\"}, {\"type\": \"warning_callout\", \"value\": {\"title\": \"Important\", \"heading_level\": 3, \"body\": \"<p>Care cards can contain other blocks</p>\"}, \"id\": \"1ca58423-559c-4130-ae94-a5943e711c85\"}]}, \"id\": \"77a893d7-b810-4c72-a194-749da2d33b88\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"urgent\", \"heading_level\": 3, \"title\": \"Urgent:\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>This is an urgent care card</p>\", \"id\": \"cc1bfad6-4a9d-4dca-b960-1ae96ff043fe\"}]}, \"id\": \"84faa876-06d1-493a-8776-3e63ffc3ac71\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"immediate\", \"heading_level\": 3, \"title\": \"Immediate!\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>This is an immediate care card</p>\", \"id\": \"219b78a4-fd66-4302-963e-6b45c1b78aad\"}]}, \"id\": \"c9531ae4-ea87-4e07-8214-11669dbeae68\"}, {\"type\": \"details\", \"value\": {\"title\": \"Details\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>Make a page easier to scan by letting users reveal more detailed information only if they need it.</p>\", \"id\": \"688e9fd5-96cf-4137-a648-318db0b6bde1\"}, {\"type\": \"feature_card\", \"value\": {\"feature_heading\": \"Feature card\", \"heading_level\": 3, \"heading_size\": \"\", \"body\": \"<p>Details can contain feature cards</p>\"}, \"id\": \"0bf1339e-3ca0-4378-b2e2-5579e930b4d0\"}, {\"type\": \"panel\", \"value\": {\"label\": \"Panel inside details\", \"heading_level\": 3, \"body\": \"<p>Details can contain sub blocks too</p>\"}, \"id\": \"9bfe5306-c199-46b1-9c59-a1b4c6896222\"}]}, \"id\": \"aae2d50c-e288-461c-96c6-ffcd9c5f6391\"}, {\"type\": \"do_list\", \"value\": {\"heading_level\": 3, \"label\": \"\", \"do\": [\"<p>Do be good</p>\", \"<p>Do be happy</p>\", \"<p>Do be early</p>\", \"<p>Always eat what&#x27;s on your plate</p>\"]}, \"id\": \"899d3256-5d11-4ff1-8cc5-381998a7f17c\"}, {\"type\": \"dont_list\", \"value\": {\"heading_level\": 3, \"label\": \"\", \"dont\": [\"<p>Don&#x27;t be bad</p>\", \"<p>Don&#x27;t be sad</p>\", \"<p>Don&#x27;t be late</p>\"]}, \"id\": \"099120af-4a22-431c-a567-2fa9662b543e\"}, {\"type\": \"expander\", \"value\": {\"title\": \"Expander\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>Make a complex topic easier to digest by letting users reveal more detailed information only if they need it.</p>\", \"id\": \"b5a9c263-4173-4a3f-93f9-8fcae11c02d9\"}]}, \"id\": \"0c5e7b95-1fe8-4267-b9c7-de722792b381\"}, {\"type\": \"expander_group\", \"value\": {\"expanders\": [{\"title\": \"One\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>First expander</p>\", \"id\": \"fa729ddf-7f22-498a-a0a4-9b90792d9e5f\"}]}, {\"title\": \"Two\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>Second expander</p>\", \"id\": \"304fb3a8-2cfd-448b-89ca-e0efd2d92a44\"}]}, {\"title\": \"Three\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>Third expander</p>\", \"id\": \"597d532b-597c-4e76-9071-f2e1e435c8a8\"}]}]}, \"id\": \"cde766b8-1c9d-43d2-bc5d-ab941bcd5a5b\"}, {\"type\": \"inset_text\", \"value\": {\"body\": \"<p>Use inset text to help users identify and understand important content on the page, even if they don&#x27;t read the whole page.</p>\"}, \"id\": \"d9739fb8-2dc9-4355-8ced-8d91f37d2c73\"}, {\"type\": \"image\", \"value\": {\"content_image\": 1, \"alt_text\": \"The BBC test card. A girl playing naughts and crosses on a blackboard with a clown doll\", \"caption\": \"BBC test card F\"}, \"id\": \"9d060424-43d3-4945-9d3a-f56601c85f5f\"}, {\"type\": \"feature_card\", \"value\": {\"feature_heading\": \"Feature Card\", \"heading_level\": 3, \"heading_size\": \"\", \"body\": \"<p>A feature card has a blue title</p>\"}, \"id\": \"505330ad-4b68-4d46-8d77-7d1d2a8ae66f\"}, {\"type\": \"panel\", \"value\": {\"label\": \"Panel\", \"heading_level\": 3, \"body\": \"<p>Panel with a blue title</p>\"}, \"id\": \"f02f483f-7c7d-4974-8efe-e2c3ead9d5f6\"}, {\"type\": \"panel\", \"value\": {\"label\": \"\", \"heading_level\": 3, \"body\": \"<p>Panels don&#x27;t require a title</p>\"}, \"id\": \"56a804c5-3326-4f45-b542-1b49f6a83961\"}, {\"type\": \"warning_callout\", \"value\": {\"title\": \"Important\", \"heading_level\": 3, \"body\": \"<p>This is a warning callout box! It contains <b>RichText</b></p>\"}, \"id\": \"d58c67a7-857b-4729-8957-40dee5d9a396\"}, {\"type\": \"summary_list\", \"value\": {\"rows\": [{\"key\": \"Name\", \"value\": \"<p>Sarah Philips</p>\"}, {\"key\": \"Date of birth\", \"value\": \"<p>5 January 1978</p>\"}, {\"key\": \"Contact information\", \"value\": \"<p>72 Guild Street<br/>London<br/>SE23 6FH</p>\"}], \"no_border\": false}, \"id\": \"a7894af4-6311-4fe7-9188-3a54bd25d05b\"}]"
+    "body": "[{\"type\": \"action_link\", \"value\": {\"text\": \"Action Link External URL\", \"external_url\": \"https://example.com\", \"new_window\": false, \"internal_page\": null}, \"id\": \"275caa12-937e-42a5-8ef3-caa05584c8ce\"}, {\"type\": \"action_link\", \"value\": {\"text\": \"Action Link Internal Page\", \"external_url\": \"\", \"new_window\": false, \"internal_page\": 4}, \"id\": \"a2ea3730-b6d2-4a84-8e96-25fc424dd36a\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"primary\", \"heading_level\": 3, \"title\": \"Non-urgent:\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>This is a primary care card</p>\", \"id\": \"08e3ee4f-8e73-429f-a321-9eaa796987ca\"}, {\"type\": \"warning_callout\", \"value\": {\"title\": \"Important\", \"visually_hidden_prefix\": false, \"heading_level\": 3, \"body\": \"<p>Care cards can contain other blocks</p>\"}, \"id\": \"1ca58423-559c-4130-ae94-a5943e711c85\"}]}, \"id\": \"77a893d7-b810-4c72-a194-749da2d33b88\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"urgent\", \"heading_level\": 3, \"title\": \"Urgent:\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>This is an urgent care card</p>\", \"id\": \"cc1bfad6-4a9d-4dca-b960-1ae96ff043fe\"}]}, \"id\": \"84faa876-06d1-493a-8776-3e63ffc3ac71\"}, {\"type\": \"care_card\", \"value\": {\"type\": \"immediate\", \"heading_level\": 3, \"title\": \"Immediate!\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>This is an immediate care card</p>\", \"id\": \"219b78a4-fd66-4302-963e-6b45c1b78aad\"}]}, \"id\": \"c9531ae4-ea87-4e07-8214-11669dbeae68\"}, {\"type\": \"details\", \"value\": {\"title\": \"Details\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>Make a page easier to scan by letting users reveal more detailed information only if they need it.</p>\", \"id\": \"688e9fd5-96cf-4137-a648-318db0b6bde1\"}, {\"type\": \"feature_card\", \"value\": {\"feature_heading\": \"Feature card\", \"heading_level\": 3, \"heading_size\": \"\", \"body\": \"<p>Details can contain feature cards</p>\"}, \"id\": \"0bf1339e-3ca0-4378-b2e2-5579e930b4d0\"}, {\"type\": \"panel\", \"value\": {\"label\": \"Panel inside details\", \"heading_level\": 3, \"body\": \"<p>Details can contain sub blocks too</p>\"}, \"id\": \"9bfe5306-c199-46b1-9c59-a1b4c6896222\"}]}, \"id\": \"aae2d50c-e288-461c-96c6-ffcd9c5f6391\"}, {\"type\": \"do_list\", \"value\": {\"heading_level\": 3, \"label\": \"\", \"do\": [\"<p>Do be good</p>\", \"<p>Do be happy</p>\", \"<p>Do be early</p>\", \"<p>Always eat what&#x27;s on your plate</p>\"]}, \"id\": \"899d3256-5d11-4ff1-8cc5-381998a7f17c\"}, {\"type\": \"dont_list\", \"value\": {\"heading_level\": 3, \"label\": \"\", \"dont\": [\"<p>Don&#x27;t be bad</p>\", \"<p>Don&#x27;t be sad</p>\", \"<p>Don&#x27;t be late</p>\"]}, \"id\": \"099120af-4a22-431c-a567-2fa9662b543e\"}, {\"type\": \"expander\", \"value\": {\"title\": \"Expander\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>Make a complex topic easier to digest by letting users reveal more detailed information only if they need it.</p>\", \"id\": \"b5a9c263-4173-4a3f-93f9-8fcae11c02d9\"}]}, \"id\": \"0c5e7b95-1fe8-4267-b9c7-de722792b381\"}, {\"type\": \"expander_group\", \"value\": {\"expanders\": [{\"title\": \"One\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>First expander</p>\", \"id\": \"fa729ddf-7f22-498a-a0a4-9b90792d9e5f\"}]}, {\"title\": \"Two\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>Second expander</p>\", \"id\": \"304fb3a8-2cfd-448b-89ca-e0efd2d92a44\"}]}, {\"title\": \"Three\", \"body\": [{\"type\": \"richtext\", \"value\": \"<p>Third expander</p>\", \"id\": \"597d532b-597c-4e76-9071-f2e1e435c8a8\"}]}]}, \"id\": \"cde766b8-1c9d-43d2-bc5d-ab941bcd5a5b\"}, {\"type\": \"inset_text\", \"value\": {\"body\": \"<p>Use inset text to help users identify and understand important content on the page, even if they don&#x27;t read the whole page.</p>\"}, \"id\": \"d9739fb8-2dc9-4355-8ced-8d91f37d2c73\"}, {\"type\": \"image\", \"value\": {\"content_image\": 1, \"alt_text\": \"The BBC test card. A girl playing naughts and crosses on a blackboard with a clown doll\", \"caption\": \"BBC test card F\"}, \"id\": \"9d060424-43d3-4945-9d3a-f56601c85f5f\"}, {\"type\": \"feature_card\", \"value\": {\"feature_heading\": \"Feature Card\", \"heading_level\": 3, \"heading_size\": \"\", \"body\": \"<p>A feature card has a blue title</p>\"}, \"id\": \"505330ad-4b68-4d46-8d77-7d1d2a8ae66f\"}, {\"type\": \"panel\", \"value\": {\"label\": \"Panel\", \"heading_level\": 3, \"body\": \"<p>Panel with a blue title</p>\"}, \"id\": \"f02f483f-7c7d-4974-8efe-e2c3ead9d5f6\"}, {\"type\": \"panel\", \"value\": {\"label\": \"\", \"heading_level\": 3, \"body\": \"<p>Panels don&#x27;t require a title</p>\"}, \"id\": \"56a804c5-3326-4f45-b542-1b49f6a83961\"}, {\"type\": \"warning_callout\", \"value\": {\"title\": \"Important\", \"visually_hidden_prefix\": false, \"heading_level\": 3, \"body\": \"<p>This is a warning callout box! It contains <b>RichText</b></p>\"}, \"id\": \"d58c67a7-857b-4729-8957-40dee5d9a396\"}, {\"type\": \"summary_list\", \"value\": {\"rows\": [{\"key\": \"Name\", \"value\": \"<p>Sarah Philips</p>\"}, {\"key\": \"Date of birth\", \"value\": \"<p>5 January 1978</p>\"}, {\"key\": \"Contact information\", \"value\": \"<p>72 Guild Street<br/>London<br/>SE23 6FH</p>\"}], \"no_border\": false}, \"id\": \"a7894af4-6311-4fe7-9188-3a54bd25d05b\"}]"
   }
 }
 ]
