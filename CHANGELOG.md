@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.7.0
+
+- Use the latest version of the NHS.UK frontend library ([v5.0.0](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#500---26-march-2021))
 ## v0.6.0
 
 - Use the latest version of the NHS.UK frontend library ([v4.1.0](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#410---21-january-2021))
