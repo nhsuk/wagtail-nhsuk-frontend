@@ -45,5 +45,4 @@ def footer(context):
             }
             for link in footer.footer_links.all()
         ],
-        'fixed_coloumn_footer': footer.fixed_coloumn_footer,
     }

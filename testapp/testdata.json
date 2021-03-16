@@ -99,8 +99,7 @@
     "site": [
       "localhost",
       80
-    ],
-    "fixed_coloumn_footer": false
+    ]
   }
 },
 {
