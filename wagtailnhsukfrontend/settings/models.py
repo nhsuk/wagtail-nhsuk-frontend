@@ -80,13 +80,7 @@ class NavigationLink(Orderable):
 @register_setting
 class FooterSettings(ClusterableModel, BaseSetting):
 
-    fixed_coloumn_footer = models.BooleanField(
-        default=False,
-        help_text="Enable this setting to change way the footer is styled, so links group into coloumns"
-    )
-
     panels = [
-        FieldPanel('fixed_coloumn_footer'),
         InlinePanel(
             'footer_links',
             label="Footer Links",
