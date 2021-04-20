@@ -81,43 +81,6 @@ class InsetTextBlock(FlattenValueContext, StructBlock):
         template = 'wagtailnhsukfrontend/inset_text.html'
 
 
-class PanelBlock(FlattenValueContext, StructBlock):
-
-    label = CharBlock(required=False)
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no label. Default=3, Min=2, Max=6.')
-    body = RichTextBlock(required=True)
-
-    class Meta:
-        icon = 'doc-full'
-        template = 'wagtailnhsukfrontend/panel.html'
-        help_text = 'This component is now deprecated and will be removed from future versions, please use the feature card block'
-
-
-class GreyPanelBlock(FlattenValueContext, StructBlock):
-
-    label = CharBlock(label='heading', required=False)
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Ignore this if there is no heading. Default=3, Min=2, Max=6.')
-    body = RichTextBlock(required=True)
-
-    class Meta:
-        icon = 'doc-full-inverse'
-        template = 'wagtailnhsukfrontend/grey_panel.html'
-        help_text = 'This component is now deprecated and will be removed from future versions, please use the feature card block'
-
-
-class PanelListBlock(FlattenValueContext, StructBlock):
-
-    panels = ListBlock(StructBlock([
-        ('left_panel', PanelBlock()),
-        ('right_panel', PanelBlock()),
-    ]))
-
-    class Meta:
-        icon = 'list-ul'
-        template = 'wagtailnhsukfrontend/panel_list.html'
-        help_text = 'This component is now deprecated and will be removed from future versions, please use the card group block'
-
-
 class DoBlock(FlattenValueContext, StructBlock):
 
     heading_level = IntegerBlock(required=True, min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=6.')
@@ -368,7 +331,6 @@ class DetailsBlock(FlattenValueContext, StructBlock):
         action_link = ActionLinkBlock()
         inset_text = InsetTextBlock()
         image = ImageBlock()
-        panel = PanelBlock()
         feature_card = CardFeatureBlock()
         warning_callout = WarningCalloutBlock()
         summary_list = SummaryListBlock()
@@ -388,7 +350,6 @@ class ExpanderBlock(DetailsBlock):
         action_link = ActionLinkBlock()
         inset_text = InsetTextBlock()
         image = ImageBlock()
-        grey_panel = GreyPanelBlock()
         feature_card = CardFeatureBlock()
         warning_callout = WarningCalloutBlock()
         summary_list = SummaryListBlock()
@@ -426,7 +387,6 @@ class CareCardBlock(FlattenValueContext, StructBlock):
         details = DetailsBlock()
         inset_text = InsetTextBlock()
         image = ImageBlock()
-        grey_panel = GreyPanelBlock()
         feature_card = CardFeatureBlock()
         warning_callout = WarningCalloutBlock()
         summary_list = SummaryListBlock()
