@@ -128,49 +128,6 @@ class BasePromoBlock(FlattenValueContext, StructBlock):
         help_text = 'Promo requires a URL entered or an Internal Page selected.'
 
 
-class PromoBlock(BasePromoBlock):
-
-    size = ChoiceBlock([
-        ('', 'Default'),
-        ('small', 'Small'),
-    ], required=False)
-
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=6.')
-
-    class Meta:
-        template = 'wagtailnhsukfrontend/promo.html'
-        help_text = 'This component is now deprecated and will be removed from future versions, please use the card block'
-
-
-class PromoGroupBlock(FlattenValueContext, StructBlock):
-
-    column = ChoiceBlock([
-        ('one-half', 'One-half'),
-        ('one-third', 'One-third'),
-    ], default='one-half', required=True)
-
-    size = ChoiceBlock([
-        ('', 'Default'),
-        ('small', 'Small'),
-    ], required=False)
-
-    def get_context(self, value, parent_context=None):
-        context = super().get_context(value, parent_context)
-        context['num_columns'] = {
-            'one-half': 2,
-            'one-third': 3,
-        }[value['column']]
-        return context
-
-    heading_level = IntegerBlock(min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=6.')
-
-    promos = ListBlock(BasePromoBlock)
-
-    class Meta:
-        template = 'wagtailnhsukfrontend/promo_group.html'
-        help_text = 'This component is now deprecated and will be removed from future versions, please use the card group block'
-
-
 class SummaryListRowBlock(StructBlock):
 
     key = CharBlock()

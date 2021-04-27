@@ -23,8 +23,6 @@ from wagtailnhsukfrontend.blocks import (
     InsetTextBlock,
     ImageBlock,
     WarningCalloutBlock,
-    PromoBlock,
-    PromoGroupBlock,
     SummaryListBlock,
 )
 
