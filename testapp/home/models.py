@@ -66,8 +66,6 @@ class PaginationPage(Page):
 class HubsPage(Page):
 
     body = StreamField([
-        ('promo', PromoBlock()),
-        ('promo_group', PromoGroupBlock()),
         ('card_basic', CardBasicBlock()),
         ('card_clickable', CardClickableBlock()),
         ('card_image', CardImageBlock()),
