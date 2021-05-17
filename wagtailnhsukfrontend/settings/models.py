@@ -10,7 +10,7 @@ from wagtail.admin.edit_handlers import (
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.core.models import Orderable
 from wagtail.images.edit_handlers import ImageChooserPanel
-
+from wagtail.images import get_image_model_string
 
 
 @register_setting
@@ -41,7 +41,7 @@ class HeaderSettings(ClusterableModel, BaseSetting):
         help_text="Aria label override for the NHS logo."
     )
     logo_custom = models.ForeignKey(
-        Image,
+        get_image_model_string(),
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
