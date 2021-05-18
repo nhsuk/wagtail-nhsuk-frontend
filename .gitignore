@@ -5,3 +5,4 @@ testapp/media/images
 __pycache__
 Pipfile
 .python-version
+.tox
