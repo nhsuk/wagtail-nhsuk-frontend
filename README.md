@@ -61,18 +61,22 @@ See the [component documentation](./docs/components/) for a list of components y
 
 Include the CSS in your base template
 ```html
-  <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsukfrontend/css/wagtail-nhsuk-frontend.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsukfrontend/css/nhsuk.min.css' %}">
 ```
 
 Include the Javascript in your base template
 ```html
-  <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-4.1.0.min.js' %}" defer></script>
+  <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk.min.js' %}" defer></script>
 ```
 ## Upgrading
 
 If you are upgrading from v0 to v1, see the [changelog](./CHANGELOG.md).
 
-## Contributing 
+This CSS and JS is taken directly from the [nhsuk-frontend library](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v5.1.0) and provided in this package for convenience.
+
+If you have a more complicated frontend build such as compiling your own custom styles, you might want to [install from npm](https://github.com/nhsuk/nhsuk-frontend/blob/master/docs/installation/installing-with-npm.md) instead.
+
+## Contributing
 
 See the [contributing documentation](./docs/contributing.md) to run the application locally and contribute changes.
 
