@@ -36,14 +36,13 @@ python3 setup.py build
 ### 4. Install dependencies
 
 ```
+pipenv install -e .[testing,linting]
+```
+
+### 5. Run database migrations for the test app
+```
 cd testapp
 ```
-
-```
-pip3 install -r requirements.txt
-```
-
-### 5. Run database migrations
 
 ```
 python3 manage.py migrate
