@@ -35,5 +35,5 @@ An array of links should be passed as a template variable
 
 ## Reference
 
-* [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/contents-list)
+* [Service Manual](https://service-manual.nhs.uk/design-system/components/contents-list)
 * [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/contents-list)
