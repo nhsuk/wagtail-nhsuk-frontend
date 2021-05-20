@@ -1,9 +1,9 @@
-<header class="nhsuk-header{% if transactional %} nhsuk-header--transactional{% endif %}" role="banner">
+<header class="nhsuk-header{% if transactional %} nhsuk-header--transactional{% endif %}{% if organisation_name %} nhsuk-header--organisation{% if organisation_white %} nhsuk-header--white{% endif %}{% endif %}" role="banner">
   <div class="nhsuk-width-container nhsuk-header__container">
     {% include 'wagtailnhsukfrontend/header/logo.html' %}
 
     {% if not primary_links and not show_search %}
-      {% if service_name and transactional %}
+      {% if service_name and transactional and not organisation_name %}
         <div class="nhsuk-header__transactional-service-name{% if service_long_name %} nhsuk-header__transactional-service-name--long {% endif %}">
           <a class="nhsuk-header__transactional-service-name--link" href="{{ service_href|default:"/" }}">{{ service_name }}</a>
         </div>
