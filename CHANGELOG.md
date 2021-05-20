@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Master
+
+- add the organisational header variant
+
 ## v0.8.0
 
 - Use the latest version of the NHS.UK frontend library ([v5.1.0](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#510---14-may-2021))
