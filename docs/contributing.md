@@ -27,13 +27,7 @@ Whilst in the `wagtail-nhsuk-frontend` directory:
 pipenv shell
 ```
 
-### 3. Build the application CSS
-
-```
-python3 setup.py build
-```
-
-### 4. Install dependencies
+### 3. Install dependencies
 
 ```
 cd testapp
@@ -43,19 +37,19 @@ cd testapp
 pip3 install -r requirements.txt
 ```
 
-### 5. Run database migrations
+### 4. Run database migrations
 
 ```
 python3 manage.py migrate
 ```
 
-### 6. Create Wagtail admin user
+### 5. Create Wagtail admin user
 
 ```
 python3 manage.py createsuperuser
 ```
 
-### 7. Start a local server 
+### 6. Start a local server
 
 ```
 python3 manage.py runserver 8080
