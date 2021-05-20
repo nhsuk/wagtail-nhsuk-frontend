@@ -30,14 +30,13 @@ pipenv shell
 ### 3. Install dependencies
 
 ```
+pipenv install -e .[testing,linting]
+```
+
+### 4. Run database migrations for the test app
+```
 cd testapp
 ```
-
-```
-pip3 install -r requirements.txt
-```
-
-### 4. Run database migrations
 
 ```
 python3 manage.py migrate

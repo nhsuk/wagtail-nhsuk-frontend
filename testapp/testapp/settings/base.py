@@ -158,3 +158,6 @@ WAGTAIL_SITE_NAME = "testapp"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+# Default field for primary keys
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

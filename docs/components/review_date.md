@@ -23,5 +23,5 @@ To include the review date component on a page you will have to include the revi
 
 # Reference
 
-* [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/review-date)
+* [Service Manual](https://service-manual.nhs.uk/design-system/components/review-date)
 * [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/review-date)

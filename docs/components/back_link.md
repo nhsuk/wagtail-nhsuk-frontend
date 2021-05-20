@@ -11,5 +11,5 @@
 
 ## Reference
 
-* [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/back-link)
+* [Service Manual](https://service-manual.nhs.uk/design-system/components/back-link)
 * [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/back-link)
