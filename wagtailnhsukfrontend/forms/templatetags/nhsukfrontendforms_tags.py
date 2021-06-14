@@ -1,5 +1,5 @@
 from django import template
-from django.forms.widgets import Textarea, TextInput, RadioSelect, CheckboxSelectMultiple, Select
+from django.forms.widgets import Textarea, TextInput, NumberInput, EmailInput, URLInput, PasswordInput, RadioSelect, CheckboxSelectMultiple, Select, CheckboxInput
 
 register = template.Library()
 
@@ -27,7 +27,13 @@ def add_class(widget, new_class):
 
 
 def get_widget_html_class(widget):
-    if isinstance(widget, TextInput):
+    if (
+        isinstance(widget, TextInput)
+        or isinstance(widget, NumberInput)
+        or isinstance(widget, EmailInput)
+        or isinstance(widget, URLInput)
+        or isinstance(widget, PasswordInput)
+    ):
         return 'nhsuk-input'
     elif isinstance(widget, Textarea):
         return 'nhsuk-textarea'
@@ -35,6 +41,8 @@ def get_widget_html_class(widget):
         return 'nhsuk-radios'
     elif isinstance(widget, CheckboxSelectMultiple):
         return 'nhsuk-checkboxes'
+    elif isinstance(widget, CheckboxInput):
+        return 'nhsuk-checkboxes__input'
     elif isinstance(widget, Select):
         return 'nhsuk-select'
     else:
@@ -42,7 +50,13 @@ def get_widget_html_class(widget):
 
 
 def get_widget_html_error_class(widget):
-    if isinstance(widget, TextInput):
+    if (
+        isinstance(widget, TextInput)
+        or isinstance(widget, NumberInput)
+        or isinstance(widget, EmailInput)
+        or isinstance(widget, URLInput)
+        or isinstance(widget, PasswordInput)
+    ):
         return 'nhsuk-input--error'
     elif isinstance(widget, Textarea):
         return 'nhsuk-textarea--error'
@@ -66,3 +80,8 @@ def add_widget_classes(field):
     if field.field.show_hidden_initial:
         return field.as_widget(attrs=attrs) + field.as_hidden(attrs=attrs, only_initial=True)
     return field.as_widget(attrs=attrs)
+
+
+@register.filter
+def is_checkbox(field):
+    return isinstance(field.field.widget, CheckboxInput)

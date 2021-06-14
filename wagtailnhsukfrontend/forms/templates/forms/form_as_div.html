@@ -4,11 +4,18 @@
 
 {% for field in form %}
   <div class="nhsuk-form-group{% if field.errors %} nhsuk-form-group--error{% endif %}">
-    <label class="nhsuk-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
-    {% if field.help_text %}
-      <span class="nhsuk-hint">
-        {{ field.help_text|safe }}
-      </span>
+
+    {% comment %}
+      Checkboxes have their labels more closely coupled with the input widget
+    {% endcomment %}
+    {% if not field|is_checkbox %}
+      <label class="nhsuk-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+
+      {% if field.help_text %}
+        <span class="nhsuk-hint">
+          {{ field.help_text|safe }}
+        </span>
+      {% endif %}
     {% endif %}
 
     {% for error in field.errors %}
@@ -17,6 +24,20 @@
       </span>
     {% endfor %}
 
-    {{ field|add_widget_classes }}
+    {% if field|is_checkbox %}
+      <div class="nhsuk-checkboxes">
+        <div class="nhsuk-checkboxes__item">
+          {{ field|add_widget_classes }}
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="{{ field.widget.attrs.id }}">
+            {{ field.label }}
+          </label>
+          <div class="nhsuk-hint nhsuk-checkboxes__hint">
+            {{ field.help_text|safe }}
+          </div>
+        </div>
+      </div>
+    {% else %}
+      {{ field|add_widget_classes }}
+    {% endif %}
   </div>
 {% endfor %}
