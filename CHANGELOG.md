@@ -2,8 +2,9 @@
 
 ## Master
 
-- add the organisational header variant
-- add form component
+- Add the organisational header variant
+- Add form component
+- Remove Panel Block, Panel List, Grey Panel Block, Promo Block, Promo Group Block
 
 ## v0.8.0
 
