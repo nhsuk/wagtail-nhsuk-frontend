@@ -38,6 +38,6 @@ If `prev_url` and `next_url` are unspecified, the relevant link will not be show
 
 ## Reference
 
-* [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/pagination)
+* [Service Manual](https://service-manual.nhs.uk/design-system/components/pagination)
 * [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/pagination)
 

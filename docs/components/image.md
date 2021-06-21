@@ -18,5 +18,5 @@ class HomePage(Page):
 ```
 ## Reference
 
-* [Service Manual](https://beta.nhs.uk/service-manual/styles-components-patterns/images)
+* [Service Manual](https://service-manual.nhs.uk/design-system/components/images)
 * [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/images)

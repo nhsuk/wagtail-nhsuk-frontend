@@ -9,6 +9,8 @@ from wagtail.admin.edit_handlers import (
 )
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.core.models import Orderable
+from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.images import get_image_model_string
 
 
 @register_setting
@@ -38,21 +40,40 @@ class HeaderSettings(ClusterableModel, BaseSetting):
         blank=True,
         help_text="Aria label override for the NHS logo."
     )
+    logo_custom = models.ForeignKey(
+        get_image_model_string(),
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
     show_search = models.BooleanField(default=False)
 
+    organisation_name = models.CharField(max_length=255, blank=True)
+    organisation_split_name = models.CharField(max_length=255, blank=True, help_text="Some NHS organisations’ names are too long to fit onto a single line and they have to run onto two lines. You should use discretion to decide where best to split your name depending on what makes most sense and what looks visually balanced.")
+    organisation_descriptor = models.CharField(max_length=255, blank=True)
+    organisation_white = models.BooleanField(default=False, help_text="Organisational header with a white background variant.")
+
     panels = [
+        MultiFieldPanel([
+            PageChooserPanel('logo_link'),
+            FieldPanel('logo_aria'),
+            ImageChooserPanel('logo_custom'),
+            FieldPanel('show_search'),
+        ], heading="General"),
         MultiFieldPanel([
             FieldPanel('service_name'),
             FieldPanel('service_long_name'),
             PageChooserPanel('service_link'),
             FieldPanel('transactional'),
-        ], heading="Service"),
+        ], heading="Service header"),
         MultiFieldPanel([
-            PageChooserPanel('logo_link'),
-            FieldPanel('logo_aria'),
-        ], heading="Logo"),
-        FieldPanel('show_search'),
+            FieldPanel('organisation_name'),
+            FieldPanel('organisation_split_name'),
+            FieldPanel('organisation_descriptor'),
+            FieldPanel('organisation_white'),
+        ], heading="Organisational header"),
         InlinePanel('navigation_links', heading="Navigation"),
     ]
 

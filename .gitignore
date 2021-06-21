@@ -4,4 +4,6 @@ testapp/db.sqlite3
 testapp/media/images
 __pycache__
 Pipfile
+Pipfile.lock
 .python-version
+.tox

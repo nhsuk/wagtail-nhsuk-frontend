@@ -25,9 +25,11 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 INSTALLED_APPS = [
     'home',
+    'forms',
 
     'wagtailnhsukfrontend',
     'wagtailnhsukfrontend.settings',
+    'wagtailnhsukfrontend.forms',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -84,6 +86,8 @@ TEMPLATES = [
         },
     },
 ]
+
+FORM_RENDERER = 'wagtailnhsukfrontend.forms.renderers.NHSUKFrontendRenderer'
 
 WSGI_APPLICATION = 'testapp.wsgi.application'
 
@@ -158,3 +162,6 @@ WAGTAIL_SITE_NAME = "testapp"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+# Default field for primary keys
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

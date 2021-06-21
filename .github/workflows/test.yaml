@@ -1,0 +1,35 @@
+name: Tests
+
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install Tox
+        run: pip install tox
+      - name: Run Linting
+        run: tox -e lint
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: [3.6, 3.7, 3.8, 3.9]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install Tox
+        run: pip install tox
+      - name: Run Tests
+        # Run tox using the version of Python in `PATH`
+        run: tox -e py
