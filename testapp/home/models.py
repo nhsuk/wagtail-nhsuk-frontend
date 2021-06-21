@@ -20,14 +20,9 @@ from wagtailnhsukfrontend.blocks import (
     DontBlock,
     ExpanderBlock,
     ExpanderGroupBlock,
-    GreyPanelBlock,
     InsetTextBlock,
     ImageBlock,
-    PanelBlock,
-    PanelListBlock,
     WarningCalloutBlock,
-    PromoBlock,
-    PromoGroupBlock,
     SummaryListBlock,
 )
 
@@ -47,9 +42,6 @@ class HomePage(HeroMixin, ReviewDateMixin, Page):
         ('feature_card', CardFeatureBlock()),
         ('inset_text', InsetTextBlock()),
         ('image', ImageBlock()),
-        ('panel', PanelBlock()),
-        ('panel_list', PanelListBlock()),
-        ('grey_panel', GreyPanelBlock()),
         ('warning_callout', WarningCalloutBlock()),
         ('summary_list', SummaryListBlock()),
     ])
@@ -74,8 +66,6 @@ class PaginationPage(Page):
 class HubsPage(Page):
 
     body = StreamField([
-        ('promo', PromoBlock()),
-        ('promo_group', PromoGroupBlock()),
         ('card_basic', CardBasicBlock()),
         ('card_clickable', CardClickableBlock()),
         ('card_image', CardImageBlock()),
