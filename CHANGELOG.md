@@ -3,6 +3,7 @@
 ## Master
 
 - add the organisational header variant
+- add form component
 
 ## v0.8.0
 

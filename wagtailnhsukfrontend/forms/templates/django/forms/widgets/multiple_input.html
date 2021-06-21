@@ -1,0 +1,23 @@
+{% load nhsukfrontendforms_tags %}
+
+{% with id=widget.attrs.id %}<div {% if id %} id="{{ id }}"{% endif %}{% if widget.attrs.class %} class="{{ widget.attrs.class }}"{% endif %}>
+  {% for group, options, index in widget.optgroups %}
+    {% if group %}
+      <div class="{{ base_class }}__group">
+        <label class="nhsuk-label">{{ group }}</label>
+    {% endif %}
+
+    {% for option in options %}
+      <div class="{{ base_class }}__item">
+        {% with input_class=base_class|add:"__input" %}
+          {% include option.template_name with widget=option|add_class:input_class %}
+        {% endwith %}
+      </div>
+    {% endfor %}
+
+    {% if group %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+{% endwith %}

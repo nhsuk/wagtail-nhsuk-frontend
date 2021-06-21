@@ -25,9 +25,11 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 INSTALLED_APPS = [
     'home',
+    'forms',
 
     'wagtailnhsukfrontend',
     'wagtailnhsukfrontend.settings',
+    'wagtailnhsukfrontend.forms',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -84,6 +86,8 @@ TEMPLATES = [
         },
     },
 ]
+
+FORM_RENDERER = 'wagtailnhsukfrontend.forms.renderers.NHSUKFrontendRenderer'
 
 WSGI_APPLICATION = 'testapp.wsgi.application'
 

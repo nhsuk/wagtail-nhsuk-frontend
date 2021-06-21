@@ -27,6 +27,11 @@ Wagtail site settings must be enabled with the `wagtailnhsukfrontend.settings` a
 
 example: [Header (via settings)](./header.md#wagtail-site-settings)
 
+### Forms
+
+Form rendering needs to be enabled with some config changes. See the [forms documentation](./forms.md)
+
+
 ## List of Components
 
 - [Action Link](./action_link.md)
