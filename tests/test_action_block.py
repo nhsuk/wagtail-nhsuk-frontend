@@ -47,19 +47,15 @@ def test_action_block_clean_no_links():
         "internal_page": None,
         "new_window": False,
     }
-    internal_error_message = (
-        '<ul class="errorlist"><li>Please choose a page or enter a URL above.</li></ul>'
-    )
-    external_error_message = (
-        '<ul class="errorlist"><li>Please enter a URL or choose a page below.</li></ul>'
-    )
+    internal_error_message = "Please choose a page or enter a URL above."
+    external_error_message = "Please enter a URL or choose a page below."
 
     with pytest.raises(ValidationError) as excinfo:
         block.clean(value)
 
-    assert str(excinfo.value.params["internal_page"]) == internal_error_message
-    assert str(excinfo.value.params["external_url"]) == external_error_message
-    assert "['Validation error in ActionLinkBlock']" == str(excinfo.value)
+    assert internal_error_message in excinfo.value.params["internal_page"]
+    assert external_error_message in excinfo.value.params["external_url"]
+    assert excinfo.value.message == "Validation error in ActionLinkBlock"
 
 
 def test_action_block_clean_two_links():
@@ -70,13 +66,11 @@ def test_action_block_clean_two_links():
         "internal_page": "https://internal.com/",
         "new_window": False,
     }
-    error_message = (
-        '<ul class="errorlist"><li>Please only enter a URL or choose a page.</li></ul>'
-    )
+    error_message = "Please only enter a URL or choose a page."
 
     with pytest.raises(ValidationError) as excinfo:
         block.clean(value)
 
-    assert str(excinfo.value.params["internal_page"]) == error_message
-    assert str(excinfo.value.params["external_url"]) == error_message
-    assert "['Validation error in ActionLinkBlock']" == str(excinfo.value)
+    assert error_message in excinfo.value.params["internal_page"]
+    assert error_message in excinfo.value.params["external_url"]
+    assert excinfo.value.message == "Validation error in ActionLinkBlock"

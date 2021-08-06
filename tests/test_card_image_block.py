@@ -22,13 +22,11 @@ def test_card_image_block_clean_no_links():
 def test_card_image_block_clean_two_links():
     block = CardImageBlock()
     value = {"url": "https://example.com/", "internal_page": "https://internal.com/"}
-    error_message = (
-        '<ul class="errorlist"><li>Please only enter a URL or choose a page.</li></ul>'
-    )
+    error_message = "Please only enter a URL or choose a page."
 
     with pytest.raises(ValidationError) as excinfo:
         block.clean(value)
 
-    assert str(excinfo.value.params["internal_page"]) == error_message
-    assert str(excinfo.value.params["url"]) == error_message
-    assert "['Validation error in CardImageBlock']" == str(excinfo.value)
+    assert error_message in excinfo.value.params["internal_page"]
+    assert error_message in excinfo.value.params["url"]
+    assert excinfo.value.message == "Validation error in CardImageBlock"

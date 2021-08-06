@@ -15,7 +15,7 @@ def get_pagination_context(page, request):
     return new_context
 
 
-def get_pagination_page(number):
+def get_pagination_page_context(number):
     """ Get paginated page """
     response = client.get(f"/home/pagination/pagination-page-{number}/")
     request = response.wsgi_request
@@ -26,7 +26,7 @@ def get_pagination_page(number):
 @pytest.mark.django_db
 def test_first_page(db, django_db_setup):
     """ Check first page has next keys but no prev keys """
-    context = get_pagination_page(1)
+    context = get_pagination_page_context(1)
     expected = {
         "next_label": "Pagination page 2",
         "next_url": "/pagination/pagination-page-2/",
@@ -37,7 +37,7 @@ def test_first_page(db, django_db_setup):
 @pytest.mark.django_db
 def test_third_page(db, django_db_setup):
     """ Check third page has next and prev keys """
-    context = get_pagination_page(3)
+    context = get_pagination_page_context(3)
     expected = {
         "prev_label": "Pagination page 2",
         "prev_url": "/pagination/pagination-page-2/",
@@ -49,8 +49,8 @@ def test_third_page(db, django_db_setup):
 
 @pytest.mark.django_db
 def test_final_page(db, django_db_setup):
-    """ Check third page has only prev keys """
-    context = get_pagination_page(4)
+    """ Check fourth page has only prev keys """
+    context = get_pagination_page_context(4)
     print(context)
     expected = {
         "prev_label": "Pagination page 3",

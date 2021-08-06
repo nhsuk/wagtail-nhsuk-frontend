@@ -55,7 +55,7 @@ def test_widget_is_not_checkbox():
 
 
 def test_widget_is_checkbox():
-    """Test widget is not a checkbox"""
+    """Test widget is a checkbox"""
     form = ExampleForm()
     field = form["checkbox"]
     assert is_checkbox(field) is True
