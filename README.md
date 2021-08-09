@@ -68,6 +68,9 @@ Include the Javascript in your base template
 ```html
   <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-4.1.0.min.js' %}" defer></script>
 ```
+## Upgrading
+
+If you are upgrading from v0 to v1, see the [changelog](./CHANGELOG.md).
 
 ## Contributing 
 

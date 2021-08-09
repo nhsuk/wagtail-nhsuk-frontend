@@ -1,10 +1,36 @@
 # CHANGELOG
 
-## Master
+## v1.0.0
 
+### Upgrade Considerations
+- Deprecated blocks `PanelBlock`, `PanelList`, `GreyPanelBlock`, `PromoBlock`, `PromoGroupBlock` have been removed from the plugin.
+- In order to replace these blocks with the recommended `CardBasicBlock`-type blocks, you should:
+    - Upgrade to v0.8.0 or v0.7.0 where the deprecated blocks exist alongside the Card blocks.
+    - Migrate `PanelBlock` and `GreyPanelBlock` to `CardFeatureBlock` as follows:
+    ```
+    label -> feature_heading
+    heading_level -> heading_level
+    body -> body
+    ```
+    - Migrate `PanelList` to `CardGroupBlock` by mapping `panels` to `body` with the `BodyStreamBlock` class and setting `columns` as `'one-half'`.
+    - Migrate `PromoBlock` to `CardImageBlock` as follows:
+    ```
+    url -> url
+    heading -> heading
+    description -> body
+    content_image -> content_image
+    alt_text -> alt_text
+    size -> heading_size
+    heading_level -> heading_level
+    ```
+    - Migrate `PromoGroupBlock` to `CardGroupBlock` by mapping `promos` to `body` using the `BodyStreamBlock` class, `column` maps to `column`. `size` and `heading_level` map to their respective fields in the child Card blocks.
+- After all deprecated blocks have been migrated, you can upgrade to v1.0.0 without any loss of data.
+
+### Changes
 - Add the organisational header variant
 - Add form component
-- Remove Panel Block, Panel List, Grey Panel Block, Promo Block, Promo Group Block
+- Remove `PanelBlock`, `PanelList`, `GreyPanelBlock`, `PromoBlock`, `PromoGroupBlock`
+- Improve test coverage
 
 ## v0.8.0
 

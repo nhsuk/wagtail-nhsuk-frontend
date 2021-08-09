@@ -116,4 +116,4 @@ Run `pytest` in the project root.
 
 ## Support
 
-For now, we only support Python 3, Django 2.x and Wagtail 2.x
+For now, we only support Python 3, Django 3.x and Wagtail 2.x
