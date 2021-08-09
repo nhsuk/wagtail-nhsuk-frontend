@@ -198,7 +198,7 @@ class CardClickableBlock(CardBasicBlock):
             errors['url'] = ErrorList(['Please only enter a URL or choose a page.'])
 
         if errors:
-            raise ValidationError('Validation error in ActionLinkBlock', params=errors)
+            raise ValidationError('Validation error in CardClickableBlock', params=errors)
 
         return super().clean(value)
 
@@ -231,7 +231,7 @@ class CardImageBlock(CardBasicBlock):
             errors['url'] = ErrorList(['Please only enter a URL or choose a page.'])
 
         if errors:
-            raise ValidationError('Validation error in ActionLinkBlock', params=errors)
+            raise ValidationError('Validation error in CardImageBlock', params=errors)
 
         return super().clean(value)
 
