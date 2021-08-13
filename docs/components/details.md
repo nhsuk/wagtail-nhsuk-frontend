@@ -20,7 +20,6 @@ By default, the details block can contain the following sub-blocks:
 * [ActionLinkBlock](./action_link.md)
 * [InsetTextBlock](./inset_text.md)
 * [ImageBlock](./image.md)
-* [PanelBlock](./panel.md)
 * [WarningCalloutBlock](./warning_callout.md)
 * [SummaryListBlock](./summary_list.md)
 
