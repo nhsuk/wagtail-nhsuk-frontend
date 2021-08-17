@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v1.0.1
+- Add optional default heading level setting for care cards
+
 ## v1.0.0
 
 ### Upgrade Considerations
