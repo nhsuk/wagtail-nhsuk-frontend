@@ -342,7 +342,7 @@ class CareCardBlock(FlattenValueContext, StructBlock):
         ('urgent', 'Urgent'),
         ('immediate', 'Immediate'),
     ], required=True, default='primary',)
-    heading_level = IntegerBlock(required=True, min_value=2, max_value=6, default=CARE_CARD_HEADING_LEVEL, help_text='The heading level affects users with screen readers. Default=' + CARE_CARD_HEADING_LEVEL + ', Min=2, Max=4.')
+    heading_level = IntegerBlock(required=True, min_value=2, max_value=6, default=CARE_CARD_HEADING_LEVEL, help_text='The heading level affects users with screen readers. Default=' + str(CARE_CARD_HEADING_LEVEL) + ', Min=2, Max=4.')
     title = CharBlock(required=True)
 
     class BodyStreamBlock(StreamBlock):
