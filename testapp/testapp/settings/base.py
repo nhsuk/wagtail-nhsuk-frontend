@@ -168,4 +168,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Default heading level for care cards
 # Uncomment the line below and change the value to what you want (min=2 max=6)
-# DEFAULT_CARE_CARD_HEADING_LEVEL = "3"
+# DEFAULT_CARE_CARD_HEADING_LEVEL = 3
