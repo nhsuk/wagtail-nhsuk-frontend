@@ -166,5 +166,5 @@ BASE_URL = 'http://example.com'
 # Default field for primary keys
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-#Default heading level for care cards
+# Default heading level for care cards
 DEFAULT_CARE_CARD_HEADING_LEVEL = "2"
