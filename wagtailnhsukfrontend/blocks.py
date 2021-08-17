@@ -1,4 +1,5 @@
 from django.core.exceptions import ValidationError
+from django.conf import settings
 from django.forms.utils import ErrorList
 from wagtail.core.blocks import (
     BooleanBlock,
@@ -328,6 +329,12 @@ class ExpanderGroupBlock(FlattenValueContext, StructBlock):
         template = 'wagtailnhsukfrontend/expander_group.html'
 
 
+if hasattr(settings, 'DEFAULT_CARE_CARD_HEADING_LEVEL'):
+    CARE_CARD_HEADING_LEVEL = settings.DEFAULT_CARE_CARD_HEADING_LEVEL
+else:
+    CARE_CARD_HEADING_LEVEL = 3
+
+
 class CareCardBlock(FlattenValueContext, StructBlock):
 
     type = ChoiceBlock([
@@ -335,7 +342,7 @@ class CareCardBlock(FlattenValueContext, StructBlock):
         ('urgent', 'Urgent'),
         ('immediate', 'Immediate'),
     ], required=True, default='primary',)
-    heading_level = IntegerBlock(required=True, min_value=2, max_value=6, default=3, help_text='The heading level affects users with screen readers. Default=3, Min=2, Max=4.')
+    heading_level = IntegerBlock(required=True, min_value=2, max_value=6, default=CARE_CARD_HEADING_LEVEL, help_text='The heading level affects users with screen readers. Default=' + CARE_CARD_HEADING_LEVEL + ', Min=2, Max=4.')
     title = CharBlock(required=True)
 
     class BodyStreamBlock(StreamBlock):
