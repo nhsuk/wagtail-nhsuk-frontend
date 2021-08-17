@@ -45,6 +45,12 @@ class MyPage(Page):
   ])
 ```
 
+# Default Heading Level
+
+The default heading level for care cards is 3 but this can be overwritten using a Django setting.
+See testapp/testapp/settings/base.py as an example.
+If no setting is supplied the default will remain 3.
+
 ## Reference
 
 * [Service Manual](https://service-manual.nhs.uk/design-system/components/care-cards)
