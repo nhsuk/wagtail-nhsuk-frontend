@@ -1,4 +1,4 @@
-{% load wagtailcore_tags nhsukfrontend_extra_parameters_tags %}
+{% load wagtailcore_tags nhsukfrontend_extra_parameters_tags nhsukfrontend_wapper_tags %}
 
 <details class="nhsuk-details{% if expander %} nhsuk-expander{% endif %}">
   <summary class="nhsuk-details__summary">
@@ -8,7 +8,11 @@
   </summary>
   <div class="nhsuk-details__text">
     {% for block in body %}
-      {% include_block block %}
+      {% with "body."|add:block.id as contentpath %}
+        {% contentwrapper contentpath %}
+          {% include_block block %}
+        {% endcontentwrapper %}
+      {% endwith %}
     {% endfor %}
   </div>
 </details>
