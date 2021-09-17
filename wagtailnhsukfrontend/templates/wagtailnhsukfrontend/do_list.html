@@ -1,8 +1,10 @@
+{% load nhsukfrontend_extra_parameters_tags %}
+
 <div class="nhsuk-do-dont-list">
-  <h{{ heading_level }} class="nhsuk-do-dont-list__label">
+  <h{{ heading_level }} class="nhsuk-do-dont-list__label" {% add_extra_parameters "label" %}>
     {{ label|default:"Do" }}
   </h{{ heading_level }} >
-  <ul class="nhsuk-list nhsuk-list--tick">
+  <ul class="nhsuk-list nhsuk-list--tick" {% add_extra_parameters "do" %}>
     {% for body in do %}
     <li>
       <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">

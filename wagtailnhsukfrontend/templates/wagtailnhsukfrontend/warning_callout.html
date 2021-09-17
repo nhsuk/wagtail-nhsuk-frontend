@@ -1,5 +1,7 @@
+{% load nhsukfrontend_extra_parameters_tags %}
+
 <div class="nhsuk-warning-callout">
-  <h{{ heading_level }} class="nhsuk-warning-callout__label">
+  <h{{ heading_level }} class="nhsuk-warning-callout__label" {% add_extra_parameters "title" %}>
     {% if visually_hidden_prefix %}
       <span role="text">
         <span class="nhsuk-u-visually-hidden">Important: </span>

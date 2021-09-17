@@ -1,4 +1,6 @@
-<div class="nhsuk-inset-text">
+{% load nhsukfrontend_extra_parameters_tags %}
+
+<div class="nhsuk-inset-text" {% add_extra_parameters "body" %}>
   <span class="nhsuk-u-visually-hidden">Information: </span>
   {{ body }}
 </div>

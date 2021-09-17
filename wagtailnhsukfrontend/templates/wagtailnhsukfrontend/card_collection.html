@@ -1,4 +1,4 @@
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags nhsukfrontend_extra_parameters_tags %}
 
 {% if column == '' %}
   {% for block in body %}
@@ -13,8 +13,9 @@
         {% elif column == 'one-third' %}
           nhsuk-grid-column-one-third
         {% endif %}
-        nhsuk-card-group__item
-      ">
+          nhsuk-card-group__item"
+          {% add_extra_parameters contentpath %}
+        >
         {% include_block block %}
       </li>
     {% endfor %}
