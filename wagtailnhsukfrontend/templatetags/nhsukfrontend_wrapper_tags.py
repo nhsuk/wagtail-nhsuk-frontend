@@ -7,7 +7,7 @@ register = template.Library()
 def content_wrapper(parser, token):
     """
     Add wrapper element.
-    It doesn't do anything here in this contexte.
+    It doesn't do anything here in this context.
     It will be overridden by another app if necessary
     """
     try:

@@ -7,7 +7,7 @@ register = template.Library()
 def add_extra_parameters(variable_name):
     """
     Add extra paramaters.
-    It doesn't do anything here in this contexte.
+    It doesn't do anything here in this context.
     It will be overridden by another app if necessary
     """
     return ""
