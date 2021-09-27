@@ -1,4 +1,4 @@
-{% load wagtailimages_tags %}
+{% load wagtailimages_tags nhsukfrontend_extra_parameters_tags %}
 
 {% image content_image width-320 as one_image %}
 {% image content_image width-510 as two_image %}
@@ -36,8 +36,8 @@
     alt="{{ alt_text }}"
   />
   {% if caption %}
-  <figcaption class="nhsuk-image__caption">
-    {{ caption }}
-  </figcaption>
+    <figcaption class="nhsuk-image__caption" {% add_extra_parameters "caption" %}>
+      {{ caption }}
+    </figcaption>
   {% endif %}
 </figure>

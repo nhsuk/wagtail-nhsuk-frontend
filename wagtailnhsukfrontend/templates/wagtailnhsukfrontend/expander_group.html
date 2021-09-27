@@ -1,8 +1,7 @@
-{% load wagtailcore_tags %}
-<div class="nhsuk-expander-group">
+{% load wagtailcore_tags nhsukfrontend_extra_parameters_tags %}
 
+<div class="nhsuk-expander-group" {% add_extra_parameters "expanders" %}>
   {% for expander in expanders %}
     {% include_block expander %}
   {% endfor %}
-
 </div>

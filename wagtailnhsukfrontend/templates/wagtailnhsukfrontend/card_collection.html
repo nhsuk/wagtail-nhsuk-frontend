@@ -1,22 +1,29 @@
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags nhsukfrontend_extra_parameters_tags nhsukfrontend_wrapper_tags %}
 
 {% if column == '' %}
   {% for block in body %}
-    {% include_block block %}
+    {% with "body."|add:block.id as contentpath %}
+      {% contentwrapper contentpath %}
+        {% include_block block %}
+      {% endcontentwrapper %}
+    {% endwith %}
   {% endfor %}
 {% else %}
   <ul class="nhsuk-grid-row nhsuk-card-group">
     {% for block in body %}
-      <li class="
-        {% if column == 'one-half' %}
-          nhsuk-grid-column-one-half
-        {% elif column == 'one-third' %}
-          nhsuk-grid-column-one-third
-        {% endif %}
-        nhsuk-card-group__item
-      ">
-        {% include_block block %}
-      </li>
+      {% with "body."|add:block.id as contentpath %}
+        <li class="
+          {% if column == 'one-half' %}
+            nhsuk-grid-column-one-half
+          {% elif column == 'one-third' %}
+            nhsuk-grid-column-one-third
+          {% endif %}
+          nhsuk-card-group__item"
+          {% add_extra_parameters contentpath %}
+        >
+          {% include_block block %}
+        </li>
+      {% endwith %}
     {% endfor %}
   </ul>
 {% endif %}

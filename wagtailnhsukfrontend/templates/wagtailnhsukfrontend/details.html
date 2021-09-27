@@ -1,13 +1,18 @@
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags nhsukfrontend_extra_parameters_tags nhsukfrontend_wrapper_tags %}
+
 <details class="nhsuk-details{% if expander %} nhsuk-expander{% endif %}">
   <summary class="nhsuk-details__summary">
-    <span class="nhsuk-details__summary-text">
+    <span class="nhsuk-details__summary-text" {% add_extra_parameters "title" %}>
     {{ title }}
     </span>
   </summary>
   <div class="nhsuk-details__text">
     {% for block in body %}
-      {% include_block block %}
+      {% with "body."|add:block.id as contentpath %}
+        {% contentwrapper contentpath %}
+          {% include_block block %}
+        {% endcontentwrapper %}
+      {% endwith %}
     {% endfor %}
   </div>
 </details>
