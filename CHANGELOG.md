@@ -1,5 +1,9 @@
 # CHANGELOG
 
+
+## v1.2.0
+- - Use the latest version of the NHS.UK frontend library ([v5.2.0](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#520---22-september-2021))
+
 ## v1.1.0
 - Add optional default heading level setting for care cards
 
