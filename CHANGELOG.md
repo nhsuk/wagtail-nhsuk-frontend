@@ -1,8 +1,10 @@
 # CHANGELOG
 
+## v1.2.1
+- Remove static `aria-label="Open menu"` on header menu toggle. Add descriptive `aria-expanded="false"` to toggle on inital page load.
 
 ## v1.2.0
-- - Use the latest version of the NHS.UK frontend library ([v5.2.0](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#520---22-september-2021))
+- Use the latest version of the NHS.UK frontend library ([v5.2.0](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#520---22-september-2021))
 
 ## v1.1.0
 - Add optional default heading level setting for care cards
