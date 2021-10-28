@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v1.2.2
+- Use the latest version of the NHS.UK frontend library ([v5.2.1](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#521---28-october-2021))
+
 ## v1.2.1
 - Remove static `aria-label="Open menu"` on header menu toggle. Add descriptive `aria-expanded="false"` to toggle on inital page load.
 
