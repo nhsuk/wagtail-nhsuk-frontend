@@ -22,7 +22,7 @@ LINTING_REQUIRES = [
 
 setup(
     name="wagtail-nhsuk-frontend",
-    version="1.2.2",
+    version="1.2.3",
     description="NHSUK Frontend Styles for Wagtail",
     author="Mike Monteith",
     author_email="<mike.monteith@nhs.net>",
