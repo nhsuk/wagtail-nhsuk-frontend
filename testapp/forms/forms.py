@@ -48,3 +48,10 @@ class BigForm(forms.Form):
         label="Are you sure?",
         help_text="Help text",
     )
+
+    # A hidden field
+    hidden = forms.CharField(
+        widget=forms.HiddenInput(),
+        label="This should never show up",
+        help_text="This too",
+    )
