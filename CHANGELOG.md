@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.2.4
+
+- Do not render labels for hidden form fields 
+
 ## v1.2.3
 
 - Fix form templatetag. Templates were missing from the python package build
