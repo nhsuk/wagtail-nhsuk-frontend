@@ -29,8 +29,14 @@ pipenv shell
 
 ### 3. Install dependencies
 
+#### Using Bash
 ```
 pipenv install -e .[testing,linting]
+```
+
+#### Using Zsh
+```
+pipenv install '.[testing,linting]'
 ```
 
 ### 4. Run database migrations for the test app
