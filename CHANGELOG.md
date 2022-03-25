@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.3.00
+
+- Use the latest version of the NHS.UK frontend library ([v6.1.0](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#610---12-january-2022))
+- Care card (deprecated)
+- Update care card CSS class inline with the frontend library
+
 ## v1.2.4
 
 - Do not render labels for hidden form fields 
