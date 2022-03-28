@@ -1,4 +1,4 @@
-# Care Card
+# Care Card (deprecated)
 
 ```py
 from wagtail.core.models import Page
@@ -53,5 +53,5 @@ If no setting is supplied the default will remain 3.
 
 ## Reference
 
-* [Service Manual](https://service-manual.nhs.uk/design-system/components/care-cards)
-* [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/care-card)
+* [Service Manual](https://service-manual.nhs.uk/design-system/patterns/help-users-decide-when-and-where-to-get-care)
+* [Frontend Library](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/card)

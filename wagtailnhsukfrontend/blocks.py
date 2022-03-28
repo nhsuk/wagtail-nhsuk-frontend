@@ -338,10 +338,10 @@ else:
 class CareCardBlock(FlattenValueContext, StructBlock):
 
     type = ChoiceBlock([
-        ('primary', 'Non-urgent'),
+        ('non-urgent', 'Non-urgent'),
         ('urgent', 'Urgent'),
-        ('immediate', 'Immediate'),
-    ], required=True, default='primary',)
+        ('emergency', 'Emergency'),
+    ], required=True, default='non-urgent',)
     heading_level = IntegerBlock(required=True, min_value=2, max_value=6, default=CARE_CARD_HEADING_LEVEL, help_text='The heading level affects users with screen readers. Default=' + str(CARE_CARD_HEADING_LEVEL) + ', Min=2, Max=4.')
     title = CharBlock(required=True)
 
@@ -360,9 +360,9 @@ class CareCardBlock(FlattenValueContext, StructBlock):
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context)
         context['accessible_title_prefix'] = {
-            'primary': 'Non-urgent advice: ',
+            'non-urgent': 'Non-urgent advice: ',
             'urgent': 'Urgent advice:',
-            'immediate': 'Immediate action required:',
+            'emergency': 'Immediate action required:',
         }[value['type']]
         return context
 
