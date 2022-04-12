@@ -1,6 +1,9 @@
 # CHANGELOG
 
-## 1.3.00
+## 1.3.1
+- revert migration for care card, use original types `primary`, `urgent`, `immediate` in admin, this prevents the need to edit migrations.
+
+## 1.3.0
 
 - Use the latest version of the NHS.UK frontend library ([v6.1.0](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#610---12-january-2022))
 - Care card (deprecated)
