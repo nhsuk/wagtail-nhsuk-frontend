@@ -3,8 +3,6 @@
 from django.db import migrations
 from wagtail import VERSION as WAGTAIL_VERSION
 
-from wagtail import VERSION as WAGTAIL_VERSION
-
 if WAGTAIL_VERSION >= (3, 0):
     import wagtail.blocks as wagtail_blocks
     import wagtail.blocks.field_block as wagtail_field_block
