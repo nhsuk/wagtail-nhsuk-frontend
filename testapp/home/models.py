@@ -1,6 +1,13 @@
-from wagtail.admin.edit_handlers import StreamFieldPanel
-from wagtail.core.models import Page
-from wagtail.core.fields import StreamField
+from wagtail import VERSION as WAGTAIL_VERSION
+
+if WAGTAIL_VERSION >= (3, 0):
+    from wagtail.admin.panels import StreamFieldPanel
+    from wagtail.models import Page
+    from wagtail.fields import StreamField
+else:
+    from wagtail.admin.edit_handlers import StreamFieldPanel
+    from wagtail.core.models import Page
+    from wagtail.core.fields import StreamField
 
 from wagtailnhsukfrontend.mixins import (
     HeroMixin,

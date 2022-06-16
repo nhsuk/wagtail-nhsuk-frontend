@@ -1,9 +1,14 @@
 from django.db import models
-from wagtail.admin.edit_handlers import MultiFieldPanel, FieldPanel
+
 from wagtail.images.models import Image
 from wagtail.images.edit_handlers import ImageChooserPanel
 from django.core.exceptions import ValidationError
+from wagtail import VERSION as WAGTAIL_VERSION
 
+if WAGTAIL_VERSION >= (3, 0):
+    from wagtail.admin.panels import MultiFieldPanel, FieldPanel
+else:
+    from wagtail.admin.edit_handlers import MultiFieldPanel, FieldPanel
 
 class ReviewDateMixin(models.Model):
 

@@ -1,6 +1,11 @@
 import pytest
 from django.test import RequestFactory
-from wagtail.core.models import Page
+from wagtail import VERSION as WAGTAIL_VERSION
+
+if WAGTAIL_VERSION >= (3, 0):
+    from wagtail.models import Page
+else:
+    from wagtail.core.models import Page
 
 from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import contents_list
 
