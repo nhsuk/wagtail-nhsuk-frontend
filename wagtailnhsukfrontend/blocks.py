@@ -3,6 +3,7 @@ from django.conf import settings
 from django.forms.utils import ErrorList
 
 from wagtail import VERSION as WAGTAIL_VERSION
+from wagtail.images.blocks import ImageChooserBlock
 
 if WAGTAIL_VERSION >= (3, 0):
     from wagtail.blocks import (
@@ -30,7 +31,6 @@ else:
         ListBlock,
         PageChooserBlock,
     )
-from wagtail.images.blocks import ImageChooserBlock
 
 
 class FlattenValueContext:

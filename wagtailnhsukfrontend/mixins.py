@@ -10,6 +10,7 @@ else:
     from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
     from wagtail.images.edit_handlers import ImageChooserPanel
 
+
 class ReviewDateMixin(models.Model):
 
     last_review_date = models.DateTimeField(blank=True, null=True)

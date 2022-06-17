@@ -1,14 +1,5 @@
 from wagtail import VERSION as WAGTAIL_VERSION
 
-if WAGTAIL_VERSION >= (3, 0):
-    from wagtail.admin.panels import FieldPanel as StreamFieldPanel
-    from wagtail.fields import StreamField
-    from wagtail.models import Page
-else:
-    from wagtail.admin.edit_handlers import StreamFieldPanel
-    from wagtail.core.models import Page
-    from wagtail.core.fields import StreamField
-
 from wagtailnhsukfrontend.blocks import (ActionLinkBlock, CardBasicBlock,
                                          CardClickableBlock, CardFeatureBlock,
                                          CardGroupBlock, CardImageBlock,
@@ -18,6 +9,15 @@ from wagtailnhsukfrontend.blocks import (ActionLinkBlock, CardBasicBlock,
                                          InsetTextBlock, SummaryListBlock,
                                          WarningCalloutBlock)
 from wagtailnhsukfrontend.mixins import HeroMixin, ReviewDateMixin
+
+if WAGTAIL_VERSION >= (3, 0):
+    from wagtail.admin.panels import FieldPanel as StreamFieldPanel
+    from wagtail.fields import StreamField
+    from wagtail.models import Page
+else:
+    from wagtail.admin.edit_handlers import StreamFieldPanel
+    from wagtail.core.models import Page
+    from wagtail.core.fields import StreamField
 
 
 class HomePage(HeroMixin, ReviewDateMixin, Page):
