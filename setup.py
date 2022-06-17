@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 INSTALL_REQUIRES = [
-    'Wagtail>=2.0',
+    'Wagtail>=2.15',
 ]
 
 TESTING_REQUIRES = [
