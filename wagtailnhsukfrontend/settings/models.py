@@ -4,25 +4,21 @@ from modelcluster.models import ClusterableModel
 from wagtail import VERSION as WAGTAIL_VERSION
 
 if WAGTAIL_VERSION >= (3, 0):
-    from wagtail.admin.panels import (
-        FieldPanel,
-        InlinePanel,
-        MultiFieldPanel,
-        PageChooserPanel,
-    )
+    from wagtail.admin.panels import (FieldPanel, InlinePanel, MultiFieldPanel,
+                                      PageChooserPanel)
     from wagtail.models import Orderable
+    from wagtail.admin.panels import FieldPanel as ImageChooserPanel
 else:
-    from wagtail.admin.panels import (
+    from wagtail.admin.edit_handlers import (
         FieldPanel,
         InlinePanel,
         MultiFieldPanel,
         PageChooserPanel,
     )
     from wagtail.core.models import Orderable
+    from wagtail.images.edit_handlers import ImageChooserPanel
 
 from wagtail.contrib.settings.models import BaseSetting, register_setting
-
-from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.images import get_image_model_string
 
 

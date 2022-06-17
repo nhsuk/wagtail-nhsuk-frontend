@@ -7,12 +7,14 @@ from wagtail import VERSION as WAGTAIL_VERSION
 
 if WAGTAIL_VERSION >= (3, 0):
     import wagtail.blocks as wagtail_blocks
+    import wagtail.blocks.field_block as wagtail_field_block
     import wagtail.fields as wagtail_fields
 else:
     import wagtail.core.blocks as wagtail_blocks
+    import wagtail.core.blocks.field_block as wagtail_field_block
     import wagtail.core.fields as wagtail_fields
 
-
+import wagtail.images.blocks
 import wagtailnhsukfrontend.blocks
 
 
