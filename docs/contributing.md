@@ -66,7 +66,7 @@ The application will be available at http://localhost:8080 and the admin panel c
 
 To install the test fixture, make sure you have an empty but fully migrated database.
 
-Run `python3 manage.py loaddata testdata.json` and rerun the local server `python3 manage.py runserver 8080` 
+Run `python3 manage.py loaddata testdata.json` or `python3 manage.py loaddata testdata_wt3.json` depending on the Wagtail version and rerun the local server `python3 manage.py runserver 8080` 
 
 You should now have sample content pages in your wagtail installation.
 
@@ -89,8 +89,11 @@ components can be tested in the testapp by (where appropriate):
 
 To add to the fixture, either:
  - edit `testdata.json` by hand (useful for small changes)
- - run the dumpdata script `./dumpdata.sh > testdata.json`
-
+ - run the dumpdata script `./dumpdata.sh > testdata.json` for Wagtail versions
+   before 3.0
+ - run the dumpdata script `./dumpdata.sh > testdata_wt3.json` for Wagtail versions
+   after 3.0
+   
 Always review your changes to the testdata before committing to make sure there
 are no accidental changes to the fixture.
 
