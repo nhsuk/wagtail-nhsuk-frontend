@@ -1,7 +1,12 @@
 import pytest
 from django.test.client import Client
-from wagtail.core.models import Page
+from wagtail import VERSION as WAGTAIL_VERSION
 from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import pagination
+
+if WAGTAIL_VERSION >= (3, 0):
+    from wagtail.models import Page
+else:
+    from wagtail.core.models import Page
 
 
 client = Client()

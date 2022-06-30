@@ -2,8 +2,19 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.core.blocks
-import wagtail.core.fields
+
+from wagtail import VERSION as WAGTAIL_VERSION
+
+if WAGTAIL_VERSION >= (3, 0):
+    import wagtail.blocks as wagtail_blocks
+    import wagtail.blocks.field_block as wagtail_field_block
+    import wagtail.fields as wagtail_fields
+else:
+    import wagtail.core.blocks as wagtail_blocks
+    import wagtail.core.blocks.field_block as wagtail_field_block
+    import wagtail.core.fields as wagtail_fields
+
+import wagtail.images.blocks
 import wagtailnhsukfrontend.blocks
 
 
@@ -28,7 +39,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='homepage',
             name='body',
-            field=wagtail.core.fields.StreamField([('action_link', wagtail.core.blocks.StructBlock([('text', wagtail.core.blocks.CharBlock(label='link text', required=True)), ('external_url', wagtail.core.blocks.URLBlock(label='external URL', required=True))])), ('care_card', wagtail.core.blocks.StructBlock([('type', wagtail.core.blocks.ChoiceBlock(choices=[('primary', 'Primary'), ('urgent', 'Urgent'), ('immediate', 'Immediate')])), ('title', wagtail.core.blocks.CharBlock(required=True)), ('body', wagtail.core.blocks.RichTextBlock(required=True))])), ('details', wagtail.core.blocks.StructBlock([('title', wagtail.core.blocks.CharBlock(required=True)), ('body', wagtail.core.blocks.RichTextBlock(required=True))])), ('do_list', wagtail.core.blocks.StructBlock([('do', wagtail.core.blocks.ListBlock(wagtail.core.blocks.field_block.RichTextBlock))])), ('dont_list', wagtail.core.blocks.StructBlock([('dont', wagtail.core.blocks.ListBlock(wagtail.core.blocks.field_block.RichTextBlock))])), ('expander', wagtail.core.blocks.StructBlock([('title', wagtail.core.blocks.CharBlock(required=True)), ('body', wagtail.core.blocks.RichTextBlock(required=True))])), ('expander_group', wagtail.core.blocks.StructBlock([('expanders', wagtail.core.blocks.ListBlock(wagtailnhsukfrontend.blocks.ExpanderBlock))])), ('inset_text', wagtailnhsukfrontend.blocks.InsetTextBlock()), ('image', wagtail.core.blocks.StructBlock([('content_image', wagtail.images.blocks.ImageChooserBlock(required=True)), ('alt_text', wagtail.core.blocks.CharBlock(help_text='Only leave this blank if the image is decorative.', required=False)), ('caption', wagtail.core.blocks.CharBlock(required=False))])), ('panel', wagtail.core.blocks.StructBlock([('labeled_title', wagtail.core.blocks.CharBlock(required=False)), ('body', wagtail.core.blocks.RichTextBlock(required=True))])), ('warning_callout', wagtailnhsukfrontend.blocks.WarningCalloutBlock())]),
+            field=wagtail_fields.StreamField([('action_link', wagtail_blocks.StructBlock([('text', wagtail_blocks.CharBlock(label='link text', required=True)), ('external_url', wagtail_blocks.URLBlock(label='external URL', required=True))])), ('care_card', wagtail_blocks.StructBlock([('type', wagtail_blocks.ChoiceBlock(choices=[('primary', 'Primary'), ('urgent', 'Urgent'), ('immediate', 'Immediate')])), ('title', wagtail_blocks.CharBlock(required=True)), ('body', wagtail_blocks.RichTextBlock(required=True))])), ('details', wagtail_blocks.StructBlock([('title', wagtail_blocks.CharBlock(required=True)), ('body', wagtail_blocks.RichTextBlock(required=True))])), ('do_list', wagtail_blocks.StructBlock([('do', wagtail_blocks.ListBlock(wagtail_field_block.RichTextBlock))])), ('dont_list', wagtail_blocks.StructBlock([('dont', wagtail_blocks.ListBlock(wagtail_field_block.RichTextBlock))])), ('expander', wagtail_blocks.StructBlock([('title', wagtail_blocks.CharBlock(required=True)), ('body', wagtail_blocks.RichTextBlock(required=True))])), ('expander_group', wagtail_blocks.StructBlock([('expanders', wagtail_blocks.ListBlock(wagtailnhsukfrontend.blocks.ExpanderBlock))])), ('inset_text', wagtailnhsukfrontend.blocks.InsetTextBlock()), ('image', wagtail_blocks.StructBlock([('content_image', wagtail.images.blocks.ImageChooserBlock(required=True)), ('alt_text', wagtail_blocks.CharBlock(help_text='Only leave this blank if the image is decorative.', required=False)), ('caption', wagtail_blocks.CharBlock(required=False))])), ('panel', wagtail_blocks.StructBlock([('labeled_title', wagtail_blocks.CharBlock(required=False)), ('body', wagtail_blocks.RichTextBlock(required=True))])), ('warning_callout', wagtailnhsukfrontend.blocks.WarningCalloutBlock())]),
             preserve_default=False,
         ),
     ]

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from wagtail import VERSION as WAGTAIL_VERSION
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -41,7 +42,7 @@ INSTALLED_APPS = [
     'wagtail.images',
     'wagtail.search',
     'wagtail.admin',
-    'wagtail.core',
+    'wagtail' if WAGTAIL_VERSION >= (3, 0) else "wagtail.core",
     'wagtail.contrib.settings',
 
     'modelcluster',
@@ -161,8 +162,10 @@ WAGTAIL_SITE_NAME = "testapp"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'http://example.com'
-
+if WAGTAIL_VERSION >= (3, 0):
+    WAGTAILADMIN_BASE_URL = 'http://example.com'
+else:
+    BASE_URL = 'http://example.com'
 # Default field for primary keys
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 

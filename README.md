@@ -22,9 +22,9 @@ INSTALLED_APPS = [
 
 Use blocks in your streamfields
 ```python
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
-from wagtail.core.models import Page
-from wagtail.core.fields import StreamField
+from wagtail.admin.panels import FieldPanel
+from wagtail.models import Page
+from wagtail.fields import StreamField
 
 from wagtailnhsukfrontend.blocks import ActionLinkBlock, WarningCalloutBlock
 
@@ -36,7 +36,7 @@ class HomePage(Page):
   ])
 
   content_panels = Page.content_panels + [
-      StreamFieldPanel('body'),
+      FieldPanel('body'),
   ]
 ```
 
