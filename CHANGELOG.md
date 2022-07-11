@@ -1,8 +1,8 @@
 # CHANGELOG
-## Unreleased
-- Add support for Wagtail 3.0 and drop support for all Wagtail versions
-   before 2.15
-  
+
+## 1.4.0
+- Add support for Wagtail 3.0
+
 ## 1.3.1
 - revert migration for care card, use original types `primary`, `urgent`, `immediate` in admin, this prevents the need to edit migrations.
 
