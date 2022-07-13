@@ -1,23 +1,5 @@
 [
 {
-  "model": "wagtailsearch.sqliteftsindexentry",
-  "pk": 1,
-  "fields": {
-    "autocomplete": "Root",
-    "title": "Root",
-    "body": ""
-  }
-},
-{
-  "model": "wagtailsearch.sqliteftsindexentry",
-  "pk": 2,
-  "fields": {
-    "autocomplete": "",
-    "title": "",
-    "body": ""
-  }
-},
-{
   "model": "wagtailcore.locale",
   "pk": 1,
   "fields": {
@@ -78,68 +60,6 @@
       "groupapprovaltask"
     ],
     "active": true
-  }
-},
-{
-  "model": "wagtailsearch.indexentry",
-  "pk": 1,
-  "fields": {
-    "content_type": [
-      "wagtailcore",
-      "page"
-    ],
-    "object_id": "1",
-    "title_norm": 1.0,
-    "autocomplete": "Root",
-    "title": "Root",
-    "body": ""
-  }
-},
-{
-  "model": "wagtailsearch.indexentry",
-  "pk": 2,
-  "fields": {
-    "content_type": [
-      "home",
-      "homepage"
-    ],
-    "object_id": "3",
-    "title_norm": 1.0,
-    "autocomplete": "",
-    "title": "",
-    "body": ""
-  }
-},
-{
-  "model": "wagtailnhsukfrontendsettings.footersettings",
-  "pk": 1,
-  "fields": {
-    "site": [
-      "localhost",
-      80
-    ]
-  }
-},
-{
-  "model": "wagtailnhsukfrontendsettings.headersettings",
-  "pk": 1,
-  "fields": {
-    "site": [
-      "localhost",
-      80
-    ],
-    "service_name": "",
-    "service_long_name": false,
-    "service_link": null,
-    "transactional": false,
-    "logo_link": null,
-    "logo_aria": null,
-    "logo_custom": null,
-    "show_search": false,
-    "organisation_name": "",
-    "organisation_split_name": "",
-    "organisation_descriptor": "",
-    "organisation_white": false
   }
 },
 {

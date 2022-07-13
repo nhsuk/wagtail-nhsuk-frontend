@@ -1726,9 +1726,7 @@
   "model": "wagtailusers.userprofile",
   "pk": 1,
   "fields": {
-    "user": [
-      "admin"
-    ],
+    "user": "admin",
     "submitted_notifications": true,
     "approved_notifications": true,
     "rejected_notifications": true,
