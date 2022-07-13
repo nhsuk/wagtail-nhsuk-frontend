@@ -1,8 +1,13 @@
 # CHANGELOG
 
+## Unreleased
+- Update django version to 3.2
+- Remove visually hidden checkbox from the warning callout component. If the title is "Important", the visually
+hidden prefix is now automatically added
+
 ## 1.4.0
 - Add support for Wagtail 3.0
-
+  
 ## 1.3.1
 - revert migration for care card, use original types `primary`, `urgent`, `immediate` in admin, this prevents the need to edit migrations.
 
