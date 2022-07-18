@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 1.5.0
 - Update django version to 3.2
 - Remove visually hidden checkbox from the warning callout component. If the title is "Important", the visually
 hidden prefix is now automatically added
