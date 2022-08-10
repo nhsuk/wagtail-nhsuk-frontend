@@ -1,6 +1,6 @@
 # Wagtail NHS.UK frontend
 
-A wagtail implementation of the [NHS frontend v6.1.0](https://github.com/nhsuk/nhsuk-frontend) standard components.
+A wagtail implementation of the [NHS frontend v6.1.2](https://github.com/nhsuk/nhsuk-frontend) standard components.
 
 ## Installation
 

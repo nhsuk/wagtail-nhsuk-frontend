@@ -1,14 +1,21 @@
 # CHANGELOG
 
+## 1.5.1
+
+- Use the latest version of the NHS.UK frontend library ([v6.1.2](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#612---8-august-2022))
+
 ## 1.5.0
+
 - Update django version to 3.2
 - Remove visually hidden checkbox from the warning callout component. If the title is "Important", the visually
 hidden prefix is now automatically added
 
 ## 1.4.0
+
 - Add support for Wagtail 3.0
   
 ## 1.3.1
+
 - revert migration for care card, use original types `primary`, `urgent`, `immediate` in admin, this prevents the need to edit migrations.
 
 ## 1.3.0
@@ -26,15 +33,19 @@ hidden prefix is now automatically added
 - Fix form templatetag. Templates were missing from the python package build
 
 ## v1.2.2
+
 - Use the latest version of the NHS.UK frontend library ([v5.2.1](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#521---28-october-2021))
 
 ## v1.2.1
+
 - Remove static `aria-label="Open menu"` on header menu toggle. Add descriptive `aria-expanded="false"` to toggle on inital page load.
 
 ## v1.2.0
+
 - Use the latest version of the NHS.UK frontend library ([v5.2.0](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#520---22-september-2021))
 
 ## v1.1.0
+
 - Add optional default heading level setting for care cards
 
 ## v1.0.0
