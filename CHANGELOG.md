@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.5.2
+- Fix for visually hidden checkbox from the warning callout component. If the title is "Important", the visually
+hidden prefix is now automatically added
+
 ## 1.5.1
 
 - Use the latest version of the NHS.UK frontend library ([v6.1.2](https://github.com/nhsuk/nhsuk-frontend/blob/master/CHANGELOG.md#612---8-august-2022))
