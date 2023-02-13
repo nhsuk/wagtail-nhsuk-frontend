@@ -1,11 +1,7 @@
 import pytest
-from wagtail import VERSION as WAGTAIL_VERSION
-from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import breadcrumb
+from wagtail.models import Page
 
-if WAGTAIL_VERSION >= (3, 0):
-    from wagtail.models import Page
-else:
-    from wagtail.core.models import Page
+from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import breadcrumb
 
 
 def get_breadcrumb_context(page):

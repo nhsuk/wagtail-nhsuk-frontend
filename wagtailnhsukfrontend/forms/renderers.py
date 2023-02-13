@@ -1,9 +1,9 @@
 import os
+
 import django
-from django.forms.renderers import EngineMixin, BaseRenderer
+from django.forms.renderers import BaseRenderer, EngineMixin
 from django.template.backends.django import DjangoTemplates
 from django.utils.functional import cached_property
-
 
 ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
 

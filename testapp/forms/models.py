@@ -1,10 +1,6 @@
-from wagtail import VERSION as WAGTAIL_VERSION
-from .forms import BigForm
+from wagtail.models import Page
 
-if WAGTAIL_VERSION >= (3, 0):
-    from wagtail.models import Page
-else:
-    from wagtail.core.models import Page
+from .forms import BigForm
 
 
 class FormPage(Page):

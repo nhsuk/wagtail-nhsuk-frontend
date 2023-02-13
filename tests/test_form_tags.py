@@ -1,9 +1,7 @@
 from django import forms
+
 from wagtailnhsukfrontend.forms.templatetags.nhsukfrontendforms_tags import (
-    add_class,
-    add_widget_classes,
-    is_checkbox,
-)
+    add_class, add_widget_classes, is_checkbox)
 
 
 def test_add_class_to_empty_widget():

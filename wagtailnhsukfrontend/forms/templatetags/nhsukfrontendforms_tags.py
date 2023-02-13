@@ -1,5 +1,8 @@
 from django import template
-from django.forms.widgets import Textarea, TextInput, NumberInput, EmailInput, URLInput, PasswordInput, RadioSelect, CheckboxSelectMultiple, Select, CheckboxInput
+from django.forms.widgets import (CheckboxInput, CheckboxSelectMultiple,
+                                  EmailInput, NumberInput, PasswordInput,
+                                  RadioSelect, Select, Textarea, TextInput,
+                                  URLInput)
 
 register = template.Library()
 

@@ -7,3 +7,5 @@ Pipfile.lock
 .python-version
 .tox
 build
+dist
+venv

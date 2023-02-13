@@ -1,6 +1,5 @@
 from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import chunk
 
-
 LIST = [1, 2, 3, 4, 5, 6, 7]
 
 

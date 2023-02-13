@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## Unreleased
+
+- Add Wagtail 4.2 compatibility
+- Add tests for Django 4.1
+- Add tests for Python 3.10 and 3.11
+- Drop support for versions of Wagtail prior to 4.1
+
 ## 1.5.3
 
 - Use the latest version of the NHS.UK frontend library ([v6.2.0](https://github.com/nhsuk/nhsuk-frontend/blob/main/CHANGELOG.md#620---17-january-2023))

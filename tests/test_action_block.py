@@ -1,7 +1,8 @@
+import pytest
 from bs4 import BeautifulSoup
 from django.core.exceptions import ValidationError
 from django.test import Client
-import pytest
+
 from wagtailnhsukfrontend.blocks import ActionLinkBlock
 
 

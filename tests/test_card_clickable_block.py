@@ -1,6 +1,7 @@
-from django.core.exceptions import ValidationError
-from wagtailnhsukfrontend.blocks import CardClickableBlock
 import pytest
+from django.core.exceptions import ValidationError
+
+from wagtailnhsukfrontend.blocks import CardClickableBlock
 
 
 def test_card_clickable_block_clean_one_link():

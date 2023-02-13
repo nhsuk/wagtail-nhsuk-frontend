@@ -1,36 +1,10 @@
-from django.core.exceptions import ValidationError
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.forms.utils import ErrorList
-
-from wagtail import VERSION as WAGTAIL_VERSION
+from wagtail.blocks import (BooleanBlock, CharBlock, ChoiceBlock, IntegerBlock,
+                            ListBlock, PageChooserBlock, RichTextBlock,
+                            StreamBlock, StructBlock, URLBlock)
 from wagtail.images.blocks import ImageChooserBlock
-
-if WAGTAIL_VERSION >= (3, 0):
-    from wagtail.blocks import (
-        BooleanBlock,
-        CharBlock,
-        ChoiceBlock,
-        IntegerBlock,
-        RichTextBlock,
-        StreamBlock,
-        StructBlock,
-        URLBlock,
-        ListBlock,
-        PageChooserBlock,
-    )
-else:
-    from wagtail.core.blocks import (
-        BooleanBlock,
-        CharBlock,
-        ChoiceBlock,
-        IntegerBlock,
-        RichTextBlock,
-        StreamBlock,
-        StructBlock,
-        URLBlock,
-        ListBlock,
-        PageChooserBlock,
-    )
 
 
 class FlattenValueContext:

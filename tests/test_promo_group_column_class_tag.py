@@ -1,7 +1,7 @@
 import pytest
-from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import (
-    promo_group_column_class,
-)
+
+from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import \
+    promo_group_column_class
 
 
 def test_column_size_0():
