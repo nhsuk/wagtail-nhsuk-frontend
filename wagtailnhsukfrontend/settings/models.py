@@ -4,13 +4,13 @@ from modelcluster.models import ClusterableModel
 from wagtail.admin.panels import FieldPanel
 from wagtail.admin.panels import FieldPanel as ImageChooserPanel
 from wagtail.admin.panels import InlinePanel, MultiFieldPanel, PageChooserPanel
-from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.contrib.settings.models import BaseSiteSetting, register_setting
 from wagtail.images import get_image_model_string
 from wagtail.models import Orderable
 
 
 @register_setting
-class HeaderSettings(ClusterableModel, BaseSetting):
+class HeaderSettings(ClusterableModel, BaseSiteSetting):
     service_name = models.CharField(max_length=255, blank=True)
     service_long_name = models.BooleanField(default=False)
     service_link = models.ForeignKey(
@@ -95,7 +95,7 @@ class NavigationLink(Orderable):
 
 
 @register_setting
-class FooterSettings(ClusterableModel, BaseSetting):
+class FooterSettings(ClusterableModel, BaseSiteSetting):
 
     panels = [
         InlinePanel(
