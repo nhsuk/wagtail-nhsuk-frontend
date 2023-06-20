@@ -6,9 +6,9 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
       - name: Install Tox
@@ -20,16 +20,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: [3.7, 3.8, 3.9]
+        python: ["3.8", "3.9", "3.10"]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python }}
-      - name: Install Tox
-        run: pip install tox
+      - name: Install dependencies
+        id: install-dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install tox tox-gh-actions
       - name: Run Tests
-        # Run tox using the version of Python in `PATH`
-        run: tox -e py
+        run: |
+          tox
