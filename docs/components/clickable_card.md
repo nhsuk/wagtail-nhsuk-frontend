@@ -12,7 +12,7 @@ class MyPage(Page):
       ...
       ('clickable_card', CardClickableBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 ## Reference

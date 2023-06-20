@@ -11,7 +11,7 @@ class MyPage(Page):
       ...
       ('expander', ExpanderBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 By default, the expander block can contain the following sub-blocks:
@@ -41,7 +41,7 @@ class MyPage(Page):
       ...
       ('expander', CustomExpanderBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 # Expander Group
@@ -59,7 +59,7 @@ class MyPage(Page):
       ...
       ('group_expander', ExpanderGroupBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 ## Reference

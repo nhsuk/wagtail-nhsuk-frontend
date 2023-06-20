@@ -15,6 +15,7 @@ class HomePage(Page):
         ...
         ('captionable_image', ImageBlock()),
         ...
+    ], use_json_field=True)
 ```
 ## Reference
 
