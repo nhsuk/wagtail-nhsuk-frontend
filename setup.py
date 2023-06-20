@@ -4,19 +4,17 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 INSTALL_REQUIRES = [
-    'Wagtail>=2.0',
+    'Wagtail>=4.1',
 ]
 
 TESTING_REQUIRES = [
     "beautifulsoup4==4.8.2",
-    "Django==3.2",
+    "Django>=3.2,<4.1",
     "pytest==4.3.0",
-    "pytest-django==3.4.7",
-    "pytest-pythonpath==0.7.3",
 ]
 
 LINTING_REQUIRES = [
-    "flake8==3.7.5",
+    "flake8>=5.0.4,<5.1",
 ]
 
 
