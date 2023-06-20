@@ -1,6 +1,7 @@
 import pytest
 from django.test.client import Client
 from wagtail import VERSION as WAGTAIL_VERSION
+
 from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import pagination
 
 if WAGTAIL_VERSION >= (3, 0):
@@ -21,7 +22,7 @@ def get_pagination_context(page, request):
 
 
 def get_pagination_page_context(number):
-    """ Get paginated page """
+    """Get paginated page"""
     response = client.get(f"/home/pagination/pagination-page-{number}/")
     request = response.wsgi_request
     page = Page.objects.get(url_path=f"/home/pagination/pagination-page-{number}/")
@@ -30,7 +31,7 @@ def get_pagination_page_context(number):
 
 @pytest.mark.django_db
 def test_first_page(db, django_db_setup):
-    """ Check first page has next keys but no prev keys """
+    """Check first page has next keys but no prev keys"""
     context = get_pagination_page_context(1)
     expected = {
         "next_label": "Pagination page 2",
@@ -41,7 +42,7 @@ def test_first_page(db, django_db_setup):
 
 @pytest.mark.django_db
 def test_third_page(db, django_db_setup):
-    """ Check third page has next and prev keys """
+    """Check third page has next and prev keys"""
     context = get_pagination_page_context(3)
     expected = {
         "prev_label": "Pagination page 2",
@@ -54,7 +55,7 @@ def test_third_page(db, django_db_setup):
 
 @pytest.mark.django_db
 def test_final_page(db, django_db_setup):
-    """ Check fourth page has only prev keys """
+    """Check fourth page has only prev keys"""
     context = get_pagination_page_context(4)
     print(context)
     expected = {

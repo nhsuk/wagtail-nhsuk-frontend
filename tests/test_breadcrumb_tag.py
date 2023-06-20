@@ -1,5 +1,6 @@
 import pytest
 from wagtail import VERSION as WAGTAIL_VERSION
+
 from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import breadcrumb
 
 if WAGTAIL_VERSION >= (3, 0):

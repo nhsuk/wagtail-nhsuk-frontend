@@ -1,4 +1,5 @@
 import pytest
+
 from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import (
     promo_group_column_class,
 )

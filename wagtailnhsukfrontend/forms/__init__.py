@@ -1,1 +1,1 @@
-default_app_config = 'wagtailnhsukfrontend.forms.apps.FormsAppConfig'
+default_app_config = "wagtailnhsukfrontend.forms.apps.FormsAppConfig"

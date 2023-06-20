@@ -16,7 +16,7 @@ def content_wrapper(parser, token):
         raise template.TemplateSyntaxError(
             "%r tag requires variable as parameter" % token.contents.split()[0]
         )
-    nodelist = parser.parse(('endcontentwrapper',))
+    nodelist = parser.parse(("endcontentwrapper",))
     parser.delete_first_token()
     return ContentWrapperNode(nodelist, variable_name)
 

@@ -4,14 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('wagtailnhsukfrontendsettings', '0005_remove_emergency_alert'),
+        ("wagtailnhsukfrontendsettings", "0005_remove_emergency_alert"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='footersettings',
-            name='fixed_coloumn_footer',
+            model_name="footersettings",
+            name="fixed_coloumn_footer",
         ),
     ]
