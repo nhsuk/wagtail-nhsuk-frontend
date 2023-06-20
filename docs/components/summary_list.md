@@ -11,7 +11,7 @@ class MyPage(Page):
       ...
       ('summary_list', SummaryListBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 ## Reference

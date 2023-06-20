@@ -11,7 +11,7 @@ class MyPage(Page):
       ...
       ('details', DetailsBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 By default, the details block can contain the following sub-blocks:
@@ -41,7 +41,7 @@ class MyPage(Page):
       ...
       ('details', CustomDetailsBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 ## Reference

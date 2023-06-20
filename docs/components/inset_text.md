@@ -11,7 +11,7 @@ class MyPage(Page):
       ...
       ('inset_text', InsetTextBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 ## Reference
