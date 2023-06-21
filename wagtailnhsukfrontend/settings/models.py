@@ -1,7 +1,7 @@
 from django.db import models
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
-from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.contrib.settings.models import BaseSiteSetting, register_setting
 from wagtail.images import get_image_model_string
 
 from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel
@@ -9,7 +9,7 @@ from wagtail.models import Orderable
 
 
 @register_setting
-class HeaderSettings(ClusterableModel, BaseSetting):
+class HeaderSettings(ClusterableModel, BaseSiteSetting):
     service_name = models.CharField(max_length=255, blank=True)
     service_long_name = models.BooleanField(default=False)
     service_link = models.ForeignKey(
@@ -94,8 +94,7 @@ class NavigationLink(Orderable):
 
 
 @register_setting
-class FooterSettings(ClusterableModel, BaseSetting):
-
+class FooterSettings(ClusterableModel, BaseSiteSetting):
     panels = [
         InlinePanel(
             'footer_links',
