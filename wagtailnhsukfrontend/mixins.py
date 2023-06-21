@@ -1,10 +1,9 @@
 from django.core.exceptions import ValidationError
 from django.db import models
-from wagtail.images.models import Image
-
 from wagtail.admin.panels import FieldPanel
 from wagtail.admin.panels import FieldPanel as ImageChooserPanel
 from wagtail.admin.panels import MultiFieldPanel
+from wagtail.images.models import Image
 
 
 class ReviewDateMixin(models.Model):

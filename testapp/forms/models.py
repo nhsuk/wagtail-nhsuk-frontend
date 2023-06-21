@@ -1,6 +1,6 @@
-from .forms import BigForm
-
 from wagtail.models import Page
+
+from .forms import BigForm
 
 
 class FormPage(Page):

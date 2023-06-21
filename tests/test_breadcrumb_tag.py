@@ -1,8 +1,7 @@
 import pytest
+from wagtail.models import Page
 
 from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import breadcrumb
-
-from wagtail.models import Page
 
 
 def get_breadcrumb_context(page):

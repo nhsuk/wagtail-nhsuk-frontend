@@ -1,12 +1,11 @@
 from django.db import models
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
-from wagtail.contrib.settings.models import BaseSetting, register_setting
-from wagtail.images import get_image_model_string
-
 from wagtail.admin.panels import FieldPanel
 from wagtail.admin.panels import FieldPanel as ImageChooserPanel
 from wagtail.admin.panels import InlinePanel, MultiFieldPanel, PageChooserPanel
+from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.images import get_image_model_string
 from wagtail.models import Orderable
 
 

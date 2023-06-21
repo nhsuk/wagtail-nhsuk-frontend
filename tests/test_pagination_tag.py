@@ -1,10 +1,8 @@
 import pytest
 from django.test.client import Client
-
-from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import pagination
-
 from wagtail.models import Page
 
+from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import pagination
 
 client = Client()
 
