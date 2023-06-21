@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "wagtail.images",
     "wagtail.search",
     "wagtail.admin",
-    "wagtail" if WAGTAIL_VERSION >= (3, 0) else "wagtail.core",
+    "wagtail",
     "wagtail.contrib.settings",
     "modelcluster",
     "taggit",
@@ -159,10 +159,7 @@ WAGTAIL_SITE_NAME = "testapp"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-if WAGTAIL_VERSION >= (3, 0):
-    WAGTAILADMIN_BASE_URL = "http://example.com"
-else:
-    BASE_URL = "http://example.com"
+BASE_URL = WAGTAILADMIN_BASE_URL = "http://example.com"
 # Default field for primary keys
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
