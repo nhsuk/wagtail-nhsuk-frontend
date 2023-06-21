@@ -10,7 +10,8 @@ INSTALL_REQUIRES = [
 TESTING_REQUIRES = [
     "beautifulsoup4==4.8.2",
     "Django>=3.2,<4.1",
-    "pytest==4.3.0",
+    "pytest==7.3.2",
+    "pytest-django==4.5.2",
 ]
 
 LINTING_REQUIRES = [
