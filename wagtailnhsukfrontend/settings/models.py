@@ -4,10 +4,8 @@ from modelcluster.models import ClusterableModel
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.images import get_image_model_string
 
-from wagtail.admin.panels import (FieldPanel, InlinePanel, MultiFieldPanel,
-                                    PageChooserPanel)
+from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.models import Orderable
-from wagtail.admin.panels import FieldPanel as ImageChooserPanel
 
 
 @register_setting
@@ -54,15 +52,15 @@ class HeaderSettings(ClusterableModel, BaseSetting):
 
     panels = [
         MultiFieldPanel([
-            PageChooserPanel('logo_link'),
+            FieldPanel('logo_link'),
             FieldPanel('logo_aria'),
-            ImageChooserPanel('logo_custom'),
+            FieldPanel('logo_custom'),
             FieldPanel('show_search'),
         ], heading="General"),
         MultiFieldPanel([
             FieldPanel('service_name'),
             FieldPanel('service_long_name'),
-            PageChooserPanel('service_link'),
+            FieldPanel('service_link'),
             FieldPanel('transactional'),
         ], heading="Service header"),
         MultiFieldPanel([
@@ -91,7 +89,7 @@ class NavigationLink(Orderable):
 
     panels = [
         FieldPanel('label'),
-        PageChooserPanel('page'),
+        FieldPanel('page'),
     ]
 
 
