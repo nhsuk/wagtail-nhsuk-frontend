@@ -1,7 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from wagtail.admin.panels import FieldPanel
-from wagtail.admin.panels import FieldPanel as ImageChooserPanel
 from wagtail.admin.panels import MultiFieldPanel
 from wagtail.images.models import Image
 
@@ -45,7 +44,7 @@ class HeroMixin(models.Model):
             [
                 FieldPanel("hero_heading"),
                 FieldPanel("hero_text"),
-                ImageChooserPanel("hero_image"),
+                FieldPanel("hero_image"),
             ],
             heading="Hero content",
         )
