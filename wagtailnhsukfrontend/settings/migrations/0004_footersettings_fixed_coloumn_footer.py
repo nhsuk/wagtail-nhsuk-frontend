@@ -4,15 +4,17 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('wagtailnhsukfrontendsettings', '0003_footersettings'),
+        ("wagtailnhsukfrontendsettings", "0003_footersettings"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='footersettings',
-            name='fixed_coloumn_footer',
-            field=models.BooleanField(default=False, help_text='Enable this setting to change way the footer is styled, so links group into coloumns'),
+            model_name="footersettings",
+            name="fixed_coloumn_footer",
+            field=models.BooleanField(
+                default=False,
+                help_text="Enable this setting to change way the footer is styled, so links group into coloumns",
+            ),
         ),
     ]

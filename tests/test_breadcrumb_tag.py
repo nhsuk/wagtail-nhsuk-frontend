@@ -1,7 +1,7 @@
 import pytest
-from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import breadcrumb
-
 from wagtail.models import Page
+
+from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import breadcrumb
 
 
 def get_breadcrumb_context(page):

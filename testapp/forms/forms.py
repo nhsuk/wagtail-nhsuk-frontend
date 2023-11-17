@@ -7,17 +7,18 @@ class BigForm(forms.Form):
     """
 
     # input
-    national_insurance = forms.CharField(label="What is your name?", max_length=7, help_text="Help text")
+    national_insurance = forms.CharField(
+        label="What is your name?", max_length=7, help_text="Help text"
+    )
 
     # textarea
-    more_detail = forms.CharField(label="Can you provide more detail?", widget=forms.Textarea)
+    more_detail = forms.CharField(
+        label="Can you provide more detail?", widget=forms.Textarea
+    )
 
     # radios
     name_changed = forms.ChoiceField(
-        choices=[
-            ('yes', 'Yes'),
-            ('no', 'No')
-        ],
+        choices=[("yes", "Yes"), ("no", "No")],
         label="Have you changed your name?",
         widget=forms.RadioSelect,
     )
@@ -25,9 +26,9 @@ class BigForm(forms.Form):
     # checkboxes
     nationality = forms.MultipleChoiceField(
         choices=[
-            ('british', 'British'),
-            ('irish', 'Irish'),
-            ('other', 'Citizen of another country'),
+            ("british", "British"),
+            ("irish", "Irish"),
+            ("other", "Citizen of another country"),
         ],
         label="What is your nationality?",
         widget=forms.CheckboxSelectMultiple,
@@ -36,10 +37,10 @@ class BigForm(forms.Form):
     # select
     select = forms.ChoiceField(
         choices=[
-            (None, '-----'),
-            ('choice1', 'Choice 1'),
-            ('choice2', 'Choice 2'),
-            ('choice3', 'Choice 3'),
+            (None, "-----"),
+            ("choice1", "Choice 1"),
+            ("choice2", "Choice 2"),
+            ("choice3", "Choice 3"),
         ]
     )
 

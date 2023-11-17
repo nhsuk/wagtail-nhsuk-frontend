@@ -1,9 +1,8 @@
 import pytest
 from django.test import RequestFactory
+from wagtail.models import Page
 
 from wagtailnhsukfrontend.templatetags.nhsukfrontend_tags import contents_list
-
-from wagtail.models import Page
 
 
 def get_contents_list_context(page=None):
