@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Unreleased
+
+- Upgrade for Wagtail 5.0+ compatibility
+- Drop tests for Wagtail 4.2 and 5.0 as they have reached EOL
+
 ## 1.5.3
 
 - Use the latest version of the NHS.UK frontend library ([v6.2.0](https://github.com/nhsuk/nhsuk-frontend/blob/main/CHANGELOG.md#620---17-january-2023))
