@@ -11,7 +11,7 @@ class MyPage(Page):
       ...
       ('dont_list', DontBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 ## Reference
 

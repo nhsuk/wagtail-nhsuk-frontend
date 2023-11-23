@@ -11,7 +11,7 @@ class MyPage(Page):
       ...
       ('do_list', DoBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 ## Reference
