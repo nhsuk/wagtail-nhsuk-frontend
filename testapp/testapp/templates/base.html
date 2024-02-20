@@ -36,6 +36,7 @@
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
+        <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
         {% wagtailuserbar %}
 
         {% include "wagtailnhsukfrontend/skip_link.html" %}
