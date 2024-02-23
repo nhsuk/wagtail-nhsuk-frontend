@@ -110,22 +110,28 @@ class NavigationLink(Orderable):
 class FooterSettings(ClusterableModel, BaseSetting):
 
     panels = [
-        InlinePanel(
-            'footer_links',
-            label="Footer Links",
-            help_text="There is a minimum of 1 link and a maximum of 9 ",
-            min_num=1,
-            max_num=9
-        )
+        InlinePanel('footer_columns', label="Footer Columns", min_num=1, max_num=4)
     ]
 
-
-class FooterLinks(Orderable):
-
+class FooterColumn(ClusterableModel, Orderable):
     setting = ParentalKey(
         FooterSettings,
         on_delete=models.CASCADE,
+        related_name='footer_columns',
+    )
+    column_title = models.CharField(max_length=250, blank=True, null=True)
+
+    panels = [
+        FieldPanel('column_title'),
+        InlinePanel('footer_links', label="Footer Links", min_num=1, max_num=9)
+    ]
+
+class FooterLinks(Orderable):
+    column = ParentalKey(
+        FooterColumn,
+        on_delete=models.CASCADE,
         related_name='footer_links',
+        null=True,
     )
     link_url = models.URLField(blank=True)
     link_label = models.CharField(blank=True, max_length=250)

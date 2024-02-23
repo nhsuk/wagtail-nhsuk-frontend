@@ -45,14 +45,23 @@ def header(context, **kwargs):
 def footer(context):
     request = context['request']
     site = Site.find_for_request(request)
-    footer = FooterSettings.for_site(site)
+    footer_settings = FooterSettings.for_site(site)
+
+    # Prepare data structure for columns and their links
+    footer_columns = [
+        {
+            'column_title': column.column_title,
+            'links': [
+                {
+                    'label': link.link_label,
+                    'url': link.link_url
+                }
+                for link in column.footer_links.all()
+            ]
+        }
+        for column in footer_settings.footer_columns.all()
+    ]
 
     return {
-        'primary_links': [
-            {
-                'label': link.link_label,
-                'url': link.link_url
-            }
-            for link in footer.footer_links.all()
-        ],
+        'footer_columns': footer_columns,
     }

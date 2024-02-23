@@ -3,11 +3,22 @@
     <div class="nhsuk-width-container">
       <h2 class="nhsuk-u-visually-hidden">Support links</h2>
       <div class="nhsuk-footer">
-        <ul class="nhsuk-footer__list">
-        {% for item in primary_links %}
-          {% include './footer_link.html' %}
+        {% for column in footer_columns %}
+          {% if column.column_title %}
+          <h4 class="nhsuk-u-visually-hidden">
+            {{ column.column_title }}
+          </h4>
+          {% endif %}
+          <ul class="nhsuk-footer__list">
+            {% for link in column.links %}
+              <li class="nhsuk-footer__list-item">
+                <a class="nhsuk-footer__list-item-link" href="{{ link.url }}">
+                  {{ link.label }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
         {% endfor %}
-        </ul>
     </div>
     <div>
       <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
