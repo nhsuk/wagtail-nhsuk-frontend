@@ -3,7 +3,7 @@
 ## Unreleased
 
 - Upgrade for Wagtail 5.0+ compatibility
-- Drop tests for Wagtail 4.2 and 5.0 as they have reached EOL
+- Drop tests for Wagtail < 5.2 due to EOL
 
 ## 1.5.3
 
