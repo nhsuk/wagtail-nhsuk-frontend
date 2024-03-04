@@ -4,6 +4,7 @@
 
 - Upgrade for Wagtail 5.0+ compatibility
 - Drop tests for Wagtail < 5.2 due to EOL
+- Drop tests for Django < 4.2
 
 ## 1.5.3
 
