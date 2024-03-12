@@ -1,4 +1,6 @@
+from django import VERSION as DJANGO_VERSION
 from django import forms
+
 from wagtailnhsukfrontend.forms.templatetags.nhsukfrontendforms_tags import (
     add_class,
     add_widget_classes,
@@ -43,7 +45,10 @@ def test_add_widget_classes_error_on_field():
     form = ExampleForm({"text": ""})
     field = form["text"]
     result = add_widget_classes(field)
-    expected = '<input type="text" name="text" class="nhsuk-input nhsuk-input--error" required id="id_text">'
+    if DJANGO_VERSION >= (5, 0):
+        expected = '<input type="text" name="text" class="nhsuk-input nhsuk-input--error" required aria-invalid="true" id="id_text">'
+    else:
+        expected = '<input type="text" name="text" class="nhsuk-input nhsuk-input--error" required id="id_text">'
     assert result == expected
 
 
