@@ -11,7 +11,7 @@ class MyPage(Page):
       ...
       ('care_card', CareCardBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 By default, the care card block can contain the following sub-blocks:
@@ -42,7 +42,7 @@ class MyPage(Page):
       ...
       ('care_card', CustomCareCardBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 # Default Heading Level

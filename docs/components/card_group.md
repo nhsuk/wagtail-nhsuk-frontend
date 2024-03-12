@@ -13,7 +13,7 @@ class MyPage(Page):
       ...
       ('card_group', CardGroupBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 ## Reference

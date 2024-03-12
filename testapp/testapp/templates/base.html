@@ -19,6 +19,10 @@
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        {% if request.in_preview_panel %}
+          <base target="_blank">
+        {% endif %}
+
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/testapp.css' %}">
 

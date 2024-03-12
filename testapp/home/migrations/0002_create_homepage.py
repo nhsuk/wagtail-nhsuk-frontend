@@ -56,3 +56,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RunPython(create_homepage, remove_homepage),
     ]
+
+    run_before = [
+        ("wagtailcore", "0053_locale_model"),
+    ]

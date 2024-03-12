@@ -11,7 +11,7 @@ class MyPage(Page):
       ...
       ('action_link', ActionLinkBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 ## Reference

@@ -11,7 +11,7 @@ class MyPage(Page):
       ...
       ('clickable_card', CardFeatureBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 ## Reference

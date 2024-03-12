@@ -11,7 +11,7 @@ class MyPage(Page):
       ...
       ('warning_callout', WarningCalloutBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 ## Reference

@@ -33,7 +33,7 @@ class HomePage(Page):
       # Include any of the blocks you want to use.
       ('action_link', ActionLinkBlock()),
       ('callout', WarningCalloutBlock()),
-  ])
+  ], use_json_field=True)
 
   content_panels = Page.content_panels + [
       FieldPanel('body'),

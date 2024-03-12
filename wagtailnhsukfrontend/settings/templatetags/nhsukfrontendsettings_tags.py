@@ -1,11 +1,7 @@
 from django import template
-from wagtail import VERSION as WAGTAIL_VERSION
 from wagtailnhsukfrontend.settings.models import HeaderSettings, FooterSettings
 
-if WAGTAIL_VERSION >= (3, 0):
-    from wagtail.models import Site
-else:
-    from wagtail.core.models import Site
+from wagtail.models import Site
 
 register = template.Library()
 
