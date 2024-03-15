@@ -2,7 +2,7 @@ from django.db import models
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
 from wagtail import VERSION as WAGTAIL_VERSION
-from wagtail.contrib.settings.models import BaseSetting, register_setting
+from wagtail.contrib.settings.models import BaseSiteSetting, register_setting
 from wagtail.images import get_image_model_string
 
 if WAGTAIL_VERSION >= (3, 0):
@@ -22,7 +22,7 @@ else:
 
 
 @register_setting
-class HeaderSettings(ClusterableModel, BaseSetting):
+class HeaderSettings(ClusterableModel, BaseSiteSetting):
     service_name = models.CharField(max_length=255, blank=True)
     service_long_name = models.BooleanField(default=False)
     service_link = models.ForeignKey(
@@ -107,7 +107,7 @@ class NavigationLink(Orderable):
 
 
 @register_setting
-class FooterSettings(ClusterableModel, BaseSetting):
+class FooterSettings(ClusterableModel, BaseSiteSetting):
 
     panels = [
         InlinePanel(
