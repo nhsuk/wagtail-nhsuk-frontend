@@ -12,7 +12,6 @@ TESTING_REQUIRES = [
     "Django>=4.2",
     "pytest==8.2.1",
     "pytest-django==4.8.0",
-    "pytest-pythonpath==0.7.4",
 ]
 
 LINTING_REQUIRES = [
