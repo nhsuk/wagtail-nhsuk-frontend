@@ -2,12 +2,17 @@
 
 ## Unreleased
 
+- Drop tests for Django < 4.2 as it has reached EOL (@katdom13)
+- Add tests for Wagtail 6.1 (@katdom13)
+
+## 1.7.0+tbx
+
 - Drop tests for Wagtail < 5.2 as they have reached EOL (@katdom13)
 - Drop tests for Django 4.1 as it has reached EOL (@katdom13)
 - Add tests for Python 3.12 (@katdom13)
 - Add `wagtail-modeladmin` to testing dependencies (@katdom13)
 
-## 2.0.0+tbx
+## 1.6.0+tbx
 
 - Upgrade for Wagtail 5.0+ compatibility
 - Drop tests for Wagtail < 5.2 due to EOL
