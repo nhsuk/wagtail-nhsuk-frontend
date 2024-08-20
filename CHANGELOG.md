@@ -1,6 +1,5 @@
 # CHANGELOG
 
-
 ## 2.0.0
 - Use the latest version of the NHS.UK frontend library ([v10.3.1](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.1)) (breaking changes)
 
@@ -23,6 +22,9 @@
   
 - Updated package docs and examples to use the new versioned frontend assets.
 
+## Unreleased
+
+- Add tox testing for Wagtail 6.2
 
 ## 1.6.0
 
