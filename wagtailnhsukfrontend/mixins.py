@@ -1,14 +1,9 @@
 from django.core.exceptions import ValidationError
 from django.db import models
-from wagtail import VERSION as WAGTAIL_VERSION
 from wagtail.images.models import Image
 
-if WAGTAIL_VERSION >= (3, 0):
-    from wagtail.admin.panels import FieldPanel, MultiFieldPanel
-    from wagtail.admin.panels import FieldPanel as ImageChooserPanel
-else:
-    from wagtail.admin.edit_handlers import FieldPanel, MultiFieldPanel
-    from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.admin.panels import FieldPanel
+from wagtail.admin.panels import MultiFieldPanel
 
 
 class ReviewDateMixin(models.Model):
@@ -50,7 +45,7 @@ class HeroMixin(models.Model):
         related_name='+',
     )
 
-    content_panels = [MultiFieldPanel([FieldPanel('hero_heading'), FieldPanel('hero_text'), ImageChooserPanel('hero_image')], heading="Hero content")]
+    content_panels = [MultiFieldPanel([FieldPanel('hero_heading'), FieldPanel('hero_text'), FieldPanel('hero_image')], heading="Hero content")]
 
     def clean(self):
         if not (self.hero_text or self.hero_image):

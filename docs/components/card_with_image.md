@@ -12,7 +12,7 @@ class MyPage(Page):
       ...
       ('card_with_an_image', CardImageBlock()),
       ...
-  ])
+  ], use_json_field=True)
 ```
 
 ## Reference
