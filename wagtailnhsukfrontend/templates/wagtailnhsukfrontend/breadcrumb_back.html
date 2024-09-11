@@ -1,3 +1,6 @@
 {% load wagtailcore_tags %}
 
-<a href="{% pageurl page %}" class="nhsuk-breadcrumb__backlink">Back to {{ page.title }}</a>
+<a href="{% pageurl page %}" class="nhsuk-breadcrumb__backlink">
+  <span class="nhsuk-u-visually-hidden">Back to &nbsp;</span>
+  {{ page.title }}
+</a>
