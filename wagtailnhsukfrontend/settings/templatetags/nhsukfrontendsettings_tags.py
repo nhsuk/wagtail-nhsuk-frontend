@@ -1,5 +1,5 @@
 from django import template
-from wagtailnhsukfrontend.settings.models import HeaderSettings, FooterSettings
+from wagtailnhsukfrontend.settings.models import HeaderSettings, FooterSettings, FooterSettingsColumns
 
 from wagtail.models import Site
 
@@ -37,13 +37,25 @@ def header(context, **kwargs):
     }
 
 
+
 @register.inclusion_tag("wagtailnhsukfrontend/footer.html", takes_context=True)
 def footer(context):
     request = context['request']
     site = Site.find_for_request(request)
     footer = FooterSettings.for_site(site)
+    footer_columns = FooterSettingsColumns.for_site(site)
+
+    # Organize column links by column number
+    column_links = {1: [], 2: [], 3: [], 4: []}
+    if footer_columns.enable_column_footer:
+        for link in footer_columns.column_links.all():
+            column_links[link.column].append({
+                'label': link.link_label,
+                'url': link.link_page.url if link.link_page else link.link_url
+            })
 
     return {
+        'enable_column_footer': footer_columns.enable_column_footer,
         'primary_links': [
             {
                 'label': link.link_label,
@@ -51,4 +63,5 @@ def footer(context):
             }
             for link in footer.footer_links.all()
         ],
+        'column_links': column_links,
     }

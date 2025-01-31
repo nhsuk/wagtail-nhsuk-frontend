@@ -120,3 +120,61 @@ class FooterLinks(Orderable):
         FieldPanel('link_url'),
         FieldPanel('link_label'),
     ]
+
+
+@register_setting
+class FooterSettingsColumns(ClusterableModel, BaseSiteSetting):
+    COLUMN_CHOICES = [
+        (1, 'Column 1'),
+        (2, 'Column 2'),
+        (3, 'Column 3'),
+        (4, 'Column 4'),
+    ]
+
+    enable_column_footer = models.BooleanField(
+        default=False,
+        help_text="Enable the column-based footer layout"
+    )
+
+    panels = [
+        FieldPanel('enable_column_footer'),
+        InlinePanel(
+            'column_links',
+            label="Footer Column Links",
+            help_text="Add menu items and assign them to columns",
+            min_num=1,
+        )
+    ]
+
+class FooterColumnLinks(Orderable):
+    setting = ParentalKey(
+        FooterSettingsColumns,
+        on_delete=models.CASCADE,
+        related_name='column_links',
+    )
+    column = models.IntegerField(
+        choices=FooterSettingsColumns.COLUMN_CHOICES,
+        default=1
+    )
+    link_label = models.CharField(max_length=250)
+    link_page = models.ForeignKey(
+        'wagtailcore.Page',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
+    link_url = models.URLField(blank=True)
+
+    panels = [
+        FieldPanel('column'),
+        FieldPanel('link_label'),
+        FieldPanel('link_page'),
+        FieldPanel('link_url'),
+    ]
+
+    @property
+    def link(self):
+        if self.link_page:
+            return self.link_page.url
+        return self.link_url
