@@ -146,6 +146,7 @@ class FooterSettingsColumns(ClusterableModel, BaseSiteSetting):
         )
     ]
 
+
 class FooterColumnLinks(Orderable):
     setting = ParentalKey(
         FooterSettingsColumns,

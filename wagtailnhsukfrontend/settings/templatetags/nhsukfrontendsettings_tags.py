@@ -37,7 +37,6 @@ def header(context, **kwargs):
     }
 
 
-
 @register.inclusion_tag("wagtailnhsukfrontend/footer.html", takes_context=True)
 def footer(context):
     request = context['request']
