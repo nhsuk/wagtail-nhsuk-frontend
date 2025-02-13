@@ -17,6 +17,12 @@
 - Upgrade for Wagtail 5.0+ compatibility
 - Drop tests for Wagtail < 5.2 due to EOL
 - Drop tests for Django < 4.2
+- Use the latest version of the NHS.UK frontend library ([v9.1.0](https://github.com/nhsuk/nhsuk-frontend/blob/main/CHANGELOG.md#910---4-november-2024))
+- Header update inline with the frontend library
+- Add column-based footer functionality with customisable columns and links
+- Update footer template to support column-based layout
+- Add FooterSettingsColumns and FooterColumnLinks models for footer customisation
+
 
 ## 1.5.3
 

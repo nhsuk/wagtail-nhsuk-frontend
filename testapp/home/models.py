@@ -6,6 +6,7 @@ from wagtailnhsukfrontend.blocks import (
     ActionLinkBlock,
     CardBasicBlock,
     CardClickableBlock,
+    PrimaryCardBlock,
     CardFeatureBlock,
     CardGroupBlock,
     CardImageBlock,
@@ -69,6 +70,7 @@ class HubsPage(Page):
     body = StreamField(
         [
             ("card_basic", CardBasicBlock()),
+            ("primary_card", PrimaryCardBlock()),
             ("card_clickable", CardClickableBlock()),
             ("card_image", CardImageBlock()),
             ("card_feature", CardFeatureBlock()),

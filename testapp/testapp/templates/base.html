@@ -40,20 +40,24 @@
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
+
+        <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
         {% wagtailuserbar %}
 
         {% include "wagtailnhsukfrontend/skip_link.html" %}
 
         {% header search_action="https://www.nhs.uk/search/" search_field_name="q" %}
 
-        {% block breadcrumb %}
-          {% breadcrumb %}
-        {% endblock %}
-
         {% block outer_content%}{% endblock %}
 
         <div class="nhsuk-width-container">
-          <main id="maincontent" class="nhsuk-main-wrapper">
+          {% block breadcrumb %}
+            {% breadcrumb %}
+          {% endblock %}
+
+
+          <main id="maincontent" class="nhsuk-main-wrapper nhsuk-main-wrapper--s">
           {% block main %}
             <div class="nhsuk-grid-row">
               <div class="nhsuk-grid-column-two-thirds">

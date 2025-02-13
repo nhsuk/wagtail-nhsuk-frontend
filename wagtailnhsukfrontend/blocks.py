@@ -205,6 +205,21 @@ class CardClickableBlock(CardBasicBlock):
         return super().clean(value)
 
 
+class PrimaryCardBlock(CardClickableBlock):
+    """A primary card that includes a icon along with clickable functionality."""
+
+    class Meta:
+        label = 'Primary card'
+        icon = 'doc-full'
+        template = 'wagtailnhsukfrontend/card.html'
+        help_text = 'Primary card requires an Internal page selected or a URL entered'
+
+    def get_context(self, value, parent_context=None):
+        context = super().get_context(value, parent_context)
+        context['primary_card'] = True
+        return context
+
+
 class CardImageBlock(CardBasicBlock):
 
     content_image = ImageChooserBlock(label='Image', required=True)
