@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## Unreleased
+
+Wagtail 7.0 maintenance
+
+- Add tox testing for Wagtail 7.0 and Django 5.2
+- Drop tax testing for Wagtail 6.0,6.1,6.2 and Django 5.0
+
+Wagtail 6.3 maintenance
+
+- Add tox testing for Wagtail 6.3, 6.4
+- Add tox testing for Django 5.1
+- Add tox testing for Python 3.13
+- Drop python 3.8 testing
+
 ## 1.6.0
 
 - Upgrade for Wagtail 5.0+ compatibility
