@@ -45,8 +45,8 @@ def test_add_widget_classes_error_on_field():
     form = ExampleForm({"text": ""})
     field = form["text"]
     result = add_widget_classes(field)
-    if DJANGO_VERSION >= (5, 0):
-        expected = '<input type="text" name="text" class="nhsuk-input nhsuk-input--error" required aria-invalid="true" id="id_text">'
+    if DJANGO_VERSION >= (5, 1):
+        expected = '<input type="text" name="text" class="nhsuk-input nhsuk-input--error" required aria-invalid="true" aria-describedby="id_text_error" id="id_text">'
     else:
         expected = '<input type="text" name="text" class="nhsuk-input nhsuk-input--error" required id="id_text">'
     assert result == expected
