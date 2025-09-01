@@ -2,10 +2,15 @@
 
 ## Unreleased
 
+Wagtail 7.1 maintenanc
+- Add tox restinf for Wagtail 7.1
+- Drop tox testing for Wagtail 6.4
+
+
 Wagtail 7.0 maintenance
 
 - Add tox testing for Wagtail 7.0 and Django 5.2
-- Drop tax testing for Wagtail 6.0,6.1,6.2 and Django 5.0
+- Drop tox testing for Wagtail 6.0,6.1,6.2 and Django 5.0
 
 Wagtail 6.3 maintenance
 
