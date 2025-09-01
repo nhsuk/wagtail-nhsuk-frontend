@@ -3,78 +3,98 @@
 import django.db.models.deletion
 import modelcluster.fields
 from django.db import migrations, models
-from wagtail import VERSION as WAGTAIL_VERSION
 
 
 class Migration(migrations.Migration):
+    dependencies = [
+        ("wagtailcore", "0094_alter_page_locale"),
+        ("wagtailnhsukfrontendsettings", "0007_organisational_header"),
+    ]
 
-    if WAGTAIL_VERSION >= (6, 2):
-        dependencies = [
-            ('wagtailcore', '0094_alter_page_locale'),
-            ('wagtailnhsukfrontendsettings', '0007_organisational_header'),
-        ]
-
-        operations = [
+    operations = [
         migrations.CreateModel(
-            name='FooterSettingsColumns',
+            name="FooterSettingsColumns",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('enable_column_footer', models.BooleanField(default=False, help_text='Enable the column-based footer layout')),
-                ('site', models.OneToOneField(editable=False, on_delete=django.db.models.deletion.CASCADE, to='wagtailcore.site')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "enable_column_footer",
+                    models.BooleanField(
+                        default=False, help_text="Enable the column-based footer layout"
+                    ),
+                ),
+                (
+                    "site",
+                    models.OneToOneField(
+                        editable=False,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="wagtailcore.site",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='FooterColumnLinks',
+            name="FooterColumnLinks",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('sort_order', models.IntegerField(blank=True, editable=False, null=True)),
-                ('column', models.IntegerField(choices=[(1, 'Column 1'), (2, 'Column 2'), (3, 'Column 3'), (4, 'Column 4')], default=1)),
-                ('link_label', models.CharField(max_length=250)),
-                ('link_url', models.URLField(blank=True)),
-                ('link_page', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailcore.page')),
-                ('setting', modelcluster.fields.ParentalKey(on_delete=django.db.models.deletion.CASCADE, related_name='column_links', to='wagtailnhsukfrontendsettings.footersettingscolumns')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "sort_order",
+                    models.IntegerField(blank=True, editable=False, null=True),
+                ),
+                (
+                    "column",
+                    models.IntegerField(
+                        choices=[
+                            (1, "Column 1"),
+                            (2, "Column 2"),
+                            (3, "Column 3"),
+                            (4, "Column 4"),
+                        ],
+                        default=1,
+                    ),
+                ),
+                ("link_label", models.CharField(max_length=250)),
+                ("link_url", models.URLField(blank=True)),
+                (
+                    "link_page",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="+",
+                        to="wagtailcore.page",
+                    ),
+                ),
+                (
+                    "setting",
+                    modelcluster.fields.ParentalKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="column_links",
+                        to="wagtailnhsukfrontendsettings.footersettingscolumns",
+                    ),
+                ),
             ],
             options={
-                'ordering': ['sort_order'],
-                'abstract': False,
+                "ordering": ["sort_order"],
+                "abstract": False,
             },
         ),
     ]
-    else:
-        dependencies = [
-            ('wagtailcore', '0089_log_entry_data_json_null_to_object'),
-            ('wagtailnhsukfrontendsettings', '0007_organisational_header'),
-        ]
-
-        operations = [
-            migrations.CreateModel(
-                name='FooterSettingsColumns',
-                fields=[
-                    ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                    ('enable_column_footer', models.BooleanField(default=False, help_text='Enable the column-based footer layout')),
-                    ('site', models.OneToOneField(editable=False, on_delete=django.db.models.deletion.CASCADE, to='wagtailcore.site')),
-                ],
-                options={
-                    'abstract': False,
-                },
-            ),
-            migrations.CreateModel(
-                name='FooterColumnLinks',
-                fields=[
-                    ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                    ('sort_order', models.IntegerField(blank=True, editable=False, null=True)),
-                    ('column', models.IntegerField(choices=[(1, 'Column 1'), (2, 'Column 2'), (3, 'Column 3'), (4, 'Column 4')], default=1)),
-                    ('link_label', models.CharField(max_length=250)),
-                    ('link_url', models.URLField(blank=True)),
-                    ('link_page', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='wagtailcore.page')),
-                    ('setting', modelcluster.fields.ParentalKey(on_delete=django.db.models.deletion.CASCADE, related_name='column_links', to='wagtailnhsukfrontendsettings.footersettingscolumns')),
-                ],
-                options={
-                    'ordering': ['sort_order'],
-                    'abstract': False,
-                },
-            ),
-        ]
