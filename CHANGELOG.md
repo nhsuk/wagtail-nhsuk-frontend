@@ -25,8 +25,9 @@
 ## Unreleased
 
 Wagtail 7.1 maintenanc
-- Add tox restinf for Wagtail 7.1
+- Add tox resting for Wagtail 7.1
 - Drop tox testing for Wagtail 6.4
+- Remove support for Wagtail versions < 6.3 due to EOL
 
 
 Wagtail 7.0 maintenance
