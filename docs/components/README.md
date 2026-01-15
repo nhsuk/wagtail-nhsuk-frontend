@@ -56,5 +56,6 @@ Form rendering needs to be enabled with some config changes. See the [forms docu
 - [Panel](./panel.md)
 - [Promo & Promo Group](./promo.md)
 - [Skip Link](./skip_link.md)
+- [Tag](./tag.md)
 - [Warning Callout](./warning_callout.md)
 - [Review Date](./review_date.md)
