@@ -50,6 +50,7 @@ Form rendering needs to be enabled with some config changes. See the [forms docu
 - [Feature Card](./feature_card.md)
 - [Header](./header.md)
 - [Hero](./hero.md)
+- [Hint Text](./hint_text.md)
 - [Inset Text](./inset_text.md)
 - [Image](./image.md)
 - [Panel](./panel.md)

@@ -390,3 +390,132 @@ class CareCardBlock(FlattenValueContext, StructBlock):
     class Meta:
         icon = 'help'
         template = 'wagtailnhsukfrontend/care_card.html'
+
+
+class HintTextBlock(StructBlock):
+    text = CharBlock(required=True, help_text="Hint text to display")
+
+    class Meta:
+        icon = 'help'
+        label = 'Hint text'
+        template = 'wagtailnhsukfrontend/hint_text.html'
+
+
+class TagBlock(StructBlock):
+    COLOUR_CHOICES = [
+        ('white', 'White'),
+        ('grey', 'Grey'),
+        ('green', 'Green'),
+        ('blue', 'Blue'),
+        ('aqua-green', 'Aqua Green'),
+        ('purple', 'Purple'),
+        ('pink', 'Pink'),
+        ('red', 'Red'),
+        ('orange', 'Orange'),
+        ('yellow', 'Yellow'),
+    ]
+
+    text = CharBlock(required=True, help_text="Tag text to display")
+    colour = ChoiceBlock(
+        required=False,
+        choices=COLOUR_CHOICES,
+        default='default',
+        help_text="Select the colour of the tag (optional)"
+    )
+
+    class Meta:
+        icon = 'help'
+        label = 'Tag'
+        template = 'wagtailnhsukfrontend/tag.html'
+
+
+class TableRowBlock(StructBlock):
+    cells = ListBlock(
+        StructBlock([
+            ('text', CharBlock(required=False, label='Row cells text')),
+            ('format', ChoiceBlock(choices=[('numeric', 'Numeric (right aligned)')], required=False)),
+            ('classes', CharBlock(required=False)),
+            ('colspan', IntegerBlock(required=False)),
+            ('rowspan', IntegerBlock(required=False)),
+        ]),
+    )
+
+    class Meta:
+        label = 'Table row'
+
+
+class TableBlock(StructBlock):
+    caption = CharBlock(required=False)
+    caption_size = ChoiceBlock(
+        choices=[
+            ('s', 'Small'),
+            ('m', 'Medium'),
+            ('l', 'Large'),
+            ('xl', 'Extra Large')
+        ],
+        required=False
+    )
+    head = ListBlock(
+        StructBlock([
+            ('text', CharBlock(required=False, label='Header cells text')),
+            ('header', CharBlock(required=False, help_text='For responsive tables')),
+            ('format', ChoiceBlock(choices=[('numeric', 'Numeric (right aligned)')], required=False)),
+            ('classes', CharBlock(required=False)),
+            ('colspan', IntegerBlock(required=False)),
+            ('rowspan', IntegerBlock(required=False)),
+        ])
+    )
+    rows = ListBlock(
+        TableRowBlock,
+        label='Body rows'
+    )
+    responsive = BooleanBlock(required=False, default=False)
+    first_cell_is_header = BooleanBlock(required=False, default=False)
+
+    class Meta:
+        icon = 'table'
+        label = 'Table'
+        template = 'wagtailnhsukfrontend/table.html'
+
+class TabBlock(StructBlock):
+    label = CharBlock(required=True, help_text='Tab label')
+    content = RichTextBlock(required=True)
+
+    class Meta:
+        icon = 'tab'
+        label = 'Tab'
+
+class TabsBlock(StructBlock):
+    tabs = ListBlock(TabBlock())
+
+    class Meta:
+        icon = 'folder-open-inverse'
+        label = 'Tabs'
+        template = 'wagtailnhsukfrontend/tabs.html'
+
+class TaskListItemBlock(StructBlock):
+    title = CharBlock(required=True, help_text='Task title')
+    external_url = URLBlock(label="URL", required=False, help_text='Optional, if there is a link the entire task will be clickable.')
+    new_window = BooleanBlock(required=False, label="Open in new window")
+    internal_page = PageChooserBlock(label="Internal Page", required=False, help_text='Optional, if there is a link the entire task will be clickable.')
+    hint = CharBlock(required=False, help_text='Optional task hint/description')
+    status = ChoiceBlock(
+        choices=[
+            ('not-started', 'Not started'),
+            ('incomplete', 'Incomplete'),
+            ('completed', 'Completed')
+        ],
+        default='not-started'
+    )
+
+    class Meta:
+        icon = 'list-ul'
+        label = 'Task'
+
+class TaskListBlock(StructBlock):
+    tasks = ListBlock(TaskListItemBlock())
+
+    class Meta:
+        icon = 'list'
+        label = 'Task list'
+        template = 'wagtailnhsukfrontend/task_list.html'
