@@ -1,0 +1,57 @@
+<table class="
+    {% if self.responsive %}nhsuk-table-responsive{% else %}nhsuk-table{% endif %}"
+    {% if self.responsive %} role="table" {% endif %}>
+    
+    <caption class="nhsuk-table__caption
+        {% if self.caption_size %} nhsuk-table__caption--{{ self.caption_size }}{% endif %}">
+        {{ self.caption }}
+    </caption>
+
+    <thead class="nhsuk-table__head" {% if self.responsive %} role="rowgroup" {% endif %}>
+        <tr class="nhsuk-table__row" {% if self.responsive %} role="row" {% endif %}>
+            {% for item in self.head %}
+                <th scope="col" class="nhsuk-table__header
+                    {% if item.format %} nhsuk-table__header--{{ item.format }}{% endif %}
+                    {% if item.classes %} {{ item.classes }}{% endif %}" 
+                    {% if item.colspan %} colspan="{{ item.colspan }}" {% endif %} 
+                    {% if item.rowspan %} rowspan="{{ item.rowspan }}" {% endif %} 
+                    {% if self.responsive %} role="columnheader" {% endif %}>
+                    {{ item.text }}
+                </th>
+            {% endfor %}
+        </tr>
+    </thead>
+
+    <tbody class="nhsuk-table__body">
+        {% for row in self.rows %}
+            <tr class="nhsuk-table__row" {% if self.responsive %}role="row" {% endif %}>
+                {% for cell in row.cells %}
+                    {% if forloop.first and self.first_cell_is_header %}
+                        <th scope="row" class="nhsuk-table__header
+                            {% if cell.classes %} {{ cell.classes }}{% endif %}" 
+                            {% if self.responsive %} role="rowheader" {% endif %} 
+                            {% if cell.colspan %} colspan="{{ cell.colspan }}" {% endif %} 
+                            {% if cell.rowspan %} rowspan="{{ cell.rowspan }}" {% endif %}>
+                            {% if self.responsive and cell.header %}
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{ cell.header }}</span>
+                            {% endif %}
+                            {{ cell.text }}
+                        </th>
+                    {% else %}
+                        <td class="nhsuk-table__cell
+                            {% if cell.format %} nhsuk-table__cell--{{ cell.format }}{% endif %}
+                            {% if cell.classes %} {{ cell.classes }}{% endif %}" 
+                            {% if self.responsive %} role="cell" {% endif %} 
+                            {% if cell.colspan %} colspan="{{ cell.colspan }}" {% endif %} 
+                            {% if cell.rowspan %} rowspan="{{ cell.rowspan }}" {% endif %}>
+                            {% if self.responsive and cell.header %}
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">{{ cell.header }}</span>
+                            {% endif %}
+                            {{ cell.text }}
+                        </td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

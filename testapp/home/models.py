@@ -21,7 +21,8 @@ from wagtailnhsukfrontend.blocks import (
     SummaryListBlock,
     WarningCalloutBlock,
     HintTextBlock,
-    TagBlock
+    TagBlock,
+    TableBlock
 )
 from wagtailnhsukfrontend.mixins import HeroMixin, ReviewDateMixin
 
@@ -44,7 +45,8 @@ class HomePage(HeroMixin, ReviewDateMixin, Page):
             ("warning_callout", WarningCalloutBlock()),
             ("summary_list", SummaryListBlock()),
             ("hint_text", HintTextBlock()),
-            ("tag", TagBlock())
+            ("tag", TagBlock()),
+            ("table", TableBlock())
         ],
         use_json_field=True,
     )
