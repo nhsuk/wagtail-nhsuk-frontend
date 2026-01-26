@@ -477,21 +477,36 @@ class TableBlock(StructBlock):
         label = 'Table'
         template = 'wagtailnhsukfrontend/table.html'
 
+
 class TabBlock(StructBlock):
     label = CharBlock(required=True, help_text='Tab label')
-    content = RichTextBlock(required=True)
+
+    class BodyStreamBlock(StreamBlock):
+        richtext = RichTextBlock()
+        action_link = ActionLinkBlock()
+        details = DetailsBlock()
+        inset_text = InsetTextBlock()
+        image = ImageBlock()
+        feature_card = CardFeatureBlock()
+        warning_callout = WarningCalloutBlock()
+        summary_list = SummaryListBlock()
+        table = TableBlock()
+
+    body = BodyStreamBlock(required=True)
 
     class Meta:
         icon = 'tab'
         label = 'Tab'
 
-class TabsBlock(StructBlock):
+
+class TabsBlock(StructBlock):    
     tabs = ListBlock(TabBlock())
 
     class Meta:
         icon = 'folder-open-inverse'
         label = 'Tabs'
         template = 'wagtailnhsukfrontend/tabs.html'
+
 
 class TaskListItemBlock(StructBlock):
     title = CharBlock(required=True, help_text='Task title')
