@@ -1,0 +1,39 @@
+{% load wagtailcore_tags %}
+
+<ul class="nhsuk-task-list">
+  {% for task in self.tasks %}
+    <li class="nhsuk-task-list__item nhsuk-task-list__item--with-link">
+      <div class="nhsuk-task-list__name-and-hint">
+        {% if task.internal_page %}
+          <a class="nhsuk-link nhsuk-task-list__link" href="{{ task.internal_page.url }}" aria-describedby="{{task.title|slugify}}-status">
+            {{ task.title }}
+          </a>
+        {% elif task.external_url %}
+          <a class="nhsuk-link nhsuk-task-list__link" href="{{ task.external_url }}" aria-describedby="{{task.title|slugify}}-status">
+            {{ task.title }}
+          </a>
+        {% else %}
+          <div>
+            {{ task.title }}
+          </div>
+        {% endif %}
+
+        {% if task.hint %}
+          <div class="nhsuk-task-list__hint">
+            {{ task.hint }}
+          </div>
+        {% endif %}
+      </div>
+
+      {% for status_item in task.status %}
+        <div class="nhsuk-task-list__status {% if status_item.block_type == "text" %}{% if status_item.value.cannot_start_yet %}nhsuk-task-list__status--cannot-start-yet{% else %}nhsuk-task-list__status--completed{% endif %}{% endif %}" id="{{task.title|slugify}}-status">
+          {% if status_item.block_type == "text" %}
+              {{ status_item.value.status_text }}
+          {% elif status_item.block_type == "tag" %}
+              {{ status_item }}
+          {% endif %}
+        </div>
+      {% endfor %}
+    </li>
+  {% endfor %}
+</ul>

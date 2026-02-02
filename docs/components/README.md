@@ -59,5 +59,6 @@ Form rendering needs to be enabled with some config changes. See the [forms docu
 - [Table](./table.md)
 - [Tabs](./tabs.md)
 - [Tag](./tag.md)
+- [Task List](./task_list.md)
 - [Warning Callout](./warning_callout.md)
 - [Review Date](./review_date.md)

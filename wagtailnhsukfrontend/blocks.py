@@ -499,7 +499,7 @@ class TabBlock(StructBlock):
         label = 'Tab'
 
 
-class TabsBlock(StructBlock):    
+class TabsBlock(StructBlock):
     tabs = ListBlock(TabBlock())
 
     class Meta:
@@ -508,29 +508,30 @@ class TabsBlock(StructBlock):
         template = 'wagtailnhsukfrontend/tabs.html'
 
 
-class TaskListItemBlock(StructBlock):
-    title = CharBlock(required=True, help_text='Task title')
-    external_url = URLBlock(label="URL", required=False, help_text='Optional, if there is a link the entire task will be clickable.')
-    new_window = BooleanBlock(required=False, label="Open in new window")
-    internal_page = PageChooserBlock(label="Internal Page", required=False, help_text='Optional, if there is a link the entire task will be clickable.')
-    hint = CharBlock(required=False, help_text='Optional task hint/description')
-    status = ChoiceBlock(
-        choices=[
-            ('not-started', 'Not started'),
-            ('incomplete', 'Incomplete'),
-            ('completed', 'Completed')
-        ],
-        default='not-started'
+class StatusTextBlock(StructBlock):
+    status_text = CharBlock(required=True)
+    cannot_start_yet = BooleanBlock(required=False, label='Cannot start yet styling')
+
+    class Meta:
+        icon = 'edit'
+        label = 'Status text'
+
+
+class TaskListBlock(StructBlock):
+    tasks = ListBlock(
+        StructBlock([
+            ('title', CharBlock(required=True)),
+            ('external_url', URLBlock(required=False)),
+            ('internal_page', PageChooserBlock(required=False)),
+            ('hint', CharBlock(required=False)),
+            ('status', StreamBlock([
+                ('text', StatusTextBlock()),
+                ('tag', TagBlock()),
+            ], required=True))
+        ])
     )
 
     class Meta:
         icon = 'list-ul'
-        label = 'Task'
-
-class TaskListBlock(StructBlock):
-    tasks = ListBlock(TaskListItemBlock())
-
-    class Meta:
-        icon = 'list'
         label = 'Task list'
         template = 'wagtailnhsukfrontend/task_list.html'
