@@ -1,41 +1,16 @@
-{% load wagtailimages_tags %}
-
-<header class="nhsuk-header{% if organisation_name %} nhsuk-header--organisation{% endif %}{% if transactional %} nhsuk-header--transactional{% endif %}" role="banner" data-module="nhsuk-header">
+<header class="nhsuk-header{% if organisation_name %} nhsuk-header--organisation{% endif %}{% if organisation_white %} nhsuk-header--white{% endif %}{% if transactional %} nhsuk-header--transactional{% endif %}" role="banner" data-module="nhsuk-header">
   <div class="nhsuk-header__container nhsuk-width-container">
     <div class="nhsuk-header__service">
-    {% if service_href %}
-      {% if not logo_href or service_href == logo_href %}
-        {#- Combine logo and service name links -#}
-        <a class="nhsuk-header__service-logo" href="{{ service_href }}" aria-label="{% if organisation_name %}{{ organisation_name }}{% if organisation_split_name %} {{ organisation_split_name }}{% endif %} homepage{% elif service_name %}{{ logo_aria|default:"NHS" }} {{ service_name }} homepage{% else %}{{ logo_aria|default:"NHS" }} homepage{% endif %}">
-          {% include 'wagtailnhsukfrontend/header/logo.html' %}
-          {% if service_name %}
-            <span class="nhsuk-header__service-name">{{ service_name }}</span>
-          {% endif %}
-        </a>
-      {% else %}
-        {#- Separate logo and service name links -#}
-        {% if logo_href %}
-          <a class="nhsuk-header__service-logo" href="{{ logo_href }}" aria-label="{% if organisation_name %}{{ organisation_name }}{% if organisation_split_name %} {{ organisation_split_name }}{% endif %} homepage{% else %}{{ logo_aria|default:"NHS" }} homepage{% endif %}">
-            {% include 'wagtailnhsukfrontend/header/logo.html' %}
-          </a>
-        {% else %}
-          {% include 'wagtailnhsukfrontend/header/logo.html' %}
-        {% endif %}
-        <a class="nhsuk-header__service-name" href="{{ service_href }}">{{ service_name }}</a>
-      {% endif %}
-    {% else %}
-      {#- Logo only, no service name link -#}
-      {% if logo_href %}
-        <a class="nhsuk-header__service-logo" href="{{ logo_href }}" aria-label="{% if organisation_name %}{{ organisation_name }}{% if organisation_split_name %} {{ organisation_split_name }}{% endif %} homepage{% else %}{{ logo_aria|default:"NHS" }} homepage{% endif %}">
-          {% include 'wagtailnhsukfrontend/header/logo.html' %}
-        </a>
-      {% else %}
+      <a class="nhsuk-header__service-logo" href="{{ logo_href|default:"/" }}" aria-label="{% if organisation_name %}{{ organisation_name }}{% if organisation_split_name %} {{ organisation_split_name }}{% endif %} homepage{% else %}{{ logo_aria|default:"NHS" }} homepage{% endif %}">
         {% include 'wagtailnhsukfrontend/header/logo.html' %}
-      {% endif %}
+      </a>
       {% if service_name %}
-        <span class="nhsuk-header__service-name">{{ service_name }}</span>
+        {% if service_href %}
+          <a class="nhsuk-header__service-name" href="{{ service_href }}">{{ service_name }}</a>
+        {% else %}
+          <span class="nhsuk-header__service-name">{{ service_name }}</span>
+        {% endif %}
       {% endif %}
-    {% endif %}
     </div>
 {% if show_search %}
     <search class="nhsuk-header__search">
