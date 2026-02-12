@@ -26,7 +26,7 @@
     {% endfor %}
 
     {% if field|is_checkbox %}
-      <div class="nhsuk-checkboxes">
+      <div class="nhsuk-checkboxes" data-module="nhsuk-checkboxes">
         <div class="nhsuk-checkboxes__item">
           {{ field|add_widget_classes }}
           <label class="nhsuk-label nhsuk-checkboxes__label" for="{{ field.widget.attrs.id }}">

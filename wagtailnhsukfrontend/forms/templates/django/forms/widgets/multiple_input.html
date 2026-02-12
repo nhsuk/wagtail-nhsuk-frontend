@@ -1,6 +1,7 @@
 {% load nhsukfrontendforms_tags %}
 
-{% with id=widget.attrs.id %}<div {% if id %} id="{{ id }}"{% endif %}{% if widget.attrs.class %} class="{{ widget.attrs.class }}"{% endif %}>
+{% with id=widget.attrs.id %}
+<div {% if id %} id="{{ id }}"{% endif %}{% if widget.attrs.class %} class="{{ widget.attrs.class }}"{% endif %}{% if base_class == "nhsuk-radios" %} data-module="nhsuk-radios"{% elif base_class == "nhsuk-checkboxes" %} data-module="nhsuk-checkboxes"{% endif %}>
   {% for group, options, index in widget.optgroups %}
     {% if group %}
       <div class="{{ base_class }}__group">
