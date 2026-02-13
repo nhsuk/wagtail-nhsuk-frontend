@@ -1,6 +1,6 @@
 # Wagtail NHS.UK frontend
 
-A wagtail implementation of the [NHS frontend v10.0.0](https://github.com/nhsuk/nhsuk-frontend) standard components.
+A wagtail implementation of the [NHS frontend v10.3.1](https://github.com/nhsuk/nhsuk-frontend) standard components.
 
 ## Installation
 
@@ -61,12 +61,12 @@ See the [component documentation](./docs/components/) for a list of components y
 
 Include the CSS in your base template
 ```html
-  <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsukfrontend/css/nhsuk-frontend-x.x.x.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsukfrontend/css/nhsuk-frontend-10.3.1.min.css' %}">
 ```
 
 Include the Javascript in your base template
 ```html
-  <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-frontend-x.x.x.min.js' %}" defer></script>
+  <script type="text/javascript" src="{% static 'wagtailnhsukfrontend/js/nhsuk-frontend-10.3.1.min.js' %}" defer></script>
 ```
 ## Upgrading
 

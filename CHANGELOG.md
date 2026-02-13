@@ -2,7 +2,7 @@
 
 ## 1.6.0
 
-- Use the latest version of the NHS.UK frontend library ([v10.0.0](https://github.com/nhsuk/nhsuk-frontend/blob/main/CHANGELOG.md#1000---26-august-2025))
+- Use the latest version of the NHS.UK frontend library ([v10.3.1](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.1))
 
 
 

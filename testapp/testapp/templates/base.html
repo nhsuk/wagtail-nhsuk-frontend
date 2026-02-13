@@ -27,7 +27,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/testapp.css' %}">
 
         {# NHSUK CSS library #}
-        <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsukfrontend/css/nhsuk-frontend-10.2.2.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'wagtailnhsukfrontend/css/nhsuk-frontend-10.3.1.min.css' %}">
 
 
         {% block extra_css %}
@@ -71,7 +71,7 @@
         
         {# NHSUK JS library #}
         <script type="module">
-          import { initAll } from '{% static "wagtailnhsukfrontend/js/nhsuk-frontend-10.2.2.min.js" %}';
+          import { initAll } from '{% static "wagtailnhsukfrontend/js/nhsuk-frontend-10.3.1.min.js" %}';
           console.log('NHS.UK Frontend module loaded, initializing components...');
           initAll();
           console.log('NHS.UK Frontend initAll() completed');
