@@ -8,7 +8,7 @@
 {% image content_image width-1125 as six_image %}
 {% image content_image width-1534 as seven_image %}
 
-<div class="nhsuk-card {% if url or internal_page %} nhsuk-card--clickable{% endif %} {% if feature_heading %}nhsuk-card--feature {% endif %}">
+<div class="nhsuk-card{% if url or internal_page %} nhsuk-card--clickable{% endif %}{% if feature_heading %} nhsuk-card--feature{% endif %}{% if primary_card %} nhsuk-card--primary{% endif %}">
   {% if content_image %}
     <img
       class="nhsuk-card__img"
@@ -30,10 +30,7 @@
     />
   {% endif %}
 
-  <div class="nhsuk-card__content 
-    {% if feature_heading %}nhsuk-card__content nhsuk-card__content--feature{% endif %}
-    {% if primary_card %}nhsuk-card__content--primary{% endif %}
-  ">
+  <div class="nhsuk-card__content">
     {% if url or internal_page %}
       <h{{ heading_level }}
         class="
@@ -51,7 +48,7 @@
     {% elif feature_heading %}
       <h{{ heading_level }}
         class="
-          nhsuk-card__heading--feature
+          nhsuk-card__heading
           {% if heading_size == 'small' %} nhsuk-heading-s{% endif %}
           {% if heading_size == 'medium' %} nhsuk-heading-m{% endif %}
           {% if heading_size == 'large' %} nhsuk-heading-l{% endif %}
