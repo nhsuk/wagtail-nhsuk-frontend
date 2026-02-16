@@ -1,28 +1,26 @@
-<div class="nhsuk-navigation-container {% if organisation_white %} nhsuk-header--white{% endif %}">
-  <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
-    <ul class="nhsuk-header__navigation-list">
+  <nav class="nhsuk-header__navigation{% if organisation_white %} nhsuk-header__navigation--white{% endif %}" aria-label="Menu">
+    <div class="nhsuk-header__navigation-container nhsuk-width-container">
+      <ul class="nhsuk-header__navigation-list">
       {% for item in primary_links %}
-      <li class="nhsuk-header__navigation-item">
-        <a class="nhsuk-header__navigation-link"  href="{{item.url}}">
-          {{item.label}}
-          {# % include 'wagtailnhsukfrontend/header/menu_link.html' % #}
-        </a>
-      </li>
+        {% if item %}
+        <li class="nhsuk-header__navigation-item{% if item.active or item.current %} nhsuk-header__navigation-item--current{% endif %}">
+          <a class="nhsuk-header__navigation-link" href="{{ item.url }}"{% if item.active or item.current %} aria-current="{% if item.current %}page{% else %}true{% endif %}"{% endif %}>
+            {% if item.active or item.current %}
+              <strong class="nhsuk-header__navigation-item-current-fallback">
+                {{ item.label }}
+              </strong>
+            {% else %}
+              {{ item.label }}
+            {% endif %}
+          </a>
+        </li>
+        {% endif %}
       {% endfor %}
-      <li class="nhsuk-header__navigation-item nhsuk-header__navigation-item--home">
-        <a class="nhsuk-header__navigation-link"  href="{{ logo_href|default:"/">
-          Home
-        </a>
-      </li>
-      <li class="nhsuk-mobile-menu-container">
-        <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
-          <span class="nhsuk-u-visually-hidden">Browse</span>
-          More
-          <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
-          </svg>
-        </button>
-      </li>
-    </ul>
+        <li class="nhsuk-header__menu" hidden>
+          <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
+            <span class="nhsuk-u-visually-hidden">{{ toggle_menu_visually_hidden_text|default:"Browse" }} </span>{{ toggle_menu_text|default:"More" }}
+          </button>
+        </li>
+      </ul>
+    </div>
   </nav>
-</div>

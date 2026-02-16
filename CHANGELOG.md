@@ -2,6 +2,12 @@
 
 ## 1.6.0
 
+- Use the latest version of the NHS.UK frontend library ([v10.3.1](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.1))
+
+
+
+## 1.6.0
+
 - Upgrade for Wagtail 5.0+ compatibility
 - Drop tests for Wagtail < 5.2 due to EOL
 - Drop tests for Django < 4.2

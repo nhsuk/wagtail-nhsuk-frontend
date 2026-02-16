@@ -11,6 +11,8 @@ def header(context, **kwargs):
     request = context['request']
     site = Site.find_for_request(request)
     header = HeaderSettings.for_site(site)
+    root_url = site.root_page.relative_url(site)
+    request_path = request.path
 
     return {
         'service_name': header.service_name,
@@ -21,7 +23,7 @@ def header(context, **kwargs):
         'organisation_split_name': header.organisation_split_name,
         'organisation_descriptor': header.organisation_descriptor,
         'organisation_white': header.organisation_white,
-        'logo_href': header.logo_link.relative_url(site) if header.logo_link else '',
+        'logo_href': header.logo_link.relative_url(site) if header.logo_link else root_url,
         'logo_aria': header.logo_aria,
         'logo_custom': header.logo_custom,
         'show_search': header.show_search,
@@ -30,9 +32,12 @@ def header(context, **kwargs):
         'primary_links': [
             {
                 'label': link.label,
-                'url': link.page.relative_url(site)
+                'url': link.page.relative_url(site),
+                'current': link.page.relative_url(site) == request_path,
+                'active': link.page.relative_url(site) != '/' and request_path.startswith(link.page.relative_url(site)),
             }
             for link in header.navigation_links.all()
+            if link.page
         ],
     }
 

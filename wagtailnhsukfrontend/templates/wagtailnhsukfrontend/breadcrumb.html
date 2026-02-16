@@ -1,3 +1,5 @@
+{% load wagtailcore_tags %}
+
 {% if breadcrumb_pages %}
   <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
     <ol class="nhsuk-breadcrumb__list">
@@ -5,11 +7,10 @@
         {% include "wagtailnhsukfrontend/breadcrumb_item.html" %}
       {% endfor %}
     </ol>
-
-    <p class="nhsuk-breadcrumb__back">
-      {% with page=breadcrumb_pages|last %}
+    {% with page=breadcrumb_pages|last %}
+      {% if page %}
         {% include "wagtailnhsukfrontend/breadcrumb_back.html" %}
-      {% endwith %}
-    </p>
+      {% endif %}
+    {% endwith %}
   </nav>
 {% endif %}

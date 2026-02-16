@@ -1,20 +1,24 @@
-<header class="nhsuk-header{% if transactional %} nhsuk-header--transactional{% endif %}{% if organisation_name %} nhsuk-header--organisation{% if organisation_white %} nhsuk-header--white{% endif %}{% endif %}" role="banner">
-  <div class="nhsuk-header__container">
-    {% include 'wagtailnhsukfrontend/header/logo.html' %}
-    {% if not primary_links and not show_search %}
-      {% if service_name and transactional and not organisation_name %}
-        <div class="nhsuk-header__transactional-service-name{% if service_long_name %} nhsuk-header__transactional-service-name--long {% endif %}">
-          <a class="nhsuk-header__transactional-service-name--link" href="{{ service_href|default:"/" }}">{{ service_name }}</a>
-        </div>
-      {% endif %}
-    {% else %}
-        {% if show_search %}
-          {% include 'wagtailnhsukfrontend/header/search.html' %}
+<header class="nhsuk-header{% if organisation_name %} nhsuk-header--organisation{% endif %}{% if organisation_white %} nhsuk-header--white{% endif %}{% if transactional %} nhsuk-header--transactional{% endif %}" role="banner" data-module="nhsuk-header">
+  <div class="nhsuk-header__container nhsuk-width-container">
+    <div class="nhsuk-header__service">
+      <a class="nhsuk-header__service-logo" href="{{ logo_href|default:"/" }}" aria-label="{% if organisation_name %}{{ organisation_name }}{% if organisation_split_name %} {{ organisation_split_name }}{% endif %} homepage{% else %}{{ logo_aria|default:"NHS" }} homepage{% endif %}">
+        {% include 'wagtailnhsukfrontend/header/logo.html' %}
+      </a>
+      {% if service_name %}
+        {% if service_href %}
+          <a class="nhsuk-header__service-name" href="{{ service_href }}">{{ service_name }}</a>
+        {% else %}
+          <span class="nhsuk-header__service-name">{{ service_name }}</span>
         {% endif %}
-    {% endif %}
+      {% endif %}
+    </div>
+{% if show_search %}
+    <search class="nhsuk-header__search">
+      {% include 'wagtailnhsukfrontend/header/search.html' %}
+    </search>
+{% endif %}
   </div>
-
- {% if primary_links %} 
-  {% include 'wagtailnhsukfrontend/header/menu.html' %} 
-{% endif %} 
+{% if primary_links %}
+  {% include 'wagtailnhsukfrontend/header/menu.html' %}
+{% endif %}
 </header>
