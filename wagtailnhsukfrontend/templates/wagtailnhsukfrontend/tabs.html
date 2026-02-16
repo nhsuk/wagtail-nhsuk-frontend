@@ -1,0 +1,25 @@
+{% load wagtailcore_tags %}
+
+<div class="nhsuk-tabs" data-module="nhsuk-tabs">
+  <h2 class="nhsuk-tabs__title">
+    Contents
+  </h2>
+
+  <ul class="nhsuk-tabs__list">
+    {% for tab in self.tabs %}
+      <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
+        <a class="nhsuk-tabs__tab" href="#{{ tab.label|slugify }}">
+          {{ tab.label }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  
+  {% for tab in self.tabs %}
+    <div class="nhsuk-tabs__panel" id="{{ tab.label|slugify }}">
+      {% for block in tab.body %}
+          {% include_block block %}
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>

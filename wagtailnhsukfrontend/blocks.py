@@ -390,3 +390,148 @@ class CareCardBlock(FlattenValueContext, StructBlock):
     class Meta:
         icon = 'help'
         template = 'wagtailnhsukfrontend/care_card.html'
+
+
+class HintTextBlock(StructBlock):
+    text = CharBlock(required=True, help_text="Hint text to display")
+
+    class Meta:
+        icon = 'help'
+        label = 'Hint text'
+        template = 'wagtailnhsukfrontend/hint_text.html'
+
+
+class TagBlock(StructBlock):
+    COLOUR_CHOICES = [
+        ('white', 'White'),
+        ('grey', 'Grey'),
+        ('green', 'Green'),
+        ('blue', 'Blue'),
+        ('aqua-green', 'Aqua Green'),
+        ('purple', 'Purple'),
+        ('pink', 'Pink'),
+        ('red', 'Red'),
+        ('orange', 'Orange'),
+        ('yellow', 'Yellow'),
+    ]
+
+    text = CharBlock(required=True, help_text="Tag text to display")
+    colour = ChoiceBlock(
+        required=False,
+        choices=COLOUR_CHOICES,
+        default='default',
+        help_text="Select the colour of the tag (optional)"
+    )
+
+    class Meta:
+        icon = 'help'
+        label = 'Tag'
+        template = 'wagtailnhsukfrontend/tag.html'
+
+
+class TableRowBlock(StructBlock):
+    cells = ListBlock(
+        StructBlock([
+            ('text', CharBlock(required=False, label='Row cells text')),
+            ('format', ChoiceBlock(choices=[('numeric', 'Numeric (right aligned)')], required=False)),
+            ('classes', CharBlock(required=False)),
+            ('colspan', IntegerBlock(required=False)),
+            ('rowspan', IntegerBlock(required=False)),
+        ]),
+    )
+
+    class Meta:
+        label = 'Table row'
+
+
+class TableBlock(StructBlock):
+    caption = CharBlock(required=False)
+    caption_size = ChoiceBlock(
+        choices=[
+            ('s', 'Small'),
+            ('m', 'Medium'),
+            ('l', 'Large'),
+            ('xl', 'Extra Large')
+        ],
+        required=False
+    )
+    head = ListBlock(
+        StructBlock([
+            ('text', CharBlock(required=False, label='Header cells text')),
+            ('header', CharBlock(required=False, help_text='For responsive tables')),
+            ('format', ChoiceBlock(choices=[('numeric', 'Numeric (right aligned)')], required=False)),
+            ('classes', CharBlock(required=False)),
+            ('colspan', IntegerBlock(required=False)),
+            ('rowspan', IntegerBlock(required=False)),
+        ])
+    )
+    rows = ListBlock(
+        TableRowBlock,
+        label='Body rows'
+    )
+    responsive = BooleanBlock(required=False, default=False)
+    first_cell_is_header = BooleanBlock(required=False, default=False)
+
+    class Meta:
+        icon = 'table'
+        label = 'Table'
+        template = 'wagtailnhsukfrontend/table.html'
+
+
+class TabBlock(StructBlock):
+    label = CharBlock(required=True, help_text='Tab label')
+
+    class BodyStreamBlock(StreamBlock):
+        richtext = RichTextBlock()
+        action_link = ActionLinkBlock()
+        details = DetailsBlock()
+        inset_text = InsetTextBlock()
+        image = ImageBlock()
+        feature_card = CardFeatureBlock()
+        warning_callout = WarningCalloutBlock()
+        summary_list = SummaryListBlock()
+        table = TableBlock()
+
+    body = BodyStreamBlock(required=True)
+
+    class Meta:
+        icon = 'tab'
+        label = 'Tab'
+
+
+class TabsBlock(StructBlock):
+    tabs = ListBlock(TabBlock())
+
+    class Meta:
+        icon = 'folder-open-inverse'
+        label = 'Tabs'
+        template = 'wagtailnhsukfrontend/tabs.html'
+
+
+class StatusTextBlock(StructBlock):
+    status_text = CharBlock(required=True)
+    cannot_start_yet = BooleanBlock(required=False, label='Cannot start yet styling')
+
+    class Meta:
+        icon = 'edit'
+        label = 'Status text'
+
+
+class TaskListBlock(StructBlock):
+    tasks = ListBlock(
+        StructBlock([
+            ('title', CharBlock(required=True)),
+            ('external_url', URLBlock(required=False)),
+            ('internal_page', PageChooserBlock(required=False)),
+            ('hint', CharBlock(required=False)),
+            ('status', StreamBlock([
+                ('text', StatusTextBlock()),
+                ('tag', TagBlock()),
+            ], required=True))
+        ])
+    )
+
+    class Meta:
+        icon = 'list-ul'
+        label = 'Task list'
+        template = 'wagtailnhsukfrontend/task_list.html'

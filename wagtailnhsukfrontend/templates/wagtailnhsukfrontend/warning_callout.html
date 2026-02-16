@@ -1,17 +1,19 @@
 {% load nhsukfrontend_extra_parameters_tags nhsukfrontend_wrapper_tags %}
 
-<div class="nhsuk-warning-callout">
-  <h{{ heading_level }} class="nhsuk-warning-callout__label" {% add_extra_parameters "title" %}>
-    {% if title != "Important" %}
-      <span role="text">
-        <span class="nhsuk-u-visually-hidden">Important: </span>
+<div class="nhsuk-card nhsuk-card--warning">
+  <div class="nhsuk-card__content">
+    <h{{ heading_level }} class="nhsuk-card__heading" {% add_extra_parameters "title" %}>
+      {% if title != "Important" %}
+        <span role="text">
+          <span class="nhsuk-u-visually-hidden">Important: </span>
+          {{ title }}
+        </span>
+      {% else %}
         {{ title }}
-      </span>
-    {% else %}
-      {{ title }}
-    {% endif %}
-  </h{{ heading_level }}>
-  {% contentwrapper "body" %}
-    {{ body }}
-  {% endcontentwrapper %}
+      {% endif %}
+    </h{{ heading_level }}>
+      {% contentwrapper "body" %}
+        {{ body }}
+      {% endcontentwrapper %}
+  </div>
 </div>
