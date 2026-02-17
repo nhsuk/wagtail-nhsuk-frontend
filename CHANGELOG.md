@@ -1,9 +1,27 @@
 # CHANGELOG
 
-## 1.6.0
 
-- Use the latest version of the NHS.UK frontend library ([v10.3.1](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.1))
+## 2.0.0
+- Use the latest version of the NHS.UK frontend library ([v10.3.1](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.1)) (breaking changes)
 
+:boom: **Breaking changes**
+- Frontend asset filenames changed from unversioned to versioned:
+  - nhsuk.min.css -> nhsuk-frontend-10.3.1.min.css
+  - nhsuk.min.js -> nhsuk-frontend-10.3.1.min.js
+- JavaScript initialisation now follows the NHS.UK Frontend v10 module initAll() pattern.
+- Template markup/classes for header/footer/navigation/search and related components were updated; projects with overridden templates/CSS may need to update their custom code.
+- Header search defaults changed (q parameter and NHS search URL), so custom integrations may need review.
+- Updated core templates (header, footer, breadcrumb, navigation, search, pagination, cards, back links, skip links, form rendering) to match latest NHS.UK Frontend markup and behaviour.
+
+### :new: **New features**
+- Included the new components:
+  - Table 
+  - Tabs
+  - Hint text
+  - Task list  
+  - Tag
+  
+- Updated package docs and examples to use the new versioned frontend assets.
 
 
 ## 1.6.0
