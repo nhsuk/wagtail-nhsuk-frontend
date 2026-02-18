@@ -14,11 +14,11 @@ jobs:
       with:
         python-version: '3.x'
     - name: Install Dependencies for build and publish
-      run: pip install tox twine
+      run: pip install tox twine build
     - name: Build package
-      run: tox -e py --notest
+      run: python -m build
     - name: Push to pypi
       env:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-      run: twine upload .tox/dist/*
+      run: twine upload dist/*
