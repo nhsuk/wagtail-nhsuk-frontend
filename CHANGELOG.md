@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## 2.0.1
+- Fix action links having the wrong styling when in an emergency care card.
 
 ## 2.0.0
 - Use the latest version of the NHS.UK frontend library ([v10.3.1](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.1)) (breaking changes)
