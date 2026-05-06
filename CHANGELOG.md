@@ -2,6 +2,8 @@
 
 ## 2.0.1
 - Fix action links having the wrong styling when in an emergency care card.
+- Bump pytest from 8.2.1 to 9.0.3. to resolve a moderate severity Dependabot Alert on pytest
+- Update to use v10.4.2 frontend library css and javascript
 
 ## 2.0.0
 - Use the latest version of the NHS.UK frontend library ([v10.3.1](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v10.3.1)) (breaking changes)
