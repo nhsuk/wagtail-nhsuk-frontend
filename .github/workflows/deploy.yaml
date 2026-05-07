@@ -8,17 +8,19 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.x'
-    - name: Install Dependencies for build and publish
-      run: pip install tox twine build
-    - name: Build package
-      run: python -m build
-    - name: Push to pypi
-      env:
-        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-      run: twine upload dist/*
+      - uses: actions/checkout@v6
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+      - name: Install build tools
+        run: python -m pip install --upgrade pip build twine
+      - name: Build package
+        run: python -m build
+      - name: Validate distributions
+        run: python -m twine check dist/*
+      - name: Upload to PyPI
+        env:
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: python -m twine upload --verbose dist/*
