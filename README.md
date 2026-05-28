@@ -2,6 +2,12 @@
 
 A wagtail implementation of the [NHS frontend v10.4.2](https://github.com/nhsuk/nhsuk-frontend) standard components.
 
+## Compatibility
+
+- Python 3.10 – 3.14
+- Django 5.2, 6.0
+- Wagtail 7.0 (LTS) – 7.4 (LTS)
+
 ## Installation
 
 Install the pypi package
@@ -70,7 +76,7 @@ Include the Javascript in your base template
 ```
 ## Upgrading
 
-If you are upgrading from v0 to v1, see the [changelog](./CHANGELOG.md).
+See the [changelog](./CHANGELOG.md) for release notes and upgrade considerations.
 
 This CSS and JS is taken directly from the [nhsuk-frontend library](https://github.com/nhsuk/nhsuk-frontend/releases/tag/v5.1.0) and provided in this package for convenience.
 

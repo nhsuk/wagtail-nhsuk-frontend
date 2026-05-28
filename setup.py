@@ -4,18 +4,17 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 INSTALL_REQUIRES = [
-    'Wagtail>=6.3',
+    'Wagtail>=7.0',
 ]
 
 TESTING_REQUIRES = [
-    "beautifulsoup4==4.12.3",
-    "Django>=4.2",
+    "beautifulsoup4==4.14.3",
     "pytest==9.0.3",
-    "pytest-django==4.8.0",
+    "pytest-django==4.12.0",
 ]
 
 LINTING_REQUIRES = [
-    "flake8>=5.0.4,<7.0.0",
+    "flake8>=5.0.4,<8.0.0",
 ]
 
 
@@ -28,8 +27,29 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/nhsuk/wagtail-nhsuk-frontend",
+    license="MIT",
+    python_requires=">=3.10",
     install_requires=INSTALL_REQUIRES,
     packages=find_packages(),
     include_package_data=True,
     extras_require={"testing": TESTING_REQUIRES, "linting": LINTING_REQUIRES},
+    classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
+        "Programming Language :: Python :: 3.14",
+        "Framework :: Django",
+        "Framework :: Django :: 5.2",
+        "Framework :: Django :: 6.0",
+        "Framework :: Wagtail",
+        "Framework :: Wagtail :: 7",
+        "Topic :: Internet :: WWW/HTTP",
+    ],
 )

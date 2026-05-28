@@ -1,8 +1,8 @@
 # Expander
 
 ```py
-from wagtail.core.models import Page
-from wagtail.core.fields import StreamField
+from wagtail.models import Page
+from wagtail.fields import StreamField
 
 from wagtailnhsukfrontend.blocks import ExpanderBlock,
 
@@ -49,8 +49,8 @@ class MyPage(Page):
 An expander group should be used when multiple expanders are required in a list.
 
 ```py
-from wagtail.core.models import Page
-from wagtail.core.fields import StreamField
+from wagtail.models import Page
+from wagtail.fields import StreamField
 
 from wagtailnhsukfrontend.blocks import ExpanderGroupBlock,
 

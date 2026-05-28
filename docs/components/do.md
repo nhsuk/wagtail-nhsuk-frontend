@@ -1,8 +1,8 @@
 # Do List
 
 ```py
-from wagtail.core.models import Page
-from wagtail.core.fields import StreamField
+from wagtail.models import Page
+from wagtail.fields import StreamField
 
 from wagtailnhsukfrontend.blocks import DoBlock
 
